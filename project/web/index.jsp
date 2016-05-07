@@ -1,9 +1,12 @@
 <%--
   User: Kolya
-  Date: 2016-05-06
-  Time: 8:16 PM
+  Date: 2016-05-07
+  Time: 3:17 PM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="header.jsp" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% session.setAttribute("title", "Home"); %>
+<c:import url="header.jsp" />
+<h1>${title}</h1>
 
-<jsp:include page="footer.jsp" />
+<c:import url="footer.jsp" />
