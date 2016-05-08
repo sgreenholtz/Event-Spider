@@ -28,28 +28,68 @@ public class Leg {
     /**
      * Brings up a given webpage and searches for links on the page
      * @param url page to search
+     * @return list of links found on the page
      */
-    public void crawl(String url) {
+    private Elements crawl(String url) {
+        Elements linksOnPage = null;
         try {
             Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
             Document htmlDocument = connection.get();
             this.htmlDocument = htmlDocument;
 
-            System.out.println("Received web page at " + url);
+//            System.out.println("Received web page at " + url);
 
-            Elements linksOnPage = htmlDocument.select("a[href]");
-            System.out.println("Found (" + linksOnPage.size() + ") links");
-            for(Element link : linksOnPage) {
-                this.links.add(link.absUrl("href"));
-            }
+            linksOnPage = htmlDocument.select("a[href]");
         } catch(IOException ioe) {
             System.out.println("Error in out HTTP request " + ioe);
             ioe.printStackTrace();
         }
+        return linksOnPage;
     }
 
     /**
-     * Searches for a given word on the webpage
+     * Perform a crawl to search for links with the given search term
+     * @param url page to search
+     * @param searchTerm word to search for
+     */
+    public void searchCrawl(String url, String searchTerm) {
+        addLinksToList(crawl(url), searchTerm);
+    }
+
+    /**
+     * Perform a crawl to search for all links
+     * @param url page to search
+     */
+    public void plainCrawl(String url) {
+        addLinksToList(crawl(url));
+    }
+
+    /**
+     * Adds the links found on a page to the list of links.
+     * @param links All links on a page
+     */
+    private void addLinksToList(Elements links) {
+        for(Element link : links) {
+            this.links.add(link.absUrl("href"));
+        }
+    }
+
+    /**
+     * Adds the links found on a page to the list of links if they contain the
+     * given search term.
+     * @param links All links on a page
+     * @param searchTerm term to search for
+     */
+    private void addLinksToList(Elements links, String searchTerm) {
+        for(Element link : links) {
+            if (link.absUrl("href").toLowerCase().contains(searchTerm.toLowerCase())) {
+                this.links.add(link.absUrl("href"));
+            }
+        }
+    }
+
+    /**
+     * Searches for a given word on the web page
      * @param searchWord word to search for
      * @return true if the page contains the word
      */
@@ -59,7 +99,7 @@ public class Leg {
             System.out.println("ERROR! Call crawl() before performing analysis on the document");
             return false;
         }
-        System.out.println("Searching for the word " + searchWord + "...");
+//        System.out.println("Searching for the word " + searchWord + "...");
         String bodyText = this.htmlDocument.body().text();
         return bodyText.toLowerCase().contains(searchWord.toLowerCase());
     }

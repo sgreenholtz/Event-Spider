@@ -7,16 +7,16 @@ import java.util.*;
  * @author Sebastian Greenholtz
  */
 public class Crawler {
-    private static final int MAX_PAGES_TO_SEARCH = 10;
-    private Set<String> pagesVisited = new HashSet<String>();
-    private List<String> pagesToVisit = new LinkedList<String>();
+    protected static final int MAX_PAGES_TO_SEARCH = 25;
+    protected Set<String> pagesVisited = new HashSet<String>();
+    protected List<String> pagesToVisit = new LinkedList<String>();
 
     /**
      * Gets the next URL to visit from pagesToVisit that hasn't already
      * been visited
      * @return next URL to search
      */
-    private String nextUrl() {
+    protected String nextUrl() {
         String nextUrl;
         do {
             nextUrl = this.pagesToVisit.remove(0);
@@ -44,7 +44,7 @@ public class Crawler {
                 currentUrl = this.nextUrl();
             }
 
-            leg.crawl(currentUrl);
+            leg.plainCrawl(currentUrl);
 
             if(leg.searchForWord(searchWord)) {
                 System.out.println(String.format("**Success** Word %s found at %s", searchWord, currentUrl));

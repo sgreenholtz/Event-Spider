@@ -6,7 +6,10 @@ package crawler;
  */
 public class CrawlerTest {
     public static void main(String[] args) {
-        Crawler crawler = new Crawler();
-        crawler.search("http://madisoncollege.edu", "Event");
+        KeywordCrawler crawler = new KeywordCrawler("event");
+        crawler.search("http://isthmus.com", "RSVP");
+        for (String link : crawler.getKeywordLinks()) {
+            System.out.println(link);
+        }
     }
 }
