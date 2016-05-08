@@ -10,6 +10,16 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<!-- Icon Stuff -->
+<link rel="shortcut icon" href="icons/favicon.ico">
+<link rel="icon" sizes="16x16 32x32 64x64" href="icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="196x196" href="icons/favicon-192.png">
+<link rel="icon" type="image/png" sizes="160x160" href="icons/favicon-160.png">
+<link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96.png">
+<link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+
 <title>Event Spider - ${title}</title>
 
 <!-- Bootstrap Core CSS -->
