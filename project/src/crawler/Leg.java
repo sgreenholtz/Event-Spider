@@ -101,10 +101,11 @@ public class Leg {
             System.out.println("ERROR! Call crawl() before performing analysis on the document");
             return false;
         }
-        System.out.println("Searching for the word " + searchWord + "...");
+//        System.out.println("Searching for the word " + searchWord + "...");
         String bodyText = this.htmlDocument.body().text();
         if (bodyText.toLowerCase().contains(searchWord.toLowerCase())) {
             for (Element text : htmlDocument.body().getElementsContainingOwnText(searchWord)) {
+                System.out.println(text.parent());
                 keywordText.add(text.text());
             }
             return true;

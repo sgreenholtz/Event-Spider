@@ -47,11 +47,11 @@ public class Crawler {
             leg.plainCrawl(currentUrl);
 
             if(leg.searchForWord(searchWord)) {
-                System.out.println(String.format("**Success** Word %s found at %s", searchWord, currentUrl));
-                break;
+//                System.out.println(String.format("**Success** Word %s found at %s", searchWord, currentUrl));
+//                break;
             }
             this.pagesToVisit.addAll(leg.getLinks());
         }
-        System.out.println(String.format("**Done** Visited %s web page(s)", this.pagesVisited.size()));
+//        System.out.println(String.format("**Done** Visited %s web page(s)", this.pagesVisited.size()));
     }
 }
