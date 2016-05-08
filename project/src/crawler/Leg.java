@@ -17,12 +17,14 @@ public class Leg {
             "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
     private List<String> links;
     private Document htmlDocument;
+    private List<String> keywordText;
 
     /**
      * Empty constructor
      */
     public Leg() {
        links = new LinkedList<String>();
+        keywordText = new ArrayList<String>();
     }
 
     /**
@@ -99,9 +101,16 @@ public class Leg {
             System.out.println("ERROR! Call crawl() before performing analysis on the document");
             return false;
         }
-//        System.out.println("Searching for the word " + searchWord + "...");
+        System.out.println("Searching for the word " + searchWord + "...");
         String bodyText = this.htmlDocument.body().text();
-        return bodyText.toLowerCase().contains(searchWord.toLowerCase());
+        if (bodyText.toLowerCase().contains(searchWord.toLowerCase())) {
+            for (Element text : htmlDocument.body().getElementsContainingOwnText(searchWord)) {
+                keywordText.add(text.text());
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -110,5 +119,13 @@ public class Leg {
      */
     public List<String> getLinks() {
         return links;
+    }
+
+    /**
+     * Gets the text in keywordText.
+     * @return keywordText
+     */
+    public List<String> getKeywordText() {
+        return keywordText;
     }
 }

@@ -30,6 +30,14 @@ public class KeywordUrlCollector {
         this.urls = crawler.getLinks();
     }
 
+    /**
+     * Gets the list of urls.
+     * @return urls
+     */
+    public List<String> getUrls() {
+        return urls;
+    }
+
     @Override
     public String toString() {
         String output = "Keyword: " + keyword + System.lineSeparator();

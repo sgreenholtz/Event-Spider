@@ -7,52 +7,68 @@ import java.util.*;
  * @author Sebastian Greenholtz
  */
 public class KeywordCrawler extends Crawler {
-    private String keyword;
-    private List<String> keywordLinks;
+    private Set<String> keywordText;
+    private Map<String, Set<String>> linkText;
 
     /**
-     * Constructor with the keyword
-     * @param keyword word to search for in links
+     * Empty constructor
      */
-    public KeywordCrawler(String keyword) {
+    public KeywordCrawler() {
         super();
-        this.keyword = keyword;
-        this.keywordLinks = new ArrayList<String>();
+        this.keywordText = new HashSet<String>();
+        this.linkText = new HashMap<>();
     }
 
     /**
-     * Searches for a given word on the website at give URL
-     * @param url page to search
-     * @param searchWord word to search for
+     * Runs the keyword crawl. First, all the links from the given web page with
+     * the given keyword in the link are collected and added to the pages to visit.
+     * Then the search is performed on each of those link pages, looking for the
+     * search keyword
+     * @param startURL url to start the crawl
+     * @param urlKeyword key word to collect urls
+     * @param searchKeyword key word to search for on the collected pages
      */
-    public void search(String url, String searchWord)
+    public void run(String startURL, String urlKeyword, String searchKeyword) {
+        KeywordUrlCollector collector = new KeywordUrlCollector(urlKeyword);
+        collector.search(startURL);
+        this.pagesToVisit = collector.getUrls();
+        search(searchKeyword);
+    }
+
+    /**
+     * Searches for a given word in the list of keyword links
+     * @param keyword word to do the search on
+     */
+    private void search(String keyword)
     {
         while(this.pagesVisited.size() < MAX_PAGES_TO_SEARCH)
         {
             String currentUrl;
             Leg leg = new Leg();
             if(this.pagesToVisit.isEmpty()) {
-                currentUrl = url;
-                this.pagesVisited.add(url);
+                System.out.println("No valid links found.");
+                break;
             } else {
                 currentUrl = this.nextUrl();
             }
 
             leg.searchCrawl(currentUrl, keyword);
 
-            if(leg.searchForWord(searchWord)) {
-//                System.out.println(String.format("**Success** Word %s found at %s", searchWord, currentUrl));
-                keywordLinks.add(currentUrl);
+            if(leg.searchForWord(keyword)) {
+                System.out.println(leg.getKeywordText());
+//                keywordText.addAll(leg.getKeywordText());
+//                linkText.put(currentUrl, keywordText);
+//                keywordText.clear();
             }
             this.pagesToVisit.addAll(leg.getLinks());
         }
     }
 
     /**
-     * Gets all the links in keywordLinks
-     * @return keywordLinks
+     * Gets the value of linkText.
+     * @return linkText
      */
-    public List<String> getKeywordLinks() {
-        return keywordLinks;
+    public Map<String, Set<String>> getLinkText() {
+        return linkText;
     }
 }
