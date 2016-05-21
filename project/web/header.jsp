@@ -18,7 +18,7 @@
 <title>Event Spider - ${title}</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="https://bootswatch.com/cyborg/bootstrap.min.css" rel="stylesheet">
+<link href="https://bootswatch.com/sandstone/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <style>
