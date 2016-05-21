@@ -11,9 +11,9 @@
 <meta name="author" content="">
 
 <!-- Icon Stuff -->
-<link rel="shortcut icon" href="icons/calendar.ico">
-<link rel="icon" size="16x16" href="icons/calendar.ico">
-<link rel="icon" size="16x16" href="icons/calendar.png">
+<link rel="shortcut icon" href="images/icons/calendar.ico">
+<link rel="icon" size="16x16" href="images/icons/calendar.ico">
+<link rel="icon" size="16x16" href="images/icons/calendar.png">
 
 <title>Event Spider - ${title}</title>
 
@@ -59,7 +59,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
-                    <c:if test="${userID} == null">
+                    <c:if test="${userID==null}">
                         <li><a href="login">Log In</a></li>
                     </c:if>
                 </ul>

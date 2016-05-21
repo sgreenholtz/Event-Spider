@@ -10,7 +10,7 @@
 <% session.setAttribute("title", "Log In"); %>
 <c:import url="header.jsp"/>
 
-<form class="form-horizontal" action="logInServlet">
+<form class="form-horizontal" action="logInServlet" method="post">
     <fieldset>
         <legend>Log In</legend>
         <div class="form-group">

@@ -22,6 +22,7 @@ public class DatabaseHandler {
         USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
         PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
         URL = String.format("jdbc:mysql://%s:%s/eventspider", host, port);
+        System.out.println("****** URL: " + URL + " *******");
     }
 
     /**
