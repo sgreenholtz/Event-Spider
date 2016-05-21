@@ -52,4 +52,47 @@ public class UserHandler {
         return userID;
     }
 
+    /**
+     * Attempts to add a new user to the database and return the user ID.
+     * If there is an error, return -1
+     * @param email Email, used as username
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @return User ID of new user, or -1 if there is an error
+     */
+    public Integer register(String email, String password,
+                            String firstName, String lastName) {
+        Integer userID = -1;
+        try {
+            String sql = "INSERT INTO Users "
+                    + "(email, password, first_name, last_name) "
+                    + "VALUES (?, SHA1(?), ?, ?)";
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, password);
+            statement.setString(3, firstName);
+            statement.setString(4, lastName);
+            System.out.println(statement);
+            statement.executeUpdate();
+
+            String lastID = "SELECT LAST_INSERT_ID();";
+            statement = conn.prepareStatement(lastID);
+            ResultSet idResult = statement.executeQuery();
+
+            if (!idResult.isBeforeFirst()) {
+                return userID;
+            }
+
+            while (idResult.next()) {
+                userID = idResult.getInt("user_id");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userID;
+    }
+
 }

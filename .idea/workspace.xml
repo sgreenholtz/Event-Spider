@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/dbOperations/DatabaseHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/dbOperations/UserHandler.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/lib/jenkins.war" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/dbOperations/UserHandler.java" afterPath="$PROJECT_DIR$/project/src/dbOperations/UserHandler.java" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,12 +56,14 @@
       <file leaf-file-name="UserHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/src/dbOperations/UserHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+            <state relative-caret-position="542">
+              <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
               <folding>
                 <element signature="e#325#326#0" expanded="true" />
                 <element signature="e#379#380#0" expanded="true" />
-                <marker date="1463789971000" expanded="true" signature="828:967" placeholder="SELECT user_... Users" />
+                <marker date="1463790741000" expanded="true" signature="828:967" placeholder="SELECT user_... Users" />
+                <marker date="1463790741000" expanded="true" signature="2032:2166" placeholder="INSERT INTO Users... " />
+                <marker date="1463790741000" expanded="true" signature="2534:2557" placeholder="SELECT LAST_... " />
               </folding>
             </state>
           </provider>
@@ -720,12 +718,12 @@
       <workItem from="1462722180121" duration="336000" />
       <workItem from="1463232734049" duration="698000" />
       <workItem from="1463234367912" duration="193000" />
-      <workItem from="1463786921366" duration="2823000" />
+      <workItem from="1463786921366" duration="3576000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17730000" />
+    <option name="totallyTimeSpent" value="18483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
@@ -957,12 +955,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/dbOperations/UserHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+        <state relative-caret-position="542">
+          <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
           <folding>
             <element signature="e#325#326#0" expanded="true" />
             <element signature="e#379#380#0" expanded="true" />
-            <marker date="1463789971000" expanded="true" signature="828:967" placeholder="SELECT user_... Users" />
+            <marker date="1463790741000" expanded="true" signature="828:967" placeholder="SELECT user_... Users" />
+            <marker date="1463790741000" expanded="true" signature="2032:2166" placeholder="INSERT INTO Users... " />
+            <marker date="1463790741000" expanded="true" signature="2534:2557" placeholder="SELECT LAST_... " />
           </folding>
         </state>
       </provider>
