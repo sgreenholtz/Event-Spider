@@ -68,9 +68,9 @@ public class UserHandler extends DatabaseHandler {
      * Attempts to add a new user to the database and return the user ID.
      * If there is an error, return -1
      * @param email Email, used as username
-     * @param password
-     * @param firstName
-     * @param lastName
+     * @param password user's password
+     * @param firstName user's first name
+     * @param lastName user's last name
      * @return User ID of new user, or -1 if there is an error
      */
     public Integer register(String email, String password,

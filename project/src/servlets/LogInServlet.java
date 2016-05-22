@@ -3,6 +3,7 @@ package servlets;
 import dbOperations.UserHandler;
 
 import java.io.*;
+import java.util.Properties;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -31,18 +32,22 @@ public class LogInServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        UserHandler userHandler = new UserHandler();
+        Properties properties = (Properties) getServletContext().getAttribute("appProperties");
+        UserHandler userHandler = new UserHandler(properties.getProperty("db.url"),
+                properties.getProperty("db.username"),
+                properties.getProperty("db.password"));
         Integer userID = userHandler.logIn(email, password);
 
+
+        String url = "/";
         if (isNotCorrectLogin(userID)) {
-            String url = "/login";
+            url += "login";
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("userID", userID);
-            String url = "/";
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("url");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
 

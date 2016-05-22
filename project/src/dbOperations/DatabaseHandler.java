@@ -48,4 +48,11 @@ public class DatabaseHandler {
         }
         return conn;
     }
+
+    @Override
+    public String toString() {
+        return "URL=" + URL + "\n" +
+                "USERNAME=" + USERNAME + "\n" +
+                "PASSWORD=" + PASSWORD + "\n";
+    }
 }
