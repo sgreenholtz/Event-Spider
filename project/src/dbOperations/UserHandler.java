@@ -7,16 +7,27 @@ import java.sql.*;
  * @author Sebastian Greenholtz
  */
 
-public class UserHandler {
+public class UserHandler extends DatabaseHandler {
 
     private Connection conn;
 
     /**
-     * Empty constructor. Sets connection based on Database Handler
+     * Empty constructor.
      */
     public UserHandler() {
-        conn = DatabaseHandler.getConnection();
-        System.out.println("***** DATABASE CONNECTION TEST: " + conn);
+    }
+
+    /**
+     * Constructor that takes in url, username and password and sets up the
+     * connection with the database using the database handler
+     * @param url database connection url
+     * @param username database username
+     * @param password database password
+     */
+    public UserHandler(String url, String username, String password) {
+        super(url, username, password);
+        conn = getConnection();
+        System.out.println("***** DATABASE CONNECTION: " + conn);
     }
 
     /**

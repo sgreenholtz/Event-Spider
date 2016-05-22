@@ -3,8 +3,10 @@ package dbOperations;
 import java.sql.*;
 
 /**
- * Handles communication with the database. Gets environment variables from
- * Openshift and starts a connection
+ * Handles communication with the database. Takes in the database variables and
+ * returns a connection with the database, to be used by other classes that communicate
+ * with the database. Intended to streamline database communication but not
+ * duplicating the connection code.
  * @author Sebastian Greenholtz
  */
 public class DatabaseHandler {
@@ -14,23 +16,27 @@ public class DatabaseHandler {
     private static String URL;
 
     /**
-     * Sets the four environment variables based on OpenShift environment
+     * Empty constructor
      */
-    public DatabaseHandler() {
-//        String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-//        String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-        USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-        PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-//        URL = String.format("jdbc:mysql://%s:%s/eventspider", host, port);
-        URL = System.getenv("OPENSHIFT_MYSQL_DB_URL");
-        System.out.println("****** URL: " + URL + " *******");
+    public DatabaseHandler() {}
+
+    /**
+     * Sets instance variables based on params
+     * @param url URL of the database
+     * @param username username for the database
+     * @param password password for the database
+     */
+    public DatabaseHandler(String url, String username, String password) {
+        URL = url;
+        USERNAME = username;
+        PASSWORD = password;
     }
 
     /**
      * Uses system variables to get a connection with the database
      * @return Database connection
      */
-    public static Connection getConnection() {
+    public Connection getConnection() {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
