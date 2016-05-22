@@ -16,6 +16,7 @@ public class UserHandler {
      */
     public UserHandler() {
         conn = DatabaseHandler.getConnection();
+        System.out.println("***** DATABASE CONNECTION TEST: " + conn);
     }
 
     /**

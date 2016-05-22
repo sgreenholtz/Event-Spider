@@ -1,4 +1,6 @@
 <%--
+  Header
+
   User: Kolya
   Date: 2016-05-07
   Time: 3:06 PM
@@ -11,9 +13,9 @@
 <meta name="author" content="">
 
 <!-- Icon Stuff -->
-<link rel="shortcut icon" href="images/icons/calendar.ico">
-<link rel="icon" size="16x16" href="images/icons/calendar.ico">
-<link rel="icon" size="16x16" href="images/icons/calendar.png">
+<%--<link rel="shortcut icon" href="images/icons/calendar.ico">--%>
+<%--<link rel="icon" size="16x16" href="images/icons/calendar.ico">--%>
+<%--<link rel="icon" size="16x16" href="images/icons/calendar.png">--%>
 
 <title>Event Spider - ${title}</title>
 

@@ -17,11 +17,12 @@ public class DatabaseHandler {
      * Sets the four environment variables based on OpenShift environment
      */
     public DatabaseHandler() {
-        String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-        String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+//        String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+//        String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
         USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
         PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-        URL = String.format("jdbc:mysql://%s:%s/eventspider", host, port);
+//        URL = String.format("jdbc:mysql://%s:%s/eventspider", host, port);
+        URL = System.getenv("OPENSHIFT_MYSQL_DB_URL");
         System.out.println("****** URL: " + URL + " *******");
     }
 
