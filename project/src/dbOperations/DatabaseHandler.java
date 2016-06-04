@@ -22,6 +22,18 @@ public class DatabaseHandler {
     public DatabaseHandler() {}
 
     /**
+     * Constructor using strings for each variable
+     * @param username
+     * @param password
+     * @param url
+     */
+    public DatabaseHandler(String username, String password, String url) {
+        USERNAME = username;
+        PASSWORD = password;
+        URL = url;
+    }
+
+    /**
      * Sets instance variables based on params
      * @param properties Application properties
      */

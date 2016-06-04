@@ -33,9 +33,7 @@ public class LogInServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
-        UserHandler userHandler = new UserHandler(properties.getProperty("db.url"),
-                properties.getProperty("db.username"),
-                properties.getProperty("db.password"));
+        UserHandler userHandler = new UserHandler(properties);
         Integer userID = userHandler.logIn(email, password);
 
 

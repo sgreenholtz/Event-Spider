@@ -1,6 +1,7 @@
 package dbOperations;
 
 import java.sql.*;
+import java.util.Properties;
 
 /**
  * Provides methods for handling users: login, registration, verification
@@ -20,14 +21,11 @@ public class UserHandler extends DatabaseHandler {
     /**
      * Constructor that takes in url, username and password and sets up the
      * connection with the database using the database handler
-     * @param url database connection url
-     * @param username database username
-     * @param password database password
+     * @param properties Application properties
      */
-    public UserHandler(String url, String username, String password) {
-        super(url, username, password);
+    public UserHandler(Properties properties) {
+        super(properties);
         conn = getConnection();
-        System.out.println("***** DATABASE CONNECTION: " + conn);
     }
 
     /**
@@ -43,7 +41,7 @@ public class UserHandler extends DatabaseHandler {
             String sql = "SELECT user_id "
                     + "FROM Users "
                     + "WHERE email = ? "
-                    + "AND password = SHA1(?)";
+                    + "AND pass = SHA1(?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, email);
             statement.setString(2, password);
@@ -78,7 +76,7 @@ public class UserHandler extends DatabaseHandler {
         Integer userID = -1;
         try {
             String sql = "INSERT INTO Users "
-                    + "(email, password, first_name, last_name) "
+                    + "(email, pass, first_name, last_name) "
                     + "VALUES (?, SHA1(?), ?, ?)";
 
             PreparedStatement statement = conn.prepareStatement(sql);

@@ -26,7 +26,6 @@ public class SearchHandler extends DatabaseHandler {
     public SearchHandler(Properties properties) {
         super(properties);
         conn = getConnection();
-        System.out.println("***** DATABASE CONNECTION: " + conn);
     }
 
     /**

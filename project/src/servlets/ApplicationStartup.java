@@ -21,8 +21,8 @@ public class ApplicationStartup extends HttpServlet {
     */
     public void init() {
         ServletContext context = this.getServletContext();
-//        context.setAttribute("appProperties", loadProperties("../openshift.properties"));
-        context.setAttribute("appProperties", loadProperties("../localhost.properties"));
+        context.setAttribute("appProperties", loadProperties("../openshift.properties"));
+//        context.setAttribute("appProperties", loadProperties("../localhost.properties"));
     }
 
     /**
