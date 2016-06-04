@@ -34,6 +34,6 @@ public class SearchHandler extends DatabaseHandler {
      * @param location Search string from the location field
      */
     public void parseLocationSearch(String location) {
-        if (location.matches())
+//        if (location.matches())
     }
 }

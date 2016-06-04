@@ -1,6 +1,7 @@
 package dbOperations;
 
 import java.sql.*;
+import java.util.*;
 
 /**
  * Handles communication with the database. Takes in the database variables and
@@ -22,14 +23,12 @@ public class DatabaseHandler {
 
     /**
      * Sets instance variables based on params
-     * @param url URL of the database
-     * @param username username for the database
-     * @param password password for the database
+     * @param properties Application properties
      */
-    public DatabaseHandler(String url, String username, String password) {
-        URL = url;
-        USERNAME = username;
-        PASSWORD = password;
+    public DatabaseHandler(Properties properties) {
+        URL = properties.getProperty("db.url");
+        USERNAME = properties.getProperty("db.username");
+        PASSWORD = properties.getProperty("db.password");
     }
 
     /**
