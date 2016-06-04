@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="keywords" class="col-lg-2 control-label">Find:</label>
+            <label for="keyword" class="col-lg-2 control-label">Find:</label>
             <div class="col-lg-10">
                 <input type="password" class="form-control" id="keyword" placeholder="Title or keywords" name="keywords">
             </div>
