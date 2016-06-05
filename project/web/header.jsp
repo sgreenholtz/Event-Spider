@@ -64,6 +64,8 @@
                     <c:if test="${userID==null}">
                         <li><a href="login">Log In</a></li>
                     </c:if>
+                    <li><a href="search">Search</a></li>
+                    <li><a href="addEvent">Add Event</a></li>
                 </ul>
             </div>
 

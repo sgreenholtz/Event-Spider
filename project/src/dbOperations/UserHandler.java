@@ -45,7 +45,6 @@ public class UserHandler extends DatabaseHandler {
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, email);
             statement.setString(2, password);
-            System.out.println(statement);
             ResultSet results = statement.executeQuery();
 
             if (!results.isBeforeFirst()) {

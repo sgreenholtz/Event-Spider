@@ -42,6 +42,16 @@
     <jsp-file>/logIn.jsp</jsp-file>
 </servlet>
 
+<servlet>
+    <servlet-name>Search</servlet-name>
+    <jsp-file>/search.jsp</jsp-file>
+</servlet>
+
+<servlet>
+    <servlet-name>AddEvent</servlet-name>
+    <jsp-file>/addEvent.jsp</jsp-file>
+</servlet>
+
 
 <!-- ********************************************************************* -->
 <!-- Servlet Configurations ********************************************** -->
@@ -51,14 +61,19 @@
     <servlet-name>LogInServlet</servlet-name>
     <servlet-class>servlets.LogInServlet</servlet-class>
 </servlet>
-    
+
 <servlet>
     <servlet-name>SearchServlet</servlet-name>
     <servlet-class>servlets.SearchServlet</servlet-class>
 </servlet>
 
+    <servlet>
+        <servlet-name>AddEventManual</servlet-name>
+        <servlet-class>servlets.AddEventManual</servlet-class>
+    </servlet>
 
-<!-- ********************************************************************* -->
+
+    <!-- ********************************************************************* -->
 <!-- Servlet Mappings **************************************************** -->
 <!-- ********************************************************************* -->
 
@@ -82,7 +97,22 @@
     <url-pattern>/searchServlet</url-pattern>
 </servlet-mapping>
 
-<!-- ********************************************************************* -->
+    <servlet-mapping>
+        <servlet-name>AddEventManual</servlet-name>
+        <url-pattern>/addEventManual</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddEvent</servlet-name>
+        <url-pattern>/addEvent</url-pattern>
+    </servlet-mapping>
+
+    <!-- ********************************************************************* -->
 <!-- Home Page *********************************************************** -->
 <!-- ********************************************************************* -->
 
