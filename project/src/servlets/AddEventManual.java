@@ -3,6 +3,8 @@ package servlets;
 import dbOperations.AddEvent;
 
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -26,29 +28,30 @@ public class AddEventManual extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
 
-        Map<String, String> formMap = getFormMap(request);
+        ArrayList<String> formList = getFormValues(request);
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
         AddEvent eventAdder = new AddEvent(properties);
-        eventAdder.insertEvent(formMap);
+        eventAdder.insertEvent(formList);
 
+        String url = "/";
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 
     /**
-     * Gets the form values from the HttpServletRequest variable and creates a map
+     * Creates an array list of the form values submitted from the http request
      * @param request HttpServletRequest
-     * @return Map of key=database field value=form value
+     * @return an Array List of the values from the form
      */
-    private Map<String, String> getFormMap(HttpServletRequest request) {
-        Map<String, String> formMap = new HashMap<>();
+    private ArrayList<String> getFormValues(HttpServletRequest request) {
+        ArrayList<String> formList = new ArrayList<>();
         for (Map.Entry<String, String[]> entry : request.getParameterMap().entrySet()) {
-            String key = entry.getKey();
-            String value = "";
-            for (String arrayValue : entry.getValue()) {
-                value = arrayValue;
+            for (String value : entry.getValue()) {
+                formList.add(value);
             }
-            formMap.put(key, value);
         }
-        return formMap;
+        return formList;
     }
 }

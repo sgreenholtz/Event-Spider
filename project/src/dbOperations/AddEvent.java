@@ -10,6 +10,7 @@ import java.sql.*;
 public class AddEvent extends DatabaseHandler {
 
     private Connection conn;
+    private Properties properties;
 
     /**
      * Empty constructor
@@ -22,16 +23,25 @@ public class AddEvent extends DatabaseHandler {
      */
     public AddEvent(Properties properties) {
         super(properties);
+        this.properties = properties;
         conn = getConnection();
     }
 
     /**
-     * Inserts event into the database using the values in the Map
-     * @param values The key is the name of the field, the value is the value
+     * Takes a list of the values from the form and inserts into the database
+     * @param formList List of values from the form
      */
-    public void insertEvent(Map<String, String> values) {
-        for (Map.Entry<String, String> entry : values.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
+    public void insertEvent(ArrayList<String> formList) {
+        try {
+            String sql = properties.getProperty("add.event.sql");
+            PreparedStatement statement = conn.prepareStatement(sql);
+            for (int i=1; i<= formList.size(); i++) {
+                statement.setString(i, formList.get(i-1));
+            }
+            System.out.println(statement);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

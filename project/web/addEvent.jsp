@@ -22,7 +22,7 @@
         <div class="form-group">
             <label for="url" class="col-lg-2 control-label">URL</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="url" placeholder="URL (Optional)" name="url">
+                <input type="text" class="form-control" id="url" placeholder="Link to Event (Optional)" name="url">
             </div>
         </div>
         <div class="form-group">
