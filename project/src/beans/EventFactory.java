@@ -46,9 +46,11 @@ public class EventFactory {
      * Creates an Event bean from the current database row
      * @return Event Bean form the current row
      */
-    private EventBean createBean() {
+    private EventBean createBean() throws SQLException {
         EventBean event = null;
-
+        event.setEventId(results.getInt("event_id"));
+        event.setTitle(results.getString("title"));
+        event.setUrl(results.getString("url"));
         return event;
     }
 

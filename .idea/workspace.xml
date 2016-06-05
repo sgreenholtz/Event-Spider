@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/beans/EventFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/beans/EventBean.java" afterPath="$PROJECT_DIR$/project/src/beans/EventBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/beans/EventFactory.java" afterPath="$PROJECT_DIR$/project/src/beans/EventFactory.java" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,26 +78,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventFactory.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EventFactory.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/src/beans/EventFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="617">
+              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#377#378#0" expanded="true" />
                 <element signature="e#422#423#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventBean.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/src/beans/EventBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="84" column="18" selection-start-line="84" selection-start-column="18" selection-end-line="84" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -164,8 +152,8 @@
         <option value="$PROJECT_DIR$/project/src/dbOperations/DatabaseTester.java" />
         <option value="$PROJECT_DIR$/project/src/dbOperations/SearchHandler.java" />
         <option value="$PROJECT_DIR$/project/src/beans/SearchResultBean.java" />
-        <option value="$PROJECT_DIR$/project/src/beans/EventFactory.java" />
         <option value="$PROJECT_DIR$/project/src/beans/EventBean.java" />
+        <option value="$PROJECT_DIR$/project/src/beans/EventFactory.java" />
       </list>
     </option>
   </component>
@@ -982,12 +970,12 @@
       <workItem from="1463934593526" duration="2494000" />
       <workItem from="1465053182225" duration="2611000" />
       <workItem from="1465095967440" duration="5970000" />
-      <workItem from="1465139544192" duration="4588000" />
+      <workItem from="1465139544192" duration="4759000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44188000" />
+    <option name="totallyTimeSpent" value="44359000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
@@ -1408,23 +1396,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/beans/EventFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#422#423#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/beans/EventBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
           <caret line="84" column="18" selection-start-line="84" selection-start-column="18" selection-end-line="84" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/beans/EventFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
