@@ -16,6 +16,10 @@ public class EventBean {
 //    private String state;
 //    private String postalCode;
 
+    /**
+     * Empty constructor
+     */
+    public EventBean() {}
 
     /**
      * Gets the value of eventId;

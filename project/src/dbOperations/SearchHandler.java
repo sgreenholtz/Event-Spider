@@ -85,7 +85,7 @@ public class SearchHandler extends DatabaseHandler {
         sql+= "'%" + searchTerms.get(searchTerms.size()-1) + "%'";
         try {
             statement = conn.prepareStatement(sql);
-            System.out.println(statement);
+//            System.out.println(statement);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

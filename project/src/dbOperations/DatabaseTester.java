@@ -1,5 +1,8 @@
 package dbOperations;
 
+import beans.EventBean;
+import beans.EventFactory;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -13,8 +16,10 @@ public class DatabaseTester {
         String search = "Sample event";
         SearchHandler searcher = new SearchHandler("root", "student", "jdbc:mysql://localhost:3306/eventspider?useSSL=false");
         ResultSet results = searcher.performTitleSearch(search);
-        while (results.next()) {
-            System.out.println(results.getString("title"));
+        EventFactory eventFactory = new EventFactory(results);
+        eventFactory.createBeans();
+        for (EventBean event : eventFactory.getEventList()) {
+            System.out.println(event);
         }
     }
 }

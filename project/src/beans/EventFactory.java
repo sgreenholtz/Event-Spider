@@ -29,30 +29,42 @@ public class EventFactory {
     }
 
     /**
+     * Returns eventList.
+     * @return eventList
+     */
+    public ArrayList<EventBean> getEventList() {
+        return eventList;
+    }
+
+    /**
      * Runs through the results set and calls the create bean
      * method on each row returned, then adds that bean to the list
      */
     public void createBeans() {
         try {
             while (results.next()) {
-                eventList.add(createBean());
+                EventBean event = new EventBean();
+                event.setEventId(results.getInt("event_id"));
+                event.setTitle(results.getString("title"));
+                event.setUrl(results.getString("url"));
+                eventList.add(event);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    /**
-     * Creates an Event bean from the current database row
-     * @return Event Bean form the current row
-     */
-    private EventBean createBean() throws SQLException {
-        EventBean event = null;
-        event.setEventId(results.getInt("event_id"));
-        event.setTitle(results.getString("title"));
-        event.setUrl(results.getString("url"));
-        return event;
-    }
+//    /**
+//     * Creates an Event bean from the current database row
+//     * @return Event Bean form the current row
+//     */
+//    private EventBean createBean() throws SQLException {
+//        EventBean event = null;
+//        event.setEventId(results.getInt("event_id"));
+//        event.setTitle(results.getString("title"));
+//        event.setUrl(results.getString("url"));
+//        return event;
+//    }
 
 
 }
