@@ -52,6 +52,10 @@
     <jsp-file>/addEvent.jsp</jsp-file>
 </servlet>
 
+    <servlet>
+        <servlet-name>SearchResultsDisplayList</servlet-name>
+        <jsp-file>/searchDisplay.jsp</jsp-file>
+    </servlet>
 
 <!-- ********************************************************************* -->
 <!-- Servlet Configurations ********************************************** -->
@@ -110,6 +114,11 @@
     <servlet-mapping>
         <servlet-name>AddEvent</servlet-name>
         <url-pattern>/addEvent</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SearchResultsDisplayList</servlet-name>
+        <url-pattern>/search-result-list</url-pattern>
     </servlet-mapping>
 
     <!-- ********************************************************************* -->

@@ -1,8 +1,11 @@
 package servlets;
 
+import beans.EventBean;
+import beans.EventFactory;
 import dbOperations.SearchHandler;
 
 import java.io.*;
+import java.sql.ResultSet;
 import java.util.Properties;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -32,7 +35,14 @@ public class SearchServlet extends HttpServlet {
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
         SearchHandler searcher = new SearchHandler(properties);
+        ResultSet results = searcher.performTitleSearch(keyword);
+        EventFactory eventFactory = new EventFactory(results);
+        eventFactory.createBeans();
 
+        request.getServletContext().setAttribute("events", eventFactory.getEventList());
+        String url = "/search-result-list";
 
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 }
