@@ -31,15 +31,16 @@ public class SearchServlet extends HttpServlet {
             throws IOException, ServletException {
 
         String location = request.getParameter("location");
-        String keyword = request.getParameter("keyword");
+        String searchTerm = request.getParameter("keyword");
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
         SearchHandler searcher = new SearchHandler(properties);
-        ResultSet results = searcher.performTitleSearch(keyword);
+        ResultSet results = searcher.performTitleSearch(searchTerm);
         EventFactory eventFactory = new EventFactory(results);
         eventFactory.createBeans();
 
-        request.getServletContext().setAttribute("events", eventFactory.getEventList());
+        request.getServletContext().setAttribute("eventsList", eventFactory.getEventList());
+        request.getServletContext().setAttribute("searchTerm", searchTerm);
         String url = "/search-result-list";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);

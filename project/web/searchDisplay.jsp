@@ -7,7 +7,22 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% session.setAttribute("title", "Search Results"); %>
 <c:import url="header.jsp"/>
-<p>You got here.</p>
+<h3>Found ${fn:length(eventsList)} events matching "${searchTerm}"</h3>
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>URL</td>
+        </tr>
+    </thead>
+<c:forEach var="event" items="${eventsList}">
+    <tr>
+        <td>${event.title}</td>
+        <td>${event.url}</td>
+    </tr>
+</c:forEach>
+</table>
 <c:import url="footer.jsp"/>
