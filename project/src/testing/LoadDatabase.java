@@ -46,7 +46,7 @@ public class LoadDatabase {
      */
     private void loadPropertiesFile() {
         try {
-            InputStream input = new FileInputStream("project/src/test.properties");
+            InputStream input = new FileInputStream("/Users/Kolya/Dropbox/Event-Spider/project/src/test.properties");
             properties.load(input);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -79,7 +79,7 @@ public class LoadDatabase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(rowCounter + " rows inserted.");
+//        System.out.println(rowCounter + " rows inserted.");
     }
 
     /**

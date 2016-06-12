@@ -30,6 +30,7 @@ public class LoadDatabaseTest {
 
     @Before
     public void getResultSet() throws SQLException {
+        loadDatabase.deleteDatabase();
         loadDatabase.loadDatabase();
         PreparedStatement statement = loadDatabase.getConnection().prepareStatement(properties.getProperty("select.all.sql"));
         insertResults = statement.executeQuery();
