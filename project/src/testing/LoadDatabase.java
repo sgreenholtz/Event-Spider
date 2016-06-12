@@ -26,6 +26,22 @@ public class LoadDatabase {
     }
 
     /**
+     * Gets the Properties file.
+     * @return properties
+     */
+    protected Properties getProperties() {
+        return properties;
+    }
+
+    /**
+     * Gets the connection
+     * @return connection to test database
+     */
+    protected Connection getConnection() {
+        return conn;
+    }
+
+    /**
      * Load properties from the local file
      */
     private void loadPropertiesFile() {

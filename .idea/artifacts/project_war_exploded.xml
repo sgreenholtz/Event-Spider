@@ -11,6 +11,7 @@
           <element id="library" level="project" name="jstl-api-1.2" />
           <element id="library" level="project" name="jsoup-1.9.1" />
           <element id="library" level="project" name="lucene-analyzers-common-6.0.1" />
+          <element id="library" level="project" name="hamcrest-core-1.3" />
         </element>
       </element>
     </root>
