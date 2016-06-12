@@ -1,5 +1,7 @@
 package testing;
 
+import dbOperations.DatabaseHandler;
+
 import java.sql.*;
 import java.util.*;
 import java.io.*;
@@ -17,7 +19,7 @@ public class LoadDatabase {
      * Constructor loads up the properties file for testing
      */
     public LoadDatabase() {
-        properties = new Properties();
+        this.properties = new Properties();
         try {
             InputStream input = new FileInputStream("project/src/test.properties");
             properties.load(input);
@@ -26,11 +28,17 @@ public class LoadDatabase {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        this.conn = loadConnection();
     }
 
+    /**
+     * Uses DatabaseHandler to get a connection to the test database, using the
+     * testing properties file
+     * @return Connection to the test database
+     */
     private Connection loadConnection() {
-        Connection conn = null;
-
+        DatabaseHandler handler = new DatabaseHandler(properties);
+        Connection conn = handler.getConnection();
         return conn;
     }
 
