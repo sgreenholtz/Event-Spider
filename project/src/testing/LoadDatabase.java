@@ -50,31 +50,59 @@ public class LoadDatabase {
     }
 
     /**
-     * Creates an array list of 10 prepared statements to insert 10 events into the
+     * Main "running" method: calls method to create prepared statement for
+     * event inserts, then inserts those events
+     */
+    public void loadDatabase() {
+        Integer rowCounter = 0;
+        try {
+            ArrayList<PreparedStatement> statements = constructEventInsertStatements();
+            for (PreparedStatement statement : statements) {
+                rowCounter += statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(rowCounter + " rows inserted.");
+    }
+
+    /**
+     * Creates an array list prepared statements to insert events into the
      * test database
      * @return array list of prepared statements
      */
-    public ArrayList<PreparedStatement> constructEventInsertStatements()
+    private ArrayList<PreparedStatement> constructEventInsertStatements()
         throws SQLException {
         ArrayList<PreparedStatement> statementList = new ArrayList<>();
         String sql = properties.getProperty("add.event.sql");
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, "Singing in the Rain");
-        statement.setString(2, "www.singingintherain.com");
-
+        for (Map.Entry<String, String> entry : createTitleUrlMapForStatements().entrySet()) {
+            statement.setString(1, entry.getKey());
+            statement.setString(2, entry.getValue());
+            statementList.add(statement);
+            statement = conn.prepareStatement(sql);
+        }
         return statementList;
     }
 
+    /**
+     * Creates a map of Title -> URL for the Insert statement for the
+     * test database
+     * @return String, String map database of Title -> URL
+     */
     private Map<String, String> createTitleUrlMapForStatements() {
         Map<String, String> eventMap = new HashMap<>();
-
+        eventMap.put("Singing In The Rain", "singingintherain.com");
+        eventMap.put("1234567", "123456.org");
+        eventMap.put("I w8nt 2 G0", "Iw8nt2G0.net/c4mp1ng");
+        eventMap.put("!@#$%^&*()", "symbolz.co.uk");
         return eventMap;
     }
 
 
     public static void main(String[] args) {
         LoadDatabase loader = new LoadDatabase();
-
+        loader.loadDatabase();
     }
 
 
