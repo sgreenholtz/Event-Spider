@@ -96,6 +96,7 @@ public class LoadDatabase {
             statement.setString(1, entry.getKey());
             statement.setString(2, entry.getValue());
             statementList.add(statement);
+//            System.out.println(statement);
             statement = conn.prepareStatement(sql);
         }
         return statementList;
@@ -107,7 +108,7 @@ public class LoadDatabase {
      * @return String, String map database of Title -> URL
      */
     private Map<String, String> createTitleUrlMapForStatements() {
-        Map<String, String> eventMap = new HashMap<>();
+        Map<String, String> eventMap = new TreeMap<>();
         eventMap.put("Singing In The Rain", "singingintherain.com");
         eventMap.put("1234567", "123456.org");
         eventMap.put("I w8nt 2 G0", "Iw8nt2G0.net/c4mp1ng");
@@ -117,8 +118,9 @@ public class LoadDatabase {
 
     /**
      * Deletes all rows in the Events table and prints a message of how many rows were deleted
+     * @return number of rows deleted
      */
-    public void deleteDatabase() {
+    public Integer deleteDatabase() {
         Integer rowCounter = 0;
         try {
             PreparedStatement statement = conn.prepareStatement(properties.getProperty("delete.all.sql"));
@@ -126,11 +128,11 @@ public class LoadDatabase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(rowCounter + " rows deleted.");
+        return rowCounter;
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         LoadDatabase loader = new LoadDatabase();
         loader.loadDatabase();
         loader.deleteDatabase();
