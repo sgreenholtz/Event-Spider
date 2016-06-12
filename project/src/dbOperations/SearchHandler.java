@@ -61,7 +61,7 @@ public class SearchHandler extends DatabaseHandler {
      * @param searchString String from the keyword field of the search form
      * @return Array List of search terms
      */
-    private ArrayList<String> splitSearchStringIntoTokens(String searchString) {
+    public ArrayList<String> splitSearchStringIntoTokens(String searchString) {
         ArrayList<String> searchTerms = new ArrayList<>();
         for (String term : searchString.split("\\W")) {
             if (!(term.isEmpty())) {
@@ -76,7 +76,7 @@ public class SearchHandler extends DatabaseHandler {
      * @param searchTerms Array List of words to search on
      * @return a Prepared Statement for performing the search
      */
-    private PreparedStatement createSearchStatementForTitle(ArrayList<String> searchTerms) {
+    public PreparedStatement createSearchStatementForTitle(ArrayList<String> searchTerms) {
         PreparedStatement statement = null;
         String sql = "SELECT * FROM Events WHERE title LIKE ";
         for (int i=0; i<searchTerms.size()-1; i++) {
@@ -85,7 +85,6 @@ public class SearchHandler extends DatabaseHandler {
         sql+= "'%" + searchTerms.get(searchTerms.size()-1) + "%'";
         try {
             statement = conn.prepareStatement(sql);
-//            System.out.println(statement);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

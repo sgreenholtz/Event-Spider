@@ -1,7 +1,6 @@
 package testing;
 
 import java.sql.*;
-import java.util.*;
 
 /**
  * Quick testing in command line
@@ -10,7 +9,7 @@ import java.util.*;
 public class QuickTest {
 
     public static void main(String[] args) throws SQLException {
-        LoadDatabase loader = new LoadDatabase();
+        TestDatabaseHandler loader = new TestDatabaseHandler();
         loader.deleteDatabase();
         loader.loadDatabase();
         PreparedStatement statement = loader.getConnection().prepareStatement(loader.getProperties().getProperty("select.all.sql"));

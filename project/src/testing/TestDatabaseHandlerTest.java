@@ -1,7 +1,6 @@
 package testing;
 
 import org.junit.*;
-import org.junit.Assert;
 
 import java.sql.*;
 import java.util.Properties;
@@ -12,27 +11,27 @@ import static org.junit.Assert.*;
  * Tests that database was loaded correctly
  * @author Sebastian Greenholtz
  */
-public class LoadDatabaseTest {
+public class TestDatabaseHandlerTest {
     private static Properties properties;
-    private static LoadDatabase loadDatabase;
+    private static TestDatabaseHandler testDatabaseHandler;
     private ResultSet insertResults;
 
     @BeforeClass
     public static void setUp() throws SQLException {
-        loadDatabase = new LoadDatabase();
-        properties = loadDatabase.getProperties();
+        testDatabaseHandler = new TestDatabaseHandler();
+        properties = testDatabaseHandler.getProperties();
     }
 
     @AfterClass
     public static void closeConnection() throws SQLException {
-        loadDatabase.getConnection().close();
+        testDatabaseHandler.getConnection().close();
     }
 
     @Before
     public void getResultSet() throws SQLException {
-        loadDatabase.deleteDatabase();
-        loadDatabase.loadDatabase();
-        PreparedStatement statement = loadDatabase.getConnection().prepareStatement(properties.getProperty("select.all.sql"));
+        testDatabaseHandler.deleteDatabase();
+        testDatabaseHandler.loadDatabase();
+        PreparedStatement statement = testDatabaseHandler.getConnection().prepareStatement(properties.getProperty("select.all.sql"));
         insertResults = statement.executeQuery();
     }
 
@@ -67,7 +66,7 @@ public class LoadDatabaseTest {
     @After
     public void deleteDatabaseRows() throws SQLException {
         insertResults.close();
-        assertEquals("Rows deleted", loadDatabase.deleteDatabase(), new Integer(4));
+        assertEquals("Rows deleted", testDatabaseHandler.deleteDatabase(), new Integer(4));
     }
 
 }

@@ -10,7 +10,7 @@ import java.io.*;
  * Loads up the database for use in testing
  * @author Sebastian Greenholtz
  */
-public class LoadDatabase {
+public class TestDatabaseHandler {
 
     private Properties properties;
     private Connection conn;
@@ -19,7 +19,7 @@ public class LoadDatabase {
      * Constructor loads up the properties file for testing
      * and gets a database connection to the test database
      */
-    public LoadDatabase() {
+    public TestDatabaseHandler() {
         this.properties = new Properties();
         loadPropertiesFile();
         this.conn = loadConnection();
@@ -113,6 +113,7 @@ public class LoadDatabase {
         eventMap.put("1234567", "123456.org");
         eventMap.put("I w8nt 2 G0", "Iw8nt2G0.net/c4mp1ng");
         eventMap.put("!@#$%^&*()", "symbolz.co.uk");
+        eventMap.put("Karaoke Singing", "karaoke.singing.com");
         return eventMap;
     }
 
@@ -133,7 +134,7 @@ public class LoadDatabase {
 
 
     public static void main(String[] args) throws SQLException {
-        LoadDatabase loader = new LoadDatabase();
+        TestDatabaseHandler loader = new TestDatabaseHandler();
         loader.loadDatabase();
         loader.deleteDatabase();
     }
