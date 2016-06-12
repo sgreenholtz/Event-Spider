@@ -24,6 +24,8 @@ public class SearchHandlerTest {
     private static ArrayList<ArrayList<String>> searchStringsSingleWord;
     private Map<String, ArrayList<String>> searchStringMap;
     private ArrayList<String> sqlArrayList;
+    private ArrayList<ResultSet> searchResults;
+    private Map<String, ArrayList<String>> searchResultsMap;
 
     @BeforeClass
     public static void setUp() throws SQLException {
@@ -119,6 +121,57 @@ public class SearchHandlerTest {
         for (Integer i=0; i<6; i++) {
             assertEquals(sqlArrayList.get(i), searchHandler.createSearchStatementForTitle(searchStringsSingleWord.get(i)));
         }
+    }
+
+    @Before
+    public void getSearchResultSetForTest() {
+        searchResults = new ArrayList<>();
+        for (String searchString : searchStringsPhrase) {
+            searchHandler.performTitleSearch(searchString);
+        }
+    }
+
+    @Before
+    public void searchResultsExpected() {
+        searchResultsMap = new HashMap<>();
+        ArrayList<String> searchResultEventTitle = new ArrayList<>();
+
+        searchResultEventTitle.add("Singing In The Rain");
+        searchResultEventTitle.add("Karaoke Singing");
+        searchResultsMap.put("singing in", searchResultEventTitle);
+        searchResultEventTitle = new ArrayList<>();
+
+        searchResultEventTitle.add("Singing In The Rain");
+        searchResultEventTitle.add("Karaoke Singing");
+        searchResultsMap.put("karaoke, singing", searchResultEventTitle);
+        searchResultEventTitle = new ArrayList<>();
+
+        searchResultEventTitle.add("1234567");
+        searchResultEventTitle.add("I w8nt 2 G0");
+        searchResultsMap.put("1234, G0", searchResultEventTitle);
+        searchResultEventTitle = new ArrayList<>();
+    }
+
+    @Test
+    public void performTitleSearchTest() throws SQLException {
+//        searchResults.get(0).absolute(1);
+//        assertTrue()
+//        assertEquals(searchResultsMap.get("singing in").get(1), searchResults.get(0).getString("title"));
+//        searchResults.get(0).absolute(2);
+//        assertEquals(searchResultsMap.get("singing in").get(0), searchResults.get(0).getString("title"));
+//
+//        searchResults.get(1).absolute(1);
+//        assertEquals(searchResultsMap.get("karaoke, singing").get(0), searchResults.get(1).getString("title"));
+//        searchResults.get(1).absolute(2);
+//        assertEquals(searchResultsMap.get("karaoke, singing").get(1), searchResults.get(1).getString("title"));
+//
+//        searchResults.get(2).absolute(1);
+//        assertEquals(searchResultsMap.get("1234, G0").get(0), searchResults.get(2).getString("title"));
+//        searchResults.get(2).absolute(2);
+//        assertEquals(searchResultsMap.get("1234, G0").get(1), searchResults.get(2).getString("title"));
+
+        searchResults.get(3);
+        assertEquals(null, searchResults.get(3));
     }
 
 

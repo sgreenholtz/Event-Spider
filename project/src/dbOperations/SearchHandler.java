@@ -48,8 +48,11 @@ public class SearchHandler extends DatabaseHandler {
     public ResultSet performTitleSearch (String searchString) {
         ResultSet results = null;
         try {
-            PreparedStatement statement =
-                    conn.prepareStatement(createSearchStatementForTitle(splitSearchStringIntoTokens(searchString)));
+            String sql = createSearchStatementForTitle(splitSearchStringIntoTokens(searchString));
+            if (sql == null) {
+                return results;
+            }
+            PreparedStatement statement = conn.prepareStatement(sql);
             results = statement.executeQuery();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -79,8 +82,12 @@ public class SearchHandler extends DatabaseHandler {
      */
     public String createSearchStatementForTitle(ArrayList<String> searchTerms) {
         String sql = "SELECT * FROM Events WHERE title LIKE ";
-        for (int i=0; i<searchTerms.size()-1; i++) {
-            sql += "'%" + searchTerms.get(i) + "%' OR title LIKE ";
+        if (searchTerms.size() == 0) {
+            return null;
+        } else if (searchTerms.size() > 1) {
+            for (int i = 0; i < searchTerms.size() - 1; i++) {
+                sql += "'%" + searchTerms.get(i) + "%' OR title LIKE ";
+            }
         }
         sql+= "'%" + searchTerms.get(searchTerms.size()-1) + "%'";
         return sql;
