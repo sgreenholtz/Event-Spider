@@ -17,9 +17,18 @@ public class LoadDatabase {
 
     /**
      * Constructor loads up the properties file for testing
+     * and gets a database connection to the test database
      */
     public LoadDatabase() {
         this.properties = new Properties();
+        loadPropertiesFile();
+        this.conn = loadConnection();
+    }
+
+    /**
+     * Load properties from the local file
+     */
+    private void loadPropertiesFile() {
         try {
             InputStream input = new FileInputStream("project/src/test.properties");
             properties.load(input);
@@ -28,7 +37,6 @@ public class LoadDatabase {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        this.conn = loadConnection();
     }
 
     /**
@@ -38,8 +46,29 @@ public class LoadDatabase {
      */
     private Connection loadConnection() {
         DatabaseHandler handler = new DatabaseHandler(properties);
-        Connection conn = handler.getConnection();
-        return conn;
+        return handler.getConnection();
+    }
+
+    /**
+     * Creates an array list of 10 prepared statements to insert 10 events into the
+     * test database
+     * @return array list of prepared statements
+     */
+    public ArrayList<PreparedStatement> constructEventInsertStatements()
+        throws SQLException {
+        ArrayList<PreparedStatement> statementList = new ArrayList<>();
+        String sql = properties.getProperty("add.event.sql");
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, "Singing in the Rain");
+        statement.setString(2, "www.singingintherain.com");
+
+        return statementList;
+    }
+
+    private Map<String, String> createTitleUrlMapForStatements() {
+        Map<String, String> eventMap = new HashMap<>();
+
+        return eventMap;
     }
 
 
