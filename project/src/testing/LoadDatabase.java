@@ -99,10 +99,25 @@ public class LoadDatabase {
         return eventMap;
     }
 
+    /**
+     * Deletes all rows in the Events table and prints a message of how many rows were deleted
+     */
+    public void deleteDatabase() {
+        Integer rowCounter = 0;
+        try {
+            PreparedStatement statement = conn.prepareStatement(properties.getProperty("delete.all.sql"));
+            rowCounter += statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(rowCounter + " rows deleted.");
+    }
+
 
     public static void main(String[] args) {
         LoadDatabase loader = new LoadDatabase();
         loader.loadDatabase();
+        loader.deleteDatabase();
     }
 
 
