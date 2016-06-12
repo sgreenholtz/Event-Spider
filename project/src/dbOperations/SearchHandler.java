@@ -47,8 +47,9 @@ public class SearchHandler extends DatabaseHandler {
      */
     public ResultSet performTitleSearch (String searchString) {
         ResultSet results = null;
-        PreparedStatement statement = createSearchStatementForTitle(splitSearchStringIntoTokens(searchString));
         try {
+            PreparedStatement statement =
+                    conn.prepareStatement(createSearchStatementForTitle(splitSearchStringIntoTokens(searchString)));
             results = statement.executeQuery();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -72,22 +73,16 @@ public class SearchHandler extends DatabaseHandler {
     }
 
     /**
-     * Creates a Prepared Statement from the array list of search terms, searching the Title field of the database
+     * Creates a SQL statement from the array list of search terms, searching the Title field of the database
      * @param searchTerms Array List of words to search on
-     * @return a Prepared Statement for performing the search
+     * @return a SQL statement for performing the search
      */
-    public PreparedStatement createSearchStatementForTitle(ArrayList<String> searchTerms) {
-        PreparedStatement statement = null;
+    public String createSearchStatementForTitle(ArrayList<String> searchTerms) {
         String sql = "SELECT * FROM Events WHERE title LIKE ";
         for (int i=0; i<searchTerms.size()-1; i++) {
             sql += "'%" + searchTerms.get(i) + "%' OR title LIKE ";
         }
         sql+= "'%" + searchTerms.get(searchTerms.size()-1) + "%'";
-        try {
-            statement = conn.prepareStatement(sql);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return statement;
+        return sql;
     }
 }

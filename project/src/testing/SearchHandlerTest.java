@@ -6,11 +6,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.sql.*;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -21,32 +18,52 @@ import static org.junit.Assert.*;
 public class SearchHandlerTest {
 
     private static Properties properties;
+    private static Connection conn;
     private static SearchHandler searchHandler;
     private static ArrayList<String> searchStringsPhrase;
-    private static ArrayList<String> searchStringsSingleWord;
+    private static ArrayList<ArrayList<String>> searchStringsSingleWord;
     private Map<String, ArrayList<String>> searchStringMap;
+    private ArrayList<String> sqlArrayList;
 
     @BeforeClass
     public static void setUp() throws SQLException {
         TestDatabaseHandler dbHandler = new TestDatabaseHandler();
         dbHandler.deleteDatabase();
         properties = dbHandler.getProperties();
+        conn = dbHandler.getConnection();
         dbHandler.loadDatabase();
         searchHandler = new SearchHandler(properties);
         searchStringsPhrase = new ArrayList<>();
-        searchStringsSingleWord = new ArrayList<>();
     }
 
-//    @BeforeClass
-//    public static void loadSearchStringsSingleWord() {
-//        searchStringsSingleWord.add("singing");
-//        searchStringsSingleWord.add("1234");
-//        searchStringsSingleWord.add("1234567");
-//        searchStringsSingleWord.add("sing");
-//        searchStringsSingleWord.add("!@#$%^&*");
-//        searchStringsSingleWord.add("w8nt");
-//        searchStringsSingleWord.add(" ");
-//    }
+    @BeforeClass
+    public static void loadSearchStringsSingleWord() {
+        ArrayList<String> term = new ArrayList<>();
+        searchStringsSingleWord = new ArrayList<ArrayList<String>>();
+
+        term.add("singing");
+        searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+
+        term.add("1234");
+        searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+
+        term.add("1234567");
+        searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+
+        term.add("sing");
+        searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+
+        term.add("!@#$%^&*");
+        searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+
+        term.add("w8nt");
+        searchStringsSingleWord.add(term);
+    }
 
     @BeforeClass
     public static void loadSearchStringsPhrase() {
@@ -85,5 +102,25 @@ public class SearchHandlerTest {
 
         assertEquals("For ', .':", searchStringMap.get(", ."), resultArrayList);
     }
+
+    @Before
+    public void createSQLArrayList() {
+        sqlArrayList = new ArrayList<>();
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%singing%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%1234%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%1234567%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%sing%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%!@#$%^&*%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%w8nt%'");
+    }
+
+    @Test
+    public void searchStatementTitleTest() throws SQLException {
+        for (Integer i=0; i<6; i++) {
+            assertEquals(sqlArrayList.get(i), searchHandler.createSearchStatementForTitle(searchStringsSingleWord.get(i)));
+        }
+    }
+
+
 
 }

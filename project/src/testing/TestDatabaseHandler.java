@@ -96,7 +96,6 @@ public class TestDatabaseHandler {
             statement.setString(1, entry.getKey());
             statement.setString(2, entry.getValue());
             statementList.add(statement);
-//            System.out.println(statement);
             statement = conn.prepareStatement(sql);
         }
         return statementList;

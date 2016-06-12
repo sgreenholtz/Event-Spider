@@ -1,6 +1,7 @@
 package testing;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Quick testing in command line
@@ -8,14 +9,38 @@ import java.sql.*;
  */
 public class QuickTest {
 
-    public static void main(String[] args) throws SQLException {
-        TestDatabaseHandler loader = new TestDatabaseHandler();
-        loader.deleteDatabase();
-        loader.loadDatabase();
-        PreparedStatement statement = loader.getConnection().prepareStatement(loader.getProperties().getProperty("select.all.sql"));
-        ResultSet results = statement.executeQuery();
-        while (results.next()) {
-            System.out.println(results.getString("title") + " " + results.getString("url"));
-        }
+    public static void main(String[] args)  {
+            ArrayList<String> term = new ArrayList<>();
+            ArrayList<ArrayList<String>> searchStringsSingleWord = new ArrayList<ArrayList<String>>();
+
+            term.add("singing");
+            searchStringsSingleWord.add(term);
+            term = new ArrayList<>();
+        System.out.println(searchStringsSingleWord);
+
+            term.add("1234");
+            searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+        System.out.println(searchStringsSingleWord);
+
+            term.add("1234567");
+            searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+        System.out.println(searchStringsSingleWord);
+
+            term.add("sing");
+            searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+        System.out.println(searchStringsSingleWord);
+
+            term.add("!@#$%^&*");
+            searchStringsSingleWord.add(term);
+        term = new ArrayList<>();
+        System.out.println(searchStringsSingleWord);
+
+            term.add("w8nt");
+            searchStringsSingleWord.add(term);
+        System.out.println(searchStringsSingleWord);
     }
 }
+
