@@ -10,7 +10,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% session.setAttribute("title", "Search Results"); %>
 <c:import url="header.jsp"/>
-<h3>Found ${fn:length(eventsList)} events matching "${searchTerm}"</h3>
+<h3>Found ${fn:length(eventsMap)} events matching "${searchTerm}"</h3>
 <table class="table table-striped table-hover ">
     <thead>
         <tr>
@@ -19,11 +19,11 @@
             <td>URL</td>
         </tr>
     </thead>
-<c:forEach var="event" items="${eventsList}">
+<c:forEach var="event" items="${eventsMap}">
         <tr>
-            <td><a href="event-details?id=${event.eventId}" class="btn btn-default">View</a></td>
-            <td>${event.title}</td>
-            <td>${event.url}</td>
+            <td><a href="event-details?id=${event.key}" class="btn btn-default">View</a></td>
+            <td>${event.value.title}</td>
+            <td>${event.value.url}</td>
         </tr>
 </c:forEach>
 </table>
