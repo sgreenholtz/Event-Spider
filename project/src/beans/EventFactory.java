@@ -1,7 +1,7 @@
 package beans;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Creates Beans from the results of a database search of the Events table.
@@ -10,13 +10,13 @@ import java.util.ArrayList;
 public class EventFactory {
 
     private ResultSet results;
-    private ArrayList<EventBean> eventList;
+    private Map<String, EventBean> eventMap;
 
     /**
-     * Empty constructor, instantiates array list
+     * Empty constructor, instantiates map
      */
     public EventFactory() {
-        eventList = new ArrayList<>();
+        eventMap = new HashMap<>();
     }
 
     /**
@@ -29,21 +29,22 @@ public class EventFactory {
     }
 
     /**
-     * Returns eventList.
-     * @return eventList
+     * Gets the event Map.
+     * @return eventMap
      */
-    public ArrayList<EventBean> getEventList() {
-        return eventList;
+    public Map<String, EventBean> getEventMap() {
+        return eventMap;
     }
 
     /**
      * Runs through the results set and calls the create bean
-     * method on each row returned, then adds that bean to the list
+     * method on each row returned, then adds that bean to the Map with the
+     * key being the event ID and the value being the bean object
      */
-    public void createBeans() {
+    public void createBeansMap() {
         try {
             while (results.next()) {
-                eventList.add(createBean());
+                eventMap.put(results.getString("event_id"), createBean());
             }
         } catch (SQLException e) {
             e.printStackTrace();

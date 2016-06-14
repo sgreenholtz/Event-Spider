@@ -37,7 +37,7 @@ public class SearchServlet extends HttpServlet {
         SearchHandler searcher = new SearchHandler(properties);
         ResultSet results = searcher.performTitleSearch(searchTerm);
         EventFactory eventFactory = new EventFactory(results);
-        eventFactory.createBeans();
+        eventFactory.createBeansMap();
 
         request.getServletContext().setAttribute("eventsList", eventFactory.getEventList());
         request.getServletContext().setAttribute("searchTerm", searchTerm);

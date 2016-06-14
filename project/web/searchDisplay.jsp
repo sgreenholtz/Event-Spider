@@ -14,15 +14,17 @@
 <table class="table table-striped table-hover ">
     <thead>
         <tr>
+            <td></td>
             <td>Title</td>
             <td>URL</td>
         </tr>
     </thead>
 <c:forEach var="event" items="${eventsList}">
-    <tr>
-        <td>${event.title}</td>
-        <td>${event.url}</td>
-    </tr>
+        <tr>
+            <td><a href="event-details?id=${event.eventId}" class="btn btn-default">View</a></td>
+            <td>${event.title}</td>
+            <td>${event.url}</td>
+        </tr>
 </c:forEach>
 </table>
 <c:import url="footer.jsp"/>

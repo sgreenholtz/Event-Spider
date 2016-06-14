@@ -57,6 +57,11 @@
         <jsp-file>/searchDisplay.jsp</jsp-file>
     </servlet>
 
+    <servlet>
+        <servlet-name>EventDetails</servlet-name>
+        <jsp-file>/eventDetails.jsp</jsp-file>
+    </servlet>
+
 <!-- ********************************************************************* -->
 <!-- Servlet Configurations ********************************************** -->
 <!-- ********************************************************************* -->
@@ -121,7 +126,12 @@
         <url-pattern>/search-result-list</url-pattern>
     </servlet-mapping>
 
-    <!-- ********************************************************************* -->
+    <servlet-mapping>
+        <servlet-name>EventDetails</servlet-name>
+        <url-pattern>/event-details</url-pattern>
+    </servlet-mapping>
+
+<!-- ********************************************************************* -->
 <!-- Home Page *********************************************************** -->
 <!-- ********************************************************************* -->
 
