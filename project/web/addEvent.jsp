@@ -28,7 +28,7 @@
         <div class="form-group">
             <label for="start" class="col-lg-2 control-label">Start Date</label>
             <div class="col-lg-5">
-                <input type="date" class="form-control" id="start" name="start">
+                <input type="date" class="form-control" id="start" name="startDate">
             </div>
             <label for="startTime" class="col-lg-2 control-label">Start Time</label>
             <div class="col-lg-5">
@@ -38,7 +38,7 @@
         <div class="form-group">
             <label for="end" class="col-lg-2 control-label">End Date</label>
             <div class="col-lg-5">
-                <input type="date" class="form-control" id="end" name="end">
+                <input type="date" class="form-control" id="end" name="endDate">
             </div>
             <label for="endTime" class="col-lg-2 control-label">End Time</label>
             <div class="col-lg-5">

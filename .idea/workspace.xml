@@ -7,12 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/beans/EventBean.class" afterPath="$PROJECT_DIR$/out/production/project/beans/EventBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/beans/EventFactory.class" afterPath="$PROJECT_DIR$/out/production/project/beans/EventFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/servlets/AddEventManual.class" afterPath="$PROJECT_DIR$/out/production/project/servlets/AddEventManual.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/beans/EventBean.java" afterPath="$PROJECT_DIR$/project/src/beans/EventBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/beans/EventFactory.java" afterPath="$PROJECT_DIR$/project/src/beans/EventFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/localhost.properties" afterPath="$PROJECT_DIR$/project/src/localhost.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/servlets/AddEventManual.java" afterPath="$PROJECT_DIR$/project/src/servlets/AddEventManual.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/web/addEvent.jsp" afterPath="$PROJECT_DIR$/project/web/addEvent.jsp" />
     </list>
@@ -87,7 +83,7 @@
       <file leaf-file-name="EventFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/src/beans/EventFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="452">
               <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
               <folding />
             </state>
@@ -97,8 +93,8 @@
       <file leaf-file-name="addEvent.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/web/addEvent.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+            <state relative-caret-position="338">
+              <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -107,8 +103,18 @@
       <file leaf-file-name="AddEventManual.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/src/servlets/AddEventManual.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+            <state relative-caret-position="347">
+              <caret line="55" column="88" selection-start-line="55" selection-start-column="88" selection-end-line="55" selection-end-column="88" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="localhost.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/localhost.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -163,7 +169,6 @@
         <option value="$PROJECT_DIR$/project/web/addEvents.jsp" />
         <option value="$PROJECT_DIR$/project/web/header.jsp" />
         <option value="$PROJECT_DIR$/project/src/dbOperations/UserHandler.java" />
-        <option value="$PROJECT_DIR$/project/src/localhost.properties" />
         <option value="$PROJECT_DIR$/project/src/dbOperations/AddEvent.java" />
         <option value="$PROJECT_DIR$/project/src/beans/SearchResultBean.java" />
         <option value="$PROJECT_DIR$/project/web/search.jsp" />
@@ -187,6 +192,7 @@
         <option value="$PROJECT_DIR$/project/web/eventDetails.jsp" />
         <option value="$PROJECT_DIR$/project/src/beans/EventBean.java" />
         <option value="$PROJECT_DIR$/project/src/beans/EventFactory.java" />
+        <option value="$PROJECT_DIR$/project/src/localhost.properties" />
         <option value="$PROJECT_DIR$/project/web/addEvent.jsp" />
         <option value="$PROJECT_DIR$/project/src/servlets/AddEventManual.java" />
       </list>
@@ -1099,7 +1105,7 @@
       <workItem from="1465739967826" duration="4915000" />
       <workItem from="1465749466483" duration="6725000" />
       <workItem from="1465859312969" duration="3707000" />
-      <workItem from="1466030694322" duration="2051000" />
+      <workItem from="1466030694322" duration="2821000" />
     </task>
     <servers />
   </component>
@@ -1136,7 +1142,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71655000" />
+    <option name="totallyTimeSpent" value="72425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
@@ -1152,8 +1158,8 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31717452" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31666666" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1383,13 +1389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/localhost.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testing/src/junitTests/searchTest.java" />
     <entry file="file://$PROJECT_DIR$/project/src/servlets/ApplicationStartup.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1410,6 +1409,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1504,6 +1504,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/localhost.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/beans/EventBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1538,7 +1546,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/beans/EventFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="452">
           <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
           <folding />
         </state>
@@ -1546,16 +1554,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/web/addEvent.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+        <state relative-caret-position="338">
+          <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/servlets/AddEventManual.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+        <state relative-caret-position="347">
+          <caret line="55" column="88" selection-start-line="55" selection-start-column="88" selection-end-line="55" selection-end-column="88" />
           <folding />
         </state>
       </provider>

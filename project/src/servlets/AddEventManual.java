@@ -40,6 +40,12 @@ public class AddEventManual extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    private void dateTimeFormHandler(HttpServletRequest request) {
+        Map<String, String[]> formMap = request.getParameterMap();
+        String startDateTime = formatDateTime(formMap.get("startDate")[0], formMap.get("startTime")[0]);
+        String stopDateTime = formatDateTime(formMap.get("stopDate")[0], formMap.get("stopTime")[0]);
+    }
+
     /**
      * Creates an array list of the form values submitted from the http request
      * @param request HttpServletRequest
