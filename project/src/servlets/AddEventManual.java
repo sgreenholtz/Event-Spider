@@ -54,4 +54,17 @@ public class AddEventManual extends HttpServlet {
         }
         return formList;
     }
+
+    /**
+     * Creates a single string representing the datetime value in format for MySql:
+     * YYYY-MM-DD HH:MM:SS
+     * @param date String of the date from form
+     * @param time String of the time from form
+     * @return String of datetime
+     */
+    private String formatDateTime(String date, String time) {
+        String dateTime = "";
+
+        return dateTime;
+    }
 }

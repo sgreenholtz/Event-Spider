@@ -26,6 +26,26 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="start" class="col-lg-2 control-label">Start Date</label>
+            <div class="col-lg-5">
+                <input type="date" class="form-control" id="start" name="start">
+            </div>
+            <label for="startTime" class="col-lg-2 control-label">Start Time</label>
+            <div class="col-lg-5">
+                <input type="time" class="form-control" id="startTime" name="startTime">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="end" class="col-lg-2 control-label">End Date</label>
+            <div class="col-lg-5">
+                <input type="date" class="form-control" id="end" name="end">
+            </div>
+            <label for="endTime" class="col-lg-2 control-label">End Time</label>
+            <div class="col-lg-5">
+                <input type="time" class="form-control" id="endtime" name="endTime">
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button type="reset" class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-primary">Submit</button>

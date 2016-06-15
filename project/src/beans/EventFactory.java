@@ -60,6 +60,13 @@ public class EventFactory {
         event.setEventId(results.getInt("event_id"));
         event.setTitle(results.getString("title"));
         event.setUrl(results.getString("url"));
+        event.setDescription(results.getString("description"));
+        event.setStartTime(results.getString("start_time"));
+        event.setStopTime(results.getString("stop_time"));
+        event.setVenueAddress(results.getString("venue_address"));
+        event.setCity(results.getString("city"));
+        event.setState(results.getString("state"));
+        event.setPostalCode(results.getString("postal_code"));
         return event;
     }
 
