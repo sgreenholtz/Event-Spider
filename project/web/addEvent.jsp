@@ -26,6 +26,12 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="url" class="col-lg-2 control-label">Description</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" id="description" name="description"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
             <label for="start" class="col-lg-2 control-label">Start Date</label>
             <div class="col-lg-5">
                 <input type="date" class="form-control" id="start" name="startDate">
@@ -43,6 +49,30 @@
             <label for="endTime" class="col-lg-2 control-label">End Time</label>
             <div class="col-lg-5">
                 <input type="time" class="form-control" id="endtime" name="endTime">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="col-lg-2 control-label">Venue Address</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city" class="col-lg-2 control-label">City</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="city" placeholder="City" name="city">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="state" class="col-lg-2 control-label">State or Province</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="state" placeholder="Abbreviation works fine" name="state">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="zipcode" class="col-lg-2 control-label">Zip or Postal Code</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="zipcode" placeholder="Zip or Postal Code" name="zipcode">
             </div>
         </div>
         <div class="form-group">
