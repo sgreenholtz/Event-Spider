@@ -72,8 +72,8 @@ public class AddEventManual extends HttpServlet {
         formList.add(requestMap.get("title")[0]);
         formList.add(requestMap.get("url")[0]);
         formList.add(requestMap.get("description")[0]);
-        formList.add(requestMap.get("startTime")[0]);
-        formList.add(requestMap.get("endTime")[0]);
+        formList.add(requestMap.get("startDateTime")[0]);
+        formList.add(requestMap.get("endDateTime")[0]);
         formList.add(requestMap.get("address")[0]);
         formList.add(requestMap.get("city")[0]);
         formList.add(requestMap.get("state")[0]);

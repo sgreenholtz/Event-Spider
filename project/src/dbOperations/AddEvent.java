@@ -38,7 +38,7 @@ public class AddEvent extends DatabaseHandler {
             for (int i=1; i<= formList.size(); i++) {
                 statement.setString(i, formList.get(i-1));
             }
-            System.out.println(statement);
+//            System.out.println(statement);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

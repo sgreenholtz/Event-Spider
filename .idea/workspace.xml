@@ -7,12 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/testing/AddEventTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/dbOperations/AddEvent.class" afterPath="$PROJECT_DIR$/out/production/project/dbOperations/AddEvent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/servlets/AddEventManual.class" afterPath="$PROJECT_DIR$/out/production/project/servlets/AddEventManual.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/testing/SearchHandlerTest.class" afterPath="$PROJECT_DIR$/out/production/project/testing/SearchHandlerTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/dbOperations/DatabaseTester.java" afterPath="$PROJECT_DIR$/project/src/dbOperations/DatabaseTester.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/localhost.properties" afterPath="$PROJECT_DIR$/out/production/project/localhost.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/dbOperations/AddEvent.java" afterPath="$PROJECT_DIR$/project/src/dbOperations/AddEvent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/localhost.properties" afterPath="$PROJECT_DIR$/project/src/localhost.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/servlets/AddEventManual.java" afterPath="$PROJECT_DIR$/project/src/servlets/AddEventManual.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/web/addEvent.jsp" afterPath="$PROJECT_DIR$/project/web/addEvent.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/web/eventDetails.jsp" afterPath="$PROJECT_DIR$/project/web/eventDetails.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/testing/SearchHandlerTest.java" afterPath="$PROJECT_DIR$/project/src/testing/SearchHandlerTest.java" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,7 +55,7 @@
       <file leaf-file-name="addEvent.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/web/addEvent.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-499">
+            <state relative-caret-position="450">
               <caret line="30" column="83" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
               <folding />
             </state>
@@ -61,8 +65,8 @@
       <file leaf-file-name="AddEventManual.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/src/servlets/AddEventManual.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="980">
-              <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
+            <state relative-caret-position="300">
+              <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -71,8 +75,18 @@
       <file leaf-file-name="AddEvent.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/src/dbOperations/AddEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+            <state relative-caret-position="286">
+              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddEventTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/testing/AddEventTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-195">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -85,9 +99,9 @@
       <list>
         <option value="jsf" />
         <option value="Servlet" />
-        <option value="Class" />
-        <option value="JUnit4 Test Class" />
         <option value="Jsp File" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,8 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/web/footer.jsp" />
-        <option value="$PROJECT_DIR$/project/web/index.jsp" />
         <option value="$PROJECT_DIR$/project/src/WebCrawler.java" />
         <option value="$PROJECT_DIR$/project/src/Crawler.java" />
         <option value="$PROJECT_DIR$/project/src/Crawler/Crawler.java" />
@@ -141,7 +153,6 @@
         <option value="$PROJECT_DIR$/project/src/testing/TestDatabaseHandler.java" />
         <option value="$PROJECT_DIR$/project/src/testing/QuickTest.java" />
         <option value="$PROJECT_DIR$/project/src/dbOperations/SearchHandler.java" />
-        <option value="$PROJECT_DIR$/project/src/testing/SearchHandlerTest.java" />
         <option value="$PROJECT_DIR$/project/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/project/src/servlets/SearchServlet.java" />
         <option value="$PROJECT_DIR$/project/web/searchDisplay.jsp" />
@@ -150,9 +161,12 @@
         <option value="$PROJECT_DIR$/project/web/eventDetails.jsp" />
         <option value="$PROJECT_DIR$/project/src/dbOperations/DatabaseTester.java" />
         <option value="$PROJECT_DIR$/project/web/addEvent.jsp" />
-        <option value="$PROJECT_DIR$/project/src/dbOperations/AddEvent.java" />
-        <option value="$PROJECT_DIR$/project/src/localhost.properties" />
+        <option value="$PROJECT_DIR$/project/src/testing/SearchHandlerTest.java" />
+        <option value="$PROJECT_DIR$/project/src/testing/AddEventTest.java" />
+        <option value="$PROJECT_DIR$/project/src/testing/SetUpDatabase.java" />
         <option value="$PROJECT_DIR$/project/src/servlets/AddEventManual.java" />
+        <option value="$PROJECT_DIR$/project/src/localhost.properties" />
+        <option value="$PROJECT_DIR$/project/src/dbOperations/AddEvent.java" />
       </list>
     </option>
   </component>
@@ -181,7 +195,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1218" />
+    <option name="width" value="1402" />
     <option name="height" value="812" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -249,6 +263,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -357,6 +372,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="testing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Event-Spider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Event-Spider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="servlets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -407,9 +444,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1011,12 +1047,12 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Application.TestDatabaseHandler" />
-      <item index="1" class="java.lang.String" itemvalue="Application.QuickTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.TestDatabaseHandlerTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.SearchHandlerTest" />
-      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.EventSpiderLocal" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Unnamed" />
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.EventSpiderLocal" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Unnamed" />
+      <item index="2" class="java.lang.String" itemvalue="Application.TestDatabaseHandler" />
+      <item index="3" class="java.lang.String" itemvalue="Application.QuickTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.TestDatabaseHandlerTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.SearchHandlerTest" />
     </list>
     <recent_temporary>
       <list size="4">
@@ -1063,7 +1099,8 @@
       <workItem from="1465749466483" duration="6725000" />
       <workItem from="1465859312969" duration="3707000" />
       <workItem from="1466030694322" duration="2858000" />
-      <workItem from="1466292797858" duration="4214000" />
+      <workItem from="1466292797858" duration="4259000" />
+      <workItem from="1466342726911" duration="2200000" />
     </task>
     <servers />
   </component>
@@ -1100,10 +1137,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76676000" />
+    <option name="totallyTimeSpent" value="78921000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1218" height="812" extended-state="0" />
+    <frame x="0" y="23" width="1402" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1117,10 +1154,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31666666" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31578946" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2967687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25661764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1188,20 +1225,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project/src/crawler/Crawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/crawler/Leg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1387,13 +1410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/testing/SearchHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-865">
-          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/testing/TestDatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -1427,7 +1443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1435,9 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="84" column="34" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
-          <folding>
-            <element signature="e#1693#1694#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1469,22 +1481,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/web/addEvent.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-499">
+        <state relative-caret-position="450">
           <caret line="30" column="83" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/testing/SetUpDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/testing/SearchHandlerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="34" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/testing/AddEventTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/servlets/AddEventManual.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="980">
-          <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
+        <state relative-caret-position="300">
+          <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1492,15 +1527,15 @@
     <entry file="file://$PROJECT_DIR$/project/src/localhost.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/dbOperations/AddEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="286">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
           <folding />
         </state>
       </provider>

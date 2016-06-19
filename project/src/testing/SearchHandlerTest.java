@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
 public class SearchHandlerTest {
 
     private static Properties properties;
-    private static Connection conn;
     private static SearchHandler searchHandler;
     private static ArrayList<String> searchStringsPhrase;
     private static ArrayList<ArrayList<String>> searchStringsSingleWord;
@@ -31,7 +30,6 @@ public class SearchHandlerTest {
         TestDatabaseHandler dbHandler = new TestDatabaseHandler();
         dbHandler.deleteDatabase();
         properties = dbHandler.getProperties();
-        conn = dbHandler.getConnection();
         dbHandler.loadDatabase();
         searchHandler = new SearchHandler(properties);
         searchStringsPhrase = new ArrayList<>();
