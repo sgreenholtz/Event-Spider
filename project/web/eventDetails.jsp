@@ -8,7 +8,7 @@
 <%@ page import="beans.EventBean" %>
 <%@ page import="java.util.HashMap" %>
 <% session.setAttribute("title", "Event Details"); %>
-<% EventBean event = (HashMap) session.getAttribute("eventsMap").get(request.getParameter("id")); %>
+
 <c:import url="header.jsp"/>
 <h1>${event.title}</h1>
 <h1>${param.id}</h1>

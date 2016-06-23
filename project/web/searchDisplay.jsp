@@ -21,7 +21,7 @@
     </thead>
 <c:forEach var="event" items="${eventsMap}">
         <tr>
-            <td><a href="event-details?id=${event.key}" class="btn btn-default">View</a></td>
+            <td><a href="eventDetails?id=${event.key}" class="btn btn-default">View</a></td>
             <td>${event.value.title}</td>
             <td>${event.value.url}</td>
         </tr>

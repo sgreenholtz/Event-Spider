@@ -81,6 +81,11 @@
         <servlet-class>servlets.AddEventManual</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>EventDetails</servlet-name>
+        <servlet-class>servlets.EventDetailsController</servlet-class>
+    </servlet>
+
 
     <!-- ********************************************************************* -->
 <!-- Servlet Mappings **************************************************** -->
@@ -131,7 +136,12 @@
         <url-pattern>/event-details</url-pattern>
     </servlet-mapping>
 
-<!-- ********************************************************************* -->
+    <servlet-mapping>
+        <servlet-name>EventDetails</servlet-name>
+        <url-pattern>/eventDetails</url-pattern>
+    </servlet-mapping>
+
+    <!-- ********************************************************************* -->
 <!-- Home Page *********************************************************** -->
 <!-- ********************************************************************* -->
 
