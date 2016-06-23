@@ -25,9 +25,9 @@ public class EventDetailsController extends HttpServlet {
         EventBean eventBean = eventsMap.get(request.getParameter("id"));
         request.setAttribute("event", eventBean);
 
-        String url = "/event-details";
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+//        String url = "/event-details";
+//
+//        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+//        dispatcher.forward(request, response);
     }
 }

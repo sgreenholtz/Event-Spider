@@ -7,11 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/servlets/EventDetailsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/project/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/web/eventDetails.jsp" afterPath="$PROJECT_DIR$/project/web/eventDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/web/searchDisplay.jsp" afterPath="$PROJECT_DIR$/project/web/searchDisplay.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/servlets/EventDetailsController.java" afterPath="$PROJECT_DIR$/project/src/servlets/EventDetailsController.java" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,24 +74,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/servlets/SearchServlet.java">
+      <file leaf-file-name="EventDetailsController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/src/servlets/EventDetailsController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
-              <folding />
+              <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventDetailsController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/src/servlets/EventDetailsController.java">
+      <file leaf-file-name="SearchServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/servlets/SearchServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="23" column="99" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="99" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="95">
+              <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1108,7 +1105,7 @@
       <workItem from="1466030694322" duration="2858000" />
       <workItem from="1466292797858" duration="4259000" />
       <workItem from="1466342726911" duration="2838000" />
-      <workItem from="1466643240261" duration="2106000" />
+      <workItem from="1466643240261" duration="2960000" />
     </task>
     <servers />
   </component>
@@ -1145,7 +1142,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81665000" />
+    <option name="totallyTimeSpent" value="82519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1402" height="812" extended-state="0" />
@@ -1528,16 +1525,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/servlets/SearchServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+        <state relative-caret-position="95">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/servlets/EventDetailsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="99" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="99" />
+        <state relative-caret-position="260">
+          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
