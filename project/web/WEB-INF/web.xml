@@ -82,7 +82,7 @@
     </servlet>
 
     <servlet>
-        <servlet-name>EventDetails</servlet-name>
+        <servlet-name>EventDetailsServlet</servlet-name>
         <servlet-class>servlets.EventDetailsController</servlet-class>
     </servlet>
 
@@ -137,7 +137,7 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>EventDetails</servlet-name>
+        <servlet-name>EventDetailsServlet</servlet-name>
         <url-pattern>/eventDetails</url-pattern>
     </servlet-mapping>
 
