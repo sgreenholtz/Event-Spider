@@ -1,7 +1,7 @@
 package testing;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.text.*;
+import java.util.*;
 
 /**
  * Quick testing in command line
@@ -9,38 +9,14 @@ import java.util.ArrayList;
  */
 public class QuickTest {
 
-    public static void main(String[] args)  {
-            ArrayList<String> term = new ArrayList<>();
-            ArrayList<ArrayList<String>> searchStringsSingleWord = new ArrayList<ArrayList<String>>();
+    public static void main(String[] args) throws ParseException {
+        String date = "2016-06-25 08:00:00.0";
+        SimpleDateFormat dateTimeFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
+        Date dateObjectRepresentation = dateTimeFormatter.parse(date);
+        dateTimeFormatter = new SimpleDateFormat("EEE, MMM d h:mm a");
+        String newDate = dateTimeFormatter.format(dateObjectRepresentation);
+        System.out.println(newDate);
 
-            term.add("singing");
-            searchStringsSingleWord.add(term);
-            term = new ArrayList<>();
-        System.out.println(searchStringsSingleWord);
-
-            term.add("1234");
-            searchStringsSingleWord.add(term);
-        term = new ArrayList<>();
-        System.out.println(searchStringsSingleWord);
-
-            term.add("1234567");
-            searchStringsSingleWord.add(term);
-        term = new ArrayList<>();
-        System.out.println(searchStringsSingleWord);
-
-            term.add("sing");
-            searchStringsSingleWord.add(term);
-        term = new ArrayList<>();
-        System.out.println(searchStringsSingleWord);
-
-            term.add("!@#$%^&*");
-            searchStringsSingleWord.add(term);
-        term = new ArrayList<>();
-        System.out.println(searchStringsSingleWord);
-
-            term.add("w8nt");
-            searchStringsSingleWord.add(term);
-        System.out.println(searchStringsSingleWord);
     }
 }
 
