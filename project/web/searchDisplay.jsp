@@ -16,14 +16,18 @@
         <tr>
             <td></td>
             <td>Title</td>
-            <td>URL</td>
+            <td>Date</td>
+            <td>Description</td>
+            <td>Location</td>
         </tr>
     </thead>
 <c:forEach var="event" items="${eventsMap}">
         <tr>
             <td><a href="eventDetails?id=${event.key}" class="btn btn-default">View</a></td>
             <td>${event.value.title}</td>
-            <td>${event.value.url}</td>
+            <td>${event.value.startTime}</td>
+            <td>${event.value.description}</td>
+            <td>${event.value.venueAddress}, ${event.value.city} ${event.value.state}</td>
         </tr>
 </c:forEach>
 </table>
