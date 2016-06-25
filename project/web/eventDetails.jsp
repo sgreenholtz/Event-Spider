@@ -11,5 +11,9 @@
 
 <c:import url="header.jsp"/>
 <h1>${event.title}</h1>
-
+<p>${event.description}</p>
+<h2>When</h2>
+<p>${event.startTime} to ${event.stopTime}</p>
+<h2>Where</h2>
+<p>${event.venueAddress}, ${event.state} ${event.city} ${event.postalCode}</p>
 <c:import url="footer.jsp"/>
