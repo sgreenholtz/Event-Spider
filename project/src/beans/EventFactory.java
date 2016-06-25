@@ -2,6 +2,8 @@ package beans;
 
 import java.sql.*;
 import java.util.*;
+import java.text.*;
+import java.util.Date;
 
 /**
  * Creates Beans from the results of a database search of the Events table.
@@ -61,13 +63,32 @@ public class EventFactory {
         event.setTitle(results.getString("title"));
         event.setUrl(results.getString("url"));
         event.setDescription(results.getString("description"));
-        event.setStartTime(results.getString("start_time"));
-        event.setStopTime(results.getString("stop_time"));
+        event.setStartTime(formatDateTime(results.getString("start_time")));
+        event.setStopTime(formatDateTime(results.getString("stop_time")));
         event.setVenueAddress(results.getString("venue_address"));
         event.setCity(results.getString("city"));
         event.setState(results.getString("state"));
         event.setPostalCode(results.getString("postal_code"));
         return event;
+    }
+
+    /**
+     * Formats the date/time field from the yyyy-MM-dd hh:mm:ss.S format of teh
+     * mySQL database to a more human readable EEE MMM d h:mm a format
+     * @param mysqlFormattedDateTime String representing the date and time in MySql format
+     * @return String representing the date and time in a human readable format
+     */
+    private String formatDateTime(String mysqlFormattedDateTime) {
+        String formattedDateTime = "";
+        try {
+            SimpleDateFormat inputFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
+            Date dateObjectRepresentation = inputFormatter.parse(mysqlFormattedDateTime);
+            SimpleDateFormat outputFormatter = new SimpleDateFormat("EEEE, MMM d h:mm a");
+            formattedDateTime = outputFormatter.format(dateObjectRepresentation);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return formattedDateTime;
     }
 
 
