@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="Lucene:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Lucene_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Lucene/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="web.war">
+        <element id="artifact" artifact-name="Lucene:war exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="library" level="project" name="javax.batch-api-1.0" />
+      </element>
+    </root>
+  </artifact>
+</component>
