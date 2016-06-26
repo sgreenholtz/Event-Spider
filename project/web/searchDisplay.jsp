@@ -17,7 +17,6 @@
             <td></td>
             <td>Title</td>
             <td>Date</td>
-            <td>Description</td>
             <td>Location</td>
         </tr>
     </thead>
@@ -26,7 +25,6 @@
             <td><a href="eventDetails?id=${event.key}" class="btn btn-default">View</a></td>
             <td>${event.value.title}</td>
             <td>${event.value.startTime}</td>
-            <td>${event.value.description}</td>
             <td>${event.value.venueAddress}, ${event.value.city} ${event.value.state}</td>
         </tr>
 </c:forEach>

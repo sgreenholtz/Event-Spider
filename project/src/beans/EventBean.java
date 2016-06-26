@@ -193,12 +193,20 @@ public class EventBean {
         this.description = description;
     }
 
+    /**
+     * Returns the first X characters of the description
+     * @return Substring of the description variable for display
+     */
+    public String getShortDescription() {
+        return description.substring(0,150);
+    }
+
     @Override
     public String toString() {
         return "EventBean{" +
                 "eventId=" + eventId +
                 ", title='" + title + '\'' +
-                ", url='" + url + '\'' +
+                ", description='" + description.substring(0, 99) + '\'' +
                 '}';
     }
 }
