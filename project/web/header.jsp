@@ -6,6 +6,10 @@
   Time: 3:06 PM
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +17,9 @@
 <meta name="author" content="">
 
 <!-- Icon Stuff -->
-<link rel="shortcut icon" href="images/icons/calendar.ico">
-<link rel="icon" size="16x16" href="images/icons/calendar.ico">
-<link rel="icon" size="16x16" href="images/icons/calendar.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/icons/calendar.ico">
+<link rel="icon" sizes="16x16" href="${pageContext.request.contextPath}/images/icons/calendar.ico">
+<link rel="icon" sizes="16x16" href="${pageContext.request.contextPath}/images/icons/calendar.png">
 
 <title>Event Spider - ${title}</title>
 
@@ -23,12 +27,7 @@
 <link href="https://bootswatch.com/sandstone/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<style>
-    body {
-        padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/custom.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

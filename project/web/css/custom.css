@@ -1,0 +1,9 @@
+body {
+    margin: 70px;
+}
+
+.tableOverflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
