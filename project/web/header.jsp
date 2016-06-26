@@ -17,9 +17,9 @@
 <meta name="author" content="">
 
 <!-- Icon Stuff -->
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/icons/calendar.ico">
-<link rel="icon" sizes="16x16" href="${pageContext.request.contextPath}/images/icons/calendar.ico">
-<link rel="icon" sizes="16x16" href="${pageContext.request.contextPath}/images/icons/calendar.png">
+<link rel="shortcut icon" src="${pageContext.request.contextPath}/images/icons/calendar.ico">
+<link rel="icon" sizes="16x16" src="${pageContext.request.contextPath}/images/icons/calendar.ico">
+<link rel="icon" sizes="16x16" src="${pageContext.request.contextPath}/images/icons/calendar.png">
 
 <title>Event Spider - ${title}</title>
 
@@ -27,7 +27,7 @@
 <link href="https://bootswatch.com/sandstone/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/custom.css">
+<link rel="stylesheet" type="text/css" src="${pageContext.request.contextPath}/css/custom.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
