@@ -8,6 +8,8 @@
       </element>
       <element id="directory" name="lib">
         <element id="library" level="project" name="javax.batch-api-1.0" />
+        <element id="file-copy" path="$PROJECT_DIR$/Lucene/lib/lucene-core-6.0.1.jar" />
+        <element id="library" level="project" name="lucene-analyzers-common-6.0.1" />
       </element>
     </root>
   </artifact>
