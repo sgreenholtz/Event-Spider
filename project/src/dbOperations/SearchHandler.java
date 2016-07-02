@@ -8,7 +8,7 @@ import java.util.*;
  * @author Sebastian Greenholtz
  */
 
-public class SearchHandler extends DatabaseHandler {
+public class SearchHandler {
 
     private Connection conn;
 
@@ -24,8 +24,9 @@ public class SearchHandler extends DatabaseHandler {
      * @param properties Application properties
      */
     public SearchHandler(Properties properties) {
-        super(properties);
-        conn = getConnection();
+        DatabaseHandler db = new DatabaseHandler(properties);
+//        this.properties = properties;
+        conn = db.getConnection();
     }
 
     /**
@@ -36,8 +37,8 @@ public class SearchHandler extends DatabaseHandler {
      * @param url Database url
      */
     public SearchHandler(String username, String password, String url) {
-        super(username, password, url);
-        conn = getConnection();
+        DatabaseHandler db = new DatabaseHandler(username, password, url);
+        conn = db.getConnection();
     }
 
     /**
