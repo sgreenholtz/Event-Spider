@@ -1,4 +1,4 @@
-package Practice;
+package Lucene;
 
 /**
  * Constants to be used across the application. Taken from Tutorialpoint

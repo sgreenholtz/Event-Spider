@@ -1,4 +1,4 @@
-package Practice;
+package Lucene;
 
 import java.io.*;
 
