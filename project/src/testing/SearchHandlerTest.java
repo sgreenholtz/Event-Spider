@@ -21,22 +21,30 @@ public class SearchHandlerTest {
     private static SearchHandler searchHandler;
     private static ArrayList<String> searchStringsPhrase;
     private static ArrayList<ArrayList<String>> searchStringsSingleWord;
-    private Map<String, ArrayList<String>> searchStringMap;
-    private ArrayList<String> sqlArrayList;
-    private ArrayList<ArrayList<String>> searchResults;
+    private static Map<String, ArrayList<String>> searchStringMap;
+    private static ArrayList<String> sqlArrayList;
+    private static ArrayList<ArrayList<String>> searchResults;
 
     @BeforeClass
     public static void setUp() throws SQLException {
+        databaseSetUp();
+        searchHandler = new SearchHandler(properties);
+        loadSearchStringsSingleWord();
+        loadSearchStringsPhrase();
+        splitSearchStringIntoTokensMap();
+        createSQLArrayList();
+        getSearchResultSetForTest();
+    }
+
+    private static void databaseSetUp() throws SQLException {
         TestDatabaseHandler dbHandler = new TestDatabaseHandler();
         dbHandler.deleteDatabase();
         properties = dbHandler.getProperties();
         dbHandler.loadDatabase();
-        searchHandler = new SearchHandler(properties);
-        searchStringsPhrase = new ArrayList<>();
     }
 
-    @BeforeClass
-    public static void loadSearchStringsSingleWord() {
+
+    private static void loadSearchStringsSingleWord() {
         ArrayList<String> term = new ArrayList<>();
         searchStringsSingleWord = new ArrayList<ArrayList<String>>();
 
@@ -64,19 +72,43 @@ public class SearchHandlerTest {
         searchStringsSingleWord.add(term);
     }
 
-    @BeforeClass
-    public static void loadSearchStringsPhrase() {
+    private static void loadSearchStringsPhrase() {
+        searchStringsPhrase = new ArrayList<>();
         searchStringsPhrase.add("singing in");
         searchStringsPhrase.add("karaoke, singing");
         searchStringsPhrase.add("1234, G0");
         searchStringsPhrase.add(", .");
     }
 
-    @Before
-    public void splitSearchStringIntoTokensMap() {
+    private static void splitSearchStringIntoTokensMap() {
         searchStringMap = new HashMap<>();
         for (String searchPhrase : searchStringsPhrase) {
             searchStringMap.put(searchPhrase, searchHandler.splitSearchStringIntoTokens(searchPhrase));
+        }
+    }
+
+    private static void createSQLArrayList() {
+        sqlArrayList = new ArrayList<>();
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%singing%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%1234%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%1234567%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%sing%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%!@#$%^&*%'");
+        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%w8nt%'");
+    }
+
+    private static void getSearchResultSetForTest() throws SQLException {
+        searchResults = new ArrayList<>();
+        ArrayList<String> titles = new ArrayList<>();
+        for (String searchString : searchStringsPhrase) {
+            ResultSet results = searchHandler.performTitleSearch(searchString);
+            if (results != null) {
+                while (results.next()) {
+                    titles.add(results.getString("title"));
+                }
+            }
+            searchResults.add(titles);
+            titles = new ArrayList<>();
         }
     }
 
@@ -102,37 +134,10 @@ public class SearchHandlerTest {
         assertEquals("For ', .':", searchStringMap.get(", ."), resultArrayList);
     }
 
-    @Before
-    public void createSQLArrayList() {
-        sqlArrayList = new ArrayList<>();
-        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%singing%'");
-        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%1234%'");
-        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%1234567%'");
-        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%sing%'");
-        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%!@#$%^&*%'");
-        sqlArrayList.add("SELECT * FROM Events WHERE title LIKE '%w8nt%'");
-    }
-
     @Test
     public void searchStatementTitleTest() throws SQLException {
         for (Integer i=0; i<6; i++) {
             assertEquals(sqlArrayList.get(i), searchHandler.createSearchStatementForTitle(searchStringsSingleWord.get(i)));
-        }
-    }
-
-    @Before
-    public void getSearchResultSetForTest() throws SQLException {
-        searchResults = new ArrayList<>();
-        ArrayList<String> titles = new ArrayList<>();
-        for (String searchString : searchStringsPhrase) {
-            ResultSet results = searchHandler.performTitleSearch(searchString);
-            if (results != null) {
-                while (results.next()) {
-                    titles.add(results.getString("title"));
-                }
-            }
-            searchResults.add(titles);
-            titles = new ArrayList<>();
         }
     }
 
