@@ -7,7 +7,7 @@ import java.sql.*;
  * Handles adding new events into the database
  * @author Sebastian Greenholtz
  */
-public class AddEvent extends DatabaseHandler {
+public class AddEvent {
 
     private Connection conn;
     private Properties properties;
@@ -22,9 +22,9 @@ public class AddEvent extends DatabaseHandler {
      * @param properties Application properties
      */
     public AddEvent(Properties properties) {
-        super(properties);
+        DatabaseHandler db = new DatabaseHandler(properties);
         this.properties = properties;
-        conn = getConnection();
+        conn = db.getConnection();
     }
 
     /**

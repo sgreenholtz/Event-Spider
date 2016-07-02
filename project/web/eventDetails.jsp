@@ -7,9 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.text.SimpleDateFormat" %>
 <% session.setAttribute("title", "Event Details"); %>
-<% SimpleDateFormat dateTimeFormatter = new SimpleDateFormat(); %>
 <c:import url="header.jsp"/>
 <h1>${event.title}</h1>
 <p>${event.description}</p>

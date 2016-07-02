@@ -8,9 +8,10 @@ import java.util.Properties;
  * @author Sebastian Greenholtz
  */
 
-public class UserHandler extends DatabaseHandler {
+public class UserHandler {
 
     private Connection conn;
+    private Properties properties;
 
     /**
      * Empty constructor.
@@ -24,8 +25,9 @@ public class UserHandler extends DatabaseHandler {
      * @param properties Application properties
      */
     public UserHandler(Properties properties) {
-        super(properties);
-        conn = getConnection();
+        DatabaseHandler db = new DatabaseHandler(properties);
+        this.properties = properties;
+        conn = db.getConnection();
     }
 
     /**
@@ -38,10 +40,7 @@ public class UserHandler extends DatabaseHandler {
     public Integer logIn(String email, String password) {
         Integer userID = -1;
         try {
-            String sql = "SELECT user_id "
-                    + "FROM Users "
-                    + "WHERE email = ? "
-                    + "AND pass = SHA1(?)";
+            String sql = properties.getProperty("log.in.sql");
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, email);
             statement.setString(2, password);
@@ -74,9 +73,7 @@ public class UserHandler extends DatabaseHandler {
                             String firstName, String lastName) {
         Integer userID = -1;
         try {
-            String sql = "INSERT INTO Users "
-                    + "(email, pass, first_name, last_name) "
-                    + "VALUES (?, SHA1(?), ?, ?)";
+            String sql = properties.getProperty("register.sql");
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, email);
