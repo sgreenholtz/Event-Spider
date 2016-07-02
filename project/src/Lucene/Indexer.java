@@ -2,8 +2,8 @@ package Lucene;
 
 import java.io.*;
 import java.nio.file.Paths;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.*;
 
 import org.apache.lucene.analysis.en.*;
 import org.apache.lucene.document.*;
@@ -70,21 +70,16 @@ public class Indexer {
         }
     }
 
-    public int createIndex(String dataDirPath, FileFilter filter)
-            throws IOException{
-        //get all files in the data directory
-        File[] files = new File(dataDirPath).listFiles();
-
-        for (File file : files) {
-            if(!file.isDirectory()
-                    && !file.isHidden()
-                    && file.exists()
-                    && file.canRead()
-                    && filter.accept(file)
-                    ) {
-//                indexResultSet();
-            }
-        }
+    /**
+     * Gets the ResultSet to index and indexes it, then gets the number of items in the index
+     * @param properties Application properties, for IndexingDatabaseHandler
+     * @return Number of items in the index
+     * @throws IOException
+     * @throws SQLException
+     */
+    public int createIndex(Properties properties) throws IOException, SQLException {
+        IndexingDatabaseHandler databaseHandler = new IndexingDatabaseHandler(properties);
+        indexResultSet(databaseHandler.getResults());
         return writer.numDocs();
     }
 }

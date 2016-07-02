@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Event-Spider.iml" filepath="$PROJECT_DIR$/Event-Spider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lucene/Lucene.iml" filepath="$PROJECT_DIR$/Lucene/Lucene.iml" />
       <module fileurl="file://$PROJECT_DIR$/project/project.iml" filepath="$PROJECT_DIR$/project/project.iml" />
     </modules>
   </component>
