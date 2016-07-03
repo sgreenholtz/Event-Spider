@@ -60,7 +60,7 @@ public class Searcher {
      * @throws CorruptIndexException
      * @throws IOException
      */
-    public Document getDocument(ScoreDoc scoreDoc) throws CorruptIndexException, IOException {
+    public Document getDocument(ScoreDoc scoreDoc) throws IOException {
         return indexSearcher.doc(scoreDoc.doc);
     }
 }
