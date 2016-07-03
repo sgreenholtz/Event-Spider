@@ -40,11 +40,9 @@
       <file leaf-file-name="Searcher.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="20" column="79" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,11 +50,9 @@
       <file leaf-file-name="Indexer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Indexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="83" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,7 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/src/servlets/LogInServlet.java" />
         <option value="$PROJECT_DIR$/project/src/dbOperations/DatabaseHandler.java" />
         <option value="$PROJECT_DIR$/project/src/openshift.properties" />
         <option value="$PROJECT_DIR$/project/web/WEB-INF/addEvents.jsp" />
@@ -136,6 +131,7 @@
         <option value="$PROJECT_DIR$/project/src/servlets/ApplicationStartup.java" />
         <option value="$PROJECT_DIR$/project/src/Lucene/LuceneTester.java" />
         <option value="$PROJECT_DIR$/project/src/lucene/LuceneTester.java" />
+        <option value="$PROJECT_DIR$/eventspider/src/lucene/Indexer.java" />
         <option value="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
       </list>
     </option>
@@ -933,7 +929,7 @@
       <workItem from="1467160822260" duration="3583000" />
       <workItem from="1467239866527" duration="3035000" />
       <workItem from="1467465395296" duration="3059000" />
-      <workItem from="1467547619121" duration="3084000" />
+      <workItem from="1467547619121" duration="3587000" />
     </task>
     <servers />
   </component>
@@ -970,7 +966,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108131000" />
+    <option name="totallyTimeSpent" value="108634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1402" height="812" extended-state="0" />
@@ -1369,16 +1365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Indexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1387,13 +1373,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Indexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="20" column="79" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>
