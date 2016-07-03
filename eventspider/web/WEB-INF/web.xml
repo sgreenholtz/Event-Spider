@@ -62,6 +62,11 @@
         <jsp-file>/eventDetails.jsp</jsp-file>
     </servlet>
 
+    <servlet>
+        <servlet-name>EventfulSearchJSP</servlet-name>
+        <jsp-file>/eventfulSearch.jsp</jsp-file>
+    </servlet>
+
 <!-- ********************************************************************* -->
 <!-- Servlet Configurations ********************************************** -->
 <!-- ********************************************************************* -->
@@ -84,6 +89,10 @@
     <servlet>
         <servlet-name>EventDetailsServlet</servlet-name>
         <servlet-class>servlets.EventDetailsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EventfulSearchServlet</servlet-name>
+        <servlet-class>servlets.EventfulSearch</servlet-class>
     </servlet>
 
 
@@ -140,6 +149,17 @@
         <servlet-name>EventDetailsServlet</servlet-name>
         <url-pattern>/eventDetails</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EventfulSearchServlet</servlet-name>
+        <url-pattern>/eventfulSearch</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EventfulSearchJSP</servlet-name>
+        <url-pattern>/eventful-search</url-pattern>
+    </servlet-mapping>
+
 
     <!-- ********************************************************************* -->
 <!-- Home Page *********************************************************** -->
