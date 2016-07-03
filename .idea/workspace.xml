@@ -7,86 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/src/crawler/Crawler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/src/lucene/Indexer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/src/lucene/IndexingDatabaseHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/src/lucene/TextFileFilter.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/project/dbOperations/AddEvent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/project/dbOperations/DatabaseHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/project/dbOperations/DatabaseTester.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/project/dbOperations/MultithreadRunner.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/project/dbOperations/MultithreadTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/project/dbOperations/SearchHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/project/dbOperations/UserHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/src/Crawler/Crawler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/src/Lucene/Indexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/src/Lucene/IndexingDatabaseHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/src/Lucene/LuceneConstants.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/src/Lucene/LuceneTester.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/src/Lucene/Searcher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/src/Lucene/TextFileFilter.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/event-spider.sql" afterPath="$PROJECT_DIR$/eventspider/event-spider.sql" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/lib/hamcrest-core-1.3.jar" afterPath="$PROJECT_DIR$/eventspider/lib/hamcrest-core-1.3.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/lib/jsoup-1.9.1.jar" afterPath="$PROJECT_DIR$/eventspider/lib/jsoup-1.9.1.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/lib/jstl-api-1.2.jar" afterPath="$PROJECT_DIR$/eventspider/lib/jstl-api-1.2.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/lib/jstl-impl-1.2.jar" afterPath="$PROJECT_DIR$/eventspider/lib/jstl-impl-1.2.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/lib/lucene-analyzers-common-6.0.1.jar" afterPath="$PROJECT_DIR$/eventspider/lib/lucene-analyzers-common-6.0.1.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/lib/lucene-core-6.0.1.jar" afterPath="$PROJECT_DIR$/eventspider/lib/lucene-core-6.0.1.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/lib/mysql-connector-java-5.1.38-bin.jar" afterPath="$PROJECT_DIR$/eventspider/lib/mysql-connector-java-5.1.38-bin.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/lib/servlet-api.jar" afterPath="$PROJECT_DIR$/eventspider/lib/servlet-api.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/project.iml" afterPath="$PROJECT_DIR$/eventspider/eventspider.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/beans/EventBean.java" afterPath="$PROJECT_DIR$/eventspider/src/beans/EventBean.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/beans/EventFactory.java" afterPath="$PROJECT_DIR$/eventspider/src/beans/EventFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/crawler/CrawlerTest.java" afterPath="$PROJECT_DIR$/eventspider/src/crawler/CrawlerTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/crawler/KeywordCrawler.java" afterPath="$PROJECT_DIR$/eventspider/src/crawler/KeywordCrawler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/crawler/KeywordUrlCollector.java" afterPath="$PROJECT_DIR$/eventspider/src/crawler/KeywordUrlCollector.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/crawler/Leg.java" afterPath="$PROJECT_DIR$/eventspider/src/crawler/Leg.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/dbOperations/AddEvent.java" afterPath="$PROJECT_DIR$/eventspider/src/database/AddEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/dbOperations/DatabaseHandler.java" afterPath="$PROJECT_DIR$/eventspider/src/database/DatabaseHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/dbOperations/DatabaseTester.java" afterPath="$PROJECT_DIR$/eventspider/src/database/DatabaseTester.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/dbOperations/MultithreadRunner.java" afterPath="$PROJECT_DIR$/eventspider/src/database/MultithreadRunner.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/dbOperations/MultithreadTest.java" afterPath="$PROJECT_DIR$/eventspider/src/database/MultithreadTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/dbOperations/PropertiesLoader.java" afterPath="$PROJECT_DIR$/eventspider/src/database/PropertiesLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/dbOperations/SearchHandler.java" afterPath="$PROJECT_DIR$/eventspider/src/database/SearchHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/dbOperations/UserHandler.java" afterPath="$PROJECT_DIR$/eventspider/src/database/UserHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/localhost.properties" afterPath="$PROJECT_DIR$/eventspider/src/localhost.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/openshift.properties" afterPath="$PROJECT_DIR$/eventspider/src/openshift.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/servlets/AddEventManual.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/AddEventManual.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/servlets/ApplicationStartup.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/ApplicationStartup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/servlets/EventDetailsController.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/EventDetailsController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/servlets/LogInServlet.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/LogInServlet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/servlets/SearchServlet.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/SearchServlet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/test.properties" afterPath="$PROJECT_DIR$/eventspider/src/test.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/testing/QuickTest.java" afterPath="$PROJECT_DIR$/eventspider/src/testing/QuickTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/testing/SearchHandlerTest.java" afterPath="$PROJECT_DIR$/eventspider/src/testing/SearchHandlerTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/testing/TestDatabaseHandler.java" afterPath="$PROJECT_DIR$/eventspider/src/testing/TestDatabaseHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/src/testing/TestDatabaseHandlerTest.java" afterPath="$PROJECT_DIR$/eventspider/src/testing/TestDatabaseHandlerTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/eventspider/web/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/addEvent.jsp" afterPath="$PROJECT_DIR$/eventspider/web/addEvent.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/css/bootstrap.css" afterPath="$PROJECT_DIR$/eventspider/web/css/bootstrap.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/eventspider/web/css/bootstrap.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/css/custom.css" afterPath="$PROJECT_DIR$/eventspider/web/css/custom.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/eventDetails.jsp" afterPath="$PROJECT_DIR$/eventspider/web/eventDetails.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/footer.jsp" afterPath="$PROJECT_DIR$/eventspider/web/footer.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/header.jsp" afterPath="$PROJECT_DIR$/eventspider/web/header.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/images/icons/calendar.ico" afterPath="$PROJECT_DIR$/eventspider/web/images/icons/calendar.ico" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/images/icons/calendar.png" afterPath="$PROJECT_DIR$/eventspider/web/images/icons/calendar.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/index.jsp" afterPath="$PROJECT_DIR$/eventspider/web/index.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/logIn.jsp" afterPath="$PROJECT_DIR$/eventspider/web/logIn.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/search.jsp" afterPath="$PROJECT_DIR$/eventspider/web/search.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/project/web/searchDisplay.jsp" afterPath="$PROJECT_DIR$/eventspider/web/searchDisplay.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/servlets/AddEventManual.class" afterPath="$PROJECT_DIR$/out/production/project/servlets/AddEventManual.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/servlets/ApplicationStartup.class" afterPath="$PROJECT_DIR$/out/production/project/servlets/ApplicationStartup.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/servlets/LogInServlet.class" afterPath="$PROJECT_DIR$/out/production/project/servlets/LogInServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/servlets/SearchServlet.class" afterPath="$PROJECT_DIR$/out/production/project/servlets/SearchServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/testing/SearchHandlerTest.class" afterPath="$PROJECT_DIR$/out/production/project/testing/SearchHandlerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/testing/TestDatabaseHandler.class" afterPath="$PROJECT_DIR$/out/production/project/testing/TestDatabaseHandler.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/eventspider_war_exploded.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/Lucene_ear_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/Lucene_war_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/project_war_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/javax_batch_api_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jsoup_1_9_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jstl_api_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lucene_analyzers_common_6_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lucene_core_6_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_38_bin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/servlet_api.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/project/localhost.properties" afterPath="$PROJECT_DIR$/out/production/project/localhost.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/eventspider.iml" afterPath="$PROJECT_DIR$/eventspider/eventspider.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" afterPath="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -115,7 +51,20 @@
     <favorites_list name="Event-Spider" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Searcher.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -140,7 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/src/event-spider.properties" />
         <option value="$PROJECT_DIR$/project/src/servlets/LogInServlet.java" />
         <option value="$PROJECT_DIR$/project/src/dbOperations/DatabaseHandler.java" />
         <option value="$PROJECT_DIR$/project/src/openshift.properties" />
@@ -191,6 +139,7 @@
         <option value="$PROJECT_DIR$/project/src/servlets/ApplicationStartup.java" />
         <option value="$PROJECT_DIR$/project/src/Lucene/LuceneTester.java" />
         <option value="$PROJECT_DIR$/project/src/lucene/LuceneTester.java" />
+        <option value="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
       </list>
     </option>
   </component>
@@ -302,20 +251,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Event-Spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Event-Spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Event-Spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="eventspider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -324,10 +259,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Event-Spider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Event-Spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="eventspider" />
@@ -342,10 +273,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Event-Spider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Event-Spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="eventspider" />
@@ -366,10 +293,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Event-Spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="eventspider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -379,6 +302,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Event-Spider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eventspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -393,10 +330,10 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Lucene/lib/lucene-core-6.0.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/eventspider/lib/servlet-api.jar!/" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -883,7 +820,7 @@
     <configuration default="false" name="EventSpiderLocal" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.671" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="project:war exploded">
+        <artifact name="eventspider:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
@@ -948,7 +885,7 @@
       </ConfigurationWrapper>
       <method>
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="project:war exploded" />
+          <artifact name="eventspider:war exploded" />
         </option>
       </method>
     </configuration>
@@ -968,9 +905,7 @@
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="Lucene:ear exploded" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
     <list size="5">
@@ -1033,7 +968,7 @@
       <workItem from="1467160822260" duration="3583000" />
       <workItem from="1467239866527" duration="3035000" />
       <workItem from="1467465395296" duration="3059000" />
-      <workItem from="1467547619121" duration="1375000" />
+      <workItem from="1467547619121" duration="1870000" />
     </task>
     <servers />
   </component>
@@ -1070,11 +1005,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106422000" />
+    <option name="totallyTimeSpent" value="106917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1402" height="812" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1087,10 +1022,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.4970588" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39889196" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3986111" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25588235" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25588235" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1429,14 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/database/PropertiesLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -1452,7 +1379,7 @@
         <state relative-caret-position="286">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1495,13 +1422,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>project:war exploded</last-edited>
+          <last-edited>eventspider:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1526,6 +1463,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>lucene-analyzers-common-6.0.1 (2)</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1549,7 +1487,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>javaEEApplication|Lucene</last-edited>
+          <last-edited>eventspider</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1573,7 +1511,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lucene-analyzers-common-6.0.1</last-edited>
+          <last-edited>lucene-queryparser-6.0.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

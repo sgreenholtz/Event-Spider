@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Event-Spider.iml" filepath="$PROJECT_DIR$/Event-Spider.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventspider/eventspider.iml" filepath="$PROJECT_DIR$/eventspider/eventspider.iml" />
     </modules>
   </component>
