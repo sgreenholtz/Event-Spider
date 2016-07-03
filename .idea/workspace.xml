@@ -7,8 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/localhost.properties" afterPath="$PROJECT_DIR$/eventspider/src/localhost.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/index.jsp" afterPath="$PROJECT_DIR$/eventspider/web/index.jsp" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,24 +50,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventfulSearch.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EventfulSearch.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+            <state relative-caret-position="150">
+              <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventsTester.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eventspider/src/eventsbatching/EventsTester.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -76,27 +66,17 @@
         <entry file="file://$PROJECT_DIR$/eventspider/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eventfulSearch.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eventspider/web/eventfulSearch.jsp">
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eventspider/web/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sample.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eventspider/src/eventsbatching/sample.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="0" column="170" selection-start-line="0" selection-start-column="170" selection-end-line="0" selection-end-column="170" />
+            <state relative-caret-position="161">
+              <caret line="159" column="37" selection-start-line="159" selection-start-column="37" selection-end-line="159" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -173,11 +153,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/eventspider/src/eventsbatching/JSONHandler.java" />
         <option value="$PROJECT_DIR$/eventspider/src/servlets/EventbriteSearch.java" />
-        <option value="$PROJECT_DIR$/eventspider/web/index.jsp" />
         <option value="$PROJECT_DIR$/eventspider/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/eventspider/web/eventfulSearch.jsp" />
         <option value="$PROJECT_DIR$/eventspider/src/localhost.properties" />
         <option value="$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java" />
+        <option value="$PROJECT_DIR$/eventspider/web/index.jsp" />
       </list>
     </option>
   </component>
@@ -413,7 +393,47 @@
       <recent name="$PROJECT_DIR$/project/src/testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.JSONHandler">
+  <component name="RunManager" selected="Tomcat Server.EventSpiderLocal">
+    <configuration default="false" name="LuceneTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="lucene.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="lucene.LuceneTester" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="eventspider" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="JSONHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="eventsbatching.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="eventsbatching.JSONHandler" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="eventspider" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="TestDatabaseHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -464,46 +484,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="LuceneTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="lucene.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="lucene.LuceneTester" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="eventspider" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="JSONHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="eventsbatching.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="eventsbatching.JSONHandler" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="eventspider" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -965,32 +945,12 @@
         </option>
       </method>
     </configuration>
-    <configuration default="false" name="Tomcat 7.0.67" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.67" ALTERNATIVE_JRE_ENABLED="false">
-      <deployment>
-        <artifact name="Lucene:ear exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings />
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <method>
-        <option name="BuildArtifacts" enabled="true" />
-      </method>
-    </configuration>
-    <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.TestDatabaseHandlerTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.SearchHandlerTest" />
-      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.EventSpiderLocal" />
-      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7.0.67" />
-      <item index="4" class="java.lang.String" itemvalue="Application.LuceneTester" />
-      <item index="5" class="java.lang.String" itemvalue="Application.JSONHandler" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.LuceneTester" />
+      <item index="1" class="java.lang.String" itemvalue="Application.JSONHandler" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TestDatabaseHandlerTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.SearchHandlerTest" />
+      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.EventSpiderLocal" />
     </list>
     <recent_temporary>
       <list size="4">
@@ -1046,7 +1006,7 @@
       <workItem from="1467160822260" duration="3583000" />
       <workItem from="1467239866527" duration="3035000" />
       <workItem from="1467465395296" duration="3059000" />
-      <workItem from="1467547619121" duration="8096000" />
+      <workItem from="1467547619121" duration="9032000" />
     </task>
     <servers />
   </component>
@@ -1083,7 +1043,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113143000" />
+    <option name="totallyTimeSpent" value="114079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1402" height="812" extended-state="0" />
@@ -1099,8 +1059,8 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.4970588" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3986111" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32916668" sideWeight="0.4970588" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3986111" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25588235" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1500,22 +1460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="159" column="37" selection-start-line="159" selection-start-column="37" selection-end-line="159" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/web/search.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1524,18 +1468,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/eventfulSearch.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/localhost.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/web/eventfulSearch.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1550,11 +1494,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+        <state relative-caret-position="150">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="159" column="37" selection-start-line="159" selection-start-column="37" selection-end-line="159" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
