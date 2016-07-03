@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 import java.sql.*;
 import java.util.*;
 
-import org.apache.lucene.analysis.en.*;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.*;
 import org.apache.lucene.store.*;
 
@@ -30,7 +30,7 @@ public class Indexer {
      */
     public Indexer(String indexDirectoryPath) throws IOException {
         Directory indexDirectory = FSDirectory.open(Paths.get(indexDirectoryPath));
-        writer = new IndexWriter(indexDirectory, new IndexWriterConfig(new EnglishAnalyzer()));
+        writer = new IndexWriter(indexDirectory, new IndexWriterConfig(new StandardAnalyzer()));
     }
 
     /**
