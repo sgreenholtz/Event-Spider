@@ -6,6 +6,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
+import dbOperations.PropertiesLoader;
+
 /**
  * This servlet runs on startup. It loads up the properties file into the Servlet context
  * @author Sebastian Greenholtz
@@ -21,23 +23,8 @@ public class ApplicationStartup extends HttpServlet {
     */
     public void init() {
         ServletContext context = this.getServletContext();
-//        context.setAttribute("appProperties", loadProperties("../openshift.properties"));
-        context.setAttribute("appProperties", loadProperties("../localhost.properties"));
+//        context.setAttribute("appProperties", PropertiesLoader.loadProperties("../openshift.properties"));
+        context.setAttribute("appProperties", PropertiesLoader.loadProperties("../localhost.properties"));
     }
 
-    /**
-     * Loads the properties file and returns it as a
-     * Properties object
-     * @return properties object from the given file
-     */
-    private Properties loadProperties(String filepath) {
-        Properties properties = new Properties();
-        try {
-            properties.load(this.getClass().getResourceAsStream(filepath));
-        } catch(IOException ioe) {
-            System.out.println("Can't load the properties file");
-            ioe.printStackTrace();
-        }
-        return properties;
-    }
 }
