@@ -17,6 +17,7 @@ import javax.servlet.http.*;
 public class EventfulSearch extends HttpServlet {
 
     private static Properties properties;
+    private static String jsonURL;
 
     /**
      * Get the location result from the JSP and send AUTH request to Eventful
@@ -27,8 +28,15 @@ public class EventfulSearch extends HttpServlet {
         throws IOException, ServletException {
         properties = (Properties) getServletContext().getAttribute("appProperties");
         String searchUrl = constructURL(request.getParameter("location"));
+
+        jsonURL = getJsonUrl((String) request.getAttribute("user_id"));
+
+        long start = System.nanoTime();
         getJSON(searchUrl);
-        JSONHandler jsonHandler = new JSONHandler(System.getProperty("java.io.tmpdir") + "/eventful.json");
+        long elapsedTime = System.nanoTime() - start;
+        System.out.println("Elapsed time: " + elapsedTime);
+
+        JSONHandler jsonHandler = new JSONHandler(jsonURL);
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -50,13 +58,12 @@ public class EventfulSearch extends HttpServlet {
     private void getJSON(String url) throws IOException {
         URL eventfulURL = new URL(url);
         URLConnection connection = eventfulURL.openConnection();
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(connection.getInputStream()));
-        PrintWriter write = new PrintWriter(new BufferedWriter(
-                new FileWriter(System.getProperty("java.io.tmpdir") + "/eventful.json")));
+        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        PrintWriter write = new PrintWriter(new BufferedWriter(new FileWriter(jsonURL)));
         String inputLine = "";
-        while ((inputLine = in.readLine()) != null)
+        while ((inputLine = in.readLine()) != null) {
             write.println(inputLine);
+        }
         in.close();
         write.close();
     }
@@ -85,6 +92,15 @@ public class EventfulSearch extends HttpServlet {
             urlSafeString += token + "+";
         }
         return urlSafeString.substring(0, urlSafeString.length()-1);
+    }
+
+    /**
+     * Constructs the URL for the JSON file based on the user ID
+     * @param userID ID of the logged in user, from the session
+     * @return URL for the JSON file
+     */
+    private String getJsonUrl(String userID) {
+        return System.getProperty("java.io.tmpdir") + "/" + userID + "_eventful.json";
     }
 
 }
