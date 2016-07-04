@@ -2,7 +2,6 @@
   <artifact type="exploded-war" name="eventspider:war exploded">
     <output-path>$USER_HOME$/eventspider/diy/tomcat/webapps/ROOT</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="eventspider/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="eventspider" />
@@ -18,8 +17,10 @@
           <element id="file-copy" path="$PROJECT_DIR$/eventspider/lib/lucene-core-6.0.1.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/eventspider/lib/mysql-connector-java-5.1.38-bin.jar" />
           <element id="library" level="project" name="lucene-queryparser-6.0.1" />
+          <element id="file-copy" path="$PROJECT_DIR$/eventspider/lib/json-simple-1.1.1.jar" />
         </element>
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/eventspider/web" />
     </root>
   </artifact>
 </component>

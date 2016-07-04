@@ -13,16 +13,33 @@ import java.io.IOException;
  */
 public class JSONHandler {
 
-    public static void main(String[] args) {
+    private String JSONFilePath;
+
+    /**
+     * Constructor assigns the filePath to the JSON file
+     * path variable
+     * @param filePath Path to a JSON file
+     */
+    public JSONHandler(String filePath) {
+        JSONFilePath = filePath;
+    }
+
+    /**
+     * Gets a single field from the JSON
+     * @param field Field name to retrieve
+     * @return String of the value associated with the field name
+     */
+    public String getFieldFromJSON(String field) {
         JSONParser parser = new JSONParser();
+        String jsonValue = "";
         try {
-            JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("eventspider/src/eventsbatching/sample.json"));
-            String pageSize = (String) jsonObject.get("page_size");
-            System.out.println(pageSize);
+            JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(JSONFilePath));
+            jsonValue = (String) jsonObject.get(field);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        return jsonValue;
     }
 }
