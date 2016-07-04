@@ -34,7 +34,7 @@ public class JSONHandler {
         String jsonValue = "";
         try {
             JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(JSONFilePath));
-            jsonValue = (String) jsonObject.get(field);
+            jsonValue = jsonObject.get(field).toString();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {

@@ -1,0 +1,84 @@
+{"last_item": null,
+ "total_items":"1741",
+ "first_item":null,
+ "page_number":"1",
+ "page_size":"10",
+ "page_items":null,
+ "search_time":"0.031",
+ "page_count":"175",
+ "events": {
+ 	"event":[ {
+ 		"watching_count":null,
+		 "olson_path":"America/Chicago",
+		 "calendar_count":null,
+		 "comment_count":null,
+		 "region_abbr":"WI",
+		 "postal_code":"53711",
+		 "going_count":null,
+		 "all_day":"0",
+		 "latitude":"43.0797373",
+		 "groups":null,
+		 "url":"http://madison.eventful.com/events/dick-dale-/E0-001-091794537-8?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+		 "id":"E0-001-091794537-8",
+		 "privacy":"1",
+		 "city_name":"Madison",
+		 "link_count":null,
+		 "longitude":"-89.3764856",
+		 "country_name":"United States",
+		 "country_abbr":"USA",
+		 "region_name":"Wisconsin",
+		 "start_time":"2016-08-12 19:00:00",
+		 "tz_id":null,
+		 "description":" with Kevin Fayte Rock &#39;n&#39; Roll Trio<br> Dick Dale invented surf music in the 1950&#39;s. Not the &#39;60&#39;s as is commonly believed. He was given the title &quot;King of the Surf Guitar&quot; by his fellow surfers with whom he surfed with from sun-up to sun-down. He met Leo Fender the guitar and amplifier Guru and Leo asked Dale to play his newly creation, the Fender Stratocaster Electric Guitar. The minute Dale picked up the guitar, Leo Fender broke into uncontrolled laughter and disbelief, he was watching Dale play a right handed guitar upside down and backwards, Dale was playing a right handed guitar left handed and changing the chords in his head then transposing the chords to his hands to create a sound never heard before.",
+		 "modified":"2016-04-12 10:08:01",
+		 "venue_display":"1",
+		 "tz_country":null,
+		 "performers":{
+ 		 	"performer":{
+ 		 		"creator":"beggarsgroup",
+ 		 		"linker":"evdb",
+ 		 		"name":"Dick Dale",
+ 		 		"url":"http://concerts.eventful.com/Dick-Dale?utm_source=apis&utm_medium=apim&utm_campaign=apic",
+ 		 		"id":"P0-001-000021330-2",
+ 		 		"short_bio":" Surf / Rock"
+ 		 	}
+ 		 },
+	 	"title":"Dick Dale",
+	 	"venue_address":"701A E Washington Avenue",
+	 	"geocode_type":"EVDB Geocoder",
+	 	"tz_olson_path":null,
+	 	"recur_string":null,
+	 	"calendars":null,
+	 	"owner":"evdb",
+	 	"going":null,
+	 	"country_abbr2":"US",
+	 	"image":{
+	 		"small":{
+	 			"width":"48",
+	 			"url":"http://s1.evcdn.com/images/small/I0-001/000/311/464-0.jpg_/dick-dale-64.jpg",
+	 			"height":"48"
+	 		},
+	 		"width":"48",
+	 		"caption":null,
+	 		"medium":{
+	 			"width":"128",
+	 			"url":"http://s1.evcdn.com/images/medium/I0-001/000/311/464-0.jpg_/dick-dale-64.jpg",
+	 			"height":"128"
+	 		},
+	 		"url":"http://s1.evcdn.com/images/small/I0-001/000/311/464-0.jpg_/dick-dale-64.jpg",
+	 		"thumb":{
+	 			"width":"48",
+	 			"url":"http://s1.evcdn.com/images/thumb/I0-001/000/311/464-0.jpg_/dick-dale-64.jpg",
+	 			"height":"48"
+		 	},
+			"height":"48"
+		},
+		"created":"2016-03-09 20:26:56",
+		"venue_id":"V0-001-001141239-8",
+		"tz_city":null,
+		"stop_time":null,
+		"venue_name":"High Noon Saloon",
+		"venue_url":"http://madison.eventful.com/venues/high-noon-saloon-/V0-001-001141239-8?utm_source=apis&utm_medium=apim&utm_campaign=apic"
+	},
+	]}
+}

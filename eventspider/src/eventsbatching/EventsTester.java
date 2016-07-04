@@ -5,5 +5,8 @@ package eventsbatching;
  */
 public class EventsTester {
 
-    public static String url = "http://api.eventful.com/json/events/search?app_key=kvxN9gH3zxsQhvCF&location=Madison";
+    public static void main(String[] args) {
+        JSONHandler handler = new JSONHandler("static_eventful.json");
+        System.out.println(handler.getFieldFromJSON("events"));
+    }
 }
