@@ -29,7 +29,7 @@ public class EventfulSearch extends HttpServlet {
         properties = (Properties) getServletContext().getAttribute("appProperties");
         String searchUrl = constructURL(request.getParameter("location"));
 
-        jsonURL = getJsonUrl((String) request.getAttribute("user_id"));
+        jsonURL = getJsonUrl((String) request.getAttribute("userID"));
 
         long start = System.nanoTime();
         getJSON(searchUrl);
