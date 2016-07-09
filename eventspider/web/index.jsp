@@ -8,6 +8,5 @@
 <% session.setAttribute("title", "Home"); %>
 <c:import url="header.jsp" />
 <h1>${title}</h1>
-<h4><a href="eventful-search">Eventful Search</a></h4>
 
 <c:import url="footer.jsp" />

@@ -31,6 +31,7 @@ public class LogInServlet extends HttpServlet {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String eventID = request.getParameter("eventID");
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
         UserHandler userHandler = new UserHandler(properties);
@@ -40,6 +41,10 @@ public class LogInServlet extends HttpServlet {
         String url = "/";
         if (isNotCorrectLogin(userID)) {
             url += "login";
+        } else if (!eventID.equals(null)) {
+            url += "eventDetails?id=" + eventID;
+            HttpSession session = request.getSession(true);
+            session.setAttribute("userID", userID);
         } else {
             HttpSession session = request.getSession(true);
             session.setAttribute("userID", userID);

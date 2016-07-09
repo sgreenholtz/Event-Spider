@@ -94,9 +94,12 @@
         <servlet-name>EventfulSearchServlet</servlet-name>
         <servlet-class>servlets.EventfulSearch</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddEventToUser</servlet-name>
+        <servlet-class>servlets.AddEventToUser</servlet-class>
+    </servlet>
 
-
-    <!-- ********************************************************************* -->
+<!-- ********************************************************************* -->
 <!-- Servlet Mappings **************************************************** -->
 <!-- ********************************************************************* -->
 
@@ -159,9 +162,13 @@
         <servlet-name>EventfulSearchJSP</servlet-name>
         <url-pattern>/eventful-search</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddEventToUser</servlet-name>
+        <url-pattern>/addEventToUser</url-pattern>
+    </servlet-mapping>
 
 
-    <!-- ********************************************************************* -->
+<!-- ********************************************************************* -->
 <!-- Home Page *********************************************************** -->
 <!-- ********************************************************************* -->
 
