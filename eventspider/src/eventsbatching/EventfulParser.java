@@ -2,7 +2,7 @@ package eventsbatching;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
+import beans.EventFactory;
 import java.util.*;
 
 /**
@@ -11,6 +11,8 @@ import java.util.*;
  */
 public class EventfulParser extends JSONHandlerSimple {
 
+    private ArrayList<JSONObject> eventsList;
+
     /**
      * Constructor takes in the path to the JSON file and
      * calls the constructor for the JSONHandler
@@ -18,10 +20,19 @@ public class EventfulParser extends JSONHandlerSimple {
      */
     public EventfulParser(String jsonPath) {
         super(jsonPath);
+        eventsList = new ArrayList<>();
     }
 
-    public void createEventArrayList() {
-        ArrayList<JSONObject> eventsList = new ArrayList<>();
+    public void getEventsMap() {
+        EventFactory factory = new EventFactory();
+        factory.createBeansMap();
+    }
+
+    /**
+     * Adds events to the instance variable Arraylist of JSONObjects representing
+     * each event in the Event list
+     */
+    private void createEventArrayList() {
         JSONArray events = getEventArray();
         Iterator<JSONObject> iterator = events.iterator();
         while (iterator.hasNext()) {
@@ -37,4 +48,6 @@ public class EventfulParser extends JSONHandlerSimple {
     private JSONArray getEventArray() {
         return super.getJSONArrayFromJSON(super.getJSONObjectFromJSON("events"), "event");
     }
+
+
 }

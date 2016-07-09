@@ -6,7 +6,8 @@ import java.text.*;
 import java.util.Date;
 
 /**
- * Creates Beans from the results of a database search of the Events table.
+ * Creates Event Beans from the results of a database search of the Events table
+ * or from raw data (like a JSON)
  * @author Sebastian Greenholtz
  */
 public class EventFactory {
@@ -54,12 +55,41 @@ public class EventFactory {
     }
 
     /**
+     * Creates the map of ID -> Bean with String data for each
+     * instance in the bean
+     * @param id
+     * @param title
+     * @param url
+     * @param description
+     * @param startTime
+     * @param stopTime
+     * @param venueAddress
+     * @param city
+     * @param state
+     * @param postalCode
+     */
+    public void createBeansMap(String id,
+                               String title,
+                               String url,
+                               String description,
+                               String startTime,
+                               String stopTime,
+                               String venueAddress,
+                               String city,
+                               String state,
+                               String postalCode) {
+        eventMap.put(id, createBean(id, title, url, description,
+                                    startTime, stopTime, venueAddress,
+                                    city, state, postalCode));
+    }
+
+    /**
      * Creates an Event bean from the current database row
      * @return Event Bean form the current row
      */
     private EventBean createBean() throws SQLException {
         EventBean event = new EventBean();
-        event.setEventId(results.getInt("event_id"));
+        event.setEventId(results.getString("event_id"));
         event.setTitle(results.getString("title"));
         event.setUrl(results.getString("url"));
         event.setDescription(results.getString("description"));
@@ -69,6 +99,44 @@ public class EventFactory {
         event.setCity(results.getString("city"));
         event.setState(results.getString("state"));
         event.setPostalCode(results.getString("postal_code"));
+        return event;
+    }
+
+    /**
+     * Creates an Event bean using Strings for each instance
+     * @param id
+     * @param title
+     * @param url
+     * @param description
+     * @param startTime
+     * @param stopTime Can be left blank if no stop time is indicated
+     * @param venueAddress
+     * @param city
+     * @param state
+     * @param postalCode Either zip code or Canadian Postal code
+     * @return Event bean
+     */
+    private EventBean createBean(String id,
+                                 String title,
+                                 String url,
+                                 String description,
+                                 String startTime,
+                                 String stopTime,
+                                 String venueAddress,
+                                 String city,
+                                 String state,
+                                 String postalCode) {
+        EventBean event = new EventBean();
+        event.setEventId(id);
+        event.setTitle(title);
+        event.setUrl(url);
+        event.setDescription(description);
+        event.setStartTime(startTime);
+        event.setStopTime(stopTime);
+        event.setVenueAddress(venueAddress);
+        event.setCity(city);
+        event.setState(state);
+        event.setPostalCode(postalCode);
         return event;
     }
 
