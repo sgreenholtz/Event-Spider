@@ -1,5 +1,6 @@
 package eventsbatching;
 
+import beans.EventBean;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import beans.EventFactory;
@@ -12,6 +13,13 @@ import java.util.*;
 public class EventfulParser extends JSONHandlerSimple {
 
     private ArrayList<JSONObject> eventsList;
+    private Map<String, EventBean> eventMap;
+
+    /**
+     * Empty constructor to instantiate map and list
+     */
+    public EventfulParser() {
+    }
 
     /**
      * Constructor takes in the path to the JSON file and
@@ -21,11 +29,41 @@ public class EventfulParser extends JSONHandlerSimple {
     public EventfulParser(String jsonPath) {
         super(jsonPath);
         eventsList = new ArrayList<>();
+        eventMap = new HashMap<>();
+        createEventArrayList();
+        createEventsMap();
     }
 
-    public void getEventsMap() {
+    /**
+     * Gets the event map.
+     * @return eventMap
+     */
+    public Map<String, EventBean> getEventMap() {
+        return eventMap;
+    }
+
+    /**
+     * Uses the EventFactory class to create Event beans from each of the events
+     * in the Event Array list, then add them to a map of ID -> EventBean.
+     * Sets  the eventMap instance variable based on this updated map.
+     */
+    private void createEventsMap() {
         EventFactory factory = new EventFactory();
-        factory.createBeansMap();
+        for (JSONObject event : eventsList) {
+            EventBean bean = factory.createBean(super.getFieldFromJSON(event, "id"),
+                                super.getFieldFromJSON(event, "title"),
+                                super.getFieldFromJSON(event, "url"),
+                                super.getFieldFromJSON(event, "description"),
+                                super.getFieldFromJSON(event, "start_time"),
+                                "",
+                                super.getFieldFromJSON(event, "venue_address"),
+                                super.getFieldFromJSON(event, "city_name"),
+                                super.getFieldFromJSON(event, "region_abbr"),
+                                super.getFieldFromJSON(event, "postal_code")
+                                );
+            factory.updateBeansMap(bean);
+        }
+        eventMap = factory.getEventMap();
     }
 
     /**

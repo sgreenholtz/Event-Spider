@@ -58,6 +58,16 @@ public class JSONHandlerSimple {
     }
 
     /**
+     * Gets a single field from a JSONObject as a parameter, rather than instance
+     * @param object JSONObject
+     * @param field Name of intended field to retrieve
+     * @return String of value associated with field name
+     */
+    public String getFieldFromJSON(JSONObject object, String field) {
+        return object.get(field).toString();
+    }
+
+    /**
      * Gets a JSONArray from a field that represents a JSONArray
      * @param arrayField Field name that is an array
      * @return JSONArray of the given field

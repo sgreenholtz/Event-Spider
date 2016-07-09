@@ -84,6 +84,14 @@ public class EventFactory {
     }
 
     /**
+     * Adds an already created Event bean into the map
+     * @param event Event bean
+     */
+    public void updateBeansMap(EventBean event) {
+        eventMap.put(event.getEventId(), event);
+    }
+
+    /**
      * Creates an Event bean from the current database row
      * @return Event Bean form the current row
      */
@@ -116,7 +124,7 @@ public class EventFactory {
      * @param postalCode Either zip code or Canadian Postal code
      * @return Event bean
      */
-    private EventBean createBean(String id,
+    public EventBean createBean(String id,
                                  String title,
                                  String url,
                                  String description,
