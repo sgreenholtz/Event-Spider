@@ -54,7 +54,7 @@ public class EventfulParser extends JSONHandlerSimple {
                                 super.getFieldFromJSON(event, "title"),
                                 super.getFieldFromJSON(event, "url"),
                                 super.getFieldFromJSON(event, "description"),
-                                super.getFieldFromJSON(event, "start_time"),
+                                (super.getFieldFromJSON(event, "start_time")),
                                 "",
                                 super.getFieldFromJSON(event, "venue_address"),
                                 super.getFieldFromJSON(event, "city_name"),

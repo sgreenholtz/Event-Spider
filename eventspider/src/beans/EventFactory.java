@@ -101,8 +101,8 @@ public class EventFactory {
         event.setTitle(results.getString("title"));
         event.setUrl(results.getString("url"));
         event.setDescription(results.getString("description"));
-        event.setStartTime(formatDateTime(results.getString("start_time")));
-        event.setStopTime(formatDateTime(results.getString("stop_time")));
+        event.setStartTime(formatDateTimeMySql(results.getString("start_time")));
+        event.setStopTime(formatDateTimeMySql(results.getString("stop_time")));
         event.setVenueAddress(results.getString("venue_address"));
         event.setCity(results.getString("city"));
         event.setState(results.getString("state"));
@@ -139,8 +139,12 @@ public class EventFactory {
         event.setTitle(title);
         event.setUrl(url);
         event.setDescription(description);
-        event.setStartTime(startTime);
-        event.setStopTime(stopTime);
+        event.setStartTime(formatDateTimeNoMiliSecond(startTime));
+        if (!startTime.equals("")) {
+            event.setStopTime(formatDateTimeNoMiliSecond(stopTime));
+        } else {
+            event.setStopTime("?");
+        }
         event.setVenueAddress(venueAddress);
         event.setCity(city);
         event.setState(state);
@@ -149,12 +153,12 @@ public class EventFactory {
     }
 
     /**
-     * Formats the date/time field from the yyyy-MM-dd hh:mm:ss.S format of teh
+     * Formats the date/time field from the yyyy-MM-dd hh:mm:ss.S format of the
      * mySQL database to a more human readable EEE MMM d h:mm a format
      * @param mysqlFormattedDateTime String representing the date and time in MySql format
      * @return String representing the date and time in a human readable format
      */
-    private String formatDateTime(String mysqlFormattedDateTime) {
+    private String formatDateTimeMySql(String mysqlFormattedDateTime) {
         String formattedDateTime = "";
         try {
             SimpleDateFormat inputFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
@@ -165,6 +169,25 @@ public class EventFactory {
             e.printStackTrace();
         }
         return formattedDateTime;
+    }
+
+    /**
+     * Formats the date/time field from the yyyy-MM-dd hh:mm:ss format
+     * to a more human readable EEE MMM d h:mm a format
+     * @param formattedDateTime String representing the date and time in formatted style
+     * @return String representing the date and time in a human readable format
+     */
+    private String formatDateTimeNoMiliSecond(String formattedDateTime) {
+        String unformattedDateTime = "";
+        try {
+            SimpleDateFormat inputFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Date dateObjectRepresentation = inputFormatter.parse(formattedDateTime);
+            SimpleDateFormat outputFormatter = new SimpleDateFormat("EEEE, MMM d h:mm a");
+            unformattedDateTime = outputFormatter.format(dateObjectRepresentation);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return unformattedDateTime;
     }
 
 

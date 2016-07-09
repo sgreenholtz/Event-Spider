@@ -64,6 +64,9 @@ public class JSONHandlerSimple {
      * @return String of value associated with field name
      */
     public String getFieldFromJSON(JSONObject object, String field) {
+        if (object.get(field) == null) {
+            return "";
+        }
         return object.get(field).toString();
     }
 

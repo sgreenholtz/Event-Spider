@@ -1,6 +1,6 @@
 package servlets;
 
-import eventsbatching.JSONHandlerSimple;
+import eventsbatching.EventfulParser;
 
 import java.io.*;
 import java.util.*;
@@ -31,22 +31,21 @@ public class EventfulSearch extends HttpServlet {
 
         jsonURL = getJsonUrl(request.getSession().getAttribute("userID").toString());
 
+        /* Uncomment this for benchmark testing */
 //        double start = System.nanoTime();
-        getJSON(searchUrl);
+//        getJSON(searchUrl);
 //        double elapsedTime = (System.nanoTime() - start) / 1000000000.00;
 //        System.out.println("Elapsed time: " + elapsedTime);
 
-        JSONHandlerSimple jsonHandler = new JSONHandlerSimple(jsonURL);
+        getJSON(searchUrl);
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<head>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<p>" + jsonHandler.getFieldFromJSON("page_count") + "</p>");
-        out.println("</body>");
-        out.println("</html>");
+        EventfulParser eventfulParser = new EventfulParser(jsonURL);
+        request.setAttribute("eventsMap", eventfulParser.getEventMap());
+        request.setAttribute("searchTerm", request.getParameter("location"));
+        String url = "/search-result-list";
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 
     /**
