@@ -135,12 +135,12 @@ public class EventFactory {
                                  String state,
                                  String postalCode) {
         EventBean event = new EventBean();
-        event.setEventId(id);
+        event.setEventId(createURLSafeID(id));
         event.setTitle(title);
         event.setUrl(url);
         event.setDescription(description);
         event.setStartTime(formatDateTimeNoMiliSecond(startTime));
-        if (!startTime.equals("")) {
+        if (!stopTime.equals("")) {
             event.setStopTime(formatDateTimeNoMiliSecond(stopTime));
         } else {
             event.setStopTime("?");
@@ -188,6 +188,15 @@ public class EventFactory {
             e.printStackTrace();
         }
         return unformattedDateTime;
+    }
+
+    /**
+     * Removes all non-alphanumeric characters from the ID
+     * @param id String ID that needs to be sanitized
+     * @return Only alpha-numeric character string for ID
+     */
+    private String createURLSafeID(String id) {
+        return id.replaceAll("\\W", "");
     }
 
 
