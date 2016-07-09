@@ -40,7 +40,7 @@ public class EventfulSearch extends HttpServlet {
         getJSON(searchUrl);
 
         EventfulParser eventfulParser = new EventfulParser(jsonURL);
-        request.setAttribute("eventsMap", eventfulParser.getEventMap());
+        request.getSession().setAttribute("eventsMap", eventfulParser.getEventMap());
         request.setAttribute("searchTerm", request.getParameter("location"));
         String url = "/search-result-list";
 

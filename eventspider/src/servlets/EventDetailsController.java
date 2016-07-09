@@ -21,7 +21,8 @@ public class EventDetailsController extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
-        Map<String, EventBean> eventsMap = (HashMap) request.getAttribute("eventsMap");
+        Map<String, EventBean> eventsMap = (HashMap) request.getSession().getAttribute("eventsMap");
+
         EventBean eventBean = eventsMap.get(request.getParameter("id"));
         request.setAttribute("event", eventBean);
 

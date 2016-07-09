@@ -205,8 +205,7 @@ public class EventBean {
     public String toString() {
         return "EventBean{" +
                 "eventId=" + eventId +
-                ", title='" + title + '\'' +
-                ", description='" + description.substring(0, 99) + '\'' +
+                ", title='" + title +
                 '}';
     }
 }

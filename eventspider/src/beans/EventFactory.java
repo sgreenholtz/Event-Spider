@@ -191,12 +191,12 @@ public class EventFactory {
     }
 
     /**
-     * Removes all non-alphanumeric characters from the ID
+     * Removes all non-numeric characters from the ID
      * @param id String ID that needs to be sanitized
      * @return Only alpha-numeric character string for ID
      */
     private String createURLSafeID(String id) {
-        return id.replaceAll("\\W", "");
+        return id.replaceAll("\\D", "");
     }
 
 
