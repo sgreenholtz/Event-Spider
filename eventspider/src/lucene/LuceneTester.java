@@ -34,7 +34,7 @@ public class LuceneTester {
     }
 
     private void search(String searchQuery) throws IOException, ParseException{
-        searcher = new Searcher("../../indexes");
+        searcher = new Searcher("../../indexes"); // wrong location
         long startTime = System.currentTimeMillis();
         TopDocs hits = searcher.search(searchQuery);
         long endTime = System.currentTimeMillis();

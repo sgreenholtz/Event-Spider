@@ -11,7 +11,7 @@ import java.io.IOException;
  * Handles JSON requests
  * @author Sebastian Greenholtz
  */
-public class JSONHandler {
+public class JSONHandlerSimple {
 
     private String JSONFilePath;
 
@@ -20,7 +20,7 @@ public class JSONHandler {
      * path variable
      * @param filePath Path to a JSON file
      */
-    public JSONHandler(String filePath) {
+    public JSONHandlerSimple(String filePath) {
         JSONFilePath = filePath;
     }
 

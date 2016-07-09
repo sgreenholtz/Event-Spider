@@ -1,6 +1,6 @@
 package servlets;
 
-import eventsbatching.JSONHandler;
+import eventsbatching.JSONHandlerSimple;
 
 import java.io.*;
 import java.util.*;
@@ -36,7 +36,7 @@ public class EventfulSearch extends HttpServlet {
 //        double elapsedTime = (System.nanoTime() - start) / 1000000000.00;
 //        System.out.println("Elapsed time: " + elapsedTime);
 
-        JSONHandler jsonHandler = new JSONHandler(jsonURL);
+        JSONHandlerSimple jsonHandler = new JSONHandlerSimple(jsonURL);
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
