@@ -9,10 +9,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Event Details"); %>
 <c:import url="header.jsp"/>
+<h3 class="text-danger">${addedMessage}</h3>
 <h1>${event.title}</h1>
 <p>${event.description}</p>
 <h4>When</h4>
-<p>${event.startTime} to ${event.stopTime}</p>
+<c:choose>
+    <c:when test="${empty event.stopTime}">
+        <p>${event.startTime}</p>
+    </c:when>
+    <c:otherwise>
+        <p>${event.startTime} to ${event.stopTime}</p>
+    </c:otherwise>
+</c:choose>
 <h4>Where</h4>
 <p>${event.venueAddress}, ${event.state} ${event.city} ${event.postalCode}</p>
 
@@ -24,5 +32,5 @@
         <a href="addEventToUser?id=${event.id}" class="btn btn-danger btn-lg">Add to My Events</a>
     </c:otherwise>
 </c:choose>
-
+<c:remove var="addedMessage" />
 <c:import url="footer.jsp"/>

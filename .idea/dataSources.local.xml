@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - @localhost" uuid="48f5fe2a-59be-4c9b-8c99-1bc0d2da101b">
+    <data-source name="MySQL - eventspider@localhost" uuid="48f5fe2a-59be-4c9b-8c99-1bc0d2da101b">
       <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
+      <user-name>student</user-name>
     </data-source>
   </component>
 </project>

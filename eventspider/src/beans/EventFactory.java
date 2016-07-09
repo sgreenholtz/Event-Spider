@@ -13,7 +13,7 @@ import java.util.Date;
 public class EventFactory {
 
     private ResultSet results;
-    private Map<String, EventBean> eventMap;
+    private Map<Integer, EventBean> eventMap;
 
     /**
      * Empty constructor, instantiates map
@@ -35,7 +35,7 @@ public class EventFactory {
      * Gets the event Map.
      * @return eventMap
      */
-    public Map<String, EventBean> getEventMap() {
+    public Map<Integer, EventBean> getEventMap() {
         return eventMap;
     }
 
@@ -47,7 +47,7 @@ public class EventFactory {
     public void createBeansMap() {
         try {
             while (results.next()) {
-                eventMap.put(results.getString("event_id"), createBean());
+                eventMap.put(results.getInt("event_id"), createBean());
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class EventFactory {
                                String city,
                                String state,
                                String postalCode) {
-        eventMap.put(id, createBean(id, title, url, description,
+        eventMap.put(createURLSafeID(id), createBean(id, title, url, description,
                                     startTime, stopTime, venueAddress,
                                     city, state, postalCode));
     }
@@ -97,7 +97,7 @@ public class EventFactory {
      */
     private EventBean createBean() throws SQLException {
         EventBean event = new EventBean();
-        event.setEventId(results.getString("event_id"));
+        event.setEventId(results.getInt("event_id"));
         event.setTitle(results.getString("title"));
         event.setUrl(results.getString("url"));
         event.setDescription(results.getString("description"));
@@ -143,7 +143,7 @@ public class EventFactory {
         if (!stopTime.equals("")) {
             event.setStopTime(formatDateTimeNoMiliSecond(stopTime));
         } else {
-            event.setStopTime("?");
+            event.setStopTime(null);
         }
         event.setVenueAddress(venueAddress);
         event.setCity(city);
@@ -193,10 +193,10 @@ public class EventFactory {
     /**
      * Removes all non-numeric characters from the ID
      * @param id String ID that needs to be sanitized
-     * @return Only alpha-numeric character string for ID
+     * @return Integer of ID
      */
-    private String createURLSafeID(String id) {
-        return id.replaceAll("\\D", "");
+    private Integer createURLSafeID(String id) {
+        return new Integer(id.replaceAll("\\D", ""));
     }
 
 

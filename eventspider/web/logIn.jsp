@@ -25,7 +25,7 @@
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             </div>
         </div>
-        <input type="hidden" name="eventID" value="${event.id}" />
+        <input type="hidden" name="eventID" value="${id}" />
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button type="submit" class="btn btn-primary">Submit</button>

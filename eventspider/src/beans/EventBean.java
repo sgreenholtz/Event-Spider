@@ -5,7 +5,7 @@ package beans;
  * @author Sebastian Greenholtz
  */
 public class EventBean {
-    private String eventId;
+    private Integer eventId;
     private String title;
     private String url;
     private String description;
@@ -25,7 +25,7 @@ public class EventBean {
      * Gets the value of eventId;
      * @return eventId
      */
-    public String getEventId() {
+    public Integer getEventId() {
         return eventId;
     }
 
@@ -33,7 +33,7 @@ public class EventBean {
      * Sets eventId to given value
      * @param eventId value to set instance variable to
      */
-    public void setEventId(String eventId) {
+    public void setEventId(Integer eventId) {
         this.eventId = eventId;
     }
 
