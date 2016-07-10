@@ -7,28 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/src/servlets/UserEventsDisplay.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eventspider/web/myEvents.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/beans/EventBean.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/beans/EventBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/beans/EventFactory.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/beans/EventFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/database/AddEvent.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/database/AddEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/eventsbatching/EventfulParser.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/eventsbatching/EventfulParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/servlets/EventDetailsController.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/servlets/EventDetailsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/servlets/LogInServlet.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/servlets/LogInServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/testing/QuickTest.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/testing/QuickTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/database/UserHandler.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/database/UserHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/servlets/AddEventToUser.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/servlets/AddEventToUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/beans/EventFactory.java" afterPath="$PROJECT_DIR$/eventspider/src/beans/EventFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/database/AddEvent.java" afterPath="$PROJECT_DIR$/eventspider/src/database/AddEvent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/database/UserHandler.java" afterPath="$PROJECT_DIR$/eventspider/src/database/UserHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/eventsbatching/EventfulParser.java" afterPath="$PROJECT_DIR$/eventspider/src/eventsbatching/EventfulParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/localhost.properties" afterPath="$PROJECT_DIR$/eventspider/src/localhost.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/servlets/AddEventToUser.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/AddEventToUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/servlets/LogInServlet.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/LogInServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/testing/QuickTest.java" afterPath="$PROJECT_DIR$/eventspider/src/testing/QuickTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/servlets/UserEventsDisplay.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/UserEventsDisplay.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/localhost.properties" afterPath="$PROJECT_DIR$/eventspider/target/classes/localhost.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/eventspider/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/eventDetails.jsp" afterPath="$PROJECT_DIR$/eventspider/web/eventDetails.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/header.jsp" afterPath="$PROJECT_DIR$/eventspider/web/header.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/myEvents.jsp" afterPath="$PROJECT_DIR$/eventspider/web/myEvents.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/searchDisplay.jsp" afterPath="$PROJECT_DIR$/eventspider/web/searchDisplay.jsp" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,18 +49,38 @@
       <file leaf-file-name="myEvents.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eventspider/web/myEvents.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="191">
+              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="localhost.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/eventspider/src/localhost.properties">
+      <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eventspider/web/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-880">
+              <caret line="3998" column="4" selection-start-line="3998" selection-start-column="1" selection-end-line="3998" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eventspider/web/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+              <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searchDisplay.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eventspider/web/searchDisplay.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -82,8 +89,8 @@
       <file leaf-file-name="UserEventsDisplay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eventspider/src/servlets/UserEventsDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,10 +101,10 @@
       <file leaf-file-name="UserHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eventspider/src/database/UserHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+            <state relative-caret-position="422">
+              <caret line="104" column="49" selection-start-line="104" selection-start-column="49" selection-end-line="104" selection-end-column="49" />
               <folding>
-                <marker date="1468160243000" expanded="true" signature="2702:2725" ph="SELECT LAST_... " />
+                <marker date="1468160859000" expanded="true" signature="2702:2725" ph="SELECT LAST_... " />
               </folding>
             </state>
           </provider>
@@ -128,9 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/web/eventDetails.jsp" />
-        <option value="$PROJECT_DIR$/project/src/dbOperations/AddEvent.java" />
-        <option value="$PROJECT_DIR$/project/src/dbOperations/UserHandler.java" />
         <option value="$PROJECT_DIR$/project/src/dbOperations/SearchHandler.java" />
         <option value="$PROJECT_DIR$/project/src/testing/SearchHandlerTest.java" />
         <option value="$PROJECT_DIR$/Lucene/src/Practice/Indexer.java" />
@@ -173,12 +177,15 @@
         <option value="$PROJECT_DIR$/eventspider/src/database/AddEvent.java" />
         <option value="$PROJECT_DIR$/eventspider/src/servlets/AddEventToUser.java" />
         <option value="$PROJECT_DIR$/eventspider/web/eventDetails.jsp" />
-        <option value="$PROJECT_DIR$/eventspider/web/myEvents.jsp" />
         <option value="$PROJECT_DIR$/eventspider/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/eventspider/web/header.jsp" />
-        <option value="$PROJECT_DIR$/eventspider/src/servlets/UserEventsDisplay.java" />
-        <option value="$PROJECT_DIR$/eventspider/src/database/UserHandler.java" />
         <option value="$PROJECT_DIR$/eventspider/src/localhost.properties" />
+        <option value="$PROJECT_DIR$/eventspider/src/database/UserHandler.java" />
+        <option value="$PROJECT_DIR$/eventspider/src/servlets/UserEventsDisplay.java" />
+        <option value="$PROJECT_DIR$/eventspider/web/header.jsp" />
+        <option value="$PROJECT_DIR$/eventspider/web/eventsTable.jsp" />
+        <option value="$PROJECT_DIR$/eventspider/web/searchDisplay.jsp" />
+        <option value="$PROJECT_DIR$/eventspider/web/myEvents.jsp" />
+        <option value="$PROJECT_DIR$/eventspider/web/css/bootstrap.css" />
       </list>
     </option>
   </component>
@@ -338,6 +345,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Event-Spider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eventspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1129,7 +1154,7 @@
       <workItem from="1467931145156" duration="2130000" />
       <workItem from="1468026059481" duration="3655000" />
       <workItem from="1468068529405" duration="13309000" />
-      <workItem from="1468155628978" duration="4578000" />
+      <workItem from="1468155628978" duration="5971000" />
     </task>
     <servers />
   </component>
@@ -1166,7 +1191,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144380000" />
+    <option name="totallyTimeSpent" value="145773000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1402" height="812" extended-state="0" />
@@ -1183,7 +1208,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32916668" sideWeight="0.4970588" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39473686" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39444444" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25588235" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1256,20 +1281,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/eventspider/src/database/DatabaseTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/database/SearchHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/database/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1522,14 +1533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/searchDisplay.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/web/eventDetails.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -1572,46 +1575,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/myEvents.jsp">
+    <entry file="file://$PROJECT_DIR$/eventspider/src/localhost.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="30" column="114" selection-start-line="30" selection-start-column="114" selection-end-line="30" selection-end-column="114" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/header.jsp">
+    <entry file="file://$PROJECT_DIR$/eventspider/src/database/UserHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="71" column="51" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+        <state relative-caret-position="422">
+          <caret line="104" column="49" selection-start-line="104" selection-start-column="49" selection-end-line="104" selection-end-column="49" />
+          <folding>
+            <marker date="1468160859000" expanded="true" signature="2702:2725" ph="SELECT LAST_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/web/eventsTable.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="26" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/servlets/UserEventsDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/database/UserHandler.java">
+    <entry file="file://$PROJECT_DIR$/eventspider/web/searchDisplay.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding>
-            <marker date="1468160243000" expanded="true" signature="2702:2725" ph="SELECT LAST_... " />
-          </folding>
+        <state relative-caret-position="116">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/localhost.properties">
+    <entry file="file://$PROJECT_DIR$/eventspider/web/myEvents.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/web/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+          <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/web/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-880">
+          <caret line="3998" column="4" selection-start-line="3998" selection-start-column="1" selection-end-line="3998" selection-end-column="4" />
           <folding />
         </state>
       </provider>

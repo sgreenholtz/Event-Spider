@@ -101,8 +101,22 @@ public class UserHandler {
         return userID;
     }
 
-    public void getEventsForUser(Integer userID) {
-
+    /**
+     * Gets a Result Set of all the events saved for a given user
+     * @param userID User to get events for
+     * @return result set of all the events saved to a given user
+     */
+    public ResultSet getEventsForUser(Integer userID) {
+        ResultSet results = null;
+        try {
+            String sql = properties.getProperty("get.user.events");
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, userID);
+            results = statement.executeQuery();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return results;
     }
 
 }

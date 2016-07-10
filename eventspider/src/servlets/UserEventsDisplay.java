@@ -1,6 +1,11 @@
 package servlets;
 
+import beans.EventBean;
+import beans.EventFactory;
+import database.UserHandler;
+
 import java.io.*;
+import java.sql.ResultSet;
 import java.util.*;
 import javax.servlet.http.*;
 import javax.servlet.*;
@@ -12,6 +17,8 @@ import javax.servlet.*;
  */
 public class UserEventsDisplay extends HttpServlet {
 
+    private static Properties properties;
+
     /**
      * Gets all the events associated with given user and sets them in the
      * session to be accessed on the My Events page
@@ -22,6 +29,18 @@ public class UserEventsDisplay extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
+        properties = (Properties) getServletContext().getAttribute("appProperties");
+        UserHandler userHandler = new UserHandler(properties);
+        ResultSet eventsResults = userHandler.getEventsForUser((Integer) request.getSession().getAttribute("userID"));
+        EventFactory eventFactory = new EventFactory(eventsResults);
+        Map<Integer, EventBean> eventsMap = eventFactory.getEventMap();
+
+        request.getSession().setAttribute("userEventMap", eventsMap);
+
+        String url = "/my-events";
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward(request, response);
 
     }
 }
