@@ -133,4 +133,25 @@ public class AddEvent {
         }
         return formattedDateTime;
     }
+
+    /**
+     * Saves a given event to a given user. Returns true if successfully added
+     * @param userID
+     * @param eventID
+     * @return True if event is successfully aded
+     */
+    public boolean saveEventToUser(Integer userID, Integer eventID) {
+        Integer rowsAdded = 0;
+        try {
+            String sql = properties.getProperty("save.event.to.user");
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, userID);
+            statement.setInt(2, eventID);
+            rowsAdded = statement.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return (rowsAdded == 1);
+    }
 }

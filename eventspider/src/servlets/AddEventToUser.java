@@ -22,6 +22,7 @@ public class AddEventToUser extends HttpServlet {
     private static Integer errorCode;
     private static Integer EVENT_NOT_ADDED = 1;
     private static Integer EVENT_EXISTS_IN_DATABASE = 0;
+    private static Integer EVENT_NOT_SAVED_TO_USER = 2;
 
     /**
      * Adds the given event to the user's page, then
@@ -38,11 +39,10 @@ public class AddEventToUser extends HttpServlet {
 
         if (!addEventToEventsTable() && errorCode == EVENT_NOT_ADDED) {
             goBackToEventPage(request, response);
+        } else {
+            saveEventToUser((Integer) request.getSession().getAttribute("userID"), event.getEventId());
+            goBackToEventPage(request, response);
         }
-
-        // if successful adding or event already added, add event + user to that table
-
-        goBackToEventPage(request, response);
     }
 
     /**
@@ -64,6 +64,23 @@ public class AddEventToUser extends HttpServlet {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Attempts to add the event to the user in the database and updates
+     * the event add message. If the add fails, the appropriate error
+     * code and fail message is added.
+     * @param userID
+     * @param eventID
+     */
+    private void saveEventToUser(Integer userID, Integer eventID) {
+        AddEvent addEvent = new AddEvent(properties);
+        if (addEvent.saveEventToUser(userID, eventID)) {
+            addedMessage = properties.getProperty("success.message");
+        } else {
+            errorCode = EVENT_NOT_SAVED_TO_USER;
+            addedMessage = properties.getProperty("fail.message");
+        }
     }
 
     /**
