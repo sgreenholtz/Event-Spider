@@ -35,7 +35,7 @@ public class UserEventsDisplay extends HttpServlet {
         EventFactory eventFactory = new EventFactory(eventsResults);
         Map<Integer, EventBean> eventsMap = eventFactory.getEventMap();
 
-        request.getSession().setAttribute("userEventMap", eventsMap);
+        request.getSession().setAttribute("userEventsMap", eventsMap);
 
         String url = "/my-events";
 

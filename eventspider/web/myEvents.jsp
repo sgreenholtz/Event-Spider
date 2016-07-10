@@ -12,7 +12,7 @@
 <c:if test="${empty userID}">
     <c:redirect url="/login" />
 </c:if>
-
+<h1>My Events</h1>
 <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -22,6 +22,7 @@
         <td>Location</td>
     </tr>
     </thead>
+    <tbody>
     <c:forEach var="event" items="${userEventsMap}">
         <tr>
             <td><a href="eventDetails?id=${event.key}" class="btn btn-success btn-sm">View</a></td>
@@ -30,6 +31,7 @@
             <td>${event.value.venueAddress}, ${event.value.city} ${event.value.state}</td>
         </tr>
     </c:forEach>
+    </tbody>
 </table>
 
 <c:import url="footer.jsp" />
