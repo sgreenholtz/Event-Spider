@@ -26,11 +26,12 @@
 
 <c:choose>
     <c:when test="${empty userID}">
-        <a href="login?id=${event.id}" class="btn btn-danger btn-lg">Log In to Add</a>
+        <a href="login?id=${event.eventId}" class="btn btn-danger btn-lg">Log In to Add</a>
     </c:when>
     <c:otherwise>
-        <a href="addEventToUser?id=${event.id}" class="btn btn-danger btn-lg">Add to My Events</a>
+        <a href="addEventToUser?id=${event.eventId}" class="btn btn-danger btn-lg">Add to My Events</a>
     </c:otherwise>
 </c:choose>
+<a href="search-result-list" class="btn btn-success btn-lg">Return to List</a>
 <c:remove var="addedMessage" />
 <c:import url="footer.jsp"/>

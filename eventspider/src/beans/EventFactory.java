@@ -196,7 +196,9 @@ public class EventFactory {
      * @return Integer of ID
      */
     private Integer createURLSafeID(String id) {
-        return new Integer(id.replaceAll("\\D", ""));
+        id = id.replaceAll("\\D", "");
+        id = id.replaceFirst("0+", "");
+        return new Integer(id.substring(0, 9));
     }
 
 

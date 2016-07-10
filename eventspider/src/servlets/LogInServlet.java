@@ -41,9 +41,9 @@ public class LogInServlet extends HttpServlet {
         String url = "/";
         if (isNotCorrectLogin(userID)) {
             url += "login";
-        } else if (!eventID.equals(null)) {
+        } else if (!eventID.equals("")) {
             url += "eventDetails?id=" + eventID;
-            HttpSession session = request.getSession(true);
+            HttpSession session = request.getSession();
             session.setAttribute("userID", userID);
         } else {
             HttpSession session = request.getSession(true);

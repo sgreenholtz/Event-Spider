@@ -101,4 +101,8 @@ public class UserHandler {
         return userID;
     }
 
+    public void getEventsForUser(Integer userID) {
+
+    }
+
 }

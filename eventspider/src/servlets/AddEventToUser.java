@@ -38,8 +38,10 @@ public class AddEventToUser extends HttpServlet {
         event = eventsMap.get(new Integer(request.getParameter("id")));
 
         if (!addEventToEventsTable() && errorCode == EVENT_NOT_ADDED) {
+            log("Add event to user error: " + errorCode.toString());
             goBackToEventPage(request, response);
         } else {
+            log("Add event to user error: " + errorCode.toString());
             saveEventToUser((Integer) request.getSession().getAttribute("userID"), event.getEventId());
             goBackToEventPage(request, response);
         }

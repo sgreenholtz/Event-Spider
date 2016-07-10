@@ -67,6 +67,11 @@
         <jsp-file>/eventfulSearch.jsp</jsp-file>
     </servlet>
 
+    <servlet>
+        <servlet-name>MyEvents</servlet-name>
+        <jsp-file>/myEvents.jsp</jsp-file>
+    </servlet>
+
 <!-- ********************************************************************* -->
 <!-- Servlet Configurations ********************************************** -->
 <!-- ********************************************************************* -->
@@ -94,10 +99,16 @@
         <servlet-name>EventfulSearchServlet</servlet-name>
         <servlet-class>servlets.EventfulSearch</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>AddEventToUser</servlet-name>
         <servlet-class>servlets.AddEventToUser</servlet-class>
     </servlet>
+
+<servlet>
+    <servlet-name>UserEventsDisplay</servlet-name>
+    <servlet-class>servlets.UserEventsDisplay</servlet-class>
+</servlet>
 
 <!-- ********************************************************************* -->
 <!-- Servlet Mappings **************************************************** -->
@@ -165,6 +176,16 @@
     <servlet-mapping>
         <servlet-name>AddEventToUser</servlet-name>
         <url-pattern>/addEventToUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MyEvents</servlet-name>
+        <url-pattern>/my-events</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserEventsDisplay</servlet-name>
+        <url-pattern>/myEventsController</url-pattern>
     </servlet-mapping>
 
 

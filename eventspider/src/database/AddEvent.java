@@ -63,7 +63,7 @@ public class AddEvent {
             statement.setString(3, event.getUrl());
             statement.setString(4, event.getDescription());
             statement.setString(5, formatDateTimeToMySql(event.getStartTime()));
-            if (event.getStopTime().isEmpty()) {
+            if (event.getStopTime() == null) {
                 statement.setString(6, null);
             } else {
                 statement.setString(6, formatDateTimeToMySql(event.getStopTime()));

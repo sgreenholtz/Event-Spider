@@ -69,6 +69,7 @@
                     </c:if>
                     <li><a href="search">Search</a></li>
                     <li><a href="addEvent">Add Event</a></li>
+                    <li><a href="myEventsController">My Events</a></li>
                 </ul>
             </div>
 
