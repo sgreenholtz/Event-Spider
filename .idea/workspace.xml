@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" afterPath="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" afterPath="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,31 +41,22 @@
       <file leaf-file-name="LuceneTester.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+            <state relative-caret-position="263">
+              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="48" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Indexer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Indexer.java">
+      <file leaf-file-name="Searcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="81" column="53" selection-start-line="81" selection-start-column="53" selection-end-line="81" selection-end-column="53" />
+            <state relative-caret-position="356">
+              <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2643#2644#0" expanded="true" />
+                <element signature="e#2682#2683#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertiesLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eventspider/src/database/PropertiesLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="57" column="54" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -104,7 +96,6 @@
         <option value="$PROJECT_DIR$/project/src/servlets/ApplicationStartup.java" />
         <option value="$PROJECT_DIR$/project/src/Lucene/LuceneTester.java" />
         <option value="$PROJECT_DIR$/project/src/lucene/LuceneTester.java" />
-        <option value="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
         <option value="$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java" />
         <option value="$PROJECT_DIR$/eventspider/src/lucene/Tester2.java" />
         <option value="$PROJECT_DIR$/eventspider/src/eventsbatching/sample.json" />
@@ -144,6 +135,7 @@
         <option value="$PROJECT_DIR$/eventspider/web/header.jsp" />
         <option value="$PROJECT_DIR$/eventspider/src/database/PropertiesLoader.java" />
         <option value="$PROJECT_DIR$/eventspider/src/lucene/Indexer.java" />
+        <option value="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
         <option value="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" />
       </list>
     </option>
@@ -1033,7 +1025,7 @@
       <workItem from="1468068529405" duration="13309000" />
       <workItem from="1468155628978" duration="7287000" />
       <workItem from="1468365196234" duration="668000" />
-      <workItem from="1468366261314" duration="3591000" />
+      <workItem from="1468366261314" duration="4125000" />
     </task>
     <servers />
   </component>
@@ -1070,7 +1062,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151348000" />
+    <option name="totallyTimeSpent" value="151882000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1402" height="812" extended-state="0" />
@@ -1085,7 +1077,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5029412" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32916668" sideWeight="0.4970588" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32916668" sideWeight="0.4970588" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39444444" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1189,13 +1181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="58" selection-start-line="62" selection-start-column="58" selection-end-line="62" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1493,10 +1478,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
+          <folding>
+            <element signature="e#2643#2644#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+        <state relative-caret-position="263">
+          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="48" selection-end-column="11" />
           <folding />
         </state>
       </provider>

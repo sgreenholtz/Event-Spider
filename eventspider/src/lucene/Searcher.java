@@ -26,6 +26,7 @@ public class Searcher {
     private IndexSearcher indexSearcher;
     private QueryParser queryParser;
     private Query query;
+    private IndexReader reader;
 
     /**
      * Constructor takes a String to the path of the index directory and
@@ -34,7 +35,7 @@ public class Searcher {
      * @throws IOException
      */
     public Searcher(String indexDirectoryPath) throws IOException {
-        IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDirectoryPath)));
+        reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDirectoryPath)));
         Analyzer analyzer = new StandardAnalyzer();
         indexSearcher = new IndexSearcher(reader);
         queryParser = new QueryParser(LuceneConstants.CONTENTS, analyzer);
@@ -62,5 +63,14 @@ public class Searcher {
      */
     public Document getDocument(ScoreDoc scoreDoc) throws IOException {
         return indexSearcher.doc(scoreDoc.doc);
+    }
+
+    /**
+     * Verifies that the index was created by returning the number of
+     * documents in the index
+     * @return Integer number of documents in the index.
+     */
+    public Integer getDocumentCount() {
+        return reader.numDocs();
     }
 }

@@ -36,6 +36,7 @@ public class LuceneTester {
 
     private void search(String searchQuery) throws IOException, ParseException{
         searcher = new Searcher(System.getProperty("java.io.tmpdir"));
+        System.out.println(searcher.getDocumentCount());
         long startTime = System.currentTimeMillis();
         TopDocs hits = searcher.search(searchQuery);
         long endTime = System.currentTimeMillis();
