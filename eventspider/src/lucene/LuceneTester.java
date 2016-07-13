@@ -23,20 +23,20 @@ public class LuceneTester {
     public static void main(String[] args) {
         try {
             LuceneTester tester = new LuceneTester();
-            tester.index();
-            tester.search("coop");
+//            tester.index();
+            tester.search("COOP");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
         }
     }
 
     private void search(String searchQuery) throws IOException, ParseException{
         searcher = new Searcher(System.getProperty("java.io.tmpdir"));
-        System.out.println(searcher.getDocumentCount());
+//        System.out.println(searcher.getDocumentCount());
         long startTime = System.currentTimeMillis();
         TopDocs hits = searcher.search(searchQuery);
         long endTime = System.currentTimeMillis();
