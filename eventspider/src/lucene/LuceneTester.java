@@ -53,5 +53,6 @@ public class LuceneTester {
         Properties properties = loader.loadPropertiesNotStatic("/localhost.properties");
         Indexer indexer = new Indexer(System.getProperty("java.io.tmpdir"));
         indexer.createIndex(properties);
+        indexer.close();
     }
 }
