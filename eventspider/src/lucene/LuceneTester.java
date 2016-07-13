@@ -1,5 +1,6 @@
 package lucene;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -20,6 +21,7 @@ public class LuceneTester {
     Searcher searcher;
 
     public static void main(String[] args) {
+//        System.out.println(new File("eventspider/src/localhost.properties").isFile());
         try {
             LuceneTester tester = new LuceneTester();
             tester.index();
@@ -34,7 +36,7 @@ public class LuceneTester {
     }
 
     private void search(String searchQuery) throws IOException, ParseException{
-        searcher = new Searcher("../../indexes"); // wrong location
+        searcher = new Searcher("/indexes");
         long startTime = System.currentTimeMillis();
         TopDocs hits = searcher.search(searchQuery);
         long endTime = System.currentTimeMillis();
@@ -48,8 +50,9 @@ public class LuceneTester {
     }
 
     private void index() throws IOException, SQLException {
-        Properties properties = PropertiesLoader.loadProperties("../localhost.properties");
-        Indexer indexer = new Indexer("../../indexes");
+        PropertiesLoader loader = new PropertiesLoader();
+        Properties properties = loader.loadPropertiesNotStatic("/localhost.properties");
+        Indexer indexer = new Indexer("/indexes");
         indexer.createIndex(properties);
     }
 }

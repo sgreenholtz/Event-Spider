@@ -27,7 +27,8 @@
 <link href="https://bootswatch.com/sandstone/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" type="text/css" src="${pageContext.request.contextPath}/css/custom.css">
+<link rel="stylesheet" type="text/css" src="${pageContext.request.contextPath}/css/custom.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,6 +40,8 @@
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="jquery-1.12.4.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+
 
 </head>
 
