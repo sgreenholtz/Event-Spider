@@ -49,7 +49,7 @@
 
 <servlet>
     <servlet-name>AddEvent</servlet-name>
-    <jsp-file>/addEvent.jsp</jsp-file>
+    <jsp-file>/eventHandler.jsp</jsp-file>
 </servlet>
 
     <servlet>
@@ -146,7 +146,7 @@
 
     <servlet-mapping>
         <servlet-name>AddEvent</servlet-name>
-        <url-pattern>/addEvent</url-pattern>
+        <url-pattern>/eventHandler</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

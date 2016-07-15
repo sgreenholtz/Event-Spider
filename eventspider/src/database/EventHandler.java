@@ -9,10 +9,11 @@ import java.sql.*;
 import java.util.Date;
 
 /**
- * Handles adding new events into the database
+ * Handles adding new events into the database and retrieving events from the
+ * database
  * @author Sebastian Greenholtz
  */
-public class AddEvent {
+public class EventHandler {
 
     private Connection conn;
     private Properties properties;
@@ -21,7 +22,7 @@ public class AddEvent {
      * Constructor to set Properties variable
      * @param properties Application properties
      */
-    public AddEvent(Properties properties) {
+    public EventHandler(Properties properties) {
         DatabaseHandler db = new DatabaseHandler(properties);
         this.properties = properties;
         conn = db.getConnection();
@@ -153,5 +154,23 @@ public class AddEvent {
         }
 
         return (rowsAdded == 1);
+    }
+
+    /**
+     * Gets a single event from the database based on the ID
+     * @param eventID Integer ID for the event
+     * @return ResultSet with the single event
+     */
+    public ResultSet getEventByID(Integer eventID) {
+        ResultSet results = null;
+        try {
+            String sql = properties.getProperty("get.event.by.id");
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, eventID);
+            results = statement.executeQuery();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return results;
     }
 }

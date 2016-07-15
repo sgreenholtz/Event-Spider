@@ -1,7 +1,7 @@
 package servlets;
 
 import beans.EventBean;
-import database.AddEvent;
+import database.EventHandler;
 import database.RecordNotAddedException;
 
 import java.io.*;
@@ -53,13 +53,13 @@ public class AddEventToUser extends HttpServlet {
      * @return False with appropriate error code if event exists or wasn't added at all
      */
     private boolean addEventToEventsTable() {
-        AddEvent addEvent = new AddEvent(properties);
-        if (addEvent.eventExistsInDatabase(event.getEventId())) {
+        EventHandler eventHandler = new EventHandler(properties);
+        if (eventHandler.eventExistsInDatabase(event.getEventId())) {
             errorCode = EVENT_EXISTS_IN_DATABASE;
             return false;
         }
         try {
-            addEvent.addEvent(event);
+            eventHandler.addEvent(event);
         } catch (RecordNotAddedException ex) {
             addedMessage = properties.getProperty("fail.message");
             errorCode = EVENT_NOT_ADDED;
@@ -76,8 +76,8 @@ public class AddEventToUser extends HttpServlet {
      * @param eventID
      */
     private void saveEventToUser(Integer userID, Integer eventID) {
-        AddEvent addEvent = new AddEvent(properties);
-        if (addEvent.saveEventToUser(userID, eventID)) {
+        EventHandler eventHandler = new EventHandler(properties);
+        if (eventHandler.saveEventToUser(userID, eventID)) {
             addedMessage = properties.getProperty("success.message");
         } else {
             errorCode = EVENT_NOT_SAVED_TO_USER;

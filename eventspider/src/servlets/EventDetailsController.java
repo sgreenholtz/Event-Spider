@@ -1,8 +1,11 @@
 package servlets;
 
 import beans.EventBean;
+import beans.EventFactory;
+import database.EventHandler;
 
 import java.io.*;
+import java.sql.ResultSet;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,6 +17,8 @@ import javax.servlet.http.*;
 
 public class EventDetailsController extends HttpServlet {
 
+    private static Properties properties;
+
     /**
      * Gets the value from the search display view to select an event
      * @param request
@@ -21,9 +26,11 @@ public class EventDetailsController extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
-        Map<Integer, EventBean> eventsMap = (HashMap) request.getSession().getAttribute("eventsMap");
-
-        EventBean eventBean = eventsMap.get(new Integer(request.getParameter("id")));
+        properties = (Properties) getServletContext().getAttribute("appProperties");
+        EventHandler eventHandler = new EventHandler(properties);
+        ResultSet results = eventHandler.getEventByID(new Integer(request.getParameter("eventID")));
+        EventFactory eventFactory = new EventFactory(results);
+        EventBean eventBean = eventFactory.createBean();
         request.setAttribute("event", eventBean);
 
         String url = "/event-details";

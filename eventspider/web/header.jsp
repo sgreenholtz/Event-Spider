@@ -74,7 +74,7 @@
                             <li class=""><a href="login">Log In</a></li>
                         </c:when>
                         <c:otherwise>
-                            <li><a href="addEvent">Add Event</a></li>
+                            <li><a href="eventHandler">Add Event</a></li>
                             <li><a href="myEventsController">My Events</a></li>
                         </c:otherwise>
                     </c:choose>

@@ -1,6 +1,6 @@
 package servlets;
 
-import database.AddEvent;
+import database.EventHandler;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class AddEventManual extends HttpServlet {
         ArrayList<String> formList = getFormValues(formMap);
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
-        AddEvent eventAdder = new AddEvent(properties);
+        EventHandler eventAdder = new EventHandler(properties);
         eventAdder.insertEvent(formList);
 
         String url = "/";
