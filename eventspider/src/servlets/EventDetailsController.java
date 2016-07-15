@@ -28,7 +28,7 @@ public class EventDetailsController extends HttpServlet {
         throws IOException, ServletException {
         properties = (Properties) getServletContext().getAttribute("appProperties");
         EventHandler eventHandler = new EventHandler(properties);
-        ResultSet results = eventHandler.getEventByID(new Integer(request.getParameter("eventID")));
+        ResultSet results = eventHandler.getEventByID(new Integer(request.getParameter("id")));
         EventBean eventBean = EventFactory.createBean(results);
         request.setAttribute("event", eventBean);
 
