@@ -33,6 +33,7 @@ public class UserEventsDisplay extends HttpServlet {
         UserHandler userHandler = new UserHandler(properties);
         ResultSet eventsResults = userHandler.getEventsForUser((Integer) request.getSession().getAttribute("userID"));
         EventFactory eventFactory = new EventFactory(eventsResults);
+        eventFactory.createBeansMap();
         Map<Integer, EventBean> eventsMap = eventFactory.getEventMap();
 
         request.getSession().setAttribute("userEventsMap", eventsMap);

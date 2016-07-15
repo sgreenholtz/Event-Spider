@@ -102,7 +102,11 @@ public class EventFactory {
         event.setUrl(results.getString("url"));
         event.setDescription(results.getString("description"));
         event.setStartTime(formatDateTimeMySql(results.getString("start_time")));
-        event.setStopTime(formatDateTimeMySql(results.getString("stop_time")));
+        if (results.getString("stop_time") == null) {
+            event.setStopTime(null);
+        } else {
+            event.setStopTime(formatDateTimeMySql(results.getString("stop_time")));
+        }
         event.setVenueAddress(results.getString("venue_address"));
         event.setCity(results.getString("city"));
         event.setState(results.getString("state"));
@@ -154,7 +158,8 @@ public class EventFactory {
 
     /**
      * Formats the date/time field from the yyyy-MM-dd hh:mm:ss.S format of the
-     * mySQL database to a more human readable EEE MMM d h:mm a format
+     * mySQL database to a more human readable EEE MMM d h:mm a format. If the date
+     * is already in a readable format, the date is returned as originally formatted
      * @param mysqlFormattedDateTime String representing the date and time in MySql format
      * @return String representing the date and time in a human readable format
      */
@@ -163,6 +168,9 @@ public class EventFactory {
         try {
             SimpleDateFormat inputFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
             Date dateObjectRepresentation = inputFormatter.parse(mysqlFormattedDateTime);
+            if (dateObjectRepresentation == null) {
+                return mysqlFormattedDateTime;
+            }
             SimpleDateFormat outputFormatter = new SimpleDateFormat("EEEE, MMM d h:mm a");
             formattedDateTime = outputFormatter.format(dateObjectRepresentation);
         } catch (ParseException e) {
