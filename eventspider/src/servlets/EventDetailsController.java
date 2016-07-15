@@ -29,8 +29,7 @@ public class EventDetailsController extends HttpServlet {
         properties = (Properties) getServletContext().getAttribute("appProperties");
         EventHandler eventHandler = new EventHandler(properties);
         ResultSet results = eventHandler.getEventByID(new Integer(request.getParameter("eventID")));
-        EventFactory eventFactory = new EventFactory(results);
-        EventBean eventBean = eventFactory.createBean();
+        EventBean eventBean = EventFactory.createBean(results);
         request.setAttribute("event", eventBean);
 
         String url = "/event-details";

@@ -47,7 +47,7 @@ public class EventFactory {
     public void createBeansMap() {
         try {
             while (results.next()) {
-                eventMap.put(results.getInt("event_id"), createBean());
+                eventMap.put(results.getInt("event_id"), createBean(results));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class EventFactory {
      * Creates an Event bean from the current database row
      * @return Event Bean form the current row
      */
-    public EventBean createBean() {
+    public static EventBean createBean(ResultSet results) {
         EventBean event = new EventBean();
         try {
             event.setEventId(results.getInt("event_id"));
@@ -168,7 +168,7 @@ public class EventFactory {
      * @param mysqlFormattedDateTime String representing the date and time in MySql format
      * @return String representing the date and time in a human readable format
      */
-    private String formatDateTimeMySql(String mysqlFormattedDateTime) {
+    private static String formatDateTimeMySql(String mysqlFormattedDateTime) {
         String formattedDateTime = "";
         try {
             SimpleDateFormat inputFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
