@@ -112,17 +112,24 @@ public class EventHandler {
                 statement.setString(i, formList.get(i-1));
             }
             statement.executeUpdate();
-
+            indexNewEvent(getNewEventID(), formList.get(0));
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Gets an Integer of the last event ID, for auto-generated IDs
+     * @return Integer of ID for the event just added to the database
+     * @throws SQLException
+     */
     private Integer getNewEventID() throws SQLException {
         PreparedStatement statement = conn.prepareStatement(properties.getProperty("last.insert.id"));
         ResultSet results = statement.executeQuery();
         results.last();
-        return results.getInt("event_id");
+        return results.getInt("last_insert_id()");
     }
 
     /**

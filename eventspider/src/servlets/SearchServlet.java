@@ -29,12 +29,13 @@ public class SearchServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-        String location = request.getParameter("location");
         String searchTerm = request.getParameter("keyword");
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
+
         SearchHandler searcher = new SearchHandler(properties);
         ResultSet results = searcher.performTitleSearch(searchTerm);
+
         EventFactory eventFactory = new EventFactory(results);
         eventFactory.createBeansMap();
 

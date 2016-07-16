@@ -6,6 +6,7 @@ import java.util.*;
 /**
  * Performs searches on the database to find events.
  * @author Sebastian Greenholtz
+ * @deprecated Use Lucene searcher
  */
 
 public class SearchHandler {
