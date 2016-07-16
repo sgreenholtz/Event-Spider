@@ -42,6 +42,12 @@ public class Searcher {
         queryParser = new QueryParser(LuceneConstants.CONTENTS, analyzer);
     }
 
+    /**
+     * Simple method to read through the index, print the title of
+     * each document, and return all the documents as an array list
+     * @return Array list of all documents in the index
+     * @throws IOException
+     */
     public ArrayList<Document> getDocsInIndex() throws IOException {
         ArrayList<Document> docs = new ArrayList<>();
         for (int i=0; i<reader.numDocs(); i++) {

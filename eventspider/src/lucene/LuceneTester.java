@@ -1,10 +1,13 @@
 package lucene;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import database.PropertiesLoader;
+import org.apache.commons.io.FileUtils;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.ScoreDoc;
@@ -18,29 +21,22 @@ import org.apache.lucene.search.TopDocs;
 public class LuceneTester {
 
     public static void main(String[] args) {
-//        System.out.println(System.getProperty("java.io.tmpdir")+"indexes");
         try {
             LuceneTester tester = new LuceneTester();
+            tester.emptyIndex();
             tester.index();
-            tester.readIndex();
-//            tester.search("COOP");
+            tester.search("COOP");
         } catch (IOException e) {
             e.printStackTrace();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private void readIndex() throws IOException {
-        Searcher searcher = new Searcher(System.getProperty("java.io.tmpdir")+"indexes");
-        searcher.getDocsInIndex();
-    }
-
     private void search(String searchQuery) throws IOException, ParseException{
         Searcher searcher = new Searcher(System.getProperty("java.io.tmpdir")+"indexes");
-//        System.out.println(searcher.getDocumentCount());
         long startTime = System.currentTimeMillis();
         TopDocs hits = searcher.search(searchQuery);
         long endTime = System.currentTimeMillis();
@@ -59,5 +55,10 @@ public class LuceneTester {
         Indexer indexer = new Indexer(System.getProperty("java.io.tmpdir")+"indexes");
         indexer.createIndex(properties);
         indexer.close();
+    }
+
+    private void emptyIndex() throws IOException {
+        FileUtils.cleanDirectory(new File(System.getProperty("java.io.tmpdir")+"indexes"));
+
     }
 }
