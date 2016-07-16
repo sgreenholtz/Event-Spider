@@ -6,6 +6,7 @@ import database.EventHandler;
 
 import java.io.*;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -27,14 +28,30 @@ public class EventDetailsController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
         properties = (Properties) getServletContext().getAttribute("appProperties");
-        EventHandler eventHandler = new EventHandler(properties);
-        ResultSet results = eventHandler.getEventByID(new Integer(request.getParameter("id")));
-        EventBean eventBean = EventFactory.createBean(results);
+        EventBean eventBean = createEventBean(new Integer(request.getParameter("id")));
         request.setAttribute("event", eventBean);
 
         String url = "/event-details";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
+    }
+
+    /**
+     * Takes the event ID and creates a new event bean corresponding to that ID
+     * @param eventID Integer ID for the event to create a bean of
+     * @return Event Bean of that event
+     */
+    private EventBean createEventBean(Integer eventID) {
+        EventHandler eventHandler = new EventHandler(properties);
+        ResultSet results = eventHandler.getEventByID(eventID);
+        EventBean eventBean = null;
+        try {
+            results.last();
+            eventBean = EventFactory.createBean(results);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return eventBean;
     }
 }
