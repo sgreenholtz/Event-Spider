@@ -17,31 +17,36 @@ import org.apache.lucene.search.TopDocs;
  */
 public class LuceneTester {
 
-    Searcher searcher;
-
     public static void main(String[] args) {
+//        System.out.println(System.getProperty("java.io.tmpdir")+"indexes");
         try {
             LuceneTester tester = new LuceneTester();
-//            tester.index();
-            tester.search("COOP");
+            tester.index();
+            tester.readIndex();
+//            tester.search("COOP");
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-//        } catch (SQLException e) {
+//        } catch (ParseException e) {
 //            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
+    private void readIndex() throws IOException {
+        Searcher searcher = new Searcher(System.getProperty("java.io.tmpdir")+"indexes");
+        searcher.getDocsInIndex();
+    }
+
     private void search(String searchQuery) throws IOException, ParseException{
-        searcher = new Searcher(System.getProperty("java.io.tmpdir"));
-        System.out.println(searcher.getDocumentCount());
+        Searcher searcher = new Searcher(System.getProperty("java.io.tmpdir")+"indexes");
+//        System.out.println(searcher.getDocumentCount());
         long startTime = System.currentTimeMillis();
         TopDocs hits = searcher.search(searchQuery);
         long endTime = System.currentTimeMillis();
 
         System.out.println(hits.totalHits +
-                " documents found. Time :" + (endTime - startTime) +" ms");
+                " events found. Time :" + (endTime - startTime) +" ms");
         for(ScoreDoc scoreDoc : hits.scoreDocs) {
             Document doc = searcher.getDocument(scoreDoc);
             System.out.println("File: "+ doc.getFields());
@@ -51,7 +56,7 @@ public class LuceneTester {
     private void index() throws IOException, SQLException {
         PropertiesLoader loader = new PropertiesLoader();
         Properties properties = loader.loadPropertiesNotStatic("/localhost.properties");
-        Indexer indexer = new Indexer(System.getProperty("java.io.tmpdir"));
+        Indexer indexer = new Indexer(System.getProperty("java.io.tmpdir")+"indexes");
         indexer.createIndex(properties);
         indexer.close();
     }

@@ -2,6 +2,7 @@ package lucene;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -39,6 +40,16 @@ public class Searcher {
         Analyzer analyzer = new StandardAnalyzer();
         indexSearcher = new IndexSearcher(reader);
         queryParser = new QueryParser(LuceneConstants.CONTENTS, analyzer);
+    }
+
+    public ArrayList<Document> getDocsInIndex() throws IOException {
+        ArrayList<Document> docs = new ArrayList<>();
+        for (int i=0; i<reader.numDocs(); i++) {
+            Document doc = reader.document(i);
+            System.out.println(doc.get("title"));
+            docs.add(doc);
+        }
+        return docs;
     }
 
     /**
