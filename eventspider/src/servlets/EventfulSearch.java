@@ -26,12 +26,12 @@ public class EventfulSearch extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
-        System.out.println(request.getParameter("returnPage"));
         if (request.getParameter("returnPage") == null) {
             properties = (Properties) getServletContext().getAttribute("appProperties");
             String searchUrl = constructURL(request.getParameter("location"));
-
-            jsonURL = getJsonUrl(request.getSession().getAttribute("userID").toString());
+            String sessionID = UUID.randomUUID().toString();
+            request.getSession().setAttribute("sessionID", sessionID);
+            jsonURL = getJsonUrl(sessionID);
 
         /* Uncomment this for benchmark testing */
 //        double start = System.nanoTime();
@@ -80,6 +80,7 @@ public class EventfulSearch extends HttpServlet {
         String url = "http://api.eventful.com/json/events/search?";
         url += "app_key=" + properties.getProperty("eventful.key");
         url += "&location=" + constructSearchString(location);
+        url += "&page_size=" + 30;
         return url;
     }
 

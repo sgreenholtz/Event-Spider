@@ -19,6 +19,9 @@
           <element id="library" level="project" name="lucene-queryparser-6.0.1" />
           <element id="file-copy" path="$PROJECT_DIR$/eventspider/lib/json-simple-1.1.1.jar" />
         </element>
+        <element id="directory" name="resources">
+          <element id="dir-copy" path="$PROJECT_DIR$/eventspider/resources" />
+        </element>
       </element>
       <element id="dir-copy" path="$PROJECT_DIR$/eventspider/web" />
     </root>

@@ -2,8 +2,6 @@ package lucene;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -24,7 +22,7 @@ public class LuceneTester {
         indexDir = FileUtils.getUserDirectory() + "/eventspider/diy/tomcat/indexes";
         try {
             LuceneTester tester = new LuceneTester();
-//            tester.emptyIndex();
+            tester.emptyIndex();
             tester.index();
             tester.search("fiber");
         } catch (IOException e) {
