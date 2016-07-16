@@ -5,7 +5,7 @@ package lucene;
  * @author Sebastian Greenholtz
  */
 public class LuceneConstants {
-    public static final String CONTENTS="title";
+    public static final String SEARCH_FIELD="title";
     public static final String FILE_PATH="filepath";
-    public static final int MAX_SEARCH = 100;
+    public static final int MAX_SEARCH = 10;
 }

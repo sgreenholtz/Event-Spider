@@ -36,7 +36,7 @@ public class Searcher {
         reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDirectoryPath)));
         Analyzer analyzer = new StandardAnalyzer();
         indexSearcher = new IndexSearcher(reader);
-        queryParser = new QueryParser(LuceneConstants.CONTENTS, analyzer);
+        queryParser = new QueryParser(LuceneConstants.SEARCH_FIELD, analyzer);
     }
 
     /**
