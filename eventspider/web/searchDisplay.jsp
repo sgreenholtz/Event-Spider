@@ -12,7 +12,7 @@
 <c:import url="header.jsp"/>
 
 <h3>Found ${fn:length(eventsMap)} events matching "${searchTerm}"</h3>
-<table class="display" id="search">
+<table class="display" id="table">
     <thead>
     <tr>
         <td></td>
@@ -25,7 +25,7 @@
     <c:forEach var="event" items="${eventsMap}">
         <tr>
             <td><a href="eventDetails?id=${event.key}&returnPage=${returnPage}" class="btn btn-success btn-sm">View</a></td>
-            <td><div class="tableOverflow">${event.value.title}</div></td>
+            <td>${event.value.title}</td>
             <td>${event.value.startTime}</td>
             <td>${event.value.venueAddress}, ${event.value.city} ${event.value.state}</td>
         </tr>

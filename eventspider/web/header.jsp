@@ -39,14 +39,13 @@
 
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="jquery-1.12.4.min.js"></script>
 
 <!-- Data Tables -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
 <script type="javascript">
     $(document).ready(function() {
-        $('#search').DataTable( {
+        $('#table').DataTable( {
                 "paging": true,
                 "ordering": true,
                 "info": false

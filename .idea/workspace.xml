@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/lucene/LuceneTester.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/lucene/LuceneTester.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/servlets/EventfulSearch.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/servlets/EventfulSearch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/eventspider_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/eventspider_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/eventspider.iml" afterPath="$PROJECT_DIR$/eventspider/eventspider.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" afterPath="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java" afterPath="$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/header.jsp" afterPath="$PROJECT_DIR$/eventspider/web/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/search.jsp" afterPath="$PROJECT_DIR$/eventspider/web/search.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/web/searchDisplay.jsp" afterPath="$PROJECT_DIR$/eventspider/web/searchDisplay.jsp" />
     </list>
     <ignored path="Event-Spider.iws" />
@@ -76,21 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchDisplay.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="searchDisplay.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eventspider/web/searchDisplay.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+            <state relative-caret-position="240">
+              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eventspider/web/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="313">
-              <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+              <caret line="43" column="101" selection-start-line="43" selection-start-column="101" selection-end-line="43" selection-end-column="101" />
               <folding />
             </state>
           </provider>
@@ -170,8 +162,8 @@
         <option value="$PROJECT_DIR$/eventspider/web/search.jsp" />
         <option value="$PROJECT_DIR$/eventspider/web/eventfulSearch.jsp" />
         <option value="$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java" />
-        <option value="$PROJECT_DIR$/eventspider/web/searchDisplay.jsp" />
         <option value="$PROJECT_DIR$/eventspider/web/header.jsp" />
+        <option value="$PROJECT_DIR$/eventspider/web/searchDisplay.jsp" />
       </list>
     </option>
   </component>
@@ -1128,7 +1120,7 @@
       <workItem from="1468535453855" duration="2804000" />
       <workItem from="1468623700416" duration="6367000" />
       <workItem from="1468672642781" duration="8664000" />
-      <workItem from="1468687700102" duration="6028000" />
+      <workItem from="1468687700102" duration="6649000" />
     </task>
     <servers />
   </component>
@@ -1165,7 +1157,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175897000" />
+    <option name="totallyTimeSpent" value="176518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1402" height="812" extended-state="0" />
@@ -1583,18 +1575,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/eventfulSearch.jsp">
+    <entry file="file://$PROJECT_DIR$/eventspider/web/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/search.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-79">
-          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+        <state relative-caret-position="313">
+          <caret line="43" column="101" selection-start-line="43" selection-start-column="101" selection-end-line="43" selection-end-column="101" />
           <folding />
         </state>
       </provider>
@@ -1607,18 +1591,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/searchDisplay.jsp">
+    <entry file="file://$PROJECT_DIR$/eventspider/web/search.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        <state relative-caret-position="-79">
+          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/web/header.jsp">
+    <entry file="file://$PROJECT_DIR$/eventspider/web/eventfulSearch.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+        <state relative-caret-position="116">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/web/searchDisplay.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
           <folding />
         </state>
       </provider>
