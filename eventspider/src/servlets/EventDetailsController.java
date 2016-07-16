@@ -27,10 +27,17 @@ public class EventDetailsController extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
-        properties = (Properties) getServletContext().getAttribute("appProperties");
-        EventBean eventBean = createEventBean(new Integer(request.getParameter("id")));
-        request.setAttribute("event", eventBean);
+        EventBean eventBean = null;
+        if (request.getParameter("returnPage").equals("eventfulSearch")) {
+            Map<Integer, EventBean> eventsMap = (HashMap) request.getSession().getAttribute("eventsMap");
+            eventBean = eventsMap.get(new Integer(request.getParameter("id")));
+        } else {
+            properties = (Properties) getServletContext().getAttribute("appProperties");
+            eventBean = createEventBean(new Integer(request.getParameter("id")));
+        }
 
+        request.setAttribute("event", eventBean);
+        request.setAttribute("returnPage", request.getParameter("returnPage"));
         String url = "/event-details";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);

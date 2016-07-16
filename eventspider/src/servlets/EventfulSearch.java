@@ -26,10 +26,12 @@ public class EventfulSearch extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
-        properties = (Properties) getServletContext().getAttribute("appProperties");
-        String searchUrl = constructURL(request.getParameter("location"));
+        System.out.println(request.getParameter("returnPage"));
+        if (request.getParameter("returnPage") == null) {
+            properties = (Properties) getServletContext().getAttribute("appProperties");
+            String searchUrl = constructURL(request.getParameter("location"));
 
-        jsonURL = getJsonUrl(request.getSession().getAttribute("userID").toString());
+            jsonURL = getJsonUrl(request.getSession().getAttribute("userID").toString());
 
         /* Uncomment this for benchmark testing */
 //        double start = System.nanoTime();
@@ -37,12 +39,14 @@ public class EventfulSearch extends HttpServlet {
 //        double elapsedTime = (System.nanoTime() - start) / 1000000000.00;
 //        System.out.println("Elapsed time: " + elapsedTime);
 
-        getJSON(searchUrl);
+            getJSON(searchUrl);
+            EventfulParser eventfulParser = new EventfulParser(jsonURL);
+            request.getSession().setAttribute("eventsMap", eventfulParser.getEventMap());
+        }
 
-        EventfulParser eventfulParser = new EventfulParser(jsonURL);
-        request.getSession().setAttribute("eventsMap", eventfulParser.getEventMap());
-        request.setAttribute("searchTerm", request.getParameter("location"));
         String url = "/search-result-list";
+        request.setAttribute("searchTerm", request.getParameter("location"));
+        request.setAttribute("returnPage", "eventfulSearch");
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);

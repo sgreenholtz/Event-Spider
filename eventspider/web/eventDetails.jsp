@@ -32,6 +32,6 @@
         <a href="addEventToUser?id=${event.eventId}" class="btn btn-danger btn-lg">Add to My Events</a>
     </c:otherwise>
 </c:choose>
-<a href="search-result-list" class="btn btn-success btn-lg">Return to List</a>
+<a href="${returnPage}&returnPage=${returnPage}" class="btn btn-success btn-lg">Return to Previous Page</a>
 <c:remove var="addedMessage" />
 <c:import url="footer.jsp"/>
