@@ -111,6 +111,25 @@ public class Searcher {
     }
 
     /**
+     * Returns an ArrayList of only the IDs of the search results
+     * @param searchQuery String query to search on
+     * @return Array List of the IDs of the events found in the search
+     */
+    public ArrayList<Integer> searchList(String searchQuery) {
+        ArrayList<Integer> searchIDList = new ArrayList<>();
+        try {
+            TopDocs hits = doSearch(searchQuery);
+            for (ScoreDoc scoreDoc : hits.scoreDocs) {
+                Document doc = getDocument(scoreDoc);
+                searchIDList.add(new Integer(doc.get("event_id")));
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return searchIDList;
+    }
+
+    /**
      * Gets a single document from the results of the search
      * @param scoreDoc A single result from the TopDocs result
      * @return A document from that results

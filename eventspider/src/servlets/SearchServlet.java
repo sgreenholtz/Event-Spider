@@ -1,11 +1,12 @@
 package servlets;
 
 import beans.EventFactory;
-import database.SearchHandler;
+import lucene.Searcher;
+import database.EventHandler;
 
 import java.io.*;
-import java.sql.ResultSet;
-import java.util.Properties;
+import java.sql.*;
+import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -32,11 +33,12 @@ public class SearchServlet extends HttpServlet {
         String searchTerm = request.getParameter("keyword");
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
-
-        SearchHandler searcher = new SearchHandler(properties);
-        ResultSet results = searcher.performTitleSearch(searchTerm);
-
-        EventFactory eventFactory = new EventFactory(results);
+        Searcher searcher = new Searcher(properties.getProperty("index.dir"));
+        EventHandler eventHandler = new EventHandler(properties);
+        Map<Integer, String> eventsMap = searcher.searchMap(searchTerm);
+        ArrayList<Integer> eventIDsList = searcher.searchList(searchTerm);
+        ResultSet events = eventHandler.getEventByID(eventIDsList);
+        EventFactory eventFactory = new EventFactory(events);
         eventFactory.createBeansMap();
 
         request.getSession().setAttribute("eventsMap", eventFactory.getEventMap());

@@ -180,9 +180,30 @@ public class EventHandler {
     public ResultSet getEventByID(Integer eventID) {
         ResultSet results = null;
         try {
-            String sql = properties.getProperty("get.event.by.id");
+            String sql = properties.getProperty("get.event.by.id") + ";";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, eventID);
+            results = statement.executeQuery();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return results;
+    }
+
+    /**
+     * Gets a ResultSet of the events given a list of IDs
+     * @param eventIDs List of event IDs
+     * @return
+     */
+    public ResultSet getEventByID(List<Integer> eventIDs) {
+        ResultSet results = null;
+        try {
+            String sql = properties.getProperty("get.event.by.id");
+            for (Integer id : eventIDs) {
+                sql += " " + properties.getProperty("additional.id.select") + id;
+            }
+            PreparedStatement statement = conn.prepareStatement(sql + ";");
+            statement.setInt(1, eventIDs.get(0));
             results = statement.executeQuery();
         } catch (SQLException ex) {
             ex.printStackTrace();
