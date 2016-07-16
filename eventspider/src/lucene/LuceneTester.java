@@ -2,15 +2,14 @@ package lucene;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import database.PropertiesLoader;
-import org.apache.commons.io.FileUtils;
-import org.apache.lucene.document.Document;
+import org.apache.commons.io.*;
 import org.apache.lucene.queryparser.classic.ParseException;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
 
 /**
  * Tests the functioning of the Lucene indexer and searcher. First performs an
@@ -19,21 +18,21 @@ import org.apache.lucene.search.TopDocs;
  */
 public class LuceneTester {
 
-    private static String indexDir = System.getProperty("java.io.tmpdir") + "indexes";
+    private static String indexDir;
 
     public static void main(String[] args) {
-//        System.out.println(indexDir);
+        indexDir = FileUtils.getUserDirectory() + "/indexes";
         try {
             LuceneTester tester = new LuceneTester();
 //            tester.emptyIndex();
-//            tester.index();
+            tester.index();
             tester.search("fiber");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
