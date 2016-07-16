@@ -22,29 +22,24 @@ public class LuceneTester {
     private static String indexDir = System.getProperty("java.io.tmpdir") + "indexes";
 
     public static void main(String[] args) {
-        System.out.println(indexDir);
+//        System.out.println(indexDir);
         try {
             LuceneTester tester = new LuceneTester();
-            tester.emptyIndex();
-            tester.index();
+//            tester.emptyIndex();
+//            tester.index();
             tester.search("fiber");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
         }
     }
 
     private void search(String searchQuery) throws IOException, ParseException{
         Searcher searcher = new Searcher(indexDir);
-        TopDocs hits = searcher.search(searchQuery);
-        System.out.println(hits.totalHits + " events found.");
-        for(ScoreDoc scoreDoc : hits.scoreDocs) {
-            Document doc = searcher.getDocument(scoreDoc);
-            System.out.println("File: "+ doc.getFields());
-        }
+        searcher.printSearch(searchQuery);
     }
 
     private void index() throws IOException, SQLException {

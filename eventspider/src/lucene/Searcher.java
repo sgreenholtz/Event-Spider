@@ -3,6 +3,8 @@ package lucene;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -63,9 +65,49 @@ public class Searcher {
      * @throws IOException
      * @throws ParseException
      */
-    public TopDocs search(String searchQuery) throws IOException, ParseException {
-        query = queryParser.parse(searchQuery);
-        return indexSearcher.search(query, LuceneConstants.MAX_SEARCH);
+    private TopDocs doSearch(String searchQuery) throws IOException {
+        TopDocs topDocs = null;
+        try {
+            query = queryParser.parse(searchQuery);
+            topDocs = indexSearcher.search(query, LuceneConstants.MAX_SEARCH);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        return topDocs;
+    }
+
+    /**
+     * Performs the search on the given search terms and prints out the results
+     * @param searchQuery String to search
+     * @throws IOException
+     * @throws ParseException
+     */
+    public void printSearch(String searchQuery) throws IOException {
+        TopDocs hits = doSearch(searchQuery);
+        for(ScoreDoc scoreDoc : hits.scoreDocs) {
+            Document doc = getDocument(scoreDoc);
+            System.out.println("ID: "+ doc.get("event_id"));
+            System.out.println("Title: "+ doc.get("title"));
+        }
+    }
+
+    /**
+     * Creates a map of event ID -> title from search
+     * @param searchQuery String to search for
+     * @return Map of event ID (integer) -> title (String) of events found
+     */
+    public Map<Integer, String> searchMap(String searchQuery) {
+        Map<Integer, String> searchMap = new HashMap<>();
+        try {
+            TopDocs hits = doSearch(searchQuery);
+            for (ScoreDoc scoreDoc : hits.scoreDocs) {
+                Document doc = getDocument(scoreDoc);
+                searchMap.put(new Integer(doc.get("event_id")), doc.get("title"));
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return searchMap;
     }
 
     /**
@@ -77,19 +119,5 @@ public class Searcher {
      */
     public Document getDocument(ScoreDoc scoreDoc) throws IOException {
         return indexSearcher.doc(scoreDoc.doc);
-    }
-
-    /**
-     * Verifies that the index was created by returning the number of
-     * documents in the index
-     * @return Integer number of documents in the index.
-     */
-    public Integer getDocumentCount() {
-        return reader.numDocs();
-    }
-
-    public void getIndexInfo() throws IOException {
-        CollectionStatistics stats = indexSearcher.collectionStatistics("title");
-        System.out.println("Total docs: " + stats.docCount());
     }
 }
