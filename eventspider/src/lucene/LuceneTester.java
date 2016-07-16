@@ -22,6 +22,7 @@ public class LuceneTester {
     private static String indexDir = System.getProperty("java.io.tmpdir") + "indexes";
 
     public static void main(String[] args) {
+        System.out.println(indexDir);
         try {
             LuceneTester tester = new LuceneTester();
             tester.emptyIndex();

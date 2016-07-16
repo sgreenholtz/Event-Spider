@@ -65,9 +65,19 @@ public class Indexer {
      */
     private void indexResultSet(ResultSet results) throws IOException, SQLException {
         while (results.next()) {
-            Document document = getDocument(results.getInt("event_id"), results.getString("title"));
-            writer.addDocument(document);
+            indexFields(results.getInt("event_id"), results.getString("title"));
         }
+    }
+
+    /**
+     * Adds a document to the index based on the fields themselves
+     * @param eventID Integer ID for the event
+     * @param title String title for the event
+     * @throws IOException
+     */
+    public void indexFields(Integer eventID, String title) throws IOException {
+        Document document = getDocument(eventID, title);
+        writer.addDocument(document);
     }
 
     /**

@@ -1,7 +1,9 @@
 package database;
 
 import beans.EventBean;
+import lucene.Indexer;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -80,7 +82,7 @@ public class EventHandler {
     }
 
     /**
-     *
+     * Adds an event to the database based on an Event Bean
      * @param event Event Bean to add to the database
      * @return True if event was successfully added
      */
@@ -109,11 +111,18 @@ public class EventHandler {
             for (int i=1; i<= formList.size(); i++) {
                 statement.setString(i, formList.get(i-1));
             }
-//            System.out.println(statement);
             statement.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private Integer getNewEventID() throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(properties.getProperty("last.insert.id"));
+        ResultSet results = statement.executeQuery();
+        results.last();
+        return results.getInt("event_id");
     }
 
     /**
@@ -172,5 +181,17 @@ public class EventHandler {
             ex.printStackTrace();
         }
         return results;
+    }
+
+    /**
+     * Adds the new event to the index of all events for Lucene searching
+     * TODO: Make this method run in a separate thread
+     * @param eventID Integer ID for event
+     * @param title String title for event
+     * @throws IOException
+     */
+    private void indexNewEvent(Integer eventID, String title) throws IOException {
+        Indexer indexer = new Indexer(properties.getProperty("index.dir"));
+        indexer.indexFields(eventID, title);
     }
 }
