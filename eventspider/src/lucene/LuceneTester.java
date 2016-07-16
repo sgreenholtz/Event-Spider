@@ -2,7 +2,6 @@ package lucene;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -20,12 +19,14 @@ import org.apache.lucene.search.TopDocs;
  */
 public class LuceneTester {
 
+    private static String indexDir = System.getProperty("java.io.tmpdir") + "indexes";
+
     public static void main(String[] args) {
         try {
             LuceneTester tester = new LuceneTester();
             tester.emptyIndex();
             tester.index();
-            tester.search("COOP");
+            tester.search("fiber");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -36,13 +37,9 @@ public class LuceneTester {
     }
 
     private void search(String searchQuery) throws IOException, ParseException{
-        Searcher searcher = new Searcher(System.getProperty("java.io.tmpdir")+"indexes");
-        long startTime = System.currentTimeMillis();
+        Searcher searcher = new Searcher(indexDir);
         TopDocs hits = searcher.search(searchQuery);
-        long endTime = System.currentTimeMillis();
-
-        System.out.println(hits.totalHits +
-                " events found. Time :" + (endTime - startTime) +" ms");
+        System.out.println(hits.totalHits + " events found.");
         for(ScoreDoc scoreDoc : hits.scoreDocs) {
             Document doc = searcher.getDocument(scoreDoc);
             System.out.println("File: "+ doc.getFields());
@@ -52,13 +49,13 @@ public class LuceneTester {
     private void index() throws IOException, SQLException {
         PropertiesLoader loader = new PropertiesLoader();
         Properties properties = loader.loadPropertiesNotStatic("/localhost.properties");
-        Indexer indexer = new Indexer(System.getProperty("java.io.tmpdir")+"indexes");
+        Indexer indexer = new Indexer(indexDir);
         indexer.createIndex(properties);
         indexer.close();
     }
 
     private void emptyIndex() throws IOException {
-        FileUtils.cleanDirectory(new File(System.getProperty("java.io.tmpdir")+"indexes"));
+        FileUtils.cleanDirectory(new File(indexDir));
 
     }
 }

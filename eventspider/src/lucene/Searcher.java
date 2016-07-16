@@ -12,10 +12,7 @@ import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.*;
 import org.apache.lucene.store.FSDirectory;
 
 /**
@@ -89,5 +86,10 @@ public class Searcher {
      */
     public Integer getDocumentCount() {
         return reader.numDocs();
+    }
+
+    public void getIndexInfo() throws IOException {
+        CollectionStatistics stats = indexSearcher.collectionStatistics("title");
+        System.out.println("Total docs: " + stats.docCount());
     }
 }

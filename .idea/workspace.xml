@@ -7,12 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/lucene/LuceneTester.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/lucene/LuceneTester.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/target/classes/lucene/Searcher.class" afterPath="$PROJECT_DIR$/eventspider/target/classes/lucene/Searcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/eventspider.iml" afterPath="$PROJECT_DIR$/eventspider/eventspider.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/pom.xml" afterPath="$PROJECT_DIR$/eventspider/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java" afterPath="$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" afterPath="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" afterPath="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
     </list>
@@ -47,20 +42,8 @@
       <file leaf-file-name="LuceneTester.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eventspider/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+            <state relative-caret-position="-289">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -69,11 +52,21 @@
       <file leaf-file-name="Searcher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="158">
+              <caret line="66" column="47" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LuceneConstants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,7 +103,6 @@
         <option value="$PROJECT_DIR$/project/src/servlets/ApplicationStartup.java" />
         <option value="$PROJECT_DIR$/project/src/Lucene/LuceneTester.java" />
         <option value="$PROJECT_DIR$/project/src/lucene/LuceneTester.java" />
-        <option value="$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java" />
         <option value="$PROJECT_DIR$/eventspider/src/lucene/Tester2.java" />
         <option value="$PROJECT_DIR$/eventspider/src/eventsbatching/sample.json" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -151,9 +143,10 @@
         <option value="$PROJECT_DIR$/eventspider/src/servlets/EventDetailsController.java" />
         <option value="$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java" />
         <option value="$PROJECT_DIR$/eventspider/web/eventDetails.jsp" />
-        <option value="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
         <option value="$PROJECT_DIR$/eventspider/pom.xml" />
         <option value="$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java" />
+        <option value="$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java" />
+        <option value="$PROJECT_DIR$/eventspider/src/lucene/Searcher.java" />
       </list>
     </option>
   </component>
@@ -1077,7 +1070,7 @@
       <workItem from="1468366261314" duration="4277000" />
       <workItem from="1468535453855" duration="2804000" />
       <workItem from="1468623700416" duration="6367000" />
-      <workItem from="1468672642781" duration="3350000" />
+      <workItem from="1468672642781" duration="4643000" />
     </task>
     <servers />
   </component>
@@ -1114,11 +1107,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164555000" />
+    <option name="totallyTimeSpent" value="165848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1402" height="812" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1140,7 +1133,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.4970588" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.4970588" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1195,24 +1188,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java</url>
-          <line>69</line>
-          <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="32" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1221,13 +1200,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/servlets/EventbriteSearch.java" />
     <entry file="file://$PROJECT_DIR$/eventspider/src/eventsbatching/sample.json" />
     <entry file="jar://$PROJECT_DIR$/eventspider/lib/json-simple-1.1.1.jar!/org/json/simple/JSONObject.class">
@@ -1511,7 +1483,7 @@
         <state relative-caret-position="83">
           <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1556,31 +1528,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="360">
           <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java">
+    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/LuceneConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/Searcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="66" column="47" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/src/lucene/LuceneTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
