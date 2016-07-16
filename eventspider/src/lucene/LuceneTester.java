@@ -21,7 +21,7 @@ public class LuceneTester {
     private static String indexDir;
 
     public static void main(String[] args) {
-        indexDir = FileUtils.getUserDirectory() + "/indexes";
+        indexDir = FileUtils.getUserDirectory() + "/eventspider/diy/tomcat/indexes";
         try {
             LuceneTester tester = new LuceneTester();
 //            tester.emptyIndex();
