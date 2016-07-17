@@ -29,16 +29,21 @@ public class UserEventsDisplay extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
-        properties = (Properties) getServletContext().getAttribute("appProperties");
-        UserHandler userHandler = new UserHandler(properties);
-        ResultSet eventsResults = userHandler.getEventsForUser((Integer) request.getSession().getAttribute("userID"));
-        EventFactory eventFactory = new EventFactory(eventsResults);
-        eventFactory.createBeansMap();
-        Map<Integer, EventBean> eventsMap = eventFactory.getEventMap();
+        String url = "";
+        if (request.getSession().getAttribute("userID") == null) {
+            url = "/login";
+        } else {
+            properties = (Properties) getServletContext().getAttribute("appProperties");
+            UserHandler userHandler = new UserHandler(properties);
+            ResultSet eventsResults = userHandler.getEventsForUser((Integer) request.getSession().getAttribute("userID"));
+            EventFactory eventFactory = new EventFactory(eventsResults);
+            eventFactory.createBeansMap();
+            Map<Integer, EventBean> eventsMap = eventFactory.getEventMap();
 
-        request.getSession().setAttribute("userEventsMap", eventsMap);
-        request.setAttribute("returnPage", "/myEventsController");
-        String url = "/my-events";
+            request.getSession().setAttribute("userEventsMap", eventsMap);
+            request.setAttribute("returnPage", "/myEventsController");
+            url = "/my-events";
+        }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);

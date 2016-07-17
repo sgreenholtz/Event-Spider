@@ -13,21 +13,21 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="Search for events in your city from any source">
+<meta name="author" content="Sebastian Greenholtz">
 
 <!-- Icon Stuff -->
-<link rel="shortcut icon" src="${pageContext.request.contextPath}/images/icons/calendar.ico">
-<link rel="icon" sizes="16x16" src="${pageContext.request.contextPath}/images/icons/calendar.ico">
-<link rel="icon" sizes="16x16" src="${pageContext.request.contextPath}/images/icons/calendar.png">
+<link rel="shortcut icon" src="images/icons/calendar.ico">
+<link rel="icon" sizes="16x16" src="images/icons/calendar.ico">
+<link rel="icon" sizes="16x16" src="images/icons/calendar.png">
 
 <title>Event Spider - ${title}</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="https://bootswatch.com/sandstone/bootstrap.min.css" rel="stylesheet">
+<link href="https://bootswatch.com/darkly/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" type="text/css" src="${pageContext.request.contextPath}/css/custom.css"/>
+<%--<link rel="stylesheet" type="text/css" src="${pageContext.request.contextPath}/css/custom.css"/>--%>
 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,16 +39,16 @@
 
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="jquery-1.12.4.min.js"></script>
+
 
 <!-- Data Tables -->
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
-<script type="javascript">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script>
     $(document).ready(function() {
         $('#table').DataTable( {
-                "paging": true,
-                "ordering": true,
-                "info": false
+                "order": [[2, "asc"]]
         } );
     } );
 </script>
