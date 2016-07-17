@@ -9,6 +9,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Search Event"); %>
 <c:import url="header.jsp"/>
+<c:if test="${empty userID}">
+    <c:redirect url="login" />
+    <c:set var="returnPageEvent" value="/search" />
+</c:if>
 
 <form class="form-horizontal" action="searchServlet" method="get">
     <fieldset>
