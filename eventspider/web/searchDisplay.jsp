@@ -15,10 +15,10 @@
 <table class="display" id="table">
     <thead>
     <tr>
-        <td></td>
-        <td>Title</td>
-        <td>Date</td>
-        <td>Location</td>
+        <th></th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Location</th>
     </tr>
     </thead>
     <tbody>
