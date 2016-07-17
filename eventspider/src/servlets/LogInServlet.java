@@ -31,7 +31,6 @@ public class LogInServlet extends HttpServlet {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String eventID = request.getParameter("eventID");
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
         UserHandler userHandler = new UserHandler(properties);

@@ -31,7 +31,7 @@
 <h4>Where</h4>
 <p>${event.venueAddress}, ${event.state} ${event.city} ${event.postalCode}</p>
 <h4>Learn More</h4>
-<p><a href="${event.url}"></a></p>
+<p><a href="${event.url}">${event.url}</a></p>
 <c:choose>
     <c:when test="${empty userID}">
         <c:set var="returnPageEvent" value="eventDetails?id=${event.eventId}" scope="session" />
