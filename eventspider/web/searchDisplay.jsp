@@ -12,7 +12,8 @@
 <c:import url="header.jsp"/>
 <c:set var="returnPage" value="search-result-list" scope="session" />
 <h3>Found ${fn:length(eventsMap)} events matching "${searchTerm}"</h3>
-<table class="display" id="table">
+<%--<table class="display" id="table">--%>
+<table class="table table-striped table-hover ">
     <thead>
     <tr>
         <th></th>
@@ -24,9 +25,9 @@
     <tbody>
     <c:forEach var="event" items="${eventsMap}">
         <tr>
-            <td><a href="eventDetails?id=${event.key}">View</a></td>
-            <td>${event.value.title}</td>
-            <td>${event.value.startTime}</td>
+            <td><a href="eventDetails?id=${event.key}" class="btn btn-success btn-xs">View</a></td>
+            <td><div class="tableOverflow>">${event.value.title}</div></td>
+            <td><div class="tableOverflow">${event.value.startTime}</div></td>
             <td>${event.value.venueAddress}, ${event.value.city} ${event.value.state}</td>
         </tr>
     </c:forEach>

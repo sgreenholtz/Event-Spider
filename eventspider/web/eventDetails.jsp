@@ -11,7 +11,14 @@
 <c:import url="header.jsp"/>
 <h3 class="text-danger">${addedMessage}</h3>
 <h1>${event.title}</h1>
-<p>${event.description}</p>
+<c:choose>
+    <c:when test="${empty event.description}">
+        <p>No description available.</p>
+    </c:when>
+    <c:otherwise>
+        <p>${event.description}</p>
+    </c:otherwise>
+</c:choose>
 <h4>When</h4>
 <c:choose>
     <c:when test="${empty event.stopTime}">
@@ -23,10 +30,12 @@
 </c:choose>
 <h4>Where</h4>
 <p>${event.venueAddress}, ${event.state} ${event.city} ${event.postalCode}</p>
-
+<h4>Learn More</h4>
+<p><a href="${event.url}"></a></p>
 <c:choose>
     <c:when test="${empty userID}">
-        <a href="login?id=${event.eventId}" class="btn btn-danger btn-lg">Log In to Add</a>
+        <c:set var="returnPageEvent" value="eventDetails?id=${event.eventId}" scope="session" />
+        <a href="login" class="btn btn-danger btn-lg">Log In to Add</a>
     </c:when>
     <c:otherwise>
         <a href="addEventToUser?id=${event.eventId}" class="btn btn-danger btn-lg">Add to My Events</a>

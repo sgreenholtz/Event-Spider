@@ -39,17 +39,16 @@ public class LogInServlet extends HttpServlet {
 
 
         String url = "/";
+        HttpSession session = request.getSession(true);
         if (isNotCorrectLogin(userID)) {
             url += "login";
-        } else if (!eventID.equals("")) {
-            url += "eventDetails?id=" + eventID;
-            HttpSession session = request.getSession();
-            session.setAttribute("userID", userID);
-        } else {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("userID", userID);
+            RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        } else if (session.getAttribute("returnPageEvent") != null) {
+            url = (String) session.getAttribute("returnPageEvent");
         }
 
+        session.setAttribute("userID", userID);
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }

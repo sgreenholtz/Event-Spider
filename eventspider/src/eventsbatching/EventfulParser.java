@@ -45,7 +45,7 @@ public class EventfulParser extends JSONHandlerSimple {
     /**
      * Uses the EventFactory class to create Event beans from each of the events
      * in the Event Array list, then add them to a map of ID -> EventBean.
-     * Sets  the eventMap instance variable based on this updated map.
+     * Sets the eventMap instance variable based on this updated map.
      */
     private void createEventsMap() {
         EventFactory factory = new EventFactory();
