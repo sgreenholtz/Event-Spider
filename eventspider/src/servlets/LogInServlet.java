@@ -38,7 +38,7 @@ public class LogInServlet extends HttpServlet {
 
 
         String url = "/";
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
         if (isNotCorrectLogin(userID)) {
             url += "login";
             RequestDispatcher dispatcher = request.getRequestDispatcher(url);
