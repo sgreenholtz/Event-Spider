@@ -37,6 +37,9 @@
         <c:set var="returnPageEvent" value="/eventDetails?id=${event.eventId}" scope="session" />
         <a href="login" class="btn btn-danger btn-lg">Log In to Add</a>
     </c:when>
+    <c:when test="${returnPage == 'my-events'}">
+        <a href="#" class="btn btn-danger btn-lg">Delete from My Events</a>
+    </c:when>
     <c:otherwise>
         <a href="addEventToUser?id=${event.eventId}" class="btn btn-danger btn-lg">Add to My Events</a>
     </c:otherwise>
