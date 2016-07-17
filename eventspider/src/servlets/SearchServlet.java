@@ -42,7 +42,7 @@ public class SearchServlet extends HttpServlet {
         eventFactory.createBeansMap();
 
         request.getSession().setAttribute("eventsMap", eventFactory.getEventMap());
-        request.setAttribute("searchTerm", searchTerm);
+        request.getSession().setAttribute("searchTerm", searchTerm);
         String url = "/search-result-list";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
