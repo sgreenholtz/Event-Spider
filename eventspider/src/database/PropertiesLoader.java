@@ -1,5 +1,6 @@
 package database;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -38,13 +39,7 @@ public class PropertiesLoader {
     public static Properties loadProperties(String filepath) {
         Properties properties = new Properties();
         try {
-            Class currentClass = new Object() { }.getClass().getEnclosingClass();
-            InputStream inputStream = currentClass.getResourceAsStream(filepath);
-            if (inputStream != null) {
-                properties.load(inputStream);
-            } else {
-                System.out.println("Input stream is null");
-            }
+            properties.load(new FileInputStream(filepath));
         } catch(IOException ioe) {
             System.out.println("Can't load the properties file");
             ioe.printStackTrace();

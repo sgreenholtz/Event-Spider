@@ -28,6 +28,7 @@ public class EventfulSearch extends HttpServlet {
         throws IOException, ServletException {
         if (request.getSession().getAttribute("returnPage") == null) {
             properties = (Properties) getServletContext().getAttribute("appProperties");
+            System.out.println(properties.getProperty("hello.world"));
             String searchUrl = constructURL(request.getParameter("location"));
             String sessionID = UUID.randomUUID().toString();
             request.getSession().setAttribute("sessionID", sessionID);
