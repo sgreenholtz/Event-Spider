@@ -42,16 +42,16 @@
 <script src="jquery-1.12.4.min.js"></script>
 
 
-<!-- Data Tables -->
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
-    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#table').DataTable( {
-                "order": [[2, "asc"]]
-        } );
-    } );
-</script>
+<%--<!-- Data Tables -->--%>
+    <%--<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>--%>
+    <%--<script type="text/javascript" src="DataTables/datatables.min.js"></script>--%>
+<%--<script>--%>
+    <%--$(document).ready(function() {--%>
+        <%--$('#table').DataTable( {--%>
+                <%--"order": [[2, "asc"]]--%>
+        <%--} );--%>
+    <%--} );--%>
+<%--</script>--%>
 
 </head>
 

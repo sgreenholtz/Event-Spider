@@ -22,7 +22,8 @@ public class ApplicationStartup extends HttpServlet {
     public void init() {
         ServletContext context = this.getServletContext();
 //        context.setAttribute("appProperties", PropertiesLoader.loadProperties("../openshift.properties"));
-        context.setAttribute("appProperties", PropertiesLoader.loadProperties("eventspider/resources/localhost.properties"));
+        String pathToProperties = "/Users/Kolya/Dropbox/Event-Spider/eventspider/resources/localhost.properties";
+        context.setAttribute("appProperties", PropertiesLoader.loadProperties(pathToProperties));
     }
 
 }
