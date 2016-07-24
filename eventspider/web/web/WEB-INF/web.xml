@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+
+    <display-name>Event Spider</display-name>
+    <description>Search for events in your city, save to your profile, and get customized suggestions delivered every week.</description>
+
     <!-- ********************************************************************* -->
     <!-- Resources *********************************************************** -->
     <!-- ********************************************************************* -->
@@ -109,6 +113,12 @@
         <servlet-class>servlets.UserEventsDisplay</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>ErrorTestingServlet</servlet-name>
+        <servlet-class>servlets.ErrorTestingServlet</servlet-class>
+    </servlet>
+
+
     <!-- ********************************************************************* -->
     <!-- Servlet Mappings **************************************************** -->
     <!-- ********************************************************************* -->
@@ -187,13 +197,18 @@
         <url-pattern>/myEventsController</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>ErrorTestingServlet</servlet-name>
+        <url-pattern>/errorTestingServlet</url-pattern>
+    </servlet-mapping>
+
 
     <!-- ********************************************************************* -->
     <!-- Home Page *********************************************************** -->
     <!-- ********************************************************************* -->
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
 
     <!-- ********************************************************************* -->
@@ -203,6 +218,11 @@
     <error-page>
         <error-code>500</error-code>
         <location>/error.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/notFound.jsp</location>
     </error-page>
 
 </web-app>

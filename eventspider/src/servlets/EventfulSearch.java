@@ -26,7 +26,7 @@ public class EventfulSearch extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
-        if (request.getParameter("returnPage") == null) {
+        if (request.getSession().getAttribute("returnPage") == null) {
             properties = (Properties) getServletContext().getAttribute("appProperties");
             String searchUrl = constructURL(request.getParameter("location"));
             String sessionID = UUID.randomUUID().toString();
@@ -44,9 +44,13 @@ public class EventfulSearch extends HttpServlet {
             request.getSession().setAttribute("eventsMap", eventfulParser.getEventMap());
         }
 
-        String url = "/search-result-list";
         request.setAttribute("searchTerm", request.getParameter("location"));
         request.setAttribute("returnPage", "eventfulSearch");
+
+        String url = "/search-result-list";
+        if (request.getSession().getAttribute("userID") == null) {
+            url = "/errorTestingServlet";
+        }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);

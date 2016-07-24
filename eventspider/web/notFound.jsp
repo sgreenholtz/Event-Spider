@@ -1,9 +1,10 @@
 <%--
-  Error Page
+
+  Not Found (404)
 
   User: Kolya
   Date: 2016-07-24
-  Time: 8:25 AM
+  Time: 8:35 AM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isErrorPage="true" %>
@@ -12,8 +13,8 @@
 <c:import url="header.jsp"/>
 
 <div class="jumbotron">
-    <h1>Oops! Something went wrong.</h1>
-    <p>We're scratching our heads on this one. Wanna go back to the home page?</p>
+    <h1>That page doesn't exist.</h1>
+    <p>Whatever you were looking for, it's not there. How about a trip back to the home page?</p>
     <p><a href="/" class="btn btn-primary btn-lg">Take me back!</a></p>
 </div>
 
