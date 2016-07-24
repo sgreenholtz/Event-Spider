@@ -5,6 +5,7 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="eventspider" />
+          <element id="module-output" name="eventspider" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="module" name="JUnit4" module-name="project" />
@@ -18,12 +19,14 @@
           <element id="file-copy" path="$PROJECT_DIR$/eventspider/lib/mysql-connector-java-5.1.38-bin.jar" />
           <element id="library" level="project" name="lucene-queryparser-6.0.1" />
           <element id="file-copy" path="$PROJECT_DIR$/eventspider/lib/json-simple-1.1.1.jar" />
+          <element id="library" level="project" name="eventspider-1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
         </element>
         <element id="directory" name="resources">
           <element id="dir-copy" path="$PROJECT_DIR$/eventspider/resources" />
         </element>
       </element>
-      <element id="dir-copy" path="$PROJECT_DIR$/eventspider/web" />
+      <element id="javaee-facet-resources" facet="eventspider1/web/Web" />
     </root>
   </artifact>
 </component>
