@@ -19,7 +19,7 @@ public class ShellTest {
     }
 
     private BufferedReader readScript() throws IOException {
-        ProcessBuilder builder = new ProcessBuilder("eventspider/src/eventsbatching/test.sh");
+        ProcessBuilder builder = new ProcessBuilder("eventspider/bin/test.sh");
         Process process = builder.start();
         return new BufferedReader(new InputStreamReader(process.getInputStream()));
     }

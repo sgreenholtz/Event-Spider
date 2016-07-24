@@ -1,13 +1,20 @@
 # Event-Spider
-A web scraping application for events
+Ever wonder what's going on in your city right now? Ever want to do *something* this weekend, but have no idea what events
+are happening close by? Event Spider is here to help! This friendly arachnid looks at common event hosting sites like
+Eventful and MeetUp, and crawls the web for local newspapers, universities, and anywhere else people are posting about
+events, and displays all the results, no log in needed!
 
-#### What it does
-Event Spider creates a custom events calendar based on your location and preferred tags. You choose what you want to
-see, what kinds of reminders you want, and how to spread the word about the events you've found.
+If you like what you see, you can create an account to save events to your personalized event calendar, and the Event
+Spider will spin you a web of suggestions based on what you've saved in the past. You can set email reminders, send events
+to your friends, or just keep it all to yourself and brag about how much fun you're having. Event Spider won't judge.
 
-#### How it works
-Event Spider uses two different approaches to finding event. First, Event Spider links into several event search
-websites, like Evenful, Eventbrite, and Meetup. Second, Event Spider has its own crawlers (or spiders) to search for
-events on the websites you want, such as a local school or newspaper. Set the sources you want, or search for brand-new ones.
+#### Technologies
+- Event Spider is built using plain ol' Java, with a MySQL database and Tomcat server.
+- Web crawling is performed using [Apache Nutch] (http://nutch.apache.org/) with [Solr](http://lucene.apache.org/solr/) to parse the results
+- Current configuration runs only on a local machine, however the MVP will be launched on [OpenShift](https://www.openshift.com/)
 
-Event Spider uses Apache lucene for powerful indexing and searching of events, and Apache Nutch for rapid web scraping. Integration with Google Calendar keeps your event calendar synched across your devices and always at the ready.
+#### Progress
+Check out my [project wiki](https://github.com/sgreenholtz/Event-Spider/wiki) for detailed updates.
+
+- 7/24/16: I reconfigured the web modules so a lot of what was working previously is mysteriously broken. Working on
+fixing it now.
