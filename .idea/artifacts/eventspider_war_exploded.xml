@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="eventspider:war exploded">
+    <output-path>/tomcat/diy/tomcat/webapps/ROOT/</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="eventspider" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-core:6.1.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-queryparser:6.1.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-queries:6.1.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-sandbox:6.1.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-analyzers-common:6.1.0" />
+          <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.9.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="/tomcat/diy/tomcat/webapps/ROOT//META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="eventspider/web/Web" />
+    </root>
+  </artifact>
+</component>
