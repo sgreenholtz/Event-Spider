@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="eventspider:war exploded">
-    <output-path>/tomcat/diy/tomcat/webapps/ROOT/</output-path>
+    <output-path>$PROJECT_DIR$/eventspider/target/eventspider-1.0</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -17,10 +17,11 @@
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
           <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.9.2" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="/tomcat/diy/tomcat/webapps/ROOT//META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/eventspider/target/eventspider-1.0/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="eventspider/web/Web" />
     </root>

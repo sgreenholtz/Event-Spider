@@ -37,42 +37,42 @@
 
     <servlet>
         <servlet-name>Home</servlet-name>
-        <jsp-file>/index.jsp</jsp-file>
+        <jsp-file>index.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>LogIn</servlet-name>
-        <jsp-file>/logIn.jsp</jsp-file>
+        <jsp-file>logIn.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>Search</servlet-name>
-        <jsp-file>/search.jsp</jsp-file>
+        <jsp-file>search.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>AddEvent</servlet-name>
-        <jsp-file>/eventHandler.jsp</jsp-file>
+        <jsp-file>eventHandler.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>SearchResultsDisplayList</servlet-name>
-        <jsp-file>/searchDisplay.jsp</jsp-file>
+        <jsp-file>searchDisplay.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>EventDetails</servlet-name>
-        <jsp-file>/eventDetails.jsp</jsp-file>
+        <jsp-file>eventDetails.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>EventfulSearchJSP</servlet-name>
-        <jsp-file>/eventfulSearch.jsp</jsp-file>
+        <jsp-file>eventfulSearch.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>MyEvents</servlet-name>
-        <jsp-file>/myEvents.jsp</jsp-file>
+        <jsp-file>myEvents.jsp</jsp-file>
     </servlet>
 
     <!-- ********************************************************************* -->
@@ -81,41 +81,41 @@
 
     <servlet>
         <servlet-name>LogInServlet</servlet-name>
-        <servlet-class>main.java.servlets.LogInServlet</servlet-class>
+        <servlet-class>servlets.LogInServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>SearchServlet</servlet-name>
-        <servlet-class>main.java.servlets.SearchServlet</servlet-class>
+        <servlet-class>servlets.SearchServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>AddEventManual</servlet-name>
-        <servlet-class>main.java.servlets.AddEventManual</servlet-class>
+        <servlet-class>servlets.AddEventManual</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>EventDetailsServlet</servlet-name>
-        <servlet-class>main.java.servlets.EventDetailsController</servlet-class>
+        <servlet-class>servlets.EventDetailsController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EventfulSearchServlet</servlet-name>
-        <servlet-class>main.java.servlets.EventfulSearch</servlet-class>
+        <servlet-class>servlets.EventfulSearch</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>AddEventToUser</servlet-name>
-        <servlet-class>main.java.servlets.AddEventToUser</servlet-class>
+        <servlet-class>servlets.AddEventToUser</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UserEventsDisplay</servlet-name>
-        <servlet-class>main.java.servlets.UserEventsDisplay</servlet-class>
+        <servlet-class>servlets.UserEventsDisplay</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ErrorTestingServlet</servlet-name>
-        <servlet-class>main.java.servlets.ErrorTestingServlet</servlet-class>
+        <servlet-class>servlets.ErrorTestingServlet</servlet-class>
     </servlet>
 
 
@@ -208,7 +208,7 @@
     <!-- ********************************************************************* -->
 
     <welcome-file-list>
-        <welcome-file>/index.jsp</welcome-file>
+        <welcome-file>WEB-INF/index.jsp</welcome-file>
     </welcome-file-list>
 
     <!-- ********************************************************************* -->
