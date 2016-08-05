@@ -5,6 +5,7 @@
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/eventspider" />
+    <file type="web" url="file://$PROJECT_DIR$/libs" />
   </component>
   <component name="MavenCompilerTasksManager">
     <option name="beforeCompileTasks">
@@ -20,6 +21,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/eventspider/pom.xml" />
+        <option value="$PROJECT_DIR$/EventCrawlWebService/pom.xml" />
       </list>
     </option>
   </component>

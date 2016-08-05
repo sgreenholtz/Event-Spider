@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="EventCrawlWebService" />
         <module name="eventspider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="EventCrawlWebService" target="7" />
       <module name="eventspider" target="7" />
     </bytecodeTargetLevel>
   </component>

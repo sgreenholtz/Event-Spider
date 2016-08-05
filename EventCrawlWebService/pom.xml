@@ -2,13 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.eventspider</groupId>
-    <artifactId>eventspider</artifactId>
-    <packaging>war</packaging>
-    <version>1.0</version>
-    <name>Event Spider</name>
+
+    <groupId>eventCrawlWebService</groupId>
+    <artifactId>event-crawl-web-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <build>
         <plugins>
@@ -32,25 +30,25 @@
         </plugins>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat7-maven-plugin</artifactId>
-                    <version>2.2</version>
-                    <executions>
-                        <execution>
-                            <id>tomcat-run</id>
-                            <goals>
-                                <goal>exec-war-only</goal>
-                            </goals>
-                            <phase>package</phase>
-                            <configuration>
-                                    <url>http://localhost:8080/manager</url>
-                                    <server>eventspider</server>
-                                    <path>/eventspider</path>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.tomcat.maven</groupId>-->
+                    <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+                    <!--<version>2.2</version>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>tomcat-run</id>-->
+                            <!--<goals>-->
+                                <!--<goal>exec-war-only</goal>-->
+                            <!--</goals>-->
+                            <!--<phase>package</phase>-->
+                            <!--<configuration>-->
+                                <!--<url>http://localhost:8080/manager</url>-->
+                                <!--<server>eventspider</server>-->
+                                <!--<path>/eventspider</path>-->
+                            <!--</configuration>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
             </plugins>
         </pluginManagement>
 
