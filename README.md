@@ -18,3 +18,9 @@ Check out my [project wiki](https://github.com/sgreenholtz/Event-Spider/wiki) fo
 
 - 7/24/16: I reconfigured the web modules so a lot of what was working previously is mysteriously broken. Working on
 fixing it now.
+
+#### IMPORTANT UPDATE
+This project was built for the [Madison College Honors Program](https://madisoncollege.edu/honors), the end date of which is coming in a few weeks. Given
+the short time frame I have left, it was decided that I would scale back the goals of this iteration and instead of
+building out a whole web application, I am going to focus on building a webservice that transforms a url that corresponds
+to a website with events on it to a JSON in the [Google Events Markup](https://developers.google.com/search/docs/data-types/events) format

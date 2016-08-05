@@ -28,6 +28,32 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
+    <content url="file://$MODULE_DIR$/../libs">
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/recipes/queue/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/contrib/fatjar/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/recipes/lock/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/java/systest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/recipes/election/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/contrib/fatjar/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/java/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/recipes/queue/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/recipes/queue/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/contrib/rest/src/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/recipes/lock/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/java/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/recipes/lock/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/contrib/loggraph/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/java/generated" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/recipes/election/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/contrib/rest/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/recipes/queue/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/recipes/election/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/recipes/lock/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/contrib/zooinspector/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/recipes/election/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/contrib/ZooInspector/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../libs/zookeeper-3.4.6/src/contrib/loggraph/src/java" isTestSource="false" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="lib" level="project" />
