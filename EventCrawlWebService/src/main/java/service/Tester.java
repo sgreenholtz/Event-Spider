@@ -1,16 +1,15 @@
 package service;
 
-import java.io.File;
-import java.util.*;
+import java.io.IOException;
 
 /**
+ * Tests other classes
  * @author Sebastian Greenholtz
  */
 public class Tester {
 
-    public static void main(String[] args) {
-        String url = "eventservice.properties";
-        PropertiesLoader loader = new PropertiesLoader(url);
-        System.out.println(loader.PROPERTIES);
+    public static void main(String[] args) throws IOException, TagNotFoundExecption {
+        GetEmbeddedEventJSON tester = new GetEmbeddedEventJSON("http://isthmus.com/news");
+        System.out.println(tester.getEventJSONs());
     }
 }

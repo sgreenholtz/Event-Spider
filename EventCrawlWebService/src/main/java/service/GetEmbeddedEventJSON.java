@@ -5,6 +5,7 @@ import org.jsoup.nodes.*;
 import org.jsoup.select.Elements;
 
 import java.io.*;
+import java.util.*;
 
 /**
  * Some websites already have a JSON object for the events on the page. This class
@@ -20,7 +21,7 @@ public class GetEmbeddedEventJSON {
      * Empty constructor
      */
     public GetEmbeddedEventJSON() {
-        htmlTag = "<script type=\"application/ld+json\">";
+        htmlTag = "script[type=\"application/ld+json\"]";
     }
 
     /**
@@ -33,19 +34,22 @@ public class GetEmbeddedEventJSON {
     }
 
     /**
-     * Gets the value of url.
-     * @return url
+     * Gets the elements from the page containing the Event JSON objects
+     * and returns an ArrayList of those JSON objects as strings
+     * @return ArrayList of String representation of JSON object
+     * @throws IOException
      */
-    public String getUrl() {
-        return url;
-    }
-
-    public static void main(String[] args) throws IOException {
-        GetEmbeddedEventJSON test = new GetEmbeddedEventJSON("http://isthmus.com/search/event/calendar-of-events/");
-        Document doc = Jsoup.connect(test.getUrl()).get();
-        Elements scriptTags = doc.select("script[type=\"application/ld+json\"]");
+    public ArrayList<String> getEventJSONs() throws IOException, TagNotFoundExecption {
+        Document doc = Jsoup.connect(url).get();
+        ArrayList<String> JSONList = new ArrayList<>();
+        Elements scriptTags = doc.select(htmlTag);
         for (Element tag : scriptTags) {
-            System.out.println(tag.data());
+            JSONList.add(tag.data());
+        }
+        if (JSONList.size()==0) {
+            throw new TagNotFoundExecption("No JSON event objects exist on this page");
+        } else {
+            return JSONList;
         }
     }
 
