@@ -30,8 +30,8 @@ public class UpdateSeedList extends HttpServlet {
         url = request.getParameter("url");
         properties = getProperties();
         updateSeedList();
-    }
 
+    }
     /**
      * Updates the seed.txt file with the new URL to crawl
      */
@@ -50,8 +50,7 @@ public class UpdateSeedList extends HttpServlet {
      * @return Properties object
      */
     private Properties getProperties() {
-        PropertiesLoader loader = new PropertiesLoader();
-        return loader.loadPropertiesNotStatic(
-                "EventCrawlWebService/src/main/resources/eventservice.properties");
+        PropertiesLoader loader = new PropertiesLoader("eventservice.properties");
+        return loader.PROPERTIES;
     }
 }

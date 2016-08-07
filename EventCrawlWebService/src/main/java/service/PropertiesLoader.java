@@ -1,8 +1,6 @@
 package service;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 /**
@@ -11,23 +9,15 @@ import java.util.Properties;
  */
 public class PropertiesLoader {
 
-    private static Properties properties;
-
-//    /**
-//     * Constructor takes a path to the file containing the properties
-//     * and loads that file into the Properties instance variable
-//     * @param filepath Path in String form to the Properties file
-//     */
-//    public PropertiesLoader(String filepath) {
-//        this.properties = loadProperties(filepath);
-//    }
+    public static Properties PROPERTIES;
 
     /**
-     * Gets the Properties.
-     * @return properties
+     * Constructor takes a path to the file containing the properties
+     * and loads that file into the Properties instance variable
+     * @param filepath Path in String form to the Properties file
      */
-    public Properties getProperties() {
-        return properties;
+    public PropertiesLoader(String filepath) {
+        PROPERTIES = loadProperties(filepath);
     }
 
     /**
@@ -35,25 +25,14 @@ public class PropertiesLoader {
      * Properties object
      * @return properties object from the given file
      */
-    public static Properties loadProperties(String filepath) {
+    private Properties loadProperties(String filepath) {
         Properties properties = new Properties();
         try {
-            properties.load(new FileInputStream(filepath));
-        } catch(IOException ioe) {
-            System.out.println("Can't load the properties file");
-            ioe.printStackTrace();
-        }
-        return properties;
-    }
-
-    public Properties loadPropertiesNotStatic(String filepath) {
-        Properties properties = new Properties();
-        try {
-            InputStream inputStream = this.getClass().getResourceAsStream(filepath);
+            InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(filepath);
             if (inputStream != null) {
                 properties.load(inputStream);
             } else {
-                System.out.println("Input stream is null");
+                System.out.println("Error loading properties file");
             }
         } catch(IOException ioe) {
             System.out.println("Can't load the properties file");

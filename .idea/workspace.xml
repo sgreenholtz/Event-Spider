@@ -7,16 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/EventCrawlWebService_war.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EventCrawlWebService/target/event-crawl-web-service-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/EventCrawlWebService_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/EventCrawlWebService_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/footer.jsp" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/footer.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/header.jsp" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/header.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/index.jsp" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/target/classes/service/PropertiesLoader.class" afterPath="$PROJECT_DIR$/EventCrawlWebService/target/classes/service/PropertiesLoader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/target/classes/servlets/UpdateSeedList.class" afterPath="$PROJECT_DIR$/EventCrawlWebService/target/classes/servlets/UpdateSeedList.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/EventCrawlWebService.iml" afterPath="$PROJECT_DIR$/EventCrawlWebService/EventCrawlWebService.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/pom.xml" afterPath="$PROJECT_DIR$/EventCrawlWebService/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/PropertiesLoader.java" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/PropertiesLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/servlets/UpdateSeedList.java" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/servlets/UpdateSeedList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/EventCrawlWebService/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventspider/src/main/java/servlets/ApplicationStartup.java" afterPath="$PROJECT_DIR$/eventspider/src/main/java/servlets/ApplicationStartup.java" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,33 +53,49 @@
     <favorites_list name="Event-Spider" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EventCrawlWebService/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpdateSeedList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UpdateSeedList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/servlets/UpdateSeedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+            <state relative-caret-position="413">
+              <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PropertiesLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/PropertiesLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#551#552#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,9 +108,9 @@
         <option value="jsf" />
         <option value="JUnit4 Test Class" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="Jsp File" />
         <option value="Servlet" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -107,8 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/eventspider/src/servlets/EventfulSearch.java" />
-        <option value="$PROJECT_DIR$/eventspider/src/main/java/servlets/EventfulSearch.java" />
         <option value="$PROJECT_DIR$/eventspider/src/main/java/eventsbatching/ShellTest.java" />
         <option value="$PROJECT_DIR$/eventspider/src/main/java/eventsbatching/JSONHandlerSimple.java" />
         <option value="$PROJECT_DIR$/eventspider/src/main/java/beans/EventFactory.java" />
@@ -153,11 +169,13 @@
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/index.jsp" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/resources/eventservice.properties" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/UpdateSeedList.java" />
-        <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/PropertiesLoader.java" />
-        <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/servlets/UpdateSeedList.java" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/pom.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/eventspider/src/main/java/servlets/ApplicationStartup.java" />
+        <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/PropertiesLoader.java" />
+        <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java" />
+        <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/servlets/UpdateSeedList.java" />
       </list>
     </option>
   </component>
@@ -259,7 +277,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -302,6 +319,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Event-Spider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EventCrawlWebService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -325,10 +360,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -415,10 +446,6 @@
               <option name="myItemId" value="eventspider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -429,13 +456,18 @@
               <option name="myItemId" value="eventspider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eventspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches">
         <subPane />
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -459,6 +491,16 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="testing" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/EventCrawlWebService/src/main" />
+      <recent name="$PROJECT_DIR$/eventspider/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/eventspider/src/main/webapp" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="service" />
     </key>
@@ -466,18 +508,28 @@
       <recent name="$PROJECT_DIR$/eventspider/resources" />
       <recent name="$PROJECT_DIR$/eventspider" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/EventCrawlWebService/src/main" />
-      <recent name="$PROJECT_DIR$/eventspider/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/eventspider/src/main/webapp" />
-      <recent name="$PROJECT_DIR$/eventspider/src/test/resources" />
-    </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.EventWebService">
+    <configuration default="false" name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="service.Tester" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="EventCrawlWebService" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -1000,11 +1052,11 @@
     <configuration default="false" name="EventWebService" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.0.M9" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <file path="$PROJECT_DIR$/EventCrawlWebService/target/event-crawl-web-service-1.0.war">
+        <artifact name="EventCrawlWebService:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
-        </file>
+        </artifact>
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_Event-Spider_2" />
@@ -1064,14 +1116,21 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method>
-        <option name="Make" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/EventCrawlWebService/pom.xml" goal="package" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="EventCrawlWebService:war exploded" />
+        </option>
       </method>
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.EventSpiderLocal" />
       <item index="1" class="java.lang.String" itemvalue="Tomcat Server.EventWebService" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Tester" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Tester" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -1148,7 +1207,8 @@
       <workItem from="1469968953693" duration="4039000" />
       <workItem from="1470264757325" duration="1065000" />
       <workItem from="1470436718411" duration="3733000" />
-      <workItem from="1470488807159" duration="1240000" />
+      <workItem from="1470488807159" duration="1316000" />
+      <workItem from="1470522381291" duration="4364000" />
     </task>
     <servers />
   </component>
@@ -1185,7 +1245,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232963000" />
+    <option name="totallyTimeSpent" value="237403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1315" height="812" extended-state="0" />
@@ -1201,7 +1261,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33935586" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33888888" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33888888" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39444444" sideWeight="0.49175176" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1211,8 +1271,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980362" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.4970588" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.4970588" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1277,7 +1337,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="53" />
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1286,20 +1346,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/eventspider/src/main/java/database/MultithreadRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eventspider/src/main/java/database/UserHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="63" column="51" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/main/java/database/PropertiesLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1537,9 +1583,6 @@
           <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="330">
@@ -1547,6 +1590,9 @@
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eventspider/src/main/webapp/WEB-INF/header.jsp">
@@ -1564,7 +1610,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/header.jsp">
+    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
@@ -1593,7 +1639,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/footer.jsp">
+    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/footer.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
@@ -1608,14 +1654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/PropertiesLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-232">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/resources/eventservice.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1623,7 +1661,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/index.jsp">
+    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
@@ -1635,30 +1673,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EventCrawlWebService/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="15">
           <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventspider/src/main/java/servlets/ApplicationStartup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="24" column="90" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/PropertiesLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/servlets/UpdateSeedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/servlets/UpdateSeedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        <state relative-caret-position="285">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding />
         </state>
       </provider>
