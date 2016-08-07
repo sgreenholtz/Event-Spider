@@ -12,25 +12,18 @@ import java.util.*;
  * grabs those HTML tags and saves the JSON objects
  * @author Sebastian Greenholtz
  */
-public class GetEmbeddedEventJSON {
+public class GetEmbeddedEventJSON extends EventJSONParser {
 
     private String htmlTag;
     private String url;
-
-    /**
-     * Empty constructor
-     */
-    public GetEmbeddedEventJSON() {
-        htmlTag = "script[type=\"application/ld+json\"]";
-    }
 
     /**
      * Constructor sets the URL of the page to search
      * @param url Page to search for tags
      */
     public GetEmbeddedEventJSON(String url) {
-        this();
-        this.url = url;
+        super(url);
+        htmlTag = "script[type=\"application/ld+json\"]";
     }
 
     /**
