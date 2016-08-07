@@ -15,5 +15,5 @@ public abstract class EventJSONParser {
         this.url = url;
     }
 
-    public abstract ArrayList<String> getEventJSONs() throws IOException, TagNotFoundExecption;
+    public abstract ArrayList<String> getEventJSONs() throws IOException;
 }

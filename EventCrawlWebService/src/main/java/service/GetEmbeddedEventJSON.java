@@ -32,18 +32,21 @@ public class GetEmbeddedEventJSON extends EventJSONParser {
      * @return ArrayList of String representation of JSON object
      * @throws IOException
      */
-    public ArrayList<String> getEventJSONs() throws IOException, TagNotFoundExecption {
+    public ArrayList<String> getEventJSONs() throws IOException {
         Document doc = Jsoup.connect(url).get();
         ArrayList<String> JSONList = new ArrayList<>();
         Elements scriptTags = doc.select(htmlTag);
         for (Element tag : scriptTags) {
             JSONList.add(tag.data());
         }
-        if (JSONList.size()==0) {
-            throw new TagNotFoundExecption("No JSON event objects exist on this page");
-        } else {
-            return JSONList;
+        try {
+            if (JSONList.size()==0) {
+                throw new TagNotFoundExecption("No JSON event objects exist on this page");
+            }
+        } catch (TagNotFoundExecption tagNotFoundExecption) {
+            tagNotFoundExecption.printStackTrace();
         }
+        return JSONList;
     }
 
 }

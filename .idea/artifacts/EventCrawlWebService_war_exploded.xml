@@ -5,7 +5,6 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="EventCrawlWebService" />
-          <element id="dir-copy" path="$PROJECT_DIR$/EventCrawlWebService/target/classes/nutch" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
@@ -19,6 +18,7 @@
           <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.9.2" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.3" />
+          <element id="library" level="project" name="Maven: org.json:json:20160212" />
         </element>
       </element>
       <element id="directory" name="META-INF">
