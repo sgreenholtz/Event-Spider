@@ -15,7 +15,7 @@ import java.util.*;
 public class GetEmbeddedEventJSON extends EventJSONParser {
 
     private String htmlTag;
-    private String url;
+    private boolean fileParse;
 
     /**
      * Constructor sets the URL of the page to search
@@ -23,6 +23,19 @@ public class GetEmbeddedEventJSON extends EventJSONParser {
      */
     public GetEmbeddedEventJSON(String url) {
         super(url);
+        this.fileParse = false;
+        htmlTag = "script[type=\"application/ld+json\"]";
+    }
+
+    /**
+     * Constructor sets the URL of the page or document to search
+     * @param url Page to search for tags
+     * @param fileParse True if the content to parse is in a file, false if the
+     *                  content is a webpage
+     */
+    public GetEmbeddedEventJSON(String url, boolean fileParse) {
+        super(url);
+        this.fileParse = fileParse;
         htmlTag = "script[type=\"application/ld+json\"]";
     }
 
@@ -33,7 +46,7 @@ public class GetEmbeddedEventJSON extends EventJSONParser {
      * @throws IOException
      */
     public ArrayList<String> getEventJSONs() throws IOException {
-        Document doc = Jsoup.connect(url).get();
+        Document doc = getDocument();
         ArrayList<String> JSONList = new ArrayList<>();
         Elements scriptTags = doc.select(htmlTag);
         for (Element tag : scriptTags) {
@@ -47,6 +60,21 @@ public class GetEmbeddedEventJSON extends EventJSONParser {
             tagNotFoundExecption.printStackTrace();
         }
         return JSONList;
+    }
+
+    /**
+     * Gets the document to parse from web or file
+     * @return Document to parse for JSONs
+     * @throws IOException
+     */
+    private Document getDocument() throws IOException {
+        Document doc = null;
+        if (fileParse) {
+            doc = Jsoup.parse(new File(url), "UTF-8");
+        } else {
+            doc = Jsoup.connect(super.url).get();
+        }
+        return doc;
     }
 
 }

@@ -8,7 +8,7 @@ import org.w3c.dom.Document;
 import org.json.*;
 
 /**
- * Takes a URL of an RSS feed of events and conversts them into a Google Events Markup
+ * Takes a URL of an RSS feed of events and converts them into a Google Events Markup
  * JSON
  * @author Sebastian Greenholtz
  */
@@ -24,7 +24,7 @@ public class RSStoJSON extends EventJSONParser {
         ArrayList<String> eventJSONs = new ArrayList<>();
         try {
             Document xml = loadTestDocument(url);
-            System.out.println(XML.toJSONObject(xml));
+//            System.out.println(XML.toJSONObject(xml));
         } catch (Exception e) {
             e.printStackTrace();
         }

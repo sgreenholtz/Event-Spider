@@ -9,7 +9,7 @@ import java.io.*;
  */
 public abstract class EventJSONParser {
 
-    private String url;
+    protected String url;
 
     public EventJSONParser(String url) {
         this.url = url;
