@@ -3,3 +3,4 @@ libs/
 eventspider/target/
 EventCrawlWebService/target/
 EventCrawlWebService/src/main/resources/nutch/
+out/
