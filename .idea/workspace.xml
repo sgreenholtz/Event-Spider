@@ -7,15 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9339e280-a04f-4176-96b0-d299397a569d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/UrlNotRssException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/RSStoJSONTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/test/resources/RSSJSONResult" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/EventJSONParser.java" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/EventJSONParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/GetEmbeddedEventJSON.java" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/GetEmbeddedEventJSON.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/RSStoJSON.java" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/RSStoJSON.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/GetEmbeddedEventJSONTest.java" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/GetEmbeddedEventJSONTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/RSStoJSONTest.java" afterPath="$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/RSStoJSONTest.java" />
     </list>
     <ignored path="Event-Spider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,31 +58,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetEmbeddedEventJSON.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/GetEmbeddedEventJSON.java">
+      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+            <state relative-caret-position="165">
+              <caret line="11" column="121" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="121" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventJSONParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/EventJSONParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RSStoJSONTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RSStoJSONTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/RSStoJSONTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+            <state relative-caret-position="780">
+              <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetEmbeddedEventJSONTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/GetEmbeddedEventJSONTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="62" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -170,10 +173,10 @@
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/UrlNotRssException.java" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/EventJSONParser.java" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/RSStoJSON.java" />
-        <option value="$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/RSStoJSONTest.java" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/GetEmbeddedEventJSON.java" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/GetEmbeddedEventJSONTest.java" />
         <option value="$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java" />
+        <option value="$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/RSStoJSONTest.java" />
       </list>
     </option>
   </component>
@@ -354,58 +357,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Event-Spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EventCrawlWebService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Event-Spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EventCrawlWebService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1131,8 +1082,8 @@
     <recent_temporary>
       <list size="3">
         <item index="0" class="java.lang.String" itemvalue="JUnit.RSStoJSONTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.GetEmbeddedEventJSONTest" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Tester" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Tester" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GetEmbeddedEventJSONTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1217,7 +1168,7 @@
       <workItem from="1470868070388" duration="1732000" />
       <workItem from="1471049406888" duration="2780000" />
       <workItem from="1471091667114" duration="5566000" />
-      <workItem from="1471180431008" duration="4079000" />
+      <workItem from="1471180431008" duration="4916000" />
     </task>
     <servers />
   </component>
@@ -1237,14 +1188,14 @@
     <history-entry file="RSStoJSONTest - 2016.08.14 at 09h 59m 21s.xml">
       <configuration name="RSStoJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SearchHandlerTest - 2016.06.13 at 18h 58m 24s.xml">
-      <configuration name="SearchHandlerTest" configurationId="JUnit" />
+    <history-entry file="RSStoJSONTest - 2016.08.14 at 10h 07m 16s.xml">
+      <configuration name="RSStoJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SearchHandlerTest - 2016.06.13 at 18h 58m 57s.xml">
-      <configuration name="SearchHandlerTest" configurationId="JUnit" />
+    <history-entry file="RSStoJSONTest - 2016.08.14 at 10h 20m 07s.xml">
+      <configuration name="RSStoJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SearchHandlerTest - 2016.06.13 at 19h 00m 23s.xml">
-      <configuration name="SearchHandlerTest" configurationId="JUnit" />
+    <history-entry file="RSStoJSONTest - 2016.08.14 at 10h 24m 19s.xml">
+      <configuration name="RSStoJSONTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SearchHandlerTest - 2016.06.29 at 17h 49m 29s.xml">
       <configuration name="SearchHandlerTest" configurationId="JUnit" />
@@ -1254,15 +1205,15 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261433000" />
+    <option name="totallyTimeSpent" value="262270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="27" y="23" width="1315" height="812" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31527779" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31527779" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1271,7 +1222,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33935586" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33888888" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39444444" sideWeight="0.49175176" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39444444" sideWeight="0.49175176" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27337" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1313,7 +1264,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33888888" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33888888" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39444444" sideWeight="0.49175176" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27337" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1605,13 +1556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EventCrawlWebService/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -1674,22 +1618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/GetEmbeddedEventJSONTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/GetEmbeddedEventJSON.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1698,10 +1626,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/main/java/service/Tester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="121" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="121" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/GetEmbeddedEventJSONTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="62" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/EventCrawlWebService/src/test/java/testing/RSStoJSONTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+        <state relative-caret-position="780">
+          <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="46" />
           <folding />
         </state>
       </provider>

@@ -29,6 +29,11 @@ public class RSStoJSONTest {
         getResultFileReader();
     }
 
+    @After
+    public void tearDown() throws Exception {
+        reader.close();
+    }
+
     private void getResultFileReader() {
         try {
             reader = new BufferedReader(
@@ -38,23 +43,29 @@ public class RSStoJSONTest {
         }
     }
 
-    @After
-    public void tearDown() throws Exception {
-        reader.close();
+    private void getJSONsFromRSSFile() throws Exception {
+        EventJSONParser test = new RSStoJSON("https://25livepub.collegenet.com/calendars/PerformanceandSpecialEvents.rss");
+        jsonList = test.getEventJSONs();
     }
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void getEventJSONsTestFailure() throws IOException {
-        try {
-            EventJSONParser test = new RSStoJSON("http://javadox.com/rome/rome/1.0/overview-summary.html");
-            test.getEventJSONs();
-        } catch (Exception e) {
-            assertThat(e.getMessage(), containsString("URL given does not point to an RSS feed"));
-        }
+    public void getEventJSONsTestFailure() throws Exception {
+        EventJSONParser test = new RSStoJSON("http://javadox.com/rome/rome/1.0/overview-summary.html");
+        exception.expect(UrlNotRssException.class);
+        test.getEventJSONs();
+    }
 
+    @Test
+    public void getEventJSONsTestSuccess() throws Exception {
+        getJSONsFromRSSFile();
+        int i = 0;
+        while (reader.ready()) {
+            assertEquals(reader.readLine(), jsonList.get(i).trim());
+            i++;
+        }
     }
 
 }
