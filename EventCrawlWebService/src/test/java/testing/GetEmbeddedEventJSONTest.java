@@ -21,13 +21,13 @@ public class GetEmbeddedEventJSONTest {
     private static BufferedReader readFile;
 
     @BeforeClass
-    public static void setUp() {
+    public static void setUp() throws Exception {
         initiateArray();
         getResultFile();
     }
 
     @AfterClass
-    public static void tearDown() throws IOException {
+    public static void tearDown() throws Exception {
         readFile.close();
     }
 
@@ -35,16 +35,12 @@ public class GetEmbeddedEventJSONTest {
         eventArray = new ArrayList<>();
     }
 
-    private static void getResultFile() {
-        try {
-            readFile = new BufferedReader(
-                    new FileReader("src/test/resources/resultJSONsGoogleEventMarkup"));
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
+    private static void getResultFile() throws Exception {
+        readFile = new BufferedReader(
+                new FileReader("src/test/resources/resultJSONsGoogleEventMarkup"));
     }
 
-    private void getEventArray() throws IOException {
+    private void getEventArray() throws Exception {
         GetEmbeddedEventJSON jsonFetcher =
                 new GetEmbeddedEventJSON("src/test/resources/googleEventMarkupEmbedded.html",
                 true);
@@ -52,13 +48,13 @@ public class GetEmbeddedEventJSONTest {
     }
 
     @Test(expected = TagNotFoundExecption.class)
-    public void getEventJSONsFailTest() throws IOException, TagNotFoundExecption {
+    public void getEventJSONsFailTest() throws Exception {
         GetEmbeddedEventJSON jsonFetcher = new GetEmbeddedEventJSON("http://isthmus.com/news");
         eventArray = jsonFetcher.getEventJSONs();
     }
 
     @Test
-    public void getEventJSONsSuccessfulTest() throws IOException {
+    public void getEventJSONsSuccessfulTest() throws Exception {
         getEventArray();
         int i = 0;
         while (readFile.ready()) {

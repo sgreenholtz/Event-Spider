@@ -4,6 +4,7 @@ import java.net.URL;
 import java.io.*;
 import java.util.*;
 
+import com.rometools.rome.feed.module.DCModuleImpl;
 import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.SyndFeedInput;
@@ -24,8 +25,24 @@ public class RSStoJSON extends EventJSONParser {
         super(url);
     }
 
-    public ArrayList<String> getEventJSONs() throws IOException {
-        return syndEntryToJSON();
+    public ArrayList<String> getEventJSONs() throws IOException, UrlNotRssException {
+        if(urlIsRSS()) {
+            return syndEntryToJSON();
+        } else {
+            throw new UrlNotRssException("URL given does not point to an RSS feed");
+        }
+    }
+
+    /**
+     * Checks whether the URL given represents an RSS feed
+     * @return True if the URL is an RSS feed
+     */
+    private boolean urlIsRSS() {
+        if (url.endsWith(".rss")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -73,7 +90,7 @@ public class RSStoJSON extends EventJSONParser {
         json += "\"@context\": \"http://schema.org\",";
         json += "\"@type\": \"Event\",";
         json += "\"name\": \"" + entry.getTitle() + "\",";
-        json += "\"startDate\": \"" + entry.getModule("dates") + "\",";
+        json += "\"startDate\": \"" + getEntryDate(entry) + "\",";
         json += "\"description\": \"" + entry.getDescription().getValue() + "\",";
         json += "\"url\": \"" + entry.getLink() + "\",";
         json += "\"location\": {";
@@ -81,5 +98,15 @@ public class RSStoJSON extends EventJSONParser {
         json += "}";
         json += "}";
         return json;
+    }
+
+    /**
+     * Gets the Date associated with the entry
+     * @param entry Event entry
+     * @return Date object representing the date and time of the event
+     */
+    private Date getEntryDate(SyndEntry entry) {
+        DCModuleImpl mod = (DCModuleImpl) entry.getModule("http://purl.org/dc/elements/1.1/");
+        return mod.getDate();
     }
 }
