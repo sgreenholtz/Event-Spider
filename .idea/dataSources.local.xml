@@ -2,6 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - eventspider@localhost" uuid="48f5fe2a-59be-4c9b-8c99-1bc0d2da101b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
       <secret-storage>master_key</secret-storage>
       <user-name>student</user-name>
     </data-source>
