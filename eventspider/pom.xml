@@ -6,57 +6,25 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.eventspider</groupId>
     <artifactId>eventspider</artifactId>
-    <packaging>war</packaging>
     <version>1.0</version>
     <name>Event Spider</name>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <groupId>org.apache.maven.plugins</groupId>
-                <version>3.5.1</version>
-                <configuration>
-                    <source>7</source>
-                    <target>7</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-        </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat7-maven-plugin</artifactId>
-                    <version>2.2</version>
-                    <executions>
-                        <execution>
-                            <id>tomcat-run</id>
-                            <goals>
-                                <goal>exec-war-only</goal>
-                            </goals>
-                            <phase>package</phase>
-                            <configuration>
-                                    <url>http://localhost:8080/manager</url>
-                                    <server>eventspider</server>
-                                    <path>/eventspider</path>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.0.RELEASE</version>
+    </parent>
 
-    </build>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
