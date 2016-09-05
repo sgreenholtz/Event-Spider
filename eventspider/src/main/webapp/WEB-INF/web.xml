@@ -6,6 +6,9 @@
 
 
     <display-name>Event Spider</display-name>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
     <description>Search for events in your city, save to your profile, and get customized suggestions delivered every week.</description>
 
     <!-- ********************************************************************* -->
@@ -29,6 +32,10 @@
         <param-value>
             c:/Users/Kolya/Dropbox/Event-Spider/temp
         </param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
 
     <!-- ********************************************************************* -->
@@ -117,6 +124,11 @@
         <servlet-name>ErrorTestingServlet</servlet-name>
         <servlet-class>servlets.ErrorTestingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
 
     <!-- ********************************************************************* -->
@@ -200,6 +212,10 @@
     <servlet-mapping>
         <servlet-name>ErrorTestingServlet</servlet-name>
         <url-pattern>/errorTestingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.form</url-pattern>
     </servlet-mapping>
 
 
