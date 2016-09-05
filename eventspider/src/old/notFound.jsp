@@ -10,7 +10,7 @@
 <%@page isErrorPage="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Error"); %>
-<c:import url="header.jsp"/>
+<c:import url="../main/webapp/WEB-INF/header.jsp"/>
 
 <div class="jumbotron">
     <h1>That page doesn't exist.</h1>
@@ -18,4 +18,4 @@
     <p><a href="/" class="btn btn-primary btn-lg">Take me back!</a></p>
 </div>
 
-<c:import url="footer.jsp"/>
+<c:import url="../main/webapp/WEB-INF/footer.jsp"/>
