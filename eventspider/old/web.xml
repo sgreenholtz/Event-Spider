@@ -233,12 +233,12 @@
 
     <error-page>
         <error-code>500</error-code>
-        <location>/src/old/error.jsp</location>
+        <location>/old/error.jsp</location>
     </error-page>
 
     <error-page>
         <error-code>404</error-code>
-        <location>/src/old/notFound.jsp</location>
+        <location>/old/notFound.jsp</location>
     </error-page>
 
 </web-app>

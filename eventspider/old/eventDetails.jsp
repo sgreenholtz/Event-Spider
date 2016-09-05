@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Event Details"); %>
-<c:import url="../main/webapp/WEB-INF/header.jsp"/>
+<c:import url="../src/main/webapp/WEB-INF/header.jsp"/>
 <h3 class="text-danger">${addedMessage}</h3>
 <h1>${event.title}</h1>
 <c:choose>
@@ -46,4 +46,4 @@
 </c:choose>
 <a href="${returnPage}" class="btn btn-success btn-lg">Return to Previous Page</a>
 <c:remove var="addedMessage" />
-<c:import url="../main/webapp/WEB-INF/footer.jsp"/>
+<c:import url="../src/main/webapp/WEB-INF/footer.jsp"/>
