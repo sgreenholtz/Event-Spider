@@ -37,42 +37,42 @@
 
     <servlet>
         <servlet-name>Home</servlet-name>
-        <jsp-file>index.jsp</jsp-file>
+        <jsp-file>/index.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>LogIn</servlet-name>
-        <jsp-file>logIn.jsp</jsp-file>
+        <jsp-file>/logIn.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>Search</servlet-name>
-        <jsp-file>search.jsp</jsp-file>
+        <jsp-file>/search.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>AddEvent</servlet-name>
-        <jsp-file>eventHandler.jsp</jsp-file>
+        <jsp-file>/eventHandler.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>SearchResultsDisplayList</servlet-name>
-        <jsp-file>searchDisplay.jsp</jsp-file>
+        <jsp-file>/searchDisplay.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>EventDetails</servlet-name>
-        <jsp-file>eventDetails.jsp</jsp-file>
+        <jsp-file>/eventDetails.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>EventfulSearchJSP</servlet-name>
-        <jsp-file>eventfulSearch.jsp</jsp-file>
+        <jsp-file>/eventfulSearch.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>MyEvents</servlet-name>
-        <jsp-file>myEvents.jsp</jsp-file>
+        <jsp-file>/myEvents.jsp</jsp-file>
     </servlet>
 
     <!-- ********************************************************************* -->
@@ -208,7 +208,7 @@
     <!-- ********************************************************************* -->
 
     <welcome-file-list>
-        <welcome-file>WEB-INF/index.jsp</welcome-file>
+        <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
 
     <!-- ********************************************************************* -->
@@ -217,12 +217,12 @@
 
     <error-page>
         <error-code>500</error-code>
-        <location>/WEB-INF/error.jsp</location>
+        <location>/error.jsp</location>
     </error-page>
 
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/notFound.jsp</location>
+        <location>/notFound.jsp</location>
     </error-page>
 
 </web-app>
