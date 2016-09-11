@@ -4,3 +4,10 @@ eventspider/target/
 EventCrawlWebService/target/
 EventCrawlWebService/src/main/resources/nutch/
 out/
+.idea/workspace.xml
+.idea/libraries/*
+.idea/*.xml
+.idea/artifacts/*.xml
+eventspider/eventspider.iml
+eventspider/src/test/java/
+/.gitignore
