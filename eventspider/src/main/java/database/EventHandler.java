@@ -3,6 +3,7 @@ package database;
 import beans.EventBean;
 import lucene.Indexer;
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -22,14 +23,14 @@ public class EventHandler {
     private Properties properties;
     private final Logger log = Logger.getLogger(this.getClass());
 
-    /**
-     * Constructor to set Properties variable
-     * @param properties Application properties
-     */
-    public EventHandler(Properties properties) {
-        this.properties = properties;
-        conn = DatabaseHandler.getConnection();
-    }
+//    /**
+//     * Constructor to set Properties variable
+//     * @param properties Application properties
+//     */
+//    public EventHandler(Properties properties) {
+//        this.properties = properties;
+//        conn = DatabaseHandler.getConnection();
+//    }
 
     /**
      * Checks whether a given ID already exists in the events database
@@ -37,16 +38,10 @@ public class EventHandler {
      * @return true if event ID exists in the database
      */
     public boolean eventExistsInDatabase(Integer id) {
-        try {
-            String sql = properties.getProperty("select.dup.id");
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1, id);
-            ResultSet idResults = statement.executeQuery();
-            if (idResults.next()){
-                return true;
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        EventBean event = (EventBean) session.get(EventBean.class, id);
+        if (event != null) {
+            return true;
         }
         return false;
     }
