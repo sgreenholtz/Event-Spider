@@ -25,9 +25,8 @@ public class EventHandler {
      * @param properties Application properties
      */
     public EventHandler(Properties properties) {
-        DatabaseHandler db = new DatabaseHandler(properties);
         this.properties = properties;
-        conn = db.getConnection();
+        conn = DatabaseHandler.getConnection();
     }
 
     /**

@@ -1,20 +1,47 @@
 package beans;
 
+import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.*;
+
 /**
  * Bean representing an event
  * @author Sebastian Greenholtz
  */
+@Entity
+@Table(name = "Events")
 public class EventBean {
+    @Id
+    @GeneratedValue(generator="increment")
+    @Column(name = "event_id")
     private Integer eventId;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "url")
     private String url;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "start_time")
     private String startTime;
+
+    @Column(name = "stop_time")
     private String stopTime;
+
+    @Column(name = "venue_address")
     private String venueAddress;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "state")
     private String state;
+
+    @Column(name = "postal_code")
     private String postalCode;
+
 
     /**
      * Empty constructor
