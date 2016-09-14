@@ -25,9 +25,8 @@ public class UserHandler {
      * @param properties Application properties
      */
     public UserHandler(Properties properties) {
-        DatabaseHandler db = new DatabaseHandler(properties);
         this.properties = properties;
-        conn = db.getConnection();
+        conn = DatabaseHandler.getConnection();
     }
 
     /**

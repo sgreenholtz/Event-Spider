@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
+import database.DatabaseHandler;
 import database.PropertiesLoader;
 
 /**
@@ -22,7 +23,7 @@ public class ApplicationStartup extends HttpServlet {
     public void init() {
         ServletContext context = this.getServletContext();
 //        context.setAttribute("appProperties", PropertiesLoader.loadProperties("../openshift.properties"));
-        String pathToProperties = "/Users/Kolya/Dropbox/Event-Spider/eventspider/src/main/resources/localhost.properties";
+        String pathToProperties = "/home/sebastian/Event-Spider/eventspider/src/main/resources/localhost.properties";
         context.setAttribute("appProperties", PropertiesLoader.loadProperties(pathToProperties));
     }
 
