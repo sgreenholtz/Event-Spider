@@ -2,6 +2,7 @@ package database;
 
 import beans.EventBean;
 import lucene.Indexer;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -19,6 +20,7 @@ public class EventHandler {
 
     private Connection conn;
     private Properties properties;
+    private final Logger log = Logger.getLogger(this.getClass());
 
     /**
      * Constructor to set Properties variable
