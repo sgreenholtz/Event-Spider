@@ -4,6 +4,7 @@ import beans.EventBean;
 import beans.EventFactory;
 import lucene.Indexer;
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.io.IOException;
@@ -77,23 +78,17 @@ public class EventHandler {
 
     /**
      * Saves a given event to a given user. Returns true if successfully added
-     * @param userID
-     * @param eventID
-     * @return True if event is successfully aded
+     * @param userID Integer
+     * @param eventID Integer
+     * @return True if event is successfully added
      */
-    public boolean saveEventToUser(Integer userID, Integer eventID) {
-        Integer rowsAdded = 0;
-        try {
-            String sql = properties.getProperty("save.event.to.user");
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1, userID);
-            statement.setInt(2, eventID);
-            rowsAdded = statement.executeUpdate();
-        } catch (SQLException ex) {
-            log.error("Error in saving event to user", ex);
-        }
-
-        return (rowsAdded == 1);
+    public boolean saveEventToUser(Integer userID, Integer eventID, Properties properties) {
+        String sql = properties.getProperty("save.event.to.user");
+        sql = sql.replace("1", userID.toString());
+        sql = sql.replace("2", eventID.toString());
+        Query query = session.createQuery(sql);
+        Integer result = query.executeUpdate();
+        return (result != 0);
     }
 
     /**
