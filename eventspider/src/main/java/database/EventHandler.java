@@ -48,39 +48,6 @@ public class EventHandler {
     }
 
     /**
-     * Create a PreparedStatement to insert an event into the table
-     * from the values of an Event bean
-     * @param event Event bean to add to the database
-     * @return Prepared Statement to insert that event
-     */
-    private void createEventBeanAddStatement(EventBean event) {
-        try {
-            String sql = properties.getProperty("add.event.with.id");
-            StringReplaceUtil statement = new StringReplaceUtil(sql, '?');
-
-            statement.setString(1, event.getEventId().toString());
-            statement.setString(1, event.getTitle());
-            statement.setString(1, event.getUrl());
-            statement.setString(1, event.getDescription());
-            statement.setString(1, formatDateTimeToMySql(event.getStartTime()));
-            if (event.getStopTime() == null) {
-                statement.setString(1, null);
-            } else {
-                statement.setString(1, formatDateTimeToMySql(event.getStopTime()));
-            }
-            statement.setString(1, event.getVenueAddress());
-            statement.setString(1, event.getCity());
-            statement.setString(1, event.getState());
-            statement.setString(1, event.getPostalCode());
-            log.info("createEventBeanAddStatement: " + statement.toString());
-            Query query = session.createQuery(statement.toString());
-        } catch (Exception ex) {
-            log.error("Something went wrong", ex);
-        }
-        return statement;
-    }
-
-    /**
      * Adds an event to the database based on an Event Bean
      * @param event Event Bean to add to the database
      * @return True if event was successfully added
@@ -172,38 +139,23 @@ public class EventHandler {
      * @param eventID Integer ID for the event
      * @return ResultSet with the single event
      */
-    public ResultSet getEventByID(Integer eventID) {
-        ResultSet results = null;
-        try {
-            String sql = properties.getProperty("get.event.by.id") + ";";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1, eventID);
-            results = statement.executeQuery();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return results;
+    public EventBean getEventByID(Integer eventID) {
+        EventBean event = (EventBean) session.get(EventBean.class, eventID);
+        return event;
     }
 
     /**
-     * Gets a ResultSet of the events given a list of IDs
+     * Gets a list of the events given a list of IDs
      * @param eventIDs List of event IDs
-     * @return
+     * @return List of EventBean objects
      */
-    public ResultSet getEventByID(List<Integer> eventIDs) {
-        ResultSet results = null;
-        try {
-            String sql = properties.getProperty("get.event.by.id");
-            for (Integer id : eventIDs) {
-                sql += " " + properties.getProperty("additional.id.select") + id;
-            }
-            PreparedStatement statement = conn.prepareStatement(sql + ";");
-            statement.setInt(1, eventIDs.get(0));
-            results = statement.executeQuery();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+    public List<EventBean> getEventByID(List<Integer> eventIDs) {
+        List<EventBean> beanList = new ArrayList<EventBean>();
+        for (Integer id : eventIDs) {
+            EventBean event = (EventBean) session.get(EventBean.class, id);
+            beanList.add(event);
         }
-        return results;
+        return beanList;
     }
 
     /**
