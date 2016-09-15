@@ -2,7 +2,9 @@ package database;
 
 import beans.EventBean;
 import lucene.Indexer;
+import utility.StringReplaceUtil;
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.io.IOException;
@@ -19,18 +21,18 @@ import java.util.Date;
  */
 public class EventHandler {
 
-    private Connection conn;
     private Properties properties;
+    private Session session;
     private final Logger log = Logger.getLogger(this.getClass());
 
-//    /**
-//     * Constructor to set Properties variable
-//     * @param properties Application properties
-//     */
-//    public EventHandler(Properties properties) {
-//        this.properties = properties;
-//        conn = DatabaseHandler.getConnection();
-//    }
+    /**
+     * Constructor to set Properties variable
+     * @param properties Application properties
+     */
+    public EventHandler(Properties properties) {
+        this.properties = properties;
+        this.session = SessionFactoryProvider.getSessionFactory().openSession();
+    }
 
     /**
      * Checks whether a given ID already exists in the events database
@@ -38,7 +40,6 @@ public class EventHandler {
      * @return true if event ID exists in the database
      */
     public boolean eventExistsInDatabase(Integer id) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
         EventBean event = (EventBean) session.get(EventBean.class, id);
         if (event != null) {
             return true;
@@ -52,27 +53,29 @@ public class EventHandler {
      * @param event Event bean to add to the database
      * @return Prepared Statement to insert that event
      */
-    private PreparedStatement createEventBeanAddStatement(EventBean event) {
-        PreparedStatement statement = null;
+    private void createEventBeanAddStatement(EventBean event) {
         try {
             String sql = properties.getProperty("add.event.with.id");
-            statement = conn.prepareStatement(sql);
-            statement.setInt(1, event.getEventId());
-            statement.setString(2, event.getTitle());
-            statement.setString(3, event.getUrl());
-            statement.setString(4, event.getDescription());
-            statement.setString(5, formatDateTimeToMySql(event.getStartTime()));
+            StringReplaceUtil statement = new StringReplaceUtil(sql, '?');
+
+            statement.setString(1, event.getEventId().toString());
+            statement.setString(1, event.getTitle());
+            statement.setString(1, event.getUrl());
+            statement.setString(1, event.getDescription());
+            statement.setString(1, formatDateTimeToMySql(event.getStartTime()));
             if (event.getStopTime() == null) {
-                statement.setString(6, null);
+                statement.setString(1, null);
             } else {
-                statement.setString(6, formatDateTimeToMySql(event.getStopTime()));
+                statement.setString(1, formatDateTimeToMySql(event.getStopTime()));
             }
-            statement.setString(7, event.getVenueAddress());
-            statement.setString(8, event.getCity());
-            statement.setString(9, event.getState());
-            statement.setString(10, event.getPostalCode());
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            statement.setString(1, event.getVenueAddress());
+            statement.setString(1, event.getCity());
+            statement.setString(1, event.getState());
+            statement.setString(1, event.getPostalCode());
+            log.info("createEventBeanAddStatement: " + statement.toString());
+            Query query = session.createQuery(statement.toString());
+        } catch (Exception ex) {
+            log.error("Something went wrong", ex);
         }
         return statement;
     }
@@ -82,18 +85,14 @@ public class EventHandler {
      * @param event Event Bean to add to the database
      * @return True if event was successfully added
      */
-    public boolean addEvent(EventBean event) throws RecordNotAddedException {
+    public boolean addEvent(EventBean event) {
         Integer results = 0;
-        try {
-            PreparedStatement statement = createEventBeanAddStatement(event);
-            results = statement.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        if (results == 0) {
-            return true;
-        }
-        throw new RecordNotAddedException();
+        session.beginTransaction();
+        session.save(event);
+        log.info("Event added: " + event.getEventId());
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     /**
@@ -103,7 +102,7 @@ public class EventHandler {
     public void insertEvent(ArrayList<String> formList) {
         try {
             String sql = properties.getProperty("add.event.sql");
-            PreparedStatement statement = conn.prepareStatement(sql);
+
             for (int i=1; i<= formList.size(); i++) {
                 statement.setString(i, formList.get(i-1));
             }
