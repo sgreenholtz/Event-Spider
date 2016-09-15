@@ -8,15 +8,11 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
-import java.sql.*;
-import java.util.Date;
 
 /**
  * Handles adding new events into the database and retrieving events from the
- * database
+ * database using HibernateDAO
  * @author Sebastian Greenholtz
  */
 public class EventHandler {
