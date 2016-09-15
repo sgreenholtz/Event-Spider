@@ -10,6 +10,8 @@ import java.util.Properties;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import static utility.MySqlDateTimeFormatter.formatToMysqlFromForm;
+
 /**
  * Servlet to add a manually entered event into the database.
  * @author Sebastian Greenholtz
@@ -53,23 +55,12 @@ public class AddEventManual extends HttpServlet {
         formMap.put("city", request.getParameter("city"));
         formMap.put("state", request.getParameter("state"));
         formMap.put("zipcode", request.getParameter("zipcode"));
-        String startDateTime = formatDateTime(request.getParameter("startDate"), request.getParameter("startTime"));
-        String endDateTime = formatDateTime(request.getParameter("endDate"), request.getParameter("endTime"));
+        String startDateTime = formatToMysqlFromForm(request.getParameter("startDate"),
+                request.getParameter("startTime"));
+        String endDateTime = formatToMysqlFromForm(request.getParameter("endDate"),
+                request.getParameter("endTime"));
         formMap.put("startDateTime", startDateTime);
         formMap.put("endDateTime", endDateTime);
         return formMap;
-    }
-
-    /**
-     * Creates a single string representing the datetime value in format for MySql:
-     * YYYY-MM-DD HH:MM:SS
-     * @param date String of the date from form
-     * @param time String of the time from form
-     * @return String of datetime
-     */
-    private String formatDateTime(String date, String time) {
-        String dateTime = "";
-        dateTime += date + " " + time + ":00";
-        return dateTime;
     }
 }

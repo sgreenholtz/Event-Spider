@@ -76,37 +76,6 @@ public class EventHandler {
     }
 
     /**
-     * Gets an Integer of the last event ID, for auto-generated IDs
-     * @return Integer of ID for the event just added to the database
-     * @throws SQLException
-     */
-    private Integer getNewEventID() throws SQLException {
-        PreparedStatement statement = conn.prepareStatement(properties.getProperty("last.insert.id"));
-        ResultSet results = statement.executeQuery();
-        results.last();
-        return results.getInt("last_insert_id()");
-    }
-
-    /**
-     * Formats Date/Time from the human readable EEE, MM d h:mm a to the
-     * MySql format yyy-MM-dd hh:mm:ss.S
-     * @param unFormattedDateTime Date/Time in unformatted, human readable style
-     * @return MySql formatted Date/Time
-     */
-    private String formatDateTimeToMySql(String unFormattedDateTime) {
-        String formattedDateTime = "";
-        try {
-            SimpleDateFormat inputFormatter = new SimpleDateFormat("EEEE, MMM d h:mm a");
-            Date dateObjectRepresentation = inputFormatter.parse(unFormattedDateTime);
-            SimpleDateFormat outputFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
-            formattedDateTime = outputFormatter.format(dateObjectRepresentation);
-        } catch (ParseException e) {
-            log.error(e);
-        }
-        return formattedDateTime;
-    }
-
-    /**
      * Saves a given event to a given user. Returns true if successfully added
      * @param userID
      * @param eventID
