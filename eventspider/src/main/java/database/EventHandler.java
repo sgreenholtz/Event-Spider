@@ -1,10 +1,9 @@
 package database;
 
 import beans.EventBean;
+import beans.EventFactory;
 import lucene.Indexer;
-import utility.StringReplaceUtil;
 import org.apache.log4j.Logger;
-import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.io.IOException;
@@ -21,16 +20,13 @@ import java.util.Date;
  */
 public class EventHandler {
 
-    private Properties properties;
     private Session session;
     private final Logger log = Logger.getLogger(this.getClass());
 
     /**
      * Constructor to set Properties variable
-     * @param properties Application properties
      */
-    public EventHandler(Properties properties) {
-        this.properties = properties;
+    public EventHandler() {
         this.session = SessionFactoryProvider.getSessionFactory().openSession();
     }
 
@@ -53,7 +49,6 @@ public class EventHandler {
      * @return True if event was successfully added
      */
     public boolean addEvent(EventBean event) {
-        Integer results = 0;
         session.beginTransaction();
         session.save(event);
         log.info("Event added: " + event.getEventId());
@@ -64,22 +59,20 @@ public class EventHandler {
 
     /**
      * Takes a list of the values from the form and inserts into the database
-     * @param formList List of values from the form
+     * @param map Maps field names to values from form
      */
-    public void insertEvent(ArrayList<String> formList) {
-        try {
-            String sql = properties.getProperty("add.event.sql");
+    public void insertEvent(Map<String, String> map) {
+        EventFactory factory = new EventFactory();
+        EventBean event = factory.createBean(UUID.randomUUID().toString(), map.get("title"),
+                map.get("url"), map.get("description"), map.get("startDateTime"),
+                map.get("stopDateTime"), map.get("address"), map.get("city"),
+                map.get("state"), map.get("postalCode"));
 
-            for (int i=1; i<= formList.size(); i++) {
-                statement.setString(i, formList.get(i-1));
-            }
-            statement.executeUpdate();
-            indexNewEvent(getNewEventID(), formList.get(0));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        session.beginTransaction();
+        session.save(event);
+        log.info("Event added: " + event.getEventId());
+        session.getTransaction().commit();
+        session.close();
     }
 
     /**
@@ -108,7 +101,7 @@ public class EventHandler {
             SimpleDateFormat outputFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
             formattedDateTime = outputFormatter.format(dateObjectRepresentation);
         } catch (ParseException e) {
-            e.printStackTrace();
+            log.error(e);
         }
         return formattedDateTime;
     }
@@ -128,7 +121,7 @@ public class EventHandler {
             statement.setInt(2, eventID);
             rowsAdded = statement.executeUpdate();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            log.error("Error in saving event to user", ex);
         }
 
         return (rowsAdded == 1);
@@ -165,8 +158,35 @@ public class EventHandler {
      * @param title String title for event
      * @throws IOException
      */
-    private void indexNewEvent(Integer eventID, String title) throws IOException {
+    private void indexNewEvent(Integer eventID, String title, Properties properties) throws IOException {
         Indexer indexer = new Indexer(properties.getProperty("index.dir"));
         indexer.indexFields(eventID, title);
+    }
+
+    /**
+     * Update Title of an event
+     * @param newTitle New title
+     * @param eventID ID of event to change
+     */
+    public void updateEventTitle(String newTitle, Integer eventID) {
+        session.beginTransaction();
+        EventBean event = (EventBean) session.get(EventBean.class, eventID);
+        event.setTitle(newTitle);
+        log.info("Updated " + eventID + " to new title " + newTitle);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    /**
+     * Delete event from database
+     * @param eventID ID of event to delete
+     */
+    public void deleteEvent(Integer eventID) {
+        session.beginTransaction();
+        EventBean event = (EventBean) session.load(EventBean.class, eventID);
+        session.delete(event);
+        log.info("Event deleted: " + eventID);
+        session.getTransaction().commit();
+        session.close();
     }
 }

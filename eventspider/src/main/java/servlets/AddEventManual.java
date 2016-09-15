@@ -27,12 +27,9 @@ public class AddEventManual extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
 
-        Map<String, String[]> formMap = dateTimeFormHandler(request);
-        ArrayList<String> formList = getFormValues(formMap);
-
-        Properties properties = (Properties) getServletContext().getAttribute("appProperties");
-        EventHandler eventAdder = new EventHandler(properties);
-        eventAdder.insertEvent(formList);
+        Map<String, String> formMap = dateTimeFormHandler(request);
+        EventHandler eventAdder = new EventHandler();
+        eventAdder.insertEvent(formMap);
 
         String url = "/";
 
@@ -47,37 +44,20 @@ public class AddEventManual extends HttpServlet {
      * @param request HttpServletRequest
      * @return a Map mirroring the parameter map in variables with the edited fields
      */
-    private Map<String, String[]> dateTimeFormHandler(HttpServletRequest request) {
-        Map<String, String[]> formMap = new HashMap(request.getParameterMap());
-        String startDateTime = formatDateTime(formMap.get("startDate")[0], formMap.get("startTime")[0]);
-        String endDateTime = formatDateTime(formMap.get("endDate")[0], formMap.get("endTime")[0]);
-        formMap.remove("startDate");
-        formMap.remove("startTime");
-        formMap.remove("endDate");
-        formMap.remove("endTime");
-        formMap.put("startDateTime", new String[]{startDateTime});
-        formMap.put("endDateTime", new String[]{endDateTime});
+    private Map<String, String> dateTimeFormHandler(HttpServletRequest request) {
+        Map<String, String> formMap = new HashMap<String, String>();
+        formMap.put("title", request.getParameter("title"));
+        formMap.put("url", request.getParameter("url"));
+        formMap.put("description", request.getParameter("description"));
+        formMap.put("address", request.getParameter("address"));
+        formMap.put("city", request.getParameter("city"));
+        formMap.put("state", request.getParameter("state"));
+        formMap.put("zipcode", request.getParameter("zipcode"));
+        String startDateTime = formatDateTime(request.getParameter("startDate"), request.getParameter("startTime"));
+        String endDateTime = formatDateTime(request.getParameter("endDate"), request.getParameter("endTime"));
+        formMap.put("startDateTime", startDateTime);
+        formMap.put("endDateTime", endDateTime);
         return formMap;
-    }
-
-    /**
-     * Creates an array list of the form values submitted from the form
-     * using the edited map
-     * @param requestMap a mutible map formatted like the parameter map of the HTTP request
-     * @return an Array List of the values from the form
-     */
-    private ArrayList<String> getFormValues(Map<String, String[]> requestMap) {
-        ArrayList<String> formList = new ArrayList<>();
-        formList.add(requestMap.get("title")[0]);
-        formList.add(requestMap.get("url")[0]);
-        formList.add(requestMap.get("description")[0]);
-        formList.add(requestMap.get("startDateTime")[0]);
-        formList.add(requestMap.get("endDateTime")[0]);
-        formList.add(requestMap.get("address")[0]);
-        formList.add(requestMap.get("city")[0]);
-        formList.add(requestMap.get("state")[0]);
-        formList.add(requestMap.get("zipcode")[0]);
-        return formList;
     }
 
     /**
