@@ -1,10 +1,10 @@
 package testing;
 
-import beans.EventBean;
-import beans.EventFactory;
-import database.EventHandler;
-import database.PropertiesLoader;
-import database.SessionFactoryProvider;
+import eventspider.beans.EventBean;
+import eventspider.beans.EventFactory;
+import eventspider.database.EventHandler;
+import eventspider.database.PropertiesLoader;
+import eventspider.database.SessionFactoryProvider;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -13,7 +13,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 
@@ -146,14 +145,14 @@ public class EventHandlerTest {
     public void updateEventTitle() throws Exception {
         String newTitle = "My New Title";
         handler.updateEventTitle(newTitle, 123);
-        EventBean event = (EventBean) session.get(EventBean.class, 123);
+        EventBean event = handler.getEventByID(123);
         assertEquals("Title was not updated", newTitle, event.getTitle());
     }
 
     @Test
     public void deleteEvent() throws Exception {
         handler.deleteEvent(123);
-        assertNull("Event was not deleted", session.get(EventBean.class, 123));
+        assertNull("Event was not deleted", handler.getEventByID(123));
 
     }
 

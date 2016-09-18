@@ -81,41 +81,41 @@
 
     <servlet>
         <servlet-name>LogInServlet</servlet-name>
-        <servlet-class>servlets.LogInServlet</servlet-class>
+        <servlet-class>eventspider.servlets.LogInServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>SearchServlet</servlet-name>
-        <servlet-class>servlets.SearchServlet</servlet-class>
+        <servlet-class>eventspider.servlets.SearchServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>AddEventManual</servlet-name>
-        <servlet-class>servlets.AddEventManual</servlet-class>
+        <servlet-class>eventspider.servlets.AddEventManual</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>EventDetailsServlet</servlet-name>
-        <servlet-class>servlets.EventDetailsController</servlet-class>
+        <servlet-class>eventspider.servlets.EventDetailsController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EventfulSearchServlet</servlet-name>
-        <servlet-class>servlets.EventfulSearch</servlet-class>
+        <servlet-class>eventspider.servlets.EventfulSearch</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>AddEventToUser</servlet-name>
-        <servlet-class>servlets.AddEventToUser</servlet-class>
+        <servlet-class>eventspider.servlets.AddEventToUser</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UserEventsDisplay</servlet-name>
-        <servlet-class>servlets.UserEventsDisplay</servlet-class>
+        <servlet-class>eventspider.servlets.UserEventsDisplay</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ErrorTestingServlet</servlet-name>
-        <servlet-class>servlets.ErrorTestingServlet</servlet-class>
+        <servlet-class>eventspider.servlets.ErrorTestingServlet</servlet-class>
     </servlet>
 
 
