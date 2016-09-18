@@ -8,6 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="UserSavedEvents")
+@IdClass(UserSavedEventsPK.class)
 public class UserSavedEvents {
     @Id
     @Column(name="user_id")

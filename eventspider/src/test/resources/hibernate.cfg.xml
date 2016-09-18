@@ -22,6 +22,7 @@
 
         <!-- List the annotated entity class/es -->
         <mapping class="eventspider.beans.EventBean"/>
+        <mapping class="eventspider.beans.UserSavedEvents"/>
 
     </session-factory>
 

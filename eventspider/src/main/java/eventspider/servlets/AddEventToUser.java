@@ -76,7 +76,7 @@ public class AddEventToUser extends HttpServlet {
      */
     private void saveEventToUser(Integer userID, Integer eventID) {
         EventHandler eventHandler = new EventHandler();
-        if (eventHandler.saveEventToUser(userID, eventID, properties)) {
+        if (eventHandler.saveEventToUser(userID, eventID)) {
             addedMessage = properties.getProperty("success.message");
         } else {
             errorCode = EVENT_NOT_SAVED_TO_USER;
