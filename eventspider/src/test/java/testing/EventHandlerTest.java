@@ -19,10 +19,10 @@ public class EventHandlerTest {
 
     private Session session = SessionFactoryProvider.getSessionFactory().openSession();
     private EventHandler handler = new EventHandler();
+    private EventFactory factory = new EventFactory();
 
     @BeforeClass
     public void setUp() throws Exception {
-        EventFactory factory = new EventFactory();
         EventBean event = factory.createBean("123",
                 "My Event", "http://event.com", "Test event",
                 "2016-09-14 06:30:00", "2016-09-14 08:30:00",
@@ -35,13 +35,18 @@ public class EventHandlerTest {
 
     @Test
     public void eventExistsInDatabaseTest() throws Exception {
-        assertTrue(handler.eventExistsInDatabase(123));
-        assertFalse(handler.eventExistsInDatabase(12));
+        assertTrue("Event 123 not found in DB", handler.eventExistsInDatabase(123));
+        assertFalse("Event 12 found in DB", handler.eventExistsInDatabase(12));
     }
 
     @Test
     public void addEventBeanTest() throws Exception {
-
+        EventBean bean = factory.createBean("124", "Event2",
+                "http://event.com", "Test event",
+                "2016-09-14 06:30:00", "2016-09-14 08:30:00",
+                "3802 Lien Rd", "Madison", "WI", "53704");
+        assertTrue("Event not added to DB", handler.addEvent(bean));
+        assertTrue("Event added not found in DB", (bean.equals((EventBean) session.get(EventBean.class, "124"))));
     }
 
     @Test

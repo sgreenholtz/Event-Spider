@@ -25,8 +25,7 @@ public class IndexingDatabaseHandler {
      * @param properties Application properties file
      */
     public IndexingDatabaseHandler(Properties properties) {
-        DatabaseHandler db = new DatabaseHandler(properties);
-        conn = db.getConnection();
+        conn = DatabaseHandler.getConnection();
         this.properties = properties;
     }
 

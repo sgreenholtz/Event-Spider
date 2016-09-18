@@ -4,7 +4,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-import database.DatabaseHandler;
 import database.PropertiesLoader;
 
 /**

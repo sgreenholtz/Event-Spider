@@ -25,21 +25,7 @@ public class SearchHandler {
      * @param properties Application properties
      */
     public SearchHandler(Properties properties) {
-        DatabaseHandler db = new DatabaseHandler(properties);
-//        this.properties = properties;
-        conn = db.getConnection();
-    }
-
-    /**
-     * Constructor using strings for username, password and url, for use in
-     * testing only
-     * @param username Database username
-     * @param password Database password
-     * @param url Database url
-     */
-    public SearchHandler(String username, String password, String url) {
-        DatabaseHandler db = new DatabaseHandler(username, password, url);
-        conn = db.getConnection();
+        conn = DatabaseHandler.getConnection();
     }
 
     /**
