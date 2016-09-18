@@ -1,6 +1,7 @@
 package servlets;
 
 import database.EventHandler;
+import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ import static utility.MySqlDateTimeFormatter.formatToMysqlFromForm;
 
 public class AddEventManual extends HttpServlet {
 
+    private final Logger logger = Logger.getLogger(this.getClass());
+
     /**
      * Adds a manually entered event into the database
      * @param request HttpServletRequest
@@ -31,7 +34,9 @@ public class AddEventManual extends HttpServlet {
 
         Map<String, String> formMap = dateTimeFormHandler(request);
         EventHandler eventAdder = new EventHandler();
-        eventAdder.insertEvent(formMap);
+         if (!eventAdder.addEvent(formMap)) {
+            logger.error("Event was not added: " + formMap.get("title"));
+        }
 
         String url = "/";
 

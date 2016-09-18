@@ -19,7 +19,7 @@ public class EventFactory {
      * Empty constructor, instantiates map
      */
     public EventFactory() {
-        eventMap = new HashMap<>();
+        eventMap = new HashMap<Integer, EventBean>();
     }
 
     /**

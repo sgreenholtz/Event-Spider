@@ -58,7 +58,7 @@ public class EventHandler {
      * Takes a list of the values from the form and inserts into the database
      * @param map Maps field names to values from form
      */
-    public void insertEvent(Map<String, String> map) {
+    public boolean addEvent(Map<String, String> map) {
         EventFactory factory = new EventFactory();
         EventBean event = factory.createBean(UUID.randomUUID().toString(), map.get("title"),
                 map.get("url"), map.get("description"), map.get("startDateTime"),
@@ -70,6 +70,7 @@ public class EventHandler {
         log.info("Event added: " + event.getEventId());
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     /**
