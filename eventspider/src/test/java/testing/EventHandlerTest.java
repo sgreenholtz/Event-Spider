@@ -66,6 +66,12 @@ public class EventHandlerTest {
         Query query = session.createSQLQuery(sql);
         query.executeUpdate();
         session.getTransaction().commit();
+
+        sql = "DELETE FROM UserSavedEvents";
+        session.beginTransaction();
+        query = session.createSQLQuery(sql);
+        query.executeUpdate();
+        session.getTransaction().commit();
     }
 
     @AfterClass
