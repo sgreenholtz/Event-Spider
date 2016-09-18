@@ -1,10 +1,10 @@
 package testing;
 
+import Service.GetEmbeddedEventJSON;
+import Service.TagNotFoundExecption;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import service.*;
 
 import static org.junit.Assert.*;
 
