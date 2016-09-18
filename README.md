@@ -27,9 +27,16 @@ As of the beginning of the Fall 2016 semester, the following components have bee
 - Search for events on Eventful
 - Viewing events and adding to user account
 
-Goals for Fall 2016
+#### Goals for Fall 2016
 - User dashboard with personal event calendar
 - Bring in Google Calendar API
 - Share buttons to publish events to social media or email self reminders
 - Finish crawling service and deploy to cloud server for faster processing
 - Event recommendation engine with event tagging/categories
+
+#### New Technologies to Add
+- Spring Boot
+- Hibernate ORM
+- Log4j
+- JDBC real authentication
+- 80% code coverage with jUnit tests
