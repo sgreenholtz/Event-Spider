@@ -33,13 +33,15 @@ public class EventHandlerTest {
 
     @BeforeClass
     public static void setUp() throws Exception {
+        logger.info("");
         logger.info("***** STARTING TEST: EventHandlerTest ******");
-        clearDatabase();
         getProperties();
     }
 
     @Before
-    public static void addEventsToDB() throws Exception {
+    public void addEventsToDB() throws Exception {
+        session.clear();
+        clearDatabase();
         EventBean event1 = factory.createBean("123",
                 "My Event", "http://event.com", "Test event",
                 "2016-09-14 06:30:00", "2016-09-14 08:30:00",
@@ -61,7 +63,7 @@ public class EventHandlerTest {
         session.getTransaction().commit();
     }
 
-    public static void clearDatabase() {
+    private void clearDatabase() {
         String sql = "DELETE FROM Events";
         session.beginTransaction();
         Query query = session.createSQLQuery(sql);
@@ -69,9 +71,9 @@ public class EventHandlerTest {
         session.getTransaction().commit();
     }
 
-    public static void getProperties() {
+    private static void getProperties() {
         PropertiesLoader loader = new PropertiesLoader();
-        properties = PropertiesLoader.loadProperties("/eventspider/src/main/resources/test.properties");
+        properties = PropertiesLoader.loadProperties("src/main/resources/test.properties");
     }
 
     @AfterClass
@@ -144,7 +146,7 @@ public class EventHandlerTest {
     public void updateEventTitle() throws Exception {
         String newTitle = "My New Title";
         handler.updateEventTitle(newTitle, 123);
-        EventBean event = handler.getEventByID(123);
+        EventBean event = (EventBean) session.get(EventBean.class, 123);
         assertEquals("Title was not updated", newTitle, event.getTitle());
     }
 
