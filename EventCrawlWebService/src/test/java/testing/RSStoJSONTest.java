@@ -5,14 +5,13 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import service.EventJSONParser;
-import service.RSStoJSON;
-import service.UrlNotRssException;
+import Service.EventJSONParser;
+import Service.RSStoJSON;
+import Service.UrlNotRssException;
 
 import java.io.*;
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.*;
 
 /**
