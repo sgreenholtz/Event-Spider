@@ -159,9 +159,9 @@ public class EventFactory {
         event.setTitle(title);
         event.setUrl(url);
         event.setDescription(description);
-        event.setStartTime(formatDateTimeNoMiliSecond(startTime));
+        event.setStartTime((startTime));
         if (!stopTime.equals("")) {
-            event.setStopTime(formatDateTimeNoMiliSecond(stopTime));
+            event.setStopTime((stopTime));
         } else {
             event.setStopTime(null);
         }

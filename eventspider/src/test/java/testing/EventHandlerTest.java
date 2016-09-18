@@ -4,7 +4,10 @@ import beans.EventBean;
 import beans.EventFactory;
 import database.EventHandler;
 import database.SessionFactoryProvider;
+import org.apache.log4j.Logger;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,9 +23,12 @@ public class EventHandlerTest {
     private static Session session = SessionFactoryProvider.getSessionFactory().openSession();
     private EventHandler handler = new EventHandler();
     private static EventFactory factory = new EventFactory();
+    private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
 
     @BeforeClass
     public static void setUp() throws Exception {
+        logger.info("***** STARTING TEST: EventHandlerTest ******");
+        clearDatabase();
         EventBean event = factory.createBean("123",
                 "My Event", "http://event.com", "Test event",
                 "2016-09-14 06:30:00", "2016-09-14 08:30:00",
@@ -30,6 +36,18 @@ public class EventHandlerTest {
         session.beginTransaction();
         session.save(event);
         session.getTransaction().commit();
+    }
+
+    public static void clearDatabase() {
+        String sql = "DELETE FROM Events";
+        session.beginTransaction();
+        Query query = session.createSQLQuery(sql);
+        query.executeUpdate();
+        session.getTransaction().commit();
+    }
+
+    @AfterClass
+    public static void tearDown() throws Exception {
         session.close();
     }
 
@@ -46,7 +64,9 @@ public class EventHandlerTest {
                 "2016-09-14 06:30:00", "2016-09-14 08:30:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
         assertTrue("Event not added to DB", handler.addEvent(bean));
-        assertTrue("Event added not found in DB", (bean.equals((EventBean) session.get(EventBean.class, "124"))));
+
+        EventBean retrievedBean = (EventBean) session.get(EventBean.class, 124);
+        assertTrue("Event added not found in DB", (124 == retrievedBean.getEventId()));
     }
 
     @Test
