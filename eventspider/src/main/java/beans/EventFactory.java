@@ -91,6 +91,17 @@ public class EventFactory {
         eventMap.put(event.getEventId(), event);
     }
 
+
+    /**
+     * Creates map of id->bean using a list of event bean objects
+     * @param beanList List of event bean objects
+     */
+    public void createBeansMap(List<EventBean> beanList) {
+        for (EventBean bean : beanList) {
+            eventMap.put(bean.getEventId(), bean);
+        }
+    }
+
     /**
      * Creates an Event bean from the current main.java.database row
      * @return Event Bean form the current row

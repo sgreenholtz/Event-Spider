@@ -32,8 +32,7 @@ public class EventDetailsController extends HttpServlet {
             Map<Integer, EventBean> eventsMap = (HashMap) request.getSession().getAttribute("eventsMap");
             eventBean = eventsMap.get(new Integer(request.getParameter("id")));
         } else {
-            properties = (Properties) getServletContext().getAttribute("appProperties");
-            eventBean = createEventBean(new Integer(request.getParameter("id")));
+            eventBean = getEventBean(new Integer(request.getParameter("id")));
         }
 
         request.setAttribute("event", eventBean);
@@ -44,20 +43,12 @@ public class EventDetailsController extends HttpServlet {
     }
 
     /**
-     * Takes the event ID and creates a new event bean corresponding to that ID
+     * Gets the event bean associated with this ID
      * @param eventID Integer ID for the event to create a bean of
      * @return Event Bean of that event
      */
-    private EventBean createEventBean(Integer eventID) {
-        EventHandler eventHandler = new EventHandler(properties);
-        ResultSet results = eventHandler.getEventByID(eventID);
-        EventBean eventBean = null;
-        try {
-            results.last();
-            eventBean = EventFactory.createBean(results);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return eventBean;
+    private EventBean getEventBean(Integer eventID) {
+        EventHandler eventHandler = new EventHandler();
+        return eventHandler.getEventByID(eventID);
     }
 }

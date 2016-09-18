@@ -53,18 +53,18 @@ public class AddEventToUser extends HttpServlet {
      * @return False with appropriate error code if event exists or wasn't added at all
      */
     private boolean addEventToEventsTable() {
-        EventHandler eventHandler = new EventHandler(properties);
+        EventHandler eventHandler = new EventHandler();
         if (eventHandler.eventExistsInDatabase(event.getEventId())) {
             errorCode = EVENT_EXISTS_IN_DATABASE;
             return false;
         }
-        try {
+//        try {
             eventHandler.addEvent(event);
-        } catch (RecordNotAddedException ex) {
-            addedMessage = properties.getProperty("fail.message");
-            errorCode = EVENT_NOT_ADDED;
-            return false;
-        }
+//        } catch (RecordNotAddedException ex) {
+//            addedMessage = properties.getProperty("fail.message");
+//            errorCode = EVENT_NOT_ADDED;
+//            return false;
+//        }
         return true;
     }
 
@@ -76,8 +76,8 @@ public class AddEventToUser extends HttpServlet {
      * @param eventID
      */
     private void saveEventToUser(Integer userID, Integer eventID) {
-        EventHandler eventHandler = new EventHandler(properties);
-        if (eventHandler.saveEventToUser(userID, eventID)) {
+        EventHandler eventHandler = new EventHandler();
+        if (eventHandler.saveEventToUser(userID, eventID, properties)) {
             addedMessage = properties.getProperty("success.message");
         } else {
             errorCode = EVENT_NOT_SAVED_TO_USER;

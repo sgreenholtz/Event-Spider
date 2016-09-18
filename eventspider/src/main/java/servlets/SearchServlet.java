@@ -1,5 +1,6 @@
 package servlets;
 
+import beans.EventBean;
 import beans.EventFactory;
 import lucene.Searcher;
 import database.EventHandler;
@@ -34,12 +35,12 @@ public class SearchServlet extends HttpServlet {
 
         Properties properties = (Properties) getServletContext().getAttribute("appProperties");
         Searcher searcher = new Searcher(properties.getProperty("index.dir"));
-        EventHandler eventHandler = new EventHandler(properties);
+        EventHandler eventHandler = new EventHandler();
         Map<Integer, String> eventsMap = searcher.searchMap(searchTerm);
         ArrayList<Integer> eventIDsList = searcher.searchList(searchTerm);
-        ResultSet events = eventHandler.getEventByID(eventIDsList);
-        EventFactory eventFactory = new EventFactory(events);
-        eventFactory.createBeansMap();
+        List<EventBean> beanList = eventHandler.getEventByID(eventIDsList);
+        EventFactory eventFactory = new EventFactory();
+        eventFactory.createBeansMap(beanList);
 
         request.getSession().setAttribute("eventsMap", eventFactory.getEventMap());
         request.getSession().setAttribute("searchTerm", searchTerm);
