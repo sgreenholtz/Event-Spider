@@ -28,13 +28,11 @@ public class EventHandlerTest {
     private EventHandler handler = new EventHandler();
     private static EventFactory factory = new EventFactory();
     private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
-    private static Properties properties;
 
     @BeforeClass
     public static void setUp() throws Exception {
         logger.info("");
         logger.info("***** STARTING TEST: EventHandlerTest ******");
-        getProperties();
     }
 
     @Before
@@ -68,11 +66,6 @@ public class EventHandlerTest {
         Query query = session.createSQLQuery(sql);
         query.executeUpdate();
         session.getTransaction().commit();
-    }
-
-    private static void getProperties() {
-        PropertiesLoader loader = new PropertiesLoader();
-        properties = PropertiesLoader.loadProperties("src/main/resources/test.properties");
     }
 
     @AfterClass
@@ -118,7 +111,7 @@ public class EventHandlerTest {
     @Test
     public void saveEventToUser() throws Exception {
         assertTrue("Event could not be added to user",
-                handler.saveEventToUser(1, 123, properties));
+                handler.saveEventToUser(1, 123));
     }
 
     @Test

@@ -1,7 +1,6 @@
 package eventspider.database;
 
-import eventspider.beans.EventBean;
-import eventspider.beans.EventFactory;
+import eventspider.beans.*;
 import eventspider.lucene.Indexer;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -50,7 +49,6 @@ public class EventHandler {
         session.save(event);
         log.info("Event added: " + event.getEventId());
         session.getTransaction().commit();
-        session.close();
         return true;
     }
 
@@ -67,9 +65,8 @@ public class EventHandler {
 
         session.beginTransaction();
         session.save(event);
-        log.info("Event added: " + event.getEventId());
         session.getTransaction().commit();
-        session.close();
+        log.info("Event added: " + event.getEventId());
         return true;
     }
 
@@ -79,13 +76,15 @@ public class EventHandler {
      * @param eventID Integer
      * @return True if event is successfully added
      */
-    public boolean saveEventToUser(Integer userID, Integer eventID, Properties properties) {
-        String sql = properties.getProperty("save.event.to.user");
-        sql = sql.replace("1", userID.toString());
-        sql = sql.replace("2", eventID.toString());
-        Query query = session.createQuery(sql);
-        Integer result = query.executeUpdate();
-        return (result != 0);
+    public boolean saveEventToUser(Integer userID, Integer eventID) {
+        UserSavedEvents savedEvent = new UserSavedEvents();
+        savedEvent.setEventID(eventID);
+        savedEvent.setUserID(userID);
+        session.beginTransaction();
+        session.save(savedEvent);
+        session.getTransaction().commit();
+        log.info(String.format("Event %s saved to user %s", eventID, userID));
+        return true;
     }
 
     /**
@@ -135,7 +134,6 @@ public class EventHandler {
         event.setTitle(newTitle);
         log.info("Updated " + eventID + " to new title " + newTitle);
         session.getTransaction().commit();
-        session.close();
     }
 
     /**
@@ -148,6 +146,5 @@ public class EventHandler {
         session.delete(event);
         log.info("Event deleted: " + eventID);
         session.getTransaction().commit();
-        session.close();
     }
 }
