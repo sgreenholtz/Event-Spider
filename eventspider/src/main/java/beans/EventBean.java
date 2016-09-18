@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Table(name = "Events")
 public class EventBean {
     @Id
-    @GeneratedValue(generator="increment")
     @Column(name = "event_id")
     private Integer eventId;
 

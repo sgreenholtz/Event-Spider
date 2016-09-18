@@ -222,7 +222,12 @@ public class EventFactory {
     private Integer createURLSafeID(String id) {
         id = id.replaceAll("\\D", "");
         id = id.replaceFirst("0+", "");
-        return new Integer(id.substring(0, 9));
+        if (id.length()>9) {
+            return new Integer(id.substring(0, 9));
+        } else {
+            return new Integer(id);
+        }
+
     }
 
 

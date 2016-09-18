@@ -17,12 +17,12 @@ import static org.junit.Assert.*;
  */
 public class EventHandlerTest {
 
-    private Session session = SessionFactoryProvider.getSessionFactory().openSession();
+    private static Session session = SessionFactoryProvider.getSessionFactory().openSession();
     private EventHandler handler = new EventHandler();
-    private EventFactory factory = new EventFactory();
+    private static EventFactory factory = new EventFactory();
 
     @BeforeClass
-    public void setUp() throws Exception {
+    public static void setUp() throws Exception {
         EventBean event = factory.createBean("123",
                 "My Event", "http://event.com", "Test event",
                 "2016-09-14 06:30:00", "2016-09-14 08:30:00",
