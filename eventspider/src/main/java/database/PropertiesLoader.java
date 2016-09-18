@@ -1,5 +1,7 @@
 package database;
 
+import org.apache.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,15 +15,7 @@ import java.util.Properties;
 public class PropertiesLoader {
 
     private static Properties properties;
-
-//    /**
-//     * Constructor takes a path to the file containing the properties
-//     * and loads that file into the Properties instance variable
-//     * @param filepath Path in String form to the Properties file
-//     */
-//    public PropertiesLoader(String filepath) {
-//        this.properties = loadProperties(filepath);
-//    }
+    private static final Logger logger = Logger.getLogger(PropertiesLoader.class);
 
     /**
      * Gets the Properties.
@@ -41,8 +35,8 @@ public class PropertiesLoader {
         try {
             properties.load(new FileInputStream(filepath));
         } catch(IOException ioe) {
-            System.out.println("Can't load the properties file");
-            ioe.printStackTrace();
+            logger.error("Can't load the properties file");
+            logger.error(ioe);
         }
         return properties;
     }
@@ -54,11 +48,11 @@ public class PropertiesLoader {
             if (inputStream != null) {
                 properties.load(inputStream);
             } else {
-                System.out.println("Input stream is null");
+                logger.error("Input stream is null");
             }
         } catch(IOException ioe) {
-            System.out.println("Can't load the properties file");
-            ioe.printStackTrace();
+            logger.error("Can't load the properties file");
+            logger.error(ioe);
         }
         return properties;
     }

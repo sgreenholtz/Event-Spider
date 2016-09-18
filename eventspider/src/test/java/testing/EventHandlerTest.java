@@ -3,6 +3,7 @@ package testing;
 import beans.EventBean;
 import beans.EventFactory;
 import database.EventHandler;
+import database.PropertiesLoader;
 import database.SessionFactoryProvider;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -11,6 +12,10 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.awt.*;
+import java.util.*;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -24,17 +29,35 @@ public class EventHandlerTest {
     private EventHandler handler = new EventHandler();
     private static EventFactory factory = new EventFactory();
     private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
+    private static Properties properties;
 
     @BeforeClass
     public static void setUp() throws Exception {
         logger.info("***** STARTING TEST: EventHandlerTest ******");
         clearDatabase();
-        EventBean event = factory.createBean("123",
+        getProperties();
+    }
+
+    @Before
+    public static void addEventsToDB() throws Exception {
+        EventBean event1 = factory.createBean("123",
                 "My Event", "http://event.com", "Test event",
                 "2016-09-14 06:30:00", "2016-09-14 08:30:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
+
+        EventBean event2 = factory.createBean("125", "Event3",
+                "http://event.com", "Test event",
+                "2016-09-14 06:30:00", "2016-09-14 08:30:00",
+                "3802 Lien Rd", "Madison", "WI", "53704");
+
+        EventBean event3 = factory.createBean("126", "Event4",
+                "http://event.com", "Test event",
+                "2016-09-14 06:30:00", "2016-09-14 08:30:00",
+                "3802 Lien Rd", "Madison", "WI", "53704");
         session.beginTransaction();
-        session.save(event);
+        session.save(event1);
+        session.save(event2);
+        session.save(event3);
         session.getTransaction().commit();
     }
 
@@ -44,6 +67,11 @@ public class EventHandlerTest {
         Query query = session.createSQLQuery(sql);
         query.executeUpdate();
         session.getTransaction().commit();
+    }
+
+    public static void getProperties() {
+        PropertiesLoader loader = new PropertiesLoader();
+        properties = PropertiesLoader.loadProperties("/eventspider/src/main/resources/test.properties");
     }
 
     @AfterClass
@@ -71,31 +99,59 @@ public class EventHandlerTest {
 
     @Test
     public void addEventMapTest() throws Exception {
+        Map<String, String> map = new HashMap<>();
+        map.put("title", "MyEvent");
+        map.put("url", "http://event.com");
+        map.put("description", "This is my event");
+        map.put("startDateTime", "2016-09-18 10:15:00");
+        map.put("stopDateTime", "2016-09-17 10:20:00");
+        map.put("address", "3802 Lien Rd");
+        map.put("city", "Madison");
+        map.put("state", "WI");
+        map.put("postalCode", "53704");
+
+        assertTrue("Event was not added to DB", handler.addEvent(map));
 
     }
 
     @Test
     public void saveEventToUser() throws Exception {
-
+        assertTrue("Event could not be added to user",
+                handler.saveEventToUser(1, 123, properties));
     }
 
     @Test
-    public void getEventByID() throws Exception {
-
+    public void getEventByIDSingle() throws Exception {
+        EventBean event = handler.getEventByID(123);
+        assertEquals("Event could not be retrieved", "My Event", event.getTitle());
     }
 
     @Test
-    public void getEventByID1() throws Exception {
+    public void getEventByIDList() throws Exception {
+        List<Integer> eventIDs = new ArrayList<>();
+        eventIDs.add(123);
+        eventIDs.add(125);
+        eventIDs.add(126);
 
+        List<EventBean> beanList = handler.getEventByID(eventIDs);
+        for (int i=0; i<eventIDs.size(); i++) {
+            assertEquals(String.format("Event not added: %s", eventIDs.get(i)),
+                    eventIDs.get(i), beanList.get(i).getEventId());
+        }
     }
 
     @Test
     public void updateEventTitle() throws Exception {
-
+        String newTitle = "My New Title";
+        handler.updateEventTitle(newTitle, 123);
+        EventBean event = handler.getEventByID(123);
+        assertEquals("Title was not updated", newTitle, event.getTitle());
     }
 
     @Test
     public void deleteEvent() throws Exception {
+        handler.deleteEvent(123);
+        assertNull("Event was not deleted", session.get(EventBean.class, 123));
 
     }
 
