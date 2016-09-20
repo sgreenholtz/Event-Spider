@@ -44,42 +44,42 @@
 
     <servlet>
         <servlet-name>Home</servlet-name>
-        <jsp-file>index.jsp</jsp-file>
+        <jsp-file>/index.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>LogIn</servlet-name>
-        <jsp-file>logIn.jsp</jsp-file>
+        <jsp-file>/logIn.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>Search</servlet-name>
-        <jsp-file>search.jsp</jsp-file>
+        <jsp-file>/search.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>AddEvent</servlet-name>
-        <jsp-file>eventHandler.jsp</jsp-file>
+        <jsp-file>/eventHandler.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>SearchResultsDisplayList</servlet-name>
-        <jsp-file>searchDisplay.jsp</jsp-file>
+        <jsp-file>/searchDisplay.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>EventDetails</servlet-name>
-        <jsp-file>eventDetails.jsp</jsp-file>
+        <jsp-file>/eventDetails.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>EventfulSearchJSP</servlet-name>
-        <jsp-file>eventfulSearch.jsp</jsp-file>
+        <jsp-file>/eventfulSearch.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>MyEvents</servlet-name>
-        <jsp-file>myEvents.jsp</jsp-file>
+        <jsp-file>/myEvents.jsp</jsp-file>
     </servlet>
 
     <!-- ********************************************************************* -->
@@ -88,41 +88,41 @@
 
     <servlet>
         <servlet-name>LogInServlet</servlet-name>
-        <servlet-class>servlets.LogInServlet</servlet-class>
+        <servlet-class>eventspider.servlets.LogInServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>SearchServlet</servlet-name>
-        <servlet-class>servlets.SearchServlet</servlet-class>
+        <servlet-class>eventspider.servlets.SearchServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>AddEventManual</servlet-name>
-        <servlet-class>servlets.AddEventManual</servlet-class>
+        <servlet-class>eventspider.servlets.AddEventManual</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>EventDetailsServlet</servlet-name>
-        <servlet-class>servlets.EventDetailsController</servlet-class>
+        <servlet-class>eventspider.servlets.EventDetailsController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EventfulSearchServlet</servlet-name>
-        <servlet-class>servlets.EventfulSearch</servlet-class>
+        <servlet-class>eventspider.servlets.EventfulSearch</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>AddEventToUser</servlet-name>
-        <servlet-class>servlets.AddEventToUser</servlet-class>
+        <servlet-class>eventspider.servlets.AddEventToUser</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UserEventsDisplay</servlet-name>
-        <servlet-class>servlets.UserEventsDisplay</servlet-class>
+        <servlet-class>eventspider.servlets.UserEventsDisplay</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ErrorTestingServlet</servlet-name>
-        <servlet-class>servlets.ErrorTestingServlet</servlet-class>
+        <servlet-class>eventspider.servlets.ErrorTestingServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>dispatcher</servlet-name>
@@ -224,7 +224,7 @@
     <!-- ********************************************************************* -->
 
     <welcome-file-list>
-        <welcome-file>WEB-INF/index.jsp</welcome-file>
+        <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
 
     <!-- ********************************************************************* -->
@@ -233,12 +233,20 @@
 
     <error-page>
         <error-code>500</error-code>
+<<<<<<< HEAD:eventspider/old/web.xml
         <location>/old/error.jsp</location>
+=======
+        <location>/error.jsp</location>
+>>>>>>> master:eventspider/src/main/webapp/WEB-INF/web.xml
     </error-page>
 
     <error-page>
         <error-code>404</error-code>
+<<<<<<< HEAD:eventspider/old/web.xml
         <location>/old/notFound.jsp</location>
+=======
+        <location>/notFound.jsp</location>
+>>>>>>> master:eventspider/src/main/webapp/WEB-INF/web.xml
     </error-page>
 
 </web-app>

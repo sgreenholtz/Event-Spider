@@ -14,5 +14,32 @@ I'm converting this project from just Java to Spring-MVC using Spring Boot. Clea
 #### Technologies
 - Event Spider is built using plain ol' Java, with a MySQL database and Tomcat server.
 - Web crawling is performed using [Apache Nutch] (http://nutch.apache.org/) with [Solr](http://lucene.apache.org/solr/) to parse the results
-- Current configuration runs only on a local machine, however the MVP will be launched on [OpenShift](https://www.openshift.com/)
+- Current configuration runs only on a local machine, however the MVP will be launched on [DigitalOcean](https://www.digitalocean.com)
 
+#### Progress
+Check out my [project wiki](https://github.com/sgreenholtz/Event-Spider/wiki) for detailed updates.
+
+- 7/24/16: I reconfigured the web modules so a lot of what was working previously is mysteriously broken. Working on
+fixing it now.
+- 9/11/16: Web module has been fixed
+
+#### Current State
+As of the beginning of the Fall 2016 semester, the following components have been built:
+- User registration and login
+- Indexing and searching the database
+- Search for events on Eventful
+- Viewing events and adding to user account
+
+#### Goals for Fall 2016
+- User dashboard with personal event calendar
+- Bring in Google Calendar API
+- Share buttons to publish events to social media or email self reminders
+- Finish crawling service and deploy to cloud server for faster processing
+- Event recommendation engine with event tagging/categories
+
+#### New Technologies to Add
+- Spring Boot
+- Hibernate ORM
+- Log4j
+- JDBC real authentication
+- 80% code coverage with jUnit tests
