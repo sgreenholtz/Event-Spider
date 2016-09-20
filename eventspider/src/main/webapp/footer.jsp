@@ -4,5 +4,6 @@
   Time: 3:15 PM
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+</div>
 </body>
 </html>
