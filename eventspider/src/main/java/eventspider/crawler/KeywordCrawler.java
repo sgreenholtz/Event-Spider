@@ -1,5 +1,7 @@
 package eventspider.crawler;
 
+import org.apache.log4j.Logger;
+
 import java.util.*;
 
 /**
@@ -9,6 +11,7 @@ import java.util.*;
 public class KeywordCrawler extends Crawler {
     private Set<String> keywordText;
     private Map<String, Set<String>> linkText;
+    private final Logger logger = Logger.getLogger(this.getClass());
 
     /**
      * Empty constructor
@@ -46,7 +49,7 @@ public class KeywordCrawler extends Crawler {
             String currentUrl;
             Leg leg = new Leg();
             if(this.pagesToVisit.isEmpty()) {
-                System.out.println("No valid links found.");
+                logger.info("No valid links found.");
                 break;
             } else {
                 currentUrl = this.nextUrl();
@@ -55,10 +58,7 @@ public class KeywordCrawler extends Crawler {
             leg.searchCrawl(currentUrl, keyword);
 
             if(leg.searchForWord(keyword)) {
-                System.out.println(leg.getKeywordText());
-//                keywordText.addAll(leg.getKeywordText());
-//                linkText.put(currentUrl, keywordText);
-//                keywordText.clear();
+                logger.info(leg.getKeywordText());
             }
             this.pagesToVisit.addAll(leg.getLinks());
         }

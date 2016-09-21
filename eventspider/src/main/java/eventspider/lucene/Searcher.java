@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -27,6 +28,7 @@ public class Searcher {
     private QueryParser queryParser;
     private Query query;
     private IndexReader reader;
+    private final Logger logger = Logger.getLogger(this.getClass());
 
     /**
      * Constructor takes a String to the path of the index directory and
@@ -51,7 +53,7 @@ public class Searcher {
         ArrayList<Document> docs = new ArrayList<>();
         for (int i=0; i<reader.numDocs(); i++) {
             Document doc = reader.document(i);
-            System.out.println(doc.get("title"));
+            logger.info(doc.get("title"));
             docs.add(doc);
         }
         return docs;
@@ -71,7 +73,7 @@ public class Searcher {
             query = queryParser.parse(searchQuery);
             topDocs = indexSearcher.search(query, LuceneConstants.MAX_SEARCH);
         } catch (ParseException ex) {
-            ex.printStackTrace();
+            logger.error(ex.getStackTrace());
         }
         return topDocs;
     }
@@ -86,8 +88,8 @@ public class Searcher {
         TopDocs hits = doSearch(searchQuery);
         for(ScoreDoc scoreDoc : hits.scoreDocs) {
             Document doc = getDocument(scoreDoc);
-            System.out.println("ID: "+ doc.get("event_id"));
-            System.out.println("Title: "+ doc.get("title"));
+            logger.info("ID: "+ doc.get("event_id"));
+            logger.info("Title: "+ doc.get("title"));
         }
     }
 
@@ -105,7 +107,7 @@ public class Searcher {
                 searchMap.put(new Integer(doc.get("event_id")), doc.get("title"));
             }
         } catch (IOException ex) {
-            ex.printStackTrace();
+            logger.error(ex.getStackTrace());
         }
         return searchMap;
     }
@@ -124,7 +126,7 @@ public class Searcher {
                 searchIDList.add(new Integer(doc.get("event_id")));
             }
         } catch (IOException ex) {
-            ex.printStackTrace();
+            logger.error(ex.getStackTrace());
         }
         return searchIDList;
     }

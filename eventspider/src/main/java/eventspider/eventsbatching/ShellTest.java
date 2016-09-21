@@ -1,5 +1,7 @@
 package eventspider.eventsbatching;
 
+import org.apache.log4j.Logger;
+
 import java.io.*;
 
 /**
@@ -7,6 +9,7 @@ import java.io.*;
  * @author Sebastian Greenholtz
  */
 public class ShellTest {
+    private static final Logger logger = Logger.getLogger(ShellTest.class);
 
     public static void main(String[] args) throws IOException {
         ShellTest shellTest = new ShellTest();
@@ -14,7 +17,7 @@ public class ShellTest {
         String line = "";
         while (reader.ready()) {
             line = reader.readLine();
-            System.out.println(line);
+            logger.info(line);
         }
     }
 
