@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% session.setAttribute("title", "Search Results"); %>
-<c:import url="../src/main/resources/META-INF/resources/WEB-INF/header.jsp"/>
+<c:import url="../src/main/resources/META-INF/resources/WEB-INF/jsp/header.jsp"/>
 <c:set var="returnPage" value="search-result-list" scope="session" />
 <h3>Found ${fn:length(eventsMap)} events matching "${searchTerm}"</h3>
 <%--<table class="display" id="table">--%>
@@ -33,4 +33,4 @@
     </c:forEach>
     </tbody>
 </table>
-<c:import url="../src/main/resources/META-INF/resources/WEB-INF/footer.jsp"/>
+<c:import url="../src/main/resources/META-INF/resources/WEB-INF/jsp/footer.jsp"/>

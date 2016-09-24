@@ -1,14 +1,10 @@
 <%--
-  Log In
-
-  User: Kolya
-  Date: 2016-05-20
-  Time: 7:50 PM
+  Test page for any purpose
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<% session.setAttribute("title", "Log In"); %>
+<% session.setAttribute("title", "Test"); %>
 <c:import url="header.jsp"/>
 
 <form:form id="loginForm" class="form-horizontal" action="login" method="post" modelAttribute="user">

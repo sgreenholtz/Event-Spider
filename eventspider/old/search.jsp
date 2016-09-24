@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Search Event"); %>
-<c:import url="../src/main/resources/META-INF/resources/WEB-INF/header.jsp"/>
+<c:import url="../src/main/resources/META-INF/resources/WEB-INF/jsp/header.jsp"/>
 <%--<c:if test="${empty userID}">--%>
     <%--<c:redirect url="login" />--%>
     <%--<c:set var="returnPageEvent" value="/search" />--%>
@@ -39,4 +39,4 @@
 
 <c:import url="eventfulSearch.jsp" />
 
-<c:import url="../src/main/resources/META-INF/resources/WEB-INF/footer.jsp" />
+<c:import url="../src/main/resources/META-INF/resources/WEB-INF/jsp/footer.jsp" />
