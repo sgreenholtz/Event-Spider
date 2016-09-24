@@ -234,7 +234,7 @@
     <error-page>
         <error-code>500</error-code>
 <<<<<<< HEAD:eventspider/old/web.xml
-        <location>/old/error.jsp</location>
+        <location>/error.jsp</location>
 =======
         <location>/error.jsp</location>
 >>>>>>> master:eventspider/src/main/webapp/WEB-INF/web.xml

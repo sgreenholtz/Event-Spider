@@ -11,19 +11,19 @@
 <% session.setAttribute("title", "Log In"); %>
 <c:import url="header.jsp"/>
 
-<form:form id="loginForm" class="form-horizontal" action="login" method="post" modelAttribute="loginBean">
+<form:form id="loginForm" class="form-horizontal" action="login" method="post" modelAttribute="user">
     <fieldset>
         <legend>Log In</legend>
         <div class="form-group">
-            <form:label path="email"  for="email" class="col-lg-2 control-label">Email</label>
+            <form:label path="email"  for="email" class="col-lg-2 control-label">Email</form:label>
             <div class="col-lg-10">
                 <form:input path="email" type="text" class="form-control" id="email" placeholder="Email" name="email"/>
             </div>
         </div>
         <div class="form-group">
-            <form:label path="password" for="password" class="col-lg-2 control-label">Password</label>
+            <form:label path="password" for="password" class="col-lg-2 control-label">Password</form:label>
             <div class="col-lg-10">
-                <form:password path="password" class="form-control" id="password" placeholder="Password" name="password">
+                <form:password path="password" class="form-control" id="password" placeholder="Password" name="password"/>
             </div>
         </div>
         <div class="form-group">

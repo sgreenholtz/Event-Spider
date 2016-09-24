@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "My Events"); %>
 <c:set var="returnPage" value="my-events" scope="session" />
-<c:import url="../src/main/webapp/WEB-INF/header.jsp"/>
+<c:import url="../src/main/resources/META-INF/resources/WEB-INF/header.jsp"/>
 <c:if test="${empty userID}">
     <c:redirect url="/login" />
 </c:if>
@@ -36,4 +36,4 @@
     </tbody>
 </table>
 
-<c:import url="../src/main/webapp/WEB-INF/footer.jsp" />
+<c:import url="../src/main/resources/META-INF/resources/WEB-INF/footer.jsp" />

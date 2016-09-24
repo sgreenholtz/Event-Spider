@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Add Events"); %>
-<c:import url="../src/main/webapp/WEB-INF/header.jsp"/>
+<c:import url="../src/main/resources/META-INF/resources/WEB-INF/header.jsp"/>
 
 <form class="form-horizontal" action="addEventManual" method="post">
     <fieldset>
@@ -84,4 +84,4 @@
     </fieldset>
 </form>
 
-<c:import url="../src/main/webapp/WEB-INF/footer.jsp"/>
+<c:import url="../src/main/resources/META-INF/resources/WEB-INF/footer.jsp"/>
