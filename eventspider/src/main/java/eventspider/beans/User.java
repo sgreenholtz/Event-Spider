@@ -1,5 +1,8 @@
 package eventspider.beans;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.jboss.logging.annotations.Field;
+
 import javax.persistence.*;
 
 /**
@@ -11,17 +14,19 @@ import javax.persistence.*;
 public class User {
     @Id
     @Column(name = "user_id")
-    private int userID;
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
+    protected int userID;
     @Column(name = "email")
-    private String email;
+    protected String email;
     @Column(name = "pass")
     private String pass;
     @Column(name = "first_name")
-    private String firstName;
+    protected String firstName;
     @Column(name = "last_name")
-    private String lastName;
+    protected String lastName;
     @Column(name = "role")
-    private String role;
+    protected String role;
 
     /**
      * Gets the value of userID.

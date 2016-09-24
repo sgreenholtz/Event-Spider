@@ -1,6 +1,9 @@
 package eventspider.database;
 
+import eventspider.beans.*;
 import org.apache.log4j.Logger;
+import eventspider.beans.User;
+import org.hibernate.Session;
 
 import java.sql.*;
 import java.util.Properties;
@@ -15,11 +18,14 @@ public class UserHandler {
     private Connection conn;
     private Properties properties;
     private static final Logger logger = Logger.getLogger(UserHandler.class);
+    private Session session;
 
     /**
      * Empty constructor.
      */
-    public UserHandler() {}
+    public UserHandler() {
+        this.session = SessionFactoryProvider.getSessionFactory().openSession();
+    }
 
     /**
      * Constructor that takes in url, username and password and sets up the
@@ -27,6 +33,7 @@ public class UserHandler {
      * @param properties Application properties
      */
     public UserHandler(Properties properties) {
+        this();
         this.properties = properties;
         conn = DatabaseHandler.getConnection();
     }
@@ -59,6 +66,11 @@ public class UserHandler {
             logger.error(e.getStackTrace());
         }
         return userID;
+    }
+
+    public LoggedInUser logIn(User user) {
+
+
     }
 
     /**
