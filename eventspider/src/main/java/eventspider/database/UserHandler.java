@@ -16,8 +16,7 @@ public class UserHandler {
     /**
      * Empty constructor.
      */
-    public UserHandler() {
-    }
+    public UserHandler() {}
 
     /**
      * Constructor that takes in url, username and password and sets up the
