@@ -1,7 +1,6 @@
 package eventspider.beans;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.jboss.logging.annotations.Field;
 
 import javax.persistence.*;
 
@@ -20,7 +19,7 @@ public class User {
     @Column(name = "email")
     protected String email;
     @Column(name = "pass")
-    private String pass;
+    private String password;
     @Column(name = "first_name")
     protected String firstName;
     @Column(name = "last_name")
@@ -40,7 +39,7 @@ public class User {
      */
     public User(String email, String password) {
         this.email = email;
-        this.pass = password;
+        this.password = password;
     }
 
     /**
@@ -84,8 +83,8 @@ public class User {
      *
      * @return pass
      */
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
     /**
@@ -93,8 +92,8 @@ public class User {
      *
      * @param pass value to set instance variable to
      */
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String pass) {
+        this.password = pass;
     }
 
     /**

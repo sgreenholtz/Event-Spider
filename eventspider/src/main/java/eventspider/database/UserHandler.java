@@ -72,7 +72,7 @@ public class UserHandler {
      */
     private boolean validatePassword(User attempt, User actual) {
         Boolean valid = false;
-        if (DigestUtils.sha1Hex(attempt.getPass()).equals(actual.getPass())) {
+        if (DigestUtils.sha1Hex(attempt.getPassword()).equals(actual.getPassword())) {
             valid = true;
         }
         return valid;

@@ -7,6 +7,6 @@
 <% session.setAttribute("title", "Test"); %>
 <c:import url="header.jsp"/>
 
-<h3>You entered: ${email}</h3>
+<h3>Welcome ${user.firstName}!</h3>
 
 <c:import url="footer.jsp" />
