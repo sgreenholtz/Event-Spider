@@ -14,15 +14,21 @@ public class LoginController {
 
     private String email;
 
-    @RequestMapping(value="login", method= RequestMethod.GET)
+    @RequestMapping(value="login", method=RequestMethod.GET)
     public String loginForm(Model model) {
+        model.addAttribute("user", new User());
+        return "login";
+    }
+
+    @RequestMapping(value="test", method= RequestMethod.GET)
+    public String loginResult(Model model) {
         model.addAttribute("email", email);
         return "test";
     }
 
-    @PostMapping("verify")
+    @RequestMapping(value="verify", method=RequestMethod.POST)
     public String loginSubmit(@RequestParam String email, Model model) {
         this.email = email;
-        return "redirect:login";
+        return "redirect:test";
     }
 }

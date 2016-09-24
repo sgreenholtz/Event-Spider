@@ -7,7 +7,8 @@ package eventspider.beans;
 public class User {
 
     private int userID;
-    private String username;
+    private String email;
+    private String password;
 
     /**
      * Gets the value of userID.
@@ -26,18 +27,38 @@ public class User {
     }
 
     /**
-     * Gets the value of username.
-     * @return username
+     * Gets the value of email.
+     *
+     * @return email
      */
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
     /**
-     * Sets username to given value
-     * @param username value to set instance variable to
+     * Sets email to given value
+     *
+     * @param email value to set instance variable to
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Gets the value of password.
+     *
+     * @return password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Sets password to given value
+     *
+     * @param password value to set instance variable to
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
