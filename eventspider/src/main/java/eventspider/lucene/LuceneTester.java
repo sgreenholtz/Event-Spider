@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import eventspider.database.PropertiesLoader;
 import org.apache.commons.io.*;
+import org.apache.log4j.Logger;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 /**
@@ -17,6 +18,7 @@ import org.apache.lucene.queryparser.classic.ParseException;
 public class LuceneTester {
 
     private static String indexDir;
+    private static final Logger logger = Logger.getLogger(LuceneTester.class);
 
     public static void main(String[] args) {
         indexDir = FileUtils.getUserDirectory() + "/eventspider/diy/tomcat/indexes";
@@ -26,11 +28,11 @@ public class LuceneTester {
             tester.index();
             tester.search("fiber");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         }
     }
 

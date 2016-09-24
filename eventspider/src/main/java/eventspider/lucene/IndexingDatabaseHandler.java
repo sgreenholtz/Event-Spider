@@ -2,7 +2,9 @@ package eventspider.lucene;
 
 import java.sql.*;
 import java.util.*;
+
 import eventspider.database.DatabaseHandler;
+import org.apache.log4j.Logger;
 
 /**
  * Handles communications with the database to get the data to index
@@ -12,7 +14,7 @@ public class IndexingDatabaseHandler {
 
     private Connection conn;
     private Properties properties;
-
+    private final Logger logger = Logger.getLogger(this.getClass());
     /**
      * Empty constructor
      */
@@ -40,7 +42,7 @@ public class IndexingDatabaseHandler {
             PreparedStatement statement = conn.prepareStatement(sql);
             selectResults = statement.executeQuery();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            logger.error(ex.getStackTrace());
         }
         return selectResults;
     }

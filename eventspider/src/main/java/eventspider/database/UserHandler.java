@@ -1,5 +1,7 @@
 package eventspider.database;
 
+import org.apache.log4j.Logger;
+
 import java.sql.*;
 import java.util.Properties;
 
@@ -12,6 +14,7 @@ public class UserHandler {
 
     private Connection conn;
     private Properties properties;
+    private static final Logger logger = Logger.getLogger(UserHandler.class);
 
     /**
      * Empty constructor.
@@ -53,7 +56,7 @@ public class UserHandler {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         }
         return userID;
     }
@@ -78,7 +81,7 @@ public class UserHandler {
             statement.setString(2, password);
             statement.setString(3, firstName);
             statement.setString(4, lastName);
-            System.out.println(statement);
+            logger.info(statement);
             statement.executeUpdate();
 
             String lastID = "SELECT LAST_INSERT_ID();";
@@ -94,7 +97,7 @@ public class UserHandler {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         }
         return userID;
     }
@@ -112,7 +115,7 @@ public class UserHandler {
             statement.setInt(1, userID);
             results = statement.executeQuery();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            logger.error(ex.getStackTrace());
         }
         return results;
     }

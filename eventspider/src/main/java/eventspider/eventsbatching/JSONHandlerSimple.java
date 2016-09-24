@@ -1,5 +1,6 @@
 package eventspider.eventsbatching;
 
+import org.apache.log4j.Logger;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -15,6 +16,7 @@ public class JSONHandlerSimple {
 
     private String JSONFilePath;
     private JSONObject jsonObject;
+    private final Logger logger = Logger.getLogger(this.getClass());
 
     /**
      * Empty constructor
@@ -41,9 +43,9 @@ public class JSONHandlerSimple {
         try {
             jsonObject = (JSONObject) parser.parse(new FileReader(JSONFilePath));
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         }
         return jsonObject;
     }

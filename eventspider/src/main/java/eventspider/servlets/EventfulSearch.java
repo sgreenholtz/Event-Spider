@@ -37,7 +37,7 @@ public class EventfulSearch extends HttpServlet {
 //        double start = System.nanoTime();
 //        getJSON(searchUrl);
 //        double elapsedTime = (System.nanoTime() - start) / 1000000000.00;
-//        System.out.println("Elapsed time: " + elapsedTime);
+//        logger.info("Elapsed time: " + elapsedTime);
 
             getJSON(searchUrl);
             EventfulParser eventfulParser = new EventfulParser(jsonURL);

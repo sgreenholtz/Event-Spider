@@ -1,5 +1,7 @@
 package eventspider.beans;
 
+import org.apache.log4j.Logger;
+
 import java.sql.*;
 import java.util.*;
 import java.text.*;
@@ -14,6 +16,7 @@ public class EventFactory {
 
     private ResultSet results;
     private Map<Integer, EventBean> eventMap;
+    private static final Logger logger = Logger.getLogger(EventFactory.class);
 
     /**
      * Empty constructor, instantiates map
@@ -50,7 +53,7 @@ public class EventFactory {
                 eventMap.put(results.getInt("event_id"), createBean(results));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         }
     }
 
@@ -125,7 +128,7 @@ public class EventFactory {
             event.setPostalCode(results.getString("postal_code"));
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         }
         return event;
     }
@@ -190,7 +193,7 @@ public class EventFactory {
             SimpleDateFormat outputFormatter = new SimpleDateFormat("EEEE, MMM d h:mm a");
             formattedDateTime = outputFormatter.format(dateObjectRepresentation);
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         }
         return formattedDateTime;
     }
@@ -209,7 +212,7 @@ public class EventFactory {
             SimpleDateFormat outputFormatter = new SimpleDateFormat("EEEE, MMM d h:mm a");
             unformattedDateTime = outputFormatter.format(dateObjectRepresentation);
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         }
         return unformattedDateTime;
     }

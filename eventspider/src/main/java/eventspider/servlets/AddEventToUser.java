@@ -2,6 +2,7 @@ package eventspider.servlets;
 
 import eventspider.beans.EventBean;
 import eventspider.database.EventHandler;
+import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.util.*;
@@ -22,6 +23,7 @@ public class AddEventToUser extends HttpServlet {
     private static Integer EVENT_NOT_ADDED = 1;
     private static Integer EVENT_EXISTS_IN_DATABASE = 0;
     private static Integer EVENT_NOT_SAVED_TO_USER = 2;
+    private static final Logger logger = Logger.getLogger(AddEventToUser.class);
 
     /**
      * Adds the given event to the user's page, then
@@ -37,10 +39,10 @@ public class AddEventToUser extends HttpServlet {
         event = eventsMap.get(new Integer(request.getParameter("id")));
 
         if (!addEventToEventsTable() && errorCode == EVENT_NOT_ADDED) {
-            log("Add event to user error: " + errorCode.toString());
+            logger.error("Add event to user error: " + errorCode.toString());
             goBackToEventPage(request, response);
         } else {
-            log("Add event to user error: " + errorCode.toString());
+            logger.error("Add event to user error: " + errorCode.toString());
             saveEventToUser((Integer) request.getSession().getAttribute("userID"), event.getEventId());
             goBackToEventPage(request, response);
         }

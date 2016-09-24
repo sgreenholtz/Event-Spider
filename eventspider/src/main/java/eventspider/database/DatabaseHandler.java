@@ -1,5 +1,7 @@
 package eventspider.database;
 
+import org.apache.log4j.Logger;
+
 import java.sql.*;
 import java.util.*;
 
@@ -17,6 +19,7 @@ public class DatabaseHandler {
     private static String URL;
     private static Connection connection;
     private static DatabaseHandler instance = new DatabaseHandler();
+    private static final Logger logger = Logger.getLogger(DatabaseHandler.class);
 
     /**
      * Constructor using strings for each variable
@@ -52,9 +55,9 @@ public class DatabaseHandler {
                 Class.forName("com.mysql.jdbc.Driver");
                 connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             } catch (ClassNotFoundException ex) {
-                ex.printStackTrace();
+                logger.error(ex.getStackTrace());
             } catch (SQLException sql) {
-                sql.printStackTrace();
+                logger.error(sql.getStackTrace());
             }
             return connection;
         }

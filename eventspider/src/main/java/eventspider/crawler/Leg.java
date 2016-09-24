@@ -1,5 +1,6 @@
 package eventspider.crawler;
 
+import org.apache.log4j.Logger;
 import org.jsoup.nodes.*;
 import org.jsoup.*;
 import org.jsoup.select.Elements;
@@ -18,6 +19,7 @@ public class Leg {
     private List<String> links;
     private Document htmlDocument;
     private List<String> keywordText;
+    private final Logger logger = Logger.getLogger(this.getClass());
 
     /**
      * Empty constructor
@@ -39,12 +41,12 @@ public class Leg {
             Document htmlDocument = connection.get();
             this.htmlDocument = htmlDocument;
 
-//            System.out.println("Received web page at " + url);
+//            logger.info("Received web page at " + url);
 
             linksOnPage = htmlDocument.select("a[href]");
         } catch(IOException ioe) {
-            System.out.println("Error in out HTTP request " + ioe);
-            ioe.printStackTrace();
+            logger.info("Error in out HTTP request " + ioe);
+            logger.error(ioe.getStackTrace());
         }
         return linksOnPage;
     }
@@ -98,14 +100,14 @@ public class Leg {
     public boolean searchForWord(String searchWord)
     {
         if(this.htmlDocument == null) {
-            System.out.println("ERROR! Call crawl() before performing analysis on the document");
+            logger.info("ERROR! Call crawl() before performing analysis on the document");
             return false;
         }
-//        System.out.println("Searching for the word " + searchWord + "...");
+//        logger.info("Searching for the word " + searchWord + "...");
         String bodyText = this.htmlDocument.body().text();
         if (bodyText.toLowerCase().contains(searchWord.toLowerCase())) {
             for (Element text : htmlDocument.body().getElementsContainingOwnText(searchWord)) {
-                System.out.println(text.parent());
+                logger.info(text.parent());
                 keywordText.add(text.text());
             }
             return true;
