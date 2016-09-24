@@ -29,6 +29,21 @@ public class User {
     protected String role;
 
     /**
+     * Empty constructor
+     */
+    public User() {}
+
+    /**
+     * Constructor with email and password
+     * @param email String email
+     * @param password String password
+     */
+    public User(String email, String password) {
+        this.email = email;
+        this.pass = password;
+    }
+
+    /**
      * Gets the value of userID.
      *
      * @return userID

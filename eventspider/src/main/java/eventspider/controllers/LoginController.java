@@ -27,8 +27,8 @@ public class LoginController {
     }
 
     @RequestMapping(value="verify", method=RequestMethod.POST)
-    public String loginSubmit(@RequestParam String email, Model model) {
-        this.email = email;
+    public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model) {
+        User loginAttempt = new User(email, password);
         return "redirect:test";
     }
 }
