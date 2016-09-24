@@ -3,9 +3,12 @@ package eventspider.database;
 import eventspider.beans.*;
 import org.apache.log4j.Logger;
 import eventspider.beans.User;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import java.sql.*;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -62,15 +65,37 @@ public class UserHandler {
                 userID = results.getInt("user_id");
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             logger.error(e.getStackTrace());
         }
         return userID;
     }
 
+    /**
+     * Takes a User object, checks if that user is in the database, then
+     * validates the password. Returns null if the log in was incorrect
+     * @param user User object from log in
+     * @return LoggedInUser object if log in is correct, or null if incorrect
+     */
     public LoggedInUser logIn(User user) {
+        Criteria criteria = session.createCriteria(User.class);
+        criteria.add(Restrictions.eq("email", user.getEmail()));
+        List results = criteria.list();
+        if (results.size() == 0) {
+            return null;
+        }
 
+        User dbUser = (User) results.get(0);
+        if (!validatePassword(user, dbUser)) {
+            return null;
+        }
+        return new LoggedInUser(dbUser);
+    }
 
+    public boolean validatePassword(User attempt, User actual) {
+        Boolean valid = false;
+
+        return valid;
     }
 
     /**
