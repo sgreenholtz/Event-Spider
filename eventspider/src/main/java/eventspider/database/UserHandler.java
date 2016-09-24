@@ -43,36 +43,6 @@ public class UserHandler {
     }
 
     /**
-     * Attempts to log in a user. Returns user id if the user is logged in, returns
-     * -1 if the user was not found.
-     * @param email Email to identify the user
-     * @param password Password to attempt to log in user
-     * @return The user id of the logged in user, or -1 if no user was found
-     */
-    public Integer logIn(String email, String password) {
-        Integer userID = -1;
-        try {
-            String sql = properties.getProperty("log.in.sql");
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, email);
-            statement.setString(2, password);
-            ResultSet results = statement.executeQuery();
-
-            if (!results.isBeforeFirst()) {
-                return userID;
-            }
-
-            while (results.next()) {
-                userID = results.getInt("user_id");
-            }
-
-        } catch (Exception e) {
-            logger.error(e.getStackTrace());
-        }
-        return userID;
-    }
-
-    /**
      * Takes a User object, checks if that user is in the database, then
      * validates the password. Returns null if the log in was incorrect
      * @param user User object from log in
@@ -100,9 +70,9 @@ public class UserHandler {
      * @param actual User object from database
      * @return true if password is correct
      */
-    public boolean validatePassword(User attempt, User actual) {
+    private boolean validatePassword(User attempt, User actual) {
         Boolean valid = false;
-        if (DigestUtils.sha1(attempt.getPass()).equals(actual.getPass())) {
+        if (DigestUtils.sha1Hex(attempt.getPass()).equals(actual.getPass())) {
             valid = true;
         }
         return valid;
