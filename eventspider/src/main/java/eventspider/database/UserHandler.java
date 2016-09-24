@@ -1,6 +1,7 @@
 package eventspider.database;
 
 import eventspider.beans.*;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import eventspider.beans.User;
 import org.hibernate.Criteria;
@@ -92,9 +93,18 @@ public class UserHandler {
         return new LoggedInUser(dbUser);
     }
 
+    /**
+     * Compares the password attempt turned into SHA1 with the actual
+     * stored value in the database. Returns true if the password is correct
+     * @param attempt User object from log in attempt
+     * @param actual User object from database
+     * @return true if password is correct
+     */
     public boolean validatePassword(User attempt, User actual) {
         Boolean valid = false;
-
+        if (DigestUtils.sha1(attempt.getPass()).equals(actual.getPass())) {
+            valid = true;
+        }
         return valid;
     }
 
