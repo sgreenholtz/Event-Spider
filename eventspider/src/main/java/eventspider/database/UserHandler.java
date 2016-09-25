@@ -25,7 +25,7 @@ public class UserHandler {
     private Session session;
 
     /**
-     * Empty constructor.
+     * Empty constructor assigns session var
      */
     public UserHandler() {
         this.session = SessionFactoryProvider.getSessionFactory().openSession();

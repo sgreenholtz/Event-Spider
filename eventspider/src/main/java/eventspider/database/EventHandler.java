@@ -20,7 +20,7 @@ public class EventHandler {
     private final Logger log = Logger.getLogger(this.getClass());
 
     /**
-     * Constructor to set Properties variable
+     * Empty constructor assigns session variable
      */
     public EventHandler() {
         this.session = SessionFactoryProvider.getSessionFactory().openSession();
