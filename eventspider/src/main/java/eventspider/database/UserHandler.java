@@ -120,6 +120,17 @@ public class UserHandler {
     }
 
     /**
+     * Registers new user
+     * @param user User object to add to database
+     */
+    public void register(User user) {
+        session.beginTransaction();
+        session.save(user);
+        logger.info("Event added: " + user.getEmail());
+        session.getTransaction().commit();
+    }
+
+    /**
      * Gets a Result Set of all the events saved for a given user
      * @param userID User to get events for
      * @return result set of all the events saved to a given user

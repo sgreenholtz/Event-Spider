@@ -2,7 +2,9 @@ package eventspider.controllers;
 
 import eventspider.beans.LoggedInUser;
 import eventspider.beans.User;
+import eventspider.beans.UserRoles;
 import eventspider.database.UserHandler;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +40,19 @@ public class LoginController {
         } else {
             return "redirect:test";
         }
+    }
 
+    @RequestMapping(value="register", method=RequestMethod.POST)
+    public String registerUser(@RequestParam String email, @RequestParam String password,
+                               @RequestParam String firstName, @RequestParam String lastName, Model model) {
+        User newUser = new User();
+        newUser.setEmail(email);
+        newUser.setFirstName(firstName);
+        newUser.setLastName(lastName);
+        newUser.setPassword(DigestUtils.sha1Hex(password));
+        newUser.setRole(UserRoles.MEMBER);
+        UserHandler handler = new UserHandler();
+        handler.register(newUser);
+        return "redirect:login";
     }
 }
