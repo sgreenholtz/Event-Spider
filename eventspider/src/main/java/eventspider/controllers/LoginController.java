@@ -42,6 +42,11 @@ public class LoginController {
         }
     }
 
+    @RequestMapping(value="register", method=RequestMethod.GET)
+    public String registerForm(Model model) {
+        return "register";
+    }
+
     @RequestMapping(value="register", method=RequestMethod.POST)
     public String registerUser(@RequestParam String email, @RequestParam String password,
                                @RequestParam String firstName, @RequestParam String lastName, Model model) {

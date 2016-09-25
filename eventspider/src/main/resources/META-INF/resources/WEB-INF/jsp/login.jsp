@@ -11,6 +11,10 @@
 <% session.setAttribute("title", "Log In"); %>
 <c:import url="header.jsp"/>
 
+<c:if test="${returned=true}">
+    <div class="alert alert-danger" role="alert">Oops we didn't find you did you mean to <a href="register">register</a>?</div>
+</c:if>
+
 <form:form id="loginForm" class="form-horizontal" action="verify" method="post" modelAttribute="user">
     <fieldset>
         <legend>Log In</legend>
