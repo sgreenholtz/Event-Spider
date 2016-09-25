@@ -16,4 +16,17 @@ public class LoggedInUser extends User {
         this.lastName = user.lastName;
         this.role = user.role;
     }
+
+    /**
+     * Overrides inherited equals method for LoggedInUser object.
+     * @param user LoggedInUser object to compare
+     * @return True if all instance vars are the same
+     */
+    public boolean equals(LoggedInUser user) {
+        return ((this.userID == user.userID) &&
+                (this.email.equals(user.email)) &&
+                (this.firstName.equals(user.firstName)) &&
+                (this.lastName.equals(user.lastName)) &&
+                (this.role.equals(user.role)));
+    }
 }

@@ -59,7 +59,7 @@ public class LoginController {
         newUser.setEmail(email);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
-        newUser.setPassword(DigestUtils.sha1Hex(password));
+        newUser.setPassword(password);
         newUser.setRole(UserRoles.MEMBER);
         UserHandler handler = new UserHandler();
         handler.register(newUser);

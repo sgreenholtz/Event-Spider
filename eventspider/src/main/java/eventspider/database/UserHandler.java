@@ -8,7 +8,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import java.sql.*;
 import java.util.*;
 
 /**
@@ -69,6 +68,7 @@ public class UserHandler {
      * @param user User object to add to database
      */
     public void register(User user) {
+        user.setPassword(DigestUtils.sha1Hex(user.getPassword()));
         session.beginTransaction();
         session.save(user);
         logger.info("Event added: " + user.getEmail());
