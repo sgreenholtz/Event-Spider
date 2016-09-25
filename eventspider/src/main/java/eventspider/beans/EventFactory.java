@@ -2,10 +2,12 @@ package eventspider.beans;
 
 import org.apache.log4j.Logger;
 
+import eventspider.beans.EventBean;
 import java.sql.*;
 import java.util.*;
 import java.text.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Creates Event Beans from the results of a main.java.database search of the Events table
@@ -232,6 +234,4 @@ public class EventFactory {
         }
 
     }
-
-
 }

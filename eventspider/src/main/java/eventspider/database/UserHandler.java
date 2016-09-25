@@ -17,6 +17,9 @@ import java.util.*;
 
 public class UserHandler {
 
+    public static Integer EMAIL_DOESNT_EXIST = 0;
+    public static Integer PASSWORD_INCORRECT = 1;
+
     private static final Logger logger = Logger.getLogger(UserHandler.class);
     private Session session;
 
@@ -55,7 +58,7 @@ public class UserHandler {
      * @param actual User object from database
      * @return true if password is correct
      */
-    private boolean validatePassword(User attempt, User actual) {
+    public boolean validatePassword(User attempt, User actual) {
         Boolean valid = false;
         if (DigestUtils.sha1Hex(attempt.getPassword()).equals(actual.getPassword())) {
             valid = true;
