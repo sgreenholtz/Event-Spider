@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.*;
 public class LoginController {
 
     private LoggedInUser user;
+    private Boolean loggedInFail = false;
 
     @RequestMapping(value="login", method=RequestMethod.GET)
     public String loginForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("notLoggedIn", loggedInFail);
         return "login";
     }
 
@@ -36,6 +38,8 @@ public class LoginController {
         UserHandler handler = new UserHandler();
         user = handler.logIn(attempt);
         if (user == null) {
+            loggedInFail = true;
+            model.addAttribute("notLoggedIn", loggedInFail);
             return "redirect:login";
         } else {
             return "redirect:test";
@@ -44,6 +48,7 @@ public class LoginController {
 
     @RequestMapping(value="register", method=RequestMethod.GET)
     public String registerForm(Model model) {
+        model.addAttribute("user", new User());
         return "register";
     }
 
