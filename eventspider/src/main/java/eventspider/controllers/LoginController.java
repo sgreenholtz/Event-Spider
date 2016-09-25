@@ -63,6 +63,7 @@ public class LoginController {
         newUser.setRole(UserRoles.MEMBER);
         UserHandler handler = new UserHandler();
         handler.register(newUser);
+        loggedInFail = false;
         return "redirect:login";
     }
 }

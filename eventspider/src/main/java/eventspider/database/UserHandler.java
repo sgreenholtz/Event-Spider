@@ -9,8 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import java.sql.*;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * Provides methods for handling users: login, registration, verification
@@ -19,8 +18,6 @@ import java.util.Properties;
 
 public class UserHandler {
 
-    private Connection conn;
-    private Properties properties;
     private static final Logger logger = Logger.getLogger(UserHandler.class);
     private Session session;
 
@@ -29,17 +26,6 @@ public class UserHandler {
      */
     public UserHandler() {
         this.session = SessionFactoryProvider.getSessionFactory().openSession();
-    }
-
-    /**
-     * Constructor that takes in url, username and password and sets up the
-     * connection with the database using the database handler
-     * @param properties Application properties
-     */
-    public UserHandler(Properties properties) {
-        this();
-        this.properties = properties;
-        conn = DatabaseHandler.getConnection();
     }
 
     /**
@@ -91,20 +77,13 @@ public class UserHandler {
 
     /**
      * Gets a Result Set of all the events saved for a given user
-     * @param userID User to get events for
-     * @return result set of all the events saved to a given user
+     * @param user LoggedInUser to get events for
+     * @return Map of EventID->Bean for the user
      */
-    public ResultSet getEventsForUser(Integer userID) {
-        ResultSet results = null;
-        try {
-            String sql = properties.getProperty("get.user.events");
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1, userID);
-            results = statement.executeQuery();
-        } catch (SQLException ex) {
-            logger.error(ex.getStackTrace());
-        }
-        return results;
+    public Map<Integer, EventBean> getEventsForUser(LoggedInUser user) {
+        Map<Integer, EventBean> map = new HashMap<>();
+
+        return map;
     }
 
 }
