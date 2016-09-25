@@ -1,6 +1,7 @@
 package eventspider.controllers;
 
 import eventspider.beans.LoggedInUser;
+import eventspider.beans.RequiredFieldMissingException;
 import eventspider.beans.User;
 import eventspider.beans.UserRoles;
 import eventspider.database.UserHandler;
@@ -54,7 +55,8 @@ public class LoginController {
 
     @RequestMapping(value="register", method=RequestMethod.POST)
     public String registerUser(@RequestParam String email, @RequestParam String password,
-                               @RequestParam String firstName, @RequestParam String lastName, Model model) {
+                               @RequestParam String firstName, @RequestParam String lastName, Model model)
+        throws RequiredFieldMissingException {
         User newUser = new User();
         newUser.setEmail(email);
         newUser.setFirstName(firstName);

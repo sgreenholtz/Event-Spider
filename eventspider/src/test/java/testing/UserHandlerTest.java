@@ -1,17 +1,23 @@
 package testing;
 
 import eventspider.beans.LoggedInUser;
+import eventspider.beans.RequiredFieldMissingException;
 import eventspider.beans.User;
 import eventspider.database.SessionFactoryProvider;
 import eventspider.database.UserHandler;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -108,14 +114,35 @@ public class UserHandlerTest {
         assertNull("Log in verification failed", handler.logIn(logInAttempt));
     }
 
-    @Test
-    public void register() throws Exception {
+    @Test(expected = RequiredFieldMissingException.class)
+    public void registerFailNoEmail() throws Exception {
+        User emptyUser = new User();
+        emptyUser.setPassword("test123");
+        handler.register(emptyUser);
+    }
 
+    @Test(expected = RequiredFieldMissingException.class)
+    public void registerFailNoPassword() throws Exception {
+        User emptyUser = new User();
+        emptyUser.setEmail("test@user.com");
+        handler.register(emptyUser);
     }
 
     @Test
-    public void getEventsForUser() throws Exception {
+    public void registerSuccess() throws Exception {
+        User user = new User();
+        user.setEmail("test2@user.com");
+        user.setFirstName("Test2");
+        user.setLastName("User2");
+        user.setPassword(DigestUtils.sha1Hex("test123"));
+        user.setRole("member");
 
+        handler.register(user);
+
+        Criteria criteria = session.createCriteria(User.class);
+        criteria.add(Restrictions.eq("email", "test2@user.com"));
+        List results = criteria.list();
+        assertEquals("User was not added correctly", 1, results.size());
     }
 
 }

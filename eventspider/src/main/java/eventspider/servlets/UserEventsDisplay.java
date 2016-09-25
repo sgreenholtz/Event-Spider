@@ -34,13 +34,13 @@ public class UserEventsDisplay extends HttpServlet {
         if (request.getSession().getAttribute("userID") == null) {
             url = "/login";
         } else {
-            UserHandler userHandler = new UserHandler();
-            List<EventBean> list = userHandler.getEventsForUser((LoggedInUser) request.getSession().getAttribute("user"));
-            EventFactory eventFactory = new EventFactory();
-            eventFactory.createBeansMap(list);
-            Map<Integer, EventBean> eventsMap = eventFactory.getEventMap();
+//            UserHandler userHandler = new UserHandler();
+//            List<EventBean> list = userHandler.getEventsForUser((LoggedInUser) request.getSession().getAttribute("user"));
+//            EventFactory eventFactory = new EventFactory();
+//            eventFactory.createBeansMap(list);
+//            Map<Integer, EventBean> eventsMap = eventFactory.getEventMap();
 
-            request.getSession().setAttribute("userEventsMap", eventsMap);
+//            request.getSession().setAttribute("userEventsMap", eventsMap);
             request.setAttribute("returnPage", "/myEventsController");
             url = "/my-events";
         }

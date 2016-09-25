@@ -5,6 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import eventspider.beans.User;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -70,23 +71,42 @@ public class UserHandler {
      * Registers new user
      * @param user User object to add to database
      */
-    public void register(User user) {
-        user.setPassword(DigestUtils.sha1Hex(user.getPassword()));
-        session.beginTransaction();
-        session.save(user);
-        logger.info("Event added: " + user.getEmail());
-        session.getTransaction().commit();
+    public void register(User user) throws RequiredFieldMissingException {
+        if (requiredEmailNull(user)) {
+            throw new RequiredFieldMissingException("Email is a required field");
+        } else if (requiredPasswordNull(user)) {
+            throw new RequiredFieldMissingException("Password is a required field");
+        } else {
+            user.setPassword(DigestUtils.sha1Hex(user.getPassword()));
+            try {
+                session.beginTransaction();
+                session.save(user);
+                logger.info("Event added: " + user.getEmail());
+                session.getTransaction().commit();
+            } catch (HibernateException e) {
+                logger.error("Something went wrong in adding new user" + e.getStackTrace());
+                throw e;
+            }
+        }
     }
 
-    /**
-     * Gets a Result Set of all the events saved for a given user
-     * @param user LoggedInUser to get events for
-     * @return Map of EventID->Bean for the user
-     */
-    public List<EventBean> getEventsForUser(LoggedInUser user) {
-        String sql = "from Events where UserSavedEvents.userID=" + user.getUserID();
-        List<EventBean> list = session.createQuery(sql).list();
-        return list;
+    public boolean requiredEmailNull(User user) {
+        return (user.getEmail() == null);
     }
+
+    public boolean requiredPasswordNull(User user) {
+        return (user.getPassword() == null);
+    }
+
+//    /**
+//     * Gets a Result Set of all the events saved for a given user
+//     * @param user LoggedInUser to get events for
+//     * @return Map of EventID->Bean for the user
+//     */
+//    public List<EventBean> getEventsForUser(LoggedInUser user) {
+//        String sql = "from Events where UserSavedEvents.userID=" + user.getUserID();
+//        List<EventBean> list = session.createQuery(sql).list();
+//        return list;
+//    }
 
 }
