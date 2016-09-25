@@ -80,10 +80,10 @@ public class UserHandler {
      * @param user LoggedInUser to get events for
      * @return Map of EventID->Bean for the user
      */
-    public Map<Integer, EventBean> getEventsForUser(LoggedInUser user) {
-        Map<Integer, EventBean> map = new HashMap<>();
-
-        return map;
+    public List<EventBean> getEventsForUser(LoggedInUser user) {
+        String sql = "from Events where UserSavedEvents.userID=" + user.getUserID();
+        List<EventBean> list = session.createQuery(sql).list();
+        return list;
     }
 
 }
