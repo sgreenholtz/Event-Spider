@@ -78,7 +78,7 @@
                 <div id="navbarTextLarge">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
-                    <li><a href="search">Search</a></li>
+                    <li><a href="search-form">Search</a></li>
                     <c:choose>
                         <c:when test="${userID==null}">
                             <li class=""><a href="login">Log In</a></li>
