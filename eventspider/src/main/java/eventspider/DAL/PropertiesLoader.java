@@ -1,4 +1,4 @@
-package eventspider.database;
+package eventspider.DAL;
 
 import org.apache.log4j.Logger;
 
