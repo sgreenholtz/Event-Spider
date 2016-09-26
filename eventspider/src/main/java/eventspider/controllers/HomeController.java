@@ -15,9 +15,4 @@ public class HomeController {
     public String getHomePage(Model model) {
         return "index";
     }
-
-    @GetMapping(value="/error")
-    public String getErrorPage(Model model) {
-        return "error";
-    }
 }

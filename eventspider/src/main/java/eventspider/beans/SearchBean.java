@@ -1,6 +1,6 @@
 package eventspider.beans;
 
-import java.util.*;
+import org.joda.time.LocalDate;
 
 /**
  * Entity representing a search. Uses java.time.LocalDate for the date of event
@@ -10,8 +10,8 @@ public class SearchBean {
 
     private String keyword;
     private String location;
-    private Date dateStart;
-    private Date dateEnd;
+    private LocalDate dateStart;
+    private LocalDate dateEnd;
 
     /**
      * Empty constructor
@@ -19,7 +19,7 @@ public class SearchBean {
     public SearchBean() {}
 
     public SearchBean(String keyword, String location,
-                      Date dateStart, Date dateEnd) {
+                      LocalDate dateStart, LocalDate dateEnd) {
         this.keyword = keyword;
         this.location = location;
         this.dateStart = dateStart;
@@ -67,7 +67,7 @@ public class SearchBean {
      *
      * @return dateStart
      */
-    public Date getDateStart() {
+    public LocalDate getDateStart() {
         return dateStart;
     }
 
@@ -76,7 +76,7 @@ public class SearchBean {
      *
      * @param dateStart value to set instance variable to
      */
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(LocalDate dateStart) {
         this.dateStart = dateStart;
     }
 
@@ -85,7 +85,7 @@ public class SearchBean {
      *
      * @return dateEnd
      */
-    public Date getDateEnd() {
+    public LocalDate getDateEnd() {
         return dateEnd;
     }
 
@@ -94,7 +94,7 @@ public class SearchBean {
      *
      * @param dateEnd value to set instance variable to
      */
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(LocalDate dateEnd) {
         this.dateEnd = dateEnd;
     }
 }
