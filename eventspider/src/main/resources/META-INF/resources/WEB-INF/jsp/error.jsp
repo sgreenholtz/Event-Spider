@@ -9,7 +9,7 @@
 <%@page isErrorPage="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Error"); %>
-<c:import url="../src/main/webapp/WEB-INF/header.jsp"/>
+<c:import url="header.jsp"/>
 
 <div class="jumbotron">
     <h1>Oops! Something went wrong.</h1>
@@ -17,4 +17,4 @@
     <p><a href="/" class="btn btn-primary btn-lg">Take me back!</a></p>
 </div>
 
-<c:import url="../src/main/webapp/WEB-INF/footer.jsp"/>
+<c:import url="footer.jsp"/>
