@@ -3,8 +3,7 @@ package eventspider.controllers;
 import eventspider.beans.SearchBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Controller for search functions
@@ -17,6 +16,12 @@ public class SearchController {
     public String getSearchForm(Model model) {
         model.addAttribute("search", new SearchBean());
         return "search";
+    }
+
+    @RequestMapping(value="search", method=RequestMethod.POST)
+    public String doSearch(@ModelAttribute SearchBean search) {
+        System.out.println(search.getKeyword());
+        return "searchResults";
     }
 
 }
