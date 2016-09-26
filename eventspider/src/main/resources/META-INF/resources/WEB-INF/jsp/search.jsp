@@ -11,7 +11,7 @@
 <% session.setAttribute("title", "Search Event"); %>
 <c:import url="header.jsp"/>
 
-<form:form class="form-horizontal" action="searchServlet" method="post" modelAttribute="search">
+<form:form class="form-horizontal" action="search" method="post" modelAttribute="search">
     <fieldset>
         <legend>Search</legend>
         <div class="form-group">

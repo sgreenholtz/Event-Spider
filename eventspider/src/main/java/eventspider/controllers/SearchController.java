@@ -20,7 +20,7 @@ public class SearchController {
 
     @RequestMapping(value="search", method=RequestMethod.POST)
     public String doSearch(@ModelAttribute SearchBean search) {
-        System.out.println(search.getKeyword());
+
         return "searchResults";
     }
 

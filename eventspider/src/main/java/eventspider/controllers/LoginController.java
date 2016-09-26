@@ -41,9 +41,9 @@ public class LoginController {
         if (user == null) {
             loggedInFail = true;
             model.addAttribute("notLoggedIn", loggedInFail);
-            return "redirect:login";
+            return "login";
         } else {
-            return "redirect:test";
+            return "index";
         }
     }
 
@@ -54,18 +54,12 @@ public class LoginController {
     }
 
     @RequestMapping(value="register", method=RequestMethod.POST)
-    public String registerUser(@RequestParam String email, @RequestParam String password,
-                               @RequestParam String firstName, @RequestParam String lastName, Model model)
+    public String registerUser(@ModelAttribute User user)
         throws RequiredFieldMissingException {
-        User newUser = new User();
-        newUser.setEmail(email);
-        newUser.setFirstName(firstName);
-        newUser.setLastName(lastName);
-        newUser.setPassword(password);
-        newUser.setRole(UserRoles.MEMBER);
+        user.setRole(UserRoles.MEMBER);
         UserHandler handler = new UserHandler();
-        handler.register(newUser);
+        handler.register(user);
         loggedInFail = false;
-        return "redirect:login";
+        return "login";
     }
 }
