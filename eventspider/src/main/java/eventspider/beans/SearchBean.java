@@ -10,17 +10,20 @@ public class SearchBean {
 
     private String keyword;
     private String location;
-    private LocalDate date;
+    private LocalDate dateStart;
+    private LocalDate dateEnd;
 
     /**
      * Empty constructor
      */
     public SearchBean() {}
 
-    public SearchBean(String keyword, String location, LocalDate date) {
+    public SearchBean(String keyword, String location,
+                      LocalDate dateStart, LocalDate dateEnd) {
         this.keyword = keyword;
         this.location = location;
-        this.date = date;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
     }
 
     /**
@@ -60,20 +63,38 @@ public class SearchBean {
     }
 
     /**
-     * Gets the value of date.
+     * Gets the value of dateStart.
      *
-     * @return date
+     * @return dateStart
      */
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getDateStart() {
+        return dateStart;
     }
 
     /**
-     * Sets date to given value
+     * Sets dateStart to given value
      *
-     * @param date value to set instance variable to
+     * @param dateStart value to set instance variable to
      */
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDateStart(LocalDate dateStart) {
+        this.dateStart = dateStart;
+    }
+
+    /**
+     * Gets the value of dateEnd.
+     *
+     * @return dateEnd
+     */
+    public LocalDate getDateEnd() {
+        return dateEnd;
+    }
+
+    /**
+     * Sets dateEnd to given value
+     *
+     * @param dateEnd value to set instance variable to
+     */
+    public void setDateEnd(LocalDate dateEnd) {
+        this.dateEnd = dateEnd;
     }
 }
