@@ -3,7 +3,7 @@ package testing;
 import eventspider.beans.EventBean;
 import eventspider.beans.EventFactory;
 import eventspider.database.EventHandler;
-import eventspider.database.PropertiesLoader;
+import eventspider.DAL.PropertiesLoader;
 import eventspider.database.SessionFactoryProvider;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;

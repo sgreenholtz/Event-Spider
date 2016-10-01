@@ -11,7 +11,7 @@
 <% session.setAttribute("title", "Add Events"); %>
 <c:import url="header.jsp"/>
 
-<form:form class="form-horizontal" action="addEventManual" method="post">
+<form:form class="form-horizontal" action="addEventManual" method="post" modelAttribute="event">
     <fieldset>
         <legend>Add Event</legend>
         <div class="form-group">
@@ -34,26 +34,54 @@
                                id="description" name="description"></form:textarea>
             </div>
         </div>
+        <%--<div class="form-group">--%>
+            <%--<form:label path="startDate" for="startDate" class="col-lg-2 control-label">Start Date</form:label>--%>
+            <%--<div class="col-lg-5">--%>
+                <%--<form:input path="startDate" type="date" class="form-control" id="startDate" name="startDate"/>--%>
+            <%--</div>--%>
+            <%--<form:label path="startTime" for="startTime" class="col-lg-2 control-label">Start Time</form:label>--%>
+            <%--<div class="col-lg-5">--%>
+                <%--<form:input path="startTime" type="time" class="form-control" id="startTime" name="startTime"/>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+        <%--<div class="form-group">--%>
+            <%--<form:label path="stopDate" for="stopDate" class="col-lg-2 control-label">End Date</form:label>--%>
+            <%--<div class="col-lg-5">--%>
+                <%--<form:input path="stopDate" type="date" class="form-control" id="stopDate" name="stopDate"/>--%>
+            <%--</div>--%>
+            <%--<form:label path="stopTime" for="stopTime" class="col-lg-2 control-label">End Time</form:label>--%>
+            <%--<div class="col-lg-5">--%>
+                <%--<form:input path="stopTime" type="time" class="form-control" id="stopTime" name="stopTime"/>--%>
+            <%--</div>--%>
+        <%--</div>--%>
         <div class="form-group">
-            <form:label path="startDate" for="startDate" class="col-lg-2 control-label">Start Date</form:label>
-            <div class="col-lg-5">
-                <form:input path="startDate" type="date" class="form-control" id="startDate" name="startDate"/>
-            </div>
-            <form:label path="startTime" for="startTime" class="col-lg-2 control-label">Start Time</form:label>
-            <div class="col-lg-5">
-                <form:input path="startTime" type="time" class="form-control" id="startTime" name="startTime"/>
+            <form:label path="startDate" for="startDate" class="col-lg-2 control-label">Start Date/Time</form:label>
+        <div class="well">
+            <div id="datetimepicker2" class="input-append date">
+                <%--<form:input path="startDate" data-format="dd/MM/yyyy hh:mm:ss" type="text" />--%>
+                <input data-format="dd/MM/yyyy hh:mm:ss" type="text" />
+                <span class="add-on">
+                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                </span>
             </div>
         </div>
-        <div class="form-group">
-            <form:label path="endDate" for="endDate" class="col-lg-2 control-label">End Date</form:label>
-            <div class="col-lg-5">
-                <form:input path="endDate" type="date" class="form-control" id="endDate" name="endDate"/>
-            </div>
-            <form:label path="endTime" for="endTime" class="col-lg-2 control-label">End Time</form:label>
-            <div class="col-lg-5">
-                <form:input path="endTime" type="time" class="form-control" id="endtime" name="endTime"/>
-            </div>
         </div>
+        <%--<form:label path="stopDate" for="stopDate" class="col-lg-2 control-label">Stop Date/Time</form:label>--%>
+        <%--<div class="well">--%>
+            <%--<div id="datetimepicker1" class="input-append date">--%>
+                <%--<form:input path="stopDate" data-format="dd/MM/yyyy hh:mm:ss" type="text"></form:input>--%>
+                <%--<span class="add-on">--%>
+                    <%--<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>--%>
+                <%--</span>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+        <%--<script type="text/javascript">--%>
+            <%--$(function() {--%>
+                <%--$('#datetimepicker1').datetimepicker({--%>
+                    <%--language: 'pt-BR'--%>
+                <%--});--%>
+            <%--});--%>
+        <%--</script>--%>
         <div class="form-group">
             <form:label path="venueAddress" for="address" class="col-lg-2 control-label">Venue Address</form:label>
             <div class="col-lg-10">
@@ -89,5 +117,24 @@
         </div>
     </fieldset>
 </form:form>
-
 <c:import url="footer.jsp"/>
+<script type="text/javascript"
+        src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script type="text/javascript"
+        src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+</script>
+<script type="text/javascript"
+        src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+</script>
+<script type="text/javascript"
+        src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+</script>
+<script type="text/javascript">
+    $(function() {
+        $('#datetimepicker2').datetimepicker({
+            language: 'en',
+            pick12HourFormat: true
+        });
+    });
+</script>
