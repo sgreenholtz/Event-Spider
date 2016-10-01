@@ -43,7 +43,7 @@ public class LoginController {
             model.addAttribute("notLoggedIn", loggedInFail);
             return "login";
         } else {
-            return "index";
+            return "index       ";
         }
     }
 
