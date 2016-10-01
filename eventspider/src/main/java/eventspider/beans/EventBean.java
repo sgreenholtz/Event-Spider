@@ -41,7 +41,7 @@ public class EventBean {
     private String postalCode;
 
     private String startDate;
-    private String endDate;
+    private String stopDate;
 
 
     /**
@@ -248,21 +248,21 @@ public class EventBean {
     }
 
     /**
-     * Gets the value of endDate.
+     * Gets the value of stopDate.
      *
-     * @return endDate
+     * @return stopDate
      */
-    public String getEndDate() {
-        return endDate;
+    public String getStopDate() {
+        return stopDate;
     }
 
     /**
-     * Sets endDate to given value
+     * Sets stopDate to given value
      *
-     * @param endDate value to set instance variable to
+     * @param stopDate value to set instance variable to
      */
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    public void setStopDate(String stopDate) {
+        this.stopDate = stopDate;
     }
 
     @Override
