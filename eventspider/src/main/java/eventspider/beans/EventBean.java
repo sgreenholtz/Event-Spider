@@ -43,9 +43,6 @@ public class EventBean {
     @Column(name = "start_date")
     private String startDate;
 
-    @Column(name = "end_Date")
-    private String endDate;
-
 
     /**
      * Empty constructor
@@ -248,24 +245,6 @@ public class EventBean {
      */
     public void setStartDate(String startDate) {
         this.startDate = startDate;
-    }
-
-    /**
-     * Gets the value of stopDate.
-     *
-     * @return stopDate
-     */
-    public String getEndDate() {
-        return endDate;
-    }
-
-    /**
-     * Sets stopDate to given value
-     *
-     * @param stopDate value to set instance variable to
-     */
-    public void setEndDate(String stopDate) {
-        this.endDate = stopDate;
     }
 
     @Override

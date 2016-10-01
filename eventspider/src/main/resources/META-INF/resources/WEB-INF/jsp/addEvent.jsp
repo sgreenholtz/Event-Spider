@@ -35,23 +35,22 @@
             </div>
         </div>
         <div class="form-group">
-            <form:label path="startDate" for="startDate" class="col-lg-2 control-label">Start Date</form:label>
-            <div class="col-lg-5">
-                <form:input path="startDate" type="date" class="form-control" id="startDate" name="startDate"/>
+            <div class="col-md-offset-2">
+                <form:label path="startDate" for="startDate" class="col-md-4 control-label">Start Date</form:label>
+                <form:label path="startTime" for="startTime" class="col-md-4 control-label">Start Time</form:label>
+                <form:label path="endTime" for="endTime" class="col-md-4 control-label">End Time</form:label>
             </div>
-            <form:label path="startTime" for="startTime" class="col-lg-2 control-label">Start Time</form:label>
-            <div class="col-lg-5">
-                <form:input path="startTime" type="time" class="form-control" id="startTime" name="startTime"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <form:label path="stopDate" for="stopDate" class="col-lg-2 control-label">End Date</form:label>
-            <div class="col-lg-5">
-                <form:input path="stopDate" type="date" class="form-control" id="stopDate" name="stopDate"/>
-            </div>
-            <form:label path="stopTime" for="stopTime" class="col-lg-2 control-label">End Time</form:label>
-            <div class="col-lg-5">
-                <form:input path="stopTime" type="time" class="form-control" id="stopTime" name="stopTime"/>
+             <div class="col-md-offset-2">
+                <div class="col-md-4">
+                    <form:input path="startDate" data-inputmask="'alias': 'mm/dd/yyyy'" type="date"
+                                class="form-control" id="startDate"/>
+                </div>
+                <div class="col-md-4">
+                     <form:input path="startTime" type="time" class="form-control" id="startTime" />
+                </div>
+                <div class="col-md-4">
+                    <form:input path="endTime" type="time" class="form-control" id="endTime" />
+                </div>
             </div>
         </div>
 
@@ -91,4 +90,8 @@
     </fieldset>
 </form:form>
 <c:import url="footer.jsp"/>
-=
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(":input").inputmask();
+    });
+</script>
