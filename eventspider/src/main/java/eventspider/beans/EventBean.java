@@ -25,8 +25,8 @@ public class EventBean {
     @Column(name = "start_time")
     private String startTime;
 
-    @Column(name = "stop_time")
-    private String stopTime;
+    @Column(name = "end_time")
+    private String endTime;
 
     @Column(name = "venue_address")
     private String venueAddress;
@@ -40,8 +40,11 @@ public class EventBean {
     @Column(name = "postal_code")
     private String postalCode;
 
+    @Column(name = "start_date")
     private String startDate;
-    private String stopDate;
+
+    @Column(name = "end_Date")
+    private String endDate;
 
 
     /**
@@ -128,8 +131,8 @@ public class EventBean {
      *
      * @return stopTime
      */
-    public String getStopTime() {
-        return stopTime;
+    public String getEndTime() {
+        return endTime;
     }
 
     /**
@@ -137,8 +140,8 @@ public class EventBean {
      *
      * @param stopTime value to set instance variable to
      */
-    public void setStopTime(String stopTime) {
-        this.stopTime = stopTime;
+    public void setEndTime(String stopTime) {
+        this.endTime = stopTime;
     }
 
     /**
@@ -252,8 +255,8 @@ public class EventBean {
      *
      * @return stopDate
      */
-    public String getStopDate() {
-        return stopDate;
+    public String getEndDate() {
+        return endDate;
     }
 
     /**
@@ -261,8 +264,8 @@ public class EventBean {
      *
      * @param stopDate value to set instance variable to
      */
-    public void setStopDate(String stopDate) {
-        this.stopDate = stopDate;
+    public void setEndDate(String stopDate) {
+        this.endDate = stopDate;
     }
 
     @Override

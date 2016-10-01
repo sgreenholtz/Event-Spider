@@ -2,7 +2,6 @@ package eventspider.beans;
 
 import org.apache.log4j.Logger;
 
-import eventspider.beans.EventBean;
 import java.sql.*;
 import java.util.*;
 import java.text.*;
@@ -120,9 +119,9 @@ public class EventFactory {
             event.setDescription(results.getString("description"));
             event.setStartTime(formatDateTimeMySql(results.getString("start_time")));
             if (results.getString("stop_time") == null) {
-                event.setStopTime(null);
+                event.setEndTime(null);
             } else {
-                event.setStopTime(formatDateTimeMySql(results.getString("stop_time")));
+                event.setEndTime(formatDateTimeMySql(results.getString("stop_time")));
             }
             event.setVenueAddress(results.getString("venue_address"));
             event.setCity(results.getString("city"));
@@ -166,9 +165,9 @@ public class EventFactory {
         event.setDescription(description);
         event.setStartTime((startTime));
         if (!stopTime.equals("")) {
-            event.setStopTime((stopTime));
+            event.setEndTime((stopTime));
         } else {
-            event.setStopTime(null);
+            event.setEndTime(null);
         }
         event.setVenueAddress(venueAddress);
         event.setCity(city);
