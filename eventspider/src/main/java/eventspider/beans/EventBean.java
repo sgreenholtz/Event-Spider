@@ -40,6 +40,9 @@ public class EventBean {
     @Column(name = "postal_code")
     private String postalCode;
 
+    private String startDate;
+    private String endDate;
+
 
     /**
      * Empty constructor
@@ -224,6 +227,42 @@ public class EventBean {
      */
     public String getShortDescription() {
         return description.substring(0,150);
+    }
+
+    /**
+     * Gets the value of startDate.
+     *
+     * @return startDate
+     */
+    public String getStartDate() {
+        return startDate;
+    }
+
+    /**
+     * Sets startDate to given value
+     *
+     * @param startDate value to set instance variable to
+     */
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    /**
+     * Gets the value of endDate.
+     *
+     * @return endDate
+     */
+    public String getEndDate() {
+        return endDate;
+    }
+
+    /**
+     * Sets endDate to given value
+     *
+     * @param endDate value to set instance variable to
+     */
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     @Override

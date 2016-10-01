@@ -26,6 +26,12 @@ public class DatabaseSearch {
         this.properties = properties;
     }
 
+    /**
+     * Performs a search in the database using the EventHandler DAO object
+     * and returns a list of event beans
+     * @return List of event beans with the given keyword in the title or description
+     * @throws Exception
+     */
     public List<EventBean> searchByKeywordOnly() throws Exception {
         EventHandler eventHandler = new EventHandler();
         Searcher searcher = new Searcher(properties.getProperty("index.dir"));

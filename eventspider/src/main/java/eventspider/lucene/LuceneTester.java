@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import eventspider.database.PropertiesLoader;
+import eventspider.DAL.PropertiesLoader;
 import org.apache.commons.io.*;
 import org.apache.log4j.Logger;
 import org.apache.lucene.queryparser.classic.ParseException;
@@ -21,7 +21,7 @@ public class LuceneTester {
     private static final Logger logger = Logger.getLogger(LuceneTester.class);
 
     public static void main(String[] args) {
-        indexDir = FileUtils.getUserDirectory() + "/eventspider/diy/tomcat/indexes";
+        indexDir = FileUtils.getUserDirectory() + "/eventspider/indexes";
         try {
             LuceneTester tester = new LuceneTester();
             tester.emptyIndex();
@@ -43,7 +43,7 @@ public class LuceneTester {
 
     private void index() throws IOException, SQLException {
         PropertiesLoader loader = new PropertiesLoader();
-        Properties properties = loader.loadPropertiesNotStatic("/main/resources/localhost.properties");
+        Properties properties = loader.loadPropertiesNotStatic("main/resources/localhost.properties");
         Indexer indexer = new Indexer(indexDir);
         indexer.createIndex(properties);
         indexer.close();
