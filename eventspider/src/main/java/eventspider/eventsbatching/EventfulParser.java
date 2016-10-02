@@ -13,7 +13,7 @@ import java.util.*;
 public class EventfulParser extends JSONHandlerSimple {
 
     private ArrayList<JSONObject> eventsList;
-    private Map<Integer, EventBean> eventMap;
+    private Map<String, EventBean> eventMap;
 
     /**
      * Empty constructor to instantiate map and list
@@ -38,7 +38,7 @@ public class EventfulParser extends JSONHandlerSimple {
      * Gets the event map.
      * @return eventMap
      */
-    public Map<Integer, EventBean> getEventMap() {
+    public Map<String, EventBean> getEventMap() {
         return eventMap;
     }
 

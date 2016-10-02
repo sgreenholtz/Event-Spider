@@ -39,8 +39,8 @@
 
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/jquery-3.0.0.js"></script>
-<script src="js/jquery.inputmask.bundle.js"></script>
+<script src="jquery-3.0.0.js"></script>
+<script src="jquery.inputmask.bundle.js"></script>
 
 </head>
 

@@ -43,13 +43,15 @@
              <div class="col-md-offset-2">
                 <div class="col-md-4">
                     <form:input path="startDate" data-inputmask="'alias': 'mm/dd/yyyy'" type="date"
-                                class="form-control" id="startDate"/>
+                                class="form-control" id="startDate" placeholder="yyyy/mm/dd"/>
                 </div>
                 <div class="col-md-4">
-                     <form:input path="startTime" type="time" class="form-control" id="startTime" />
+                     <form:input path="startTime" type="time" class="form-control" id="startTime"
+                                placeholder="hh:mm:ss"/>
                 </div>
                 <div class="col-md-4">
-                    <form:input path="endTime" type="time" class="form-control" id="endTime" />
+                    <form:input path="endTime" type="time" class="form-control" id="endTime"
+                                placeholder="hh:mm:ss"/>
                 </div>
             </div>
         </div>

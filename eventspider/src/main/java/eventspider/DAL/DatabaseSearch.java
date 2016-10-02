@@ -36,7 +36,11 @@ public class DatabaseSearch {
         EventHandler eventHandler = new EventHandler();
         Searcher searcher = new Searcher(properties.getProperty("index.dir"));
         ArrayList<Integer> eventIDsList = searcher.searchList(search.getKeyword());
-        return eventHandler.getEventByID(eventIDsList);
+        ArrayList<String> stringEventIds = new ArrayList<>();
+        for (Integer id : eventIDsList) {
+            stringEventIds.add((id).toString());
+        }
+        return eventHandler.getEventByID(stringEventIds);
     }
 
 }

@@ -1,6 +1,9 @@
 package eventspider.beans;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.util.UUID;
 
 /**
  * Bean representing an event
@@ -11,7 +14,9 @@ import javax.persistence.*;
 public class EventBean {
     @Id
     @Column(name = "event_id")
-    private Integer eventId;
+    @GenericGenerator(name="eventbean" , strategy="uuid")
+    @GeneratedValue(generator="eventbean")
+    private String eventId;
 
     @Column(name = "title")
     private String title;
@@ -53,7 +58,7 @@ public class EventBean {
      * Gets the value of eventId;
      * @return eventId
      */
-    public Integer getEventId() {
+    public String getEventId() {
         return eventId;
     }
 
@@ -61,7 +66,7 @@ public class EventBean {
      * Sets eventId to given value
      * @param eventId value to set instance variable to
      */
-    public void setEventId(Integer eventId) {
+    public void setEventId(String eventId) {
         this.eventId = eventId;
     }
 

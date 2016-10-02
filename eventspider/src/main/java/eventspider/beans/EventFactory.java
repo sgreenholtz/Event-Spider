@@ -16,14 +16,14 @@ import java.util.List;
 public class EventFactory {
 
     private ResultSet results;
-    private Map<Integer, EventBean> eventMap;
+    private Map<String, EventBean> eventMap;
     private static final Logger logger = Logger.getLogger(EventFactory.class);
 
     /**
      * Empty constructor, instantiates map
      */
     public EventFactory() {
-        eventMap = new HashMap<Integer, EventBean>();
+        eventMap = new HashMap<String, EventBean>();
     }
 
     /**
@@ -39,7 +39,7 @@ public class EventFactory {
      * Gets the event Map.
      * @return eventMap
      */
-    public Map<Integer, EventBean> getEventMap() {
+    public Map<String, EventBean> getEventMap() {
         return eventMap;
     }
 
@@ -51,7 +51,7 @@ public class EventFactory {
     public void createBeansMap() {
         try {
             while (results.next()) {
-                eventMap.put(results.getInt("event_id"), createBean(results));
+                eventMap.put(results.getString("event_id"), createBean(results));
             }
         } catch (SQLException e) {
             logger.error(e.getStackTrace());
@@ -113,7 +113,7 @@ public class EventFactory {
     public static EventBean createBean(ResultSet results) {
         EventBean event = new EventBean();
         try {
-            event.setEventId(results.getInt("event_id"));
+            event.setEventId(results.getString("event_id"));
             event.setTitle(results.getString("title"));
             event.setUrl(results.getString("url"));
             event.setDescription(results.getString("description"));
@@ -223,13 +223,13 @@ public class EventFactory {
      * @param id String ID that needs to be sanitized
      * @return Integer of ID
      */
-    private Integer createURLSafeID(String id) {
+    private String createURLSafeID(String id) {
         id = id.replaceAll("\\D", "");
         id = id.replaceFirst("0+", "");
         if (id.length()>9) {
-            return new Integer(id.substring(0, 9));
+            return (id.substring(0, 9));
         } else {
-            return new Integer(id);
+            return (id);
         }
 
     }
