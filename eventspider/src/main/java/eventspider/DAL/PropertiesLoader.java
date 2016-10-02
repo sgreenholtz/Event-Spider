@@ -2,9 +2,7 @@ package eventspider.DAL;
 
 import org.apache.log4j.Logger;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 /**
@@ -44,11 +42,12 @@ public class PropertiesLoader {
     public Properties loadPropertiesNotStatic(String filepath) {
         Properties properties = new Properties();
         try {
-            InputStream inputStream = this.getClass().getResourceAsStream(filepath);
-            if (inputStream != null) {
-                properties.load(inputStream);
+            File file = new File(filepath);
+            Reader reader = new FileReader(file);
+            if (file.exists()) {
+                properties.load(reader);
             } else {
-                logger.error("Input stream is null");
+                logger.error("Error reading the properties file");
             }
         } catch(IOException ioe) {
             logger.error("Can't load the properties file");

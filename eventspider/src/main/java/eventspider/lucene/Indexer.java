@@ -49,7 +49,7 @@ public class Indexer {
      * @return Document of fields
      * @throws IOException
      */
-    private Document getDocument(Integer id, String title) throws IOException {
+    private Document getDocument(String id, String title) throws IOException {
         Document document = new Document();
         document.add(new StoredField("event_id", id));
         document.add(new TextField("title", title, Field.Store.YES));
@@ -65,7 +65,7 @@ public class Indexer {
      */
     private void indexResultSet(ResultSet results) throws IOException, SQLException {
         while (results.next()) {
-            indexFields(results.getInt("event_id"), results.getString("title"));
+            indexFields(results.getString("event_id"), results.getString("title"));
         }
     }
 
@@ -75,7 +75,7 @@ public class Indexer {
      * @param title String title for the event
      * @throws IOException
      */
-    public void indexFields(Integer eventID, String title) throws IOException {
+    public void indexFields(String eventID, String title) throws IOException {
         Document document = getDocument(eventID, title);
         writer.addDocument(document);
     }

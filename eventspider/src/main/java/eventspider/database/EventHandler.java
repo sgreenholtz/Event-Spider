@@ -118,7 +118,7 @@ public class EventHandler {
      * @param title String title for event
      * @throws IOException
      */
-    private void indexNewEvent(Integer eventID, String title, Properties properties) throws IOException {
+    private void indexNewEvent(String eventID, String title, Properties properties) throws IOException {
         Indexer indexer = new Indexer(properties.getProperty("index.dir"));
         indexer.indexFields(eventID, title);
     }

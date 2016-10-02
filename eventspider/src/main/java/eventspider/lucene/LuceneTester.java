@@ -18,15 +18,17 @@ import org.apache.lucene.queryparser.classic.ParseException;
 public class LuceneTester {
 
     private static String indexDir;
+    private static String propertiesPath;
     private static final Logger logger = Logger.getLogger(LuceneTester.class);
 
     public static void main(String[] args) {
-        indexDir = FileUtils.getUserDirectory() + "/eventspider/indexes";
+        indexDir = FileUtils.getUserDirectory() + "/Event-Spider/eventspider/indexes";
+        propertiesPath = "eventspider/target/classes/localhost.properties";
         try {
             LuceneTester tester = new LuceneTester();
             tester.emptyIndex();
             tester.index();
-            tester.search("fiber");
+            tester.search("cube");
         } catch (IOException e) {
             logger.error(e.getStackTrace());
         } catch (ParseException e) {
@@ -43,7 +45,7 @@ public class LuceneTester {
 
     private void index() throws IOException, SQLException {
         PropertiesLoader loader = new PropertiesLoader();
-        Properties properties = loader.loadPropertiesNotStatic("main/resources/localhost.properties");
+        Properties properties = loader.loadPropertiesNotStatic(propertiesPath);
         Indexer indexer = new Indexer(indexDir);
         indexer.createIndex(properties);
         indexer.close();
