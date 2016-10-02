@@ -1,6 +1,9 @@
 package eventspider.beans;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Resolution;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -18,14 +21,21 @@ public class EventBean {
     @GeneratedValue(generator="eventbean")
     private String eventId;
 
+    @Field
     @Column(name = "title")
     private String title;
 
     @Column(name = "url")
     private String url;
 
+    @Field
     @Column(name = "description")
     private String description;
+
+    @Field
+    @DateBridge(resolution= Resolution.DAY)
+    @Column(name = "start_date")
+    private String startDate;
 
     @Column(name = "start_time")
     private String startTime;
@@ -44,9 +54,6 @@ public class EventBean {
 
     @Column(name = "postal_code")
     private String postalCode;
-
-    @Column(name = "start_date")
-    private String startDate;
 
 
     /**
