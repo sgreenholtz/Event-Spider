@@ -23,7 +23,7 @@ public class EventHandler {
      * Empty constructor assigns session variable
      */
     public EventHandler() {
-        this.session = SessionFactoryProvider.getSessionFactory().openSession();
+        session = SessionFactoryProvider.getSessionFactory().openSession();
     }
 
     /**
