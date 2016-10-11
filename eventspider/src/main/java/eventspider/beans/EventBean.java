@@ -1,9 +1,8 @@
 package eventspider.beans;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Index;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -21,18 +20,18 @@ public class EventBean {
     @GeneratedValue(generator="eventbean")
     private String eventId;
 
-    @Field
+    @Field(index= Index.YES, analyze=Analyze.YES, store=Store.NO)
     @Column(name = "title")
     private String title;
 
     @Column(name = "url")
     private String url;
 
-    @Field
+    @Field(index=Index.YES, analyze= Analyze.YES, store= Store.NO)
     @Column(name = "description")
     private String description;
 
-    @Field
+    @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
     @DateBridge(resolution= Resolution.DAY)
     @Column(name = "start_date")
     private String startDate;
@@ -46,12 +45,15 @@ public class EventBean {
     @Column(name = "venue_address")
     private String venueAddress;
 
+    @Field(index=Index.YES, analyze=Analyze.NO, store=Store.NO)
     @Column(name = "city")
     private String city;
 
+    @Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
     @Column(name = "state")
     private String state;
 
+    @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
     @Column(name = "postal_code")
     private String postalCode;
 
