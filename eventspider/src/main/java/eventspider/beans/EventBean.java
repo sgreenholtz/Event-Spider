@@ -5,7 +5,7 @@ import org.hibernate.search.annotations.*;
 import org.hibernate.search.annotations.Index;
 
 import javax.persistence.*;
-import java.util.UUID;
+import java.util.Date;
 
 /**
  * Bean representing an event
@@ -35,7 +35,7 @@ public class EventBean {
     @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
     @DateBridge(resolution= Resolution.DAY)
     @Column(name = "start_date")
-    private String startDate;
+    private Date startDate;
 
     @Column(name = "start_time")
     private String startTime;
@@ -249,7 +249,7 @@ public class EventBean {
      *
      * @return startDate
      */
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
@@ -258,7 +258,7 @@ public class EventBean {
      *
      * @param startDate value to set instance variable to
      */
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
