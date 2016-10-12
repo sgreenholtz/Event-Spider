@@ -13,7 +13,7 @@ public class HibernateIndexing {
 
     public static Session session;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         HibernateIndexing indexer = new HibernateIndexing();
         FullTextSession fullTextSession = Search.getFullTextSession(session);
         fullTextSession.createIndexer().startAndWait();

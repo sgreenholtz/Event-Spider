@@ -1,9 +1,7 @@
 package eventspider.database;
 
 import eventspider.beans.*;
-import eventspider.lucene.Indexer;
 import org.apache.log4j.Logger;
-import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.io.IOException;
@@ -109,18 +107,6 @@ public class EventHandler {
             beanList.add(event);
         }
         return beanList;
-    }
-
-    /**
-     * Adds the new event to the index of all events for Lucene searching
-     * TODO: Make this method run in a separate thread
-     * @param eventID Integer ID for event
-     * @param title String title for event
-     * @throws IOException
-     */
-    private void indexNewEvent(String eventID, String title, Properties properties) throws IOException {
-        Indexer indexer = new Indexer(properties.getProperty("index.dir"));
-        indexer.indexFields(eventID, title);
     }
 
     /**

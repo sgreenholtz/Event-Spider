@@ -21,13 +21,13 @@ public class SearchController {
         return "search";
     }
 
-    @RequestMapping(value="search", method=RequestMethod.POST)
-    public String doSearch(@ModelAttribute SearchBean search, Model model) throws Exception {
-        Properties properties = PropertiesLoader.loadProperties(Constants.PATH_TO_PROPERTIES);
-        DatabaseSearch searcher = new DatabaseSearch(search, properties);
-        model.addAttribute("eventsList", searcher.searchByKeywordOnly());
-        model.addAttribute("search", search);
-        return "searchResult";
-    }
+//    @RequestMapping(value="search", method=RequestMethod.POST)
+//    public String doSearch(@ModelAttribute SearchBean search, Model model) throws Exception {
+//        Properties properties = PropertiesLoader.loadProperties(Constants.PATH_TO_PROPERTIES);
+//        DatabaseSearch searcher = new DatabaseSearch(search, properties);
+//        model.addAttribute("eventsList", searcher.searchByKeywordOnly());
+//        model.addAttribute("search", search);
+//        return "searchResult";
+//    }
 
 }

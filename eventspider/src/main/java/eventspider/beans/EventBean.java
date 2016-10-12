@@ -13,6 +13,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "Events")
+@Indexed
 public class EventBean {
     @Id
     @Column(name = "event_id")
