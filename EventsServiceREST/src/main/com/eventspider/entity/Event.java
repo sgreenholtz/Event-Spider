@@ -1,8 +1,6 @@
-package eventspider.beans;
+package com.eventspider.entity;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.search.annotations.*;
-import org.hibernate.search.annotations.Index;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,27 +11,22 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "Events")
-@Indexed
-public class EventBean {
+public class Event {
     @Id
     @Column(name = "event_id")
     @GenericGenerator(name="eventbean" , strategy="increment")
     @GeneratedValue(generator="eventbean")
-    private Integer eventId;
+    private String eventId;
 
-    @Field(index= Index.YES, analyze=Analyze.YES, store=Store.NO)
     @Column(name = "title")
     private String title;
 
     @Column(name = "url")
     private String url;
 
-    @Field(index=Index.YES, analyze= Analyze.YES, store= Store.NO)
     @Column(name = "description")
     private String description;
 
-    @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
-    @DateBridge(resolution= Resolution.DAY)
     @Column(name = "start_date")
     private Date startDate;
 
@@ -46,15 +39,12 @@ public class EventBean {
     @Column(name = "venue_address")
     private String venueAddress;
 
-    @Field(index=Index.YES, analyze=Analyze.NO, store=Store.NO)
     @Column(name = "city")
     private String city;
 
-    @Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
     @Column(name = "state")
     private String state;
 
-    @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
     @Column(name = "postal_code")
     private String postalCode;
 
@@ -62,13 +52,13 @@ public class EventBean {
     /**
      * Empty constructor
      */
-    public EventBean() {}
+    public Event() {}
 
     /**
      * Gets the value of eventId;
      * @return eventId
      */
-    public Integer getEventId() {
+    public String getEventId() {
         return eventId;
     }
 
@@ -76,7 +66,7 @@ public class EventBean {
      * Sets eventId to given value
      * @param eventId value to set instance variable to
      */
-    public void setEventId(Integer eventId) {
+    public void setEventId(String eventId) {
         this.eventId = eventId;
     }
 

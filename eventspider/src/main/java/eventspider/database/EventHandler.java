@@ -29,7 +29,7 @@ public class EventHandler {
      * @param id Event ID to check if already exists in the database
      * @return true if event ID exists in the database
      */
-    public boolean eventExistsInDatabase(String id) {
+    public boolean eventExistsInDatabase(Integer id) {
         EventBean event = (EventBean) session.get(EventBean.class, id);
         if (event != null) {
             return true;
@@ -56,7 +56,7 @@ public class EventHandler {
      */
     public boolean addEvent(Map<String, String> map) {
         EventFactory factory = new EventFactory();
-        EventBean event = factory.createBean(UUID.randomUUID().toString(), map.get("title"),
+        EventBean event = factory.createBean(map.get("title"),
                 map.get("url"), map.get("description"), map.get("startDateTime"),
                 map.get("stopDateTime"), map.get("address"), map.get("city"),
                 map.get("state"), map.get("postalCode"));
@@ -90,7 +90,7 @@ public class EventHandler {
      * @param eventID Integer ID for the event
      * @return ResultSet with the single event
      */
-    public EventBean getEventByID(String eventID) {
+    public EventBean getEventByID(Integer eventID) {
         EventBean event = (EventBean) session.get(EventBean.class, eventID);
         return event;
     }
@@ -100,9 +100,9 @@ public class EventHandler {
      * @param eventIDs List of event IDs
      * @return List of EventBean objects
      */
-    public List<EventBean> getEventByID(List<String> eventIDs) {
+    public List<EventBean> getEventByID(List<Integer> eventIDs) {
         List<EventBean> beanList = new ArrayList<EventBean>();
-        for (String id : eventIDs) {
+        for (Integer id : eventIDs) {
             EventBean event = (EventBean) session.get(EventBean.class, id);
             beanList.add(event);
         }
@@ -110,11 +110,19 @@ public class EventHandler {
     }
 
     /**
+     * Returns all the events in the database in a list
+     * @return list of all event beans
+     */
+    public List<EventBean> getAllEvents() {
+        return session.createCriteria(EventBean.class).list();
+    }
+
+    /**
      * Update Title of an event
      * @param newTitle New title
      * @param eventID ID of event to change
      */
-    public void updateEventTitle(String newTitle, String eventID) {
+    public void updateEventTitle(String newTitle, Integer eventID) {
         session.beginTransaction();
         EventBean event = (EventBean) session.get(EventBean.class, eventID);
         event.setTitle(newTitle);
@@ -126,7 +134,7 @@ public class EventHandler {
      * Delete event from database
      * @param eventID ID of event to delete
      */
-    public void deleteEvent(String eventID) {
+    public void deleteEvent(Integer eventID) {
         session.beginTransaction();
         EventBean event = (EventBean) session.load(EventBean.class, eventID);
         session.delete(event);
