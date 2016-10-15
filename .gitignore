@@ -10,3 +10,6 @@ eventspider/indexes
 libs/
 EventCrawlWebService/target
 EventCrawlWebService/*.iml
+home/
+RESTEventService/target
+RESTEventService/RESTEventService.iml
