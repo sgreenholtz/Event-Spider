@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+eventspider/.idea
+eventspider/target
+eventspider/eventspider.iml
+eventspider/src/main/resources/*.properties
+eventspider/src/main/resources/*.cfg.xml
+eventspider/src/test/resources
+eventspider/indexes
+.idea/
+libs/
+EventCrawlWebService/target
+EventCrawlWebService/*.iml
