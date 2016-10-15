@@ -15,7 +15,7 @@ public class EventsApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
-        h.add(EventsApplication.class );
+        h.add(EventsRESTController.class );
         return h;
     }
 }
