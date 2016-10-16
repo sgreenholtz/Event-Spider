@@ -2,6 +2,7 @@ package eventspider.database;
 
 import eventspider.beans.*;
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.io.IOException;
@@ -97,7 +98,9 @@ public class EventHandler {
      * @return list of all event beans
      */
     public List<EventBean> getAllEvents() {
-        return session.createCriteria(EventBean.class).list();
+        Query query = session.createQuery("from EventBean");
+        List<EventBean> list = query.list();
+        return list;
     }
 
     /**

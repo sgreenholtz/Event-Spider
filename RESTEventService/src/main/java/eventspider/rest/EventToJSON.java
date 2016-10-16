@@ -26,11 +26,13 @@ public class EventToJSON {
         return json;
     }
 
-    public static String parse(List<EventBean> event) {
+    public static String parse(List<EventBean> events) {
         ObjectMapper mapper = new ObjectMapper();
         String json = null;
         try {
-            json = mapper.writeValueAsString(event);
+            for (EventBean event : events) {
+                json = mapper.writeValueAsString(event);
+            }
         } catch (Exception e) {
             logger.error(e);
         }
