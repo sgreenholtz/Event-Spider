@@ -30,9 +30,7 @@ public class EventToJSON {
         ObjectMapper mapper = new ObjectMapper();
         String json = null;
         try {
-            for (EventBean event : events) {
-                json = mapper.writeValueAsString(event);
-            }
+            json = mapper.writeValueAsString(events);
         } catch (Exception e) {
             logger.error(e);
         }
