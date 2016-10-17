@@ -1,5 +1,6 @@
 package eventspider.rest;
 
+import eventspider.beans.EventBean;
 import eventspider.database.EventHandler;
 
 import javax.ws.rs.GET;
@@ -7,6 +8,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+
+import java.util.*;
 
 /**
  * Controller returns the requested event
@@ -26,7 +29,8 @@ public class EventsRESTController {
     @Produces("text/json")
     public Response getAllEvents() {
         EventHandler eventHandler = new EventHandler();
-        String json = EventToJSON.parse(eventHandler.getAllEvents());
+        List<EventBean> list = eventHandler.getAllEvents();
+        String json = EventToJSON.parse(list.get(0));
         if (json == null) {
             json = "null";
         }

@@ -237,14 +237,6 @@ public class EventBean {
     }
 
     /**
-     * Returns the first X characters of the description
-     * @return Substring of the description variable for display
-     */
-    public String getShortDescription() {
-        return description.substring(0,150);
-    }
-
-    /**
      * Gets the value of startDate.
      *
      * @return startDate
