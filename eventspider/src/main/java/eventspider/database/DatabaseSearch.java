@@ -1,11 +1,9 @@
 package eventspider.database;
 
 import eventspider.beans.*;
-import eventspider.database.EventHandler;
+import org.apache.lucene.search.Query;
 import org.hibernate.Session;
-import org.hibernate.search.FullTextSession;
-import org.hibernate.search.Search;
-import org.hibernate.search.SearchFactory;
+import org.hibernate.search.*;
 import org.hibernate.search.query.dsl.QueryBuilder;
 
 import java.util.*;
@@ -18,11 +16,11 @@ public class DatabaseSearch {
 
     private SearchBean search;
     private static SearchFactory searchFactory;
-    private static Session session;
+    private static FullTextSession fullTextSession;
 
     public DatabaseSearch() {
-        session = SessionFactoryProvider.getSessionFactory().openSession();
-        FullTextSession fullTextSession = Search.getFullTextSession(session);
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        fullTextSession = Search.getFullTextSession(session);
         searchFactory = fullTextSession.getSearchFactory();
     }
 
@@ -44,6 +42,13 @@ public class DatabaseSearch {
      */
     public List<EventBean> searchByKeywordOnly() throws Exception {
         QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
+        Query luceneQuery = eventQB.keyword()
+                .onFields("title", "description")
+                .matching(search.getKeyword())
+                .createQuery();
+        org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
+        return query.list();
+
     }
 
 
