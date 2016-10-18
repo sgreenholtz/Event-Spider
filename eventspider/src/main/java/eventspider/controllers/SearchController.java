@@ -2,6 +2,7 @@ package eventspider.controllers;
 
 import eventspider.DAL.*;
 import eventspider.beans.SearchBean;
+import eventspider.database.DatabaseSearch;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,13 +22,12 @@ public class SearchController {
         return "search";
     }
 
-//    @RequestMapping(value="search", method=RequestMethod.POST)
-//    public String doSearch(@ModelAttribute SearchBean search, Model model) throws Exception {
-//        Properties properties = PropertiesLoader.loadProperties(Constants.PATH_TO_PROPERTIES);
-//        DatabaseSearch searcher = new DatabaseSearch(search, properties);
-//        model.addAttribute("eventsList", searcher.searchByKeywordOnly());
-//        model.addAttribute("search", search);
-//        return "searchResult";
-//    }
+    @RequestMapping(value="search", method=RequestMethod.POST)
+    public String doSearch(@ModelAttribute SearchBean search, Model model) throws Exception {
+        DatabaseSearch searcher = new DatabaseSearch(search);
+        model.addAttribute("eventsList", searcher.searchByKeywordOnly());
+        model.addAttribute("search", search);
+        return "searchResult";
+    }
 
 }
