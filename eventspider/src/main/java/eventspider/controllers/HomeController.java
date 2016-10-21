@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value="/", method = RequestMethod.GET)
-    public String getHomePage(Model model) {
+    @RequestMapping(value="/")
+    public String index(Model model) {
         return "index";
     }
 }
