@@ -6,7 +6,7 @@ import org.hibernate.search.annotations.*;
 import org.hibernate.search.annotations.Index;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import org.joda.time.LocalDate;
 
 /**
  * Bean representing an event
@@ -34,10 +34,10 @@ public class EventBean {
     @Column(name = "description")
     private String description;
 
-    @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
     @Convert(converter = LocalDateAttributeConverter.class)
     @DateBridge(resolution = Resolution.DAY)
     @Column(name = "start_date")
+    @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
     private LocalDate startDate;
 
     @Column(name = "start_time")

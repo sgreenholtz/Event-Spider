@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import java.util.*;
 import java.text.*;
-import java.time.LocalDate;
+import org.joda.time.LocalDate;
 
 /**
  * Creates Event Beans from the results of a main.java.database search of the Events table

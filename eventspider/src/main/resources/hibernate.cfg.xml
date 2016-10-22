@@ -20,10 +20,6 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <!-- Indexing Properties -->
-        <property name="hibernate.search.default.directory_provider">filesystem</property>
-        <property name="hibernate.search.default.indexBase">home/sebastian/Event-Spider/eventspider/indexes</property>
-
         <!-- List the annotated entity class/es -->
         <mapping class="eventspider.beans.EventBean"/>
         <mapping class="eventspider.beans.UserSavedEvents"/>

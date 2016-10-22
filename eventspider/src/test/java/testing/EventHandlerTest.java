@@ -3,7 +3,6 @@ package testing;
 import eventspider.beans.EventBean;
 import eventspider.beans.EventFactory;
 import eventspider.database.EventHandler;
-import eventspider.DAL.PropertiesLoader;
 import eventspider.database.SessionFactoryProvider;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -13,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.time.LocalDate;
+import org.joda.time.LocalDate;
 import java.util.*;
 import java.util.List;
 
@@ -42,16 +41,16 @@ public class EventHandlerTest {
         clearDatabase();
         EventBean event1 = factory.createBean(123,
                 "My Event", "http://event.com", "Test event",
-                LocalDate.of(2016, 10, 13), "08:30:00", "09:00:00",
+                new LocalDate(2016, 10, 13), "08:30:00", "09:00:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
 
         EventBean event2 = factory.createBean(125, "Event3",
                 "http://event.com", "Test event",
-                LocalDate.of(2016, 9, 14), "05:00:00", "08:30:00",
+                new LocalDate(2016, 9, 14), "05:00:00", "08:30:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
 
         EventBean event3 = factory.createBean(126, "Event4",
-                "http://event.com", "Test event", LocalDate.of(2016, 9, 14),
+                "http://event.com", "Test event", new LocalDate(2016, 9, 14),
                 "06:30:00", "08:30:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
         session.beginTransaction();

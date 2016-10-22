@@ -2,24 +2,23 @@ package eventspider.utility;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.time.LocalDate;
+import org.joda.time.LocalDate;
 import java.util.Date;
-import java.time.ZoneId;
 
 /**
+ * Converts java.util.Date to org.joda.time.LocalDate and back
  * @author Sebastian Greenholtz
  */
-@Converter(autoApply = true)
+@Converter
 public class LocalDateAttributeConverter implements AttributeConverter<LocalDate, Date> {
 
     @Override
     public Date convertToDatabaseColumn(LocalDate locDate) {
-
-        return (locDate == null ? null : Date.valueOf(locDate));
+       return locDate.toDate();
     }
 
     @Override
     public LocalDate convertToEntityAttribute(Date utilDate) {
-        return (utilDate == null ? null : utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        return LocalDate.fromDateFields(utilDate);
     }
 }

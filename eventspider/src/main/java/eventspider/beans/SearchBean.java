@@ -1,9 +1,9 @@
 package eventspider.beans;
 
-import java.time.*;
+import org.joda.time.*;
 
 /**
- * Entity representing a search. Uses java.time.LocalDate for the date of event
+ * Entity representing a search. Uses org.joda.time.LocalDate for the date of event
  * @author Sebastian Greenholtz
  */
 public class SearchBean {
