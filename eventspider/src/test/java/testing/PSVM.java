@@ -1,6 +1,5 @@
 package testing;
 
-import java.util.Date;
 import org.joda.time.*;
 
 /**
@@ -10,7 +9,9 @@ import org.joda.time.*;
 public class PSVM {
 
     public static void main(String[] args) {
-
+        LocalDate localDate = new LocalDate(2016,10, 22);
+        String date = localDate.toString("yyyyMMdd");
+        System.out.println(date);
 
     }
 }

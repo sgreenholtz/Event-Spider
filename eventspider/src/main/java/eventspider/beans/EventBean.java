@@ -1,7 +1,8 @@
 package eventspider.beans;
 
-import eventspider.utility.LocalDateAttributeConverter;
+import eventspider.utility.LocalDateFieldBridge;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import org.hibernate.search.annotations.*;
 import org.hibernate.search.annotations.Index;
 
@@ -34,9 +35,9 @@ public class EventBean {
     @Column(name = "description")
     private String description;
 
-    @Convert(converter = LocalDateAttributeConverter.class)
-    @DateBridge(resolution = Resolution.DAY)
-    @Column(name = "start_date")
+    @FieldBridge(impl = LocalDateFieldBridge.class)
+    @Column(name = "start_date", columnDefinition = "DATE")
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
     @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
     private LocalDate startDate;
 
