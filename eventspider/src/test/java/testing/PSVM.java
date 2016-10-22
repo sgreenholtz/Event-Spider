@@ -1,6 +1,7 @@
 package testing;
 
-import org.apache.commons.codec.digest.DigestUtils;
+import java.util.Date;
+import java.time.*;
 
 /**
  * Simple main method testing
@@ -9,8 +10,9 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class PSVM {
 
     public static void main(String[] args) {
-        System.out.println(DigestUtils.sha1Hex("lenin"));
-        //498ae6f03c116d6d3bd6fa42563a2b6ae62a04e3
+        Date input = new Date();
+        LocalDate date = input.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        System.out.println(date);
 
     }
 }

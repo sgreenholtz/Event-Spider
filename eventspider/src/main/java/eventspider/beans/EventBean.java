@@ -1,5 +1,6 @@
 package eventspider.beans;
 
+import eventspider.utility.LocalDateAttributeConverter;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.search.annotations.*;
 import org.hibernate.search.annotations.Index;
@@ -34,7 +35,8 @@ public class EventBean {
     private String description;
 
     @Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
-    @DateBridge(resolution= Resolution.DAY)
+    @Convert(converter = LocalDateAttributeConverter.class)
+    @DateBridge(resolution = Resolution.DAY)
     @Column(name = "start_date")
     private LocalDate startDate;
 
