@@ -66,6 +66,19 @@ public class EventHandler {
     }
 
     /**
+     * Adds an event to the database based on an Event Bean
+     * @param event Event Bean to add to the database
+     * @return True if event was successfully added
+     */
+    public boolean addEvent(EventBean event) {
+        session.beginTransaction();
+        session.save(event);
+        log.info("Event added: " + event.getEventId());
+        session.getTransaction().commit();
+        return true;
+    }
+
+    /**
      * Saves a given event to a given user. Returns true if successfully added
      *
      * @param userID  Integer
@@ -81,5 +94,31 @@ public class EventHandler {
         session.getTransaction().commit();
         log.info(String.format("Event %s saved to user %s", eventID, userID));
         return true;
+    }
+
+
+    /**
+     * Update Title of an event
+     * @param newTitle New title
+     * @param eventID ID of event to change
+     */
+    public void updateEventTitle(String newTitle, Integer eventID) {
+        session.beginTransaction();
+        EventBean event = (EventBean) session.get(EventBean.class, eventID);
+        event.setTitle(newTitle);
+        log.info("Updated " + eventID + " to new title " + newTitle);
+        session.getTransaction().commit();
+    }
+
+    /**
+     * Delete event from database
+     * @param eventID ID of event to delete
+     */
+    public void deleteEvent(Integer eventID) {
+        session.beginTransaction();
+        EventBean event = (EventBean) session.load(EventBean.class, eventID);
+        session.delete(event);
+        log.info("Event deleted: " + eventID);
+        session.getTransaction().commit();
     }
 }
