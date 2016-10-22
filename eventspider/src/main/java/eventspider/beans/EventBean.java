@@ -18,9 +18,9 @@ import java.util.Date;
 public class EventBean {
     @Id
     @Column(name = "event_id")
-    @GenericGenerator(name="eventbean" , strategy="uuid")
+    @GenericGenerator(name="eventbean" , strategy="increment")
     @GeneratedValue(generator="eventbean")
-    private String eventId;
+    private Integer eventId;
 
     @Field(index= Index.YES, analyze=Analyze.YES, store=Store.NO)
     @Column(name = "title")
