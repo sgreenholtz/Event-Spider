@@ -108,7 +108,8 @@ public class EventFactory {
      * @param postalCode Either zip code or Canadian Postal code
      * @return Event bean
      */
-    public EventBean createBean(Integer id, String title,
+    public EventBean createBean(Integer id,
+                                String title,
                                 String url,
                                 String description,
                                 LocalDate startDate,

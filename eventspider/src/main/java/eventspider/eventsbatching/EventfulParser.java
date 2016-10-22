@@ -49,19 +49,19 @@ public class EventfulParser extends JSONHandlerSimple {
      */
     private void createEventsMap() {
         EventFactory factory = new EventFactory();
-        for (JSONObject event : eventsList) {
-            EventBean bean = factory.createBean(super.getFieldFromJSON(event, "title"),
-                                super.getFieldFromJSON(event, "url"),
-                                super.getFieldFromJSON(event, "description"),
-                                (super.getFieldFromJSON(event, "start_time")),
-                                "",
-                                super.getFieldFromJSON(event, "venue_address"),
-                                super.getFieldFromJSON(event, "city_name"),
-                                super.getFieldFromJSON(event, "region_abbr"),
-                                super.getFieldFromJSON(event, "postal_code")
-                                );
-            factory.updateBeansMap(bean);
-        }
+//        for (JSONObject event : eventsList) {
+//            EventBean bean = factory.createBean(super.getFieldFromJSON(event, "title"),
+//                                super.getFieldFromJSON(event, "url"),
+//                                super.getFieldFromJSON(event, "description"),
+//                                (super.getFieldFromJSON(event, "start_time")),
+//                                "",
+//                                super.getFieldFromJSON(event, "venue_address"),
+//                                super.getFieldFromJSON(event, "city_name"),
+//                                super.getFieldFromJSON(event, "region_abbr"),
+//                                super.getFieldFromJSON(event, "postal_code")
+//                                );
+//            factory.updateBeansMap(bean);
+//        }
         eventMap = factory.getEventMap();
     }
 
