@@ -69,7 +69,7 @@ public class EventBean {
      * Gets the value of eventId;
      * @return eventId
      */
-    public String getEventId() {
+    public Integer getEventId() {
         return eventId;
     }
 
@@ -77,7 +77,7 @@ public class EventBean {
      * Sets eventId to given value
      * @param eventId value to set instance variable to
      */
-    public void setEventId(String eventId) {
+    public void setEventId(Integer eventId) {
         this.eventId = eventId;
     }
 
@@ -235,14 +235,6 @@ public class EventBean {
      */
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    /**
-     * Returns the first X characters of the description
-     * @return Substring of the description variable for display
-     */
-    public String getShortDescription() {
-        return description.substring(0,150);
     }
 
     /**
