@@ -10,7 +10,7 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/eventspidertest?useTimezone=true&amp;serverTimezone=UTC</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/eventspider?useTimezone=true&amp;serverTimezone=UTC</property>
         <property name="connection.username">root</property>
         <property name="connection.password">student</property>
 
@@ -19,6 +19,10 @@
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
+
+        <!-- Indexing Properties -->
+        <property name="hibernate.search.default.directory_provider">filesystem</property>
+        <property name="hibernate.search.default.indexBase">home/sebastian/Event-Spider/eventspider/indexes</property>
 
         <!-- List the annotated entity class/es -->
         <mapping class="eventspider.beans.EventBean"/>
