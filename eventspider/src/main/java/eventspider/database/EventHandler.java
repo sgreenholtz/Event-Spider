@@ -43,8 +43,7 @@ public class EventHandler {
      * @return ResultSet with the single event
      */
     public EventBean getEventByID(Integer eventID) {
-        EventBean event = (EventBean) session.get(EventBean.class, eventID);
-        return event;
+        return (EventBean) session.get(EventBean.class, eventID);
     }
 
     /**

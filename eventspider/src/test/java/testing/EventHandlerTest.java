@@ -42,16 +42,16 @@ public class EventHandlerTest {
         session.clear();
         clearDatabase();
         EventBean event1 = factory.createBean(1,
-                "My Event", "http://event.com", "Test event",
+                "My Event", "http://event.com", "Event1",
                 new LocalDate(2016, 10, 13), "08:30:00", "09:00:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
 
-        EventBean event2 = factory.createBean(2, "Event3",
+        EventBean event2 = factory.createBean(2, "Event2",
                 "http://event.com", "Test event",
                 new LocalDate(2016, 9, 14), "05:00:00", "08:30:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
 
-        EventBean event3 = factory.createBean(3, "Event4",
+        EventBean event3 = factory.createBean(3, "Event3",
                 "http://event.com", "Test event", new LocalDate(2016, 9, 14),
                 "06:30:00", "08:30:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
@@ -59,8 +59,8 @@ public class EventHandlerTest {
         session.save(event1);
         session.save(event2);
         session.save(event3);
-        System.out.println(methodName);
         session.getTransaction().commit();
+//        getDBContents();
     }
 
     private void clearDatabase() {
@@ -77,6 +77,13 @@ public class EventHandlerTest {
         session.getTransaction().commit();
     }
 
+//    private void getDBContents() {
+//        String sql = "SELECT * FROM Events";
+//        session.beginTransaction();
+//        List list = session.createSQLQuery(sql).list();
+//        session.getTransaction().commit();
+//    }
+
     @AfterClass
     public static void tearDown() throws Exception {
         session.close();
@@ -84,7 +91,6 @@ public class EventHandlerTest {
 
     @Test
     public void eventExistsInDatabaseTest() throws Exception {
-        methodName = "eventExistsInDatabaseTest";
         boolean expectedTrue = handler.eventExistsInDatabase(1);
         boolean expectedFalse = handler.eventExistsInDatabase(12);
         assertTrue("Event 1 not found in DB", expectedTrue);
