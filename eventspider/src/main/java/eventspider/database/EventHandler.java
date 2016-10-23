@@ -33,10 +33,7 @@ public class EventHandler {
      */
     public boolean eventExistsInDatabase(Integer id) {
         EventBean event = (EventBean) session.get(EventBean.class, id);
-        if (event != null) {
-            return true;
-        }
-        return false;
+        return (event != null);
     }
 
     /**

@@ -5,6 +5,7 @@ import eventspider.beans.EventFactory;
 import eventspider.database.EventHandler;
 import eventspider.database.SessionFactoryProvider;
 import org.apache.log4j.Logger;
+import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.junit.AfterClass;
@@ -28,6 +29,7 @@ public class EventHandlerTest {
     private EventHandler handler = new EventHandler();
     private static EventFactory factory = new EventFactory();
     private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
+    private static String methodName;
 
     @BeforeClass
     public static void setUp() throws Exception {
@@ -57,6 +59,7 @@ public class EventHandlerTest {
         session.save(event1);
         session.save(event2);
         session.save(event3);
+        System.out.println(methodName);
         session.getTransaction().commit();
     }
 
@@ -81,24 +84,30 @@ public class EventHandlerTest {
 
     @Test
     public void eventExistsInDatabaseTest() throws Exception {
-        assertTrue("Event 1 not found in DB", handler.eventExistsInDatabase(1));
-        assertFalse("Event 12 found in DB", handler.eventExistsInDatabase(12));
+        methodName = "eventExistsInDatabaseTest";
+        boolean expectedTrue = handler.eventExistsInDatabase(1);
+        boolean expectedFalse = handler.eventExistsInDatabase(12);
+        assertTrue("Event 1 not found in DB", expectedTrue);
+        assertFalse("Event 12 found in DB", expectedFalse);
     }
 
     @Test
     public void saveEventToUser() throws Exception {
+        methodName = "saveEventToUser";
         assertTrue("Event could not be added to user",
                 handler.saveEventToUser(1, 1));
     }
 
     @Test
     public void getEventByIDSingle() throws Exception {
+        methodName = "getEventByIDSingle";
         EventBean event = handler.getEventByID(1);
         assertTrue("Event could not be retrieved", event.getTitle().equals("My Event"));
     }
 
     @Test
     public void getEventByIDList() throws Exception {
+        methodName = "getEventByIDList";
         List<Integer> eventIDs = new ArrayList<>();
         eventIDs.add(1);
         eventIDs.add(2);
@@ -113,16 +122,18 @@ public class EventHandlerTest {
 
     @Test
     public void updateEventTitle() throws Exception {
+        methodName = "updateEventTitle";
         String newTitle = "My New Title";
         handler.updateEventTitle(newTitle, 1);
         EventBean event = handler.getEventByID(1);
-        assertEquals("Title was not updated", newTitle, event.getTitle());
+        assertTrue("Title was not updated", event.getTitle().equals(newTitle));
     }
 
-    @Test
+    @Test(expected = ObjectNotFoundException.class)
     public void deleteEvent() throws Exception {
+        methodName = "deleteEvent";
         handler.deleteEvent(1);
-        assertNull("Event was not deleted", handler.getEventByID(1));
+        Object result = handler.getEventByID(1);
 
     }
 
