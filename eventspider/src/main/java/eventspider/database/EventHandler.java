@@ -117,4 +117,27 @@ public class EventHandler {
         log.info("Event deleted: " + eventID);
         session.getTransaction().commit();
     }
+
+    public Integer getEventIDByTitle(String title) {
+        String sql = String.format("SELECT eventId FROM EventBean WHERE title = '%s'", title);
+        log.info("Select statement:" + sql);
+        List<Integer> list = getDBList(sql);
+        return list.get(0);
+    }
+
+    public List<Integer> getEventIDByTitle(List<String> titles) {
+        String sql = String.format("SELECT eventId FROM EventBean WHERE title = '%s'", titles.get(0));
+        for (int i=1; i<titles.size(); i++) {
+           sql += String.format(" OR title = '%s'", titles.get(i));
+        }
+        log.info("Select statement:" + sql);
+        return getDBList(sql);
+    }
+
+    private List getDBList(String sql) {
+        session.beginTransaction();
+        List list = session.createQuery(sql).list();
+        session.getTransaction().commit();
+        return list;
+    }
 }

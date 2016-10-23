@@ -29,7 +29,6 @@ public class EventHandlerTest {
     private EventHandler handler = new EventHandler();
     private static EventFactory factory = new EventFactory();
     private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
-    private static String methodName;
 
     @BeforeClass
     public static void setUp() throws Exception {
@@ -41,8 +40,7 @@ public class EventHandlerTest {
     public void addEventsToDB() throws Exception {
         session.clear();
         clearDatabase();
-        EventBean event1 = factory.createBean(1,
-                "My Event", "http://event.com", "Event1",
+        EventBean event1 = factory.createBean(1, "Event1", "http://event.com", "Test event",
                 new LocalDate(2016, 10, 13), "08:30:00", "09:00:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
 
@@ -60,7 +58,6 @@ public class EventHandlerTest {
         session.save(event2);
         session.save(event3);
         session.getTransaction().commit();
-//        getDBContents();
     }
 
     private void clearDatabase() {
@@ -77,13 +74,6 @@ public class EventHandlerTest {
         session.getTransaction().commit();
     }
 
-//    private void getDBContents() {
-//        String sql = "SELECT * FROM Events";
-//        session.beginTransaction();
-//        List list = session.createSQLQuery(sql).list();
-//        session.getTransaction().commit();
-//    }
-
     @AfterClass
     public static void tearDown() throws Exception {
         session.close();
@@ -91,55 +81,56 @@ public class EventHandlerTest {
 
     @Test
     public void eventExistsInDatabaseTest() throws Exception {
-        boolean expectedTrue = handler.eventExistsInDatabase(1);
-        boolean expectedFalse = handler.eventExistsInDatabase(12);
+        Integer id = handler.getEventIDByTitle("Event1");
+        boolean expectedTrue = handler.eventExistsInDatabase(id);
+        boolean expectedFalse = handler.eventExistsInDatabase(100);
         assertTrue("Event 1 not found in DB", expectedTrue);
         assertFalse("Event 12 found in DB", expectedFalse);
     }
 
     @Test
     public void saveEventToUser() throws Exception {
-        methodName = "saveEventToUser";
         assertTrue("Event could not be added to user",
                 handler.saveEventToUser(1, 1));
     }
 
     @Test
     public void getEventByIDSingle() throws Exception {
-        methodName = "getEventByIDSingle";
-        EventBean event = handler.getEventByID(1);
-        assertTrue("Event could not be retrieved", event.getTitle().equals("My Event"));
+        Integer id = handler.getEventIDByTitle("Event1");
+        EventBean event = handler.getEventByID(id);
+        assertTrue("Event could not be retrieved", event.getTitle().equals("Event1"));
     }
 
     @Test
     public void getEventByIDList() throws Exception {
-        methodName = "getEventByIDList";
-        List<Integer> eventIDs = new ArrayList<>();
-        eventIDs.add(1);
-        eventIDs.add(2);
-        eventIDs.add(3);
+        List<String> titles = new ArrayList<>();
+        titles.add("Event1");
+        titles.add("Event2");
+        titles.add("Event3");
+
+        List<Integer> eventIDs = handler.getEventIDByTitle(titles);
 
         List<EventBean> beanList = handler.getEventByID(eventIDs);
-        for (int i=0; i<eventIDs.size(); i++) {
-            assertEquals(String.format("Event not added: %s", eventIDs.get(i)),
+        for (int i=0; i<beanList.size(); i++) {
+            assertEquals(String.format("Event not added: %s", beanList.get(i).getTitle()),
                     eventIDs.get(i), beanList.get(i).getEventId());
         }
     }
 
     @Test
     public void updateEventTitle() throws Exception {
-        methodName = "updateEventTitle";
         String newTitle = "My New Title";
-        handler.updateEventTitle(newTitle, 1);
-        EventBean event = handler.getEventByID(1);
+        Integer id = handler.getEventIDByTitle("Event1");
+        handler.updateEventTitle(newTitle, id);
+        EventBean event = handler.getEventByID(id);
         assertTrue("Title was not updated", event.getTitle().equals(newTitle));
     }
 
-    @Test(expected = ObjectNotFoundException.class)
+    @Test
     public void deleteEvent() throws Exception {
-        methodName = "deleteEvent";
-        handler.deleteEvent(1);
-        Object result = handler.getEventByID(1);
+        Integer id = handler.getEventIDByTitle("Event1");
+        handler.deleteEvent(id);
+        assertNull(handler.getEventByID(id));
 
     }
 
