@@ -39,17 +39,17 @@ public class EventHandlerTest {
     public void addEventsToDB() throws Exception {
         session.clear();
         clearDatabase();
-        EventBean event1 = factory.createBean(123,
+        EventBean event1 = factory.createBean(1,
                 "My Event", "http://event.com", "Test event",
                 new LocalDate(2016, 10, 13), "08:30:00", "09:00:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
 
-        EventBean event2 = factory.createBean(125, "Event3",
+        EventBean event2 = factory.createBean(2, "Event3",
                 "http://event.com", "Test event",
                 new LocalDate(2016, 9, 14), "05:00:00", "08:30:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
 
-        EventBean event3 = factory.createBean(126, "Event4",
+        EventBean event3 = factory.createBean(3, "Event4",
                 "http://event.com", "Test event", new LocalDate(2016, 9, 14),
                 "06:30:00", "08:30:00",
                 "3802 Lien Rd", "Madison", "WI", "53704");
@@ -81,28 +81,28 @@ public class EventHandlerTest {
 
     @Test
     public void eventExistsInDatabaseTest() throws Exception {
-        assertTrue("Event 123 not found in DB", handler.eventExistsInDatabase(123));
+        assertTrue("Event 1 not found in DB", handler.eventExistsInDatabase(1));
         assertFalse("Event 12 found in DB", handler.eventExistsInDatabase(12));
     }
 
     @Test
     public void saveEventToUser() throws Exception {
         assertTrue("Event could not be added to user",
-                handler.saveEventToUser(1, 123));
+                handler.saveEventToUser(1, 1));
     }
 
     @Test
     public void getEventByIDSingle() throws Exception {
-        EventBean event = handler.getEventByID(123);
-        assertEquals("Event could not be retrieved", "My Event", event.getTitle());
+        EventBean event = handler.getEventByID(1);
+        assertTrue("Event could not be retrieved", event.getTitle().equals("My Event"));
     }
 
     @Test
     public void getEventByIDList() throws Exception {
         List<Integer> eventIDs = new ArrayList<>();
-        eventIDs.add(123);
-        eventIDs.add(125);
-        eventIDs.add(126);
+        eventIDs.add(1);
+        eventIDs.add(2);
+        eventIDs.add(3);
 
         List<EventBean> beanList = handler.getEventByID(eventIDs);
         for (int i=0; i<eventIDs.size(); i++) {
@@ -114,15 +114,15 @@ public class EventHandlerTest {
     @Test
     public void updateEventTitle() throws Exception {
         String newTitle = "My New Title";
-        handler.updateEventTitle(newTitle, 123);
-        EventBean event = handler.getEventByID(123);
+        handler.updateEventTitle(newTitle, 1);
+        EventBean event = handler.getEventByID(1);
         assertEquals("Title was not updated", newTitle, event.getTitle());
     }
 
     @Test
     public void deleteEvent() throws Exception {
-        handler.deleteEvent(123);
-        assertNull("Event was not deleted", handler.getEventByID(123));
+        handler.deleteEvent(1);
+        assertNull("Event was not deleted", handler.getEventByID(1));
 
     }
 

@@ -12,6 +12,7 @@ import java.util.*;
  * duplicating the connection code.
  * @author Sebastian Greenholtz
  */
+@Deprecated
 public class DatabaseHandler {
 
     private static String USERNAME;
