@@ -51,5 +51,21 @@ public class DatabaseSearch {
 
     }
 
+    /**
+     * Perform a search by keyword, filtered by date
+     * @return List of Events that match the keyword and the date
+     * @throws Exception
+     */
+    public List<EventBean> searchByKeywordAndSingleDate() throws Exception {
+        QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
+        Query luceneQuery = eventQB.keyword()
+                .onFields("title", "description")
+                .matching(search.getKeyword())
+                .createQuery();
+        org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
+        return query.list();
+
+    }
+
 
 }
