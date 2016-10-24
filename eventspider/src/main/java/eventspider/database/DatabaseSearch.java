@@ -17,6 +17,7 @@ public class DatabaseSearch {
     private SearchBean search;
     private static SearchFactory searchFactory;
     private static FullTextSession fullTextSession;
+    private QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
 
     public DatabaseSearch(Session session) {
         fullTextSession = Search.getFullTextSession(session);
@@ -44,53 +45,65 @@ public class DatabaseSearch {
     }
 
     /**
-     * Performs a search in the database using the EventHandler DAO object
-     * and returns a list of event beans
-     * @return List of event beans with the given keyword in the title or description
+     * TODO: Finish this method
+     * @return
      * @throws Exception
      */
-    public List<EventBean> searchByKeywordOnly() throws Exception {
-        QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
-        Query luceneQuery = eventQB.keyword()
+    public List<EventBean> performSearch() throws Exception {
+        List<Query> queries = new ArrayList<>();
+
+        if (search.getKeyword() != null) {
+            queries.add(createKeywordQuery());
+        }
+
+        if (search.getLocation() != null) {
+            queries.add(createLocationQuery());
+        }
+
+        if (search.getDateStart() != null) {
+            queries.add(createStartDateQuery());
+        }
+
+        Query luceneQuery = eventQB
+                .bool()
+                .must(queries.get(0))
+                .must(queries.get(1))
+                .must(queries.get(2))
+                .createQuery();
+        org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
+        return query.list();
+    }
+
+    /**
+     * Creates a query for the keyword search
+     * @return Query for keyword in title or description
+     * @throws Exception
+     */
+    private Query createKeywordQuery() throws Exception {
+        return eventQB.keyword()
                 .onFields("title", "description")
                 .matching(search.getKeyword())
                 .createQuery();
-        org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
-        return query.list();
 
     }
 
     /**
-     * Gets all the events occurring on a single date.
-     * @return List of events occurring on a given date
+     * Creates a query for the start date
+     * @return Query to search by start date
      * @throws Exception
      */
-    public List<EventBean> searchBySingleDate() throws Exception {
-        QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
-        Query luceneQuery = eventQB
-                .keyword()
-                .onField("startDate")
-                .matching(search.getDateStart())
-                .createQuery();
-        org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
-        return query.list();
+    private Query createStartDateQuery() throws Exception {
+        return eventQB.keyword().onField("startDate").matching(search.getDateStart()).createQuery();
+
     }
 
     /**
-     * Perform a search by keyword, filtered by date
-     * @return List of Events that match the keyword and the date
-     * @throws Exception
+     * Creates a query for the location
+     * @return Query for location search
      */
-    public List<EventBean> searchByKeywordAndSingleDate() throws Exception {
-        QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
-        Query luceneQuery = eventQB
-                .bool()
-                .must(eventQB.keyword().onFields("title", "description").matching(search.getKeyword()).createQuery())
-                .must(eventQB.keyword().onField("startDate").matching(search.getDateStart()).createQuery())
-                .createQuery();
-        org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
-        return query.list();
-
+    private Query createLocationQuery() {
+        return eventQB.keyword().onFields("venueAddress", "city", "state", "postalCode")
+                .matching(search.getLocation()).createQuery();
     }
 
 }
