@@ -9,9 +9,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.joda.time.LocalDate;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.List;
 
@@ -25,11 +23,12 @@ public class DatabaseSearchTest {
 
     private static Session session = SessionFactoryProvider.getSessionFactory().openSession();
     private DatabaseSearch searcher;
+    private SearchBean searchBean = new SearchBean();
     private static EventFactory factory = new EventFactory();
     private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void setUp() throws Exception {
         clearDatabase();
         EventBean event1 = factory.createBean(1, "Banana Bread Baking",
                 "http://event.com", "Calls cats and creatures cantankerous",
@@ -52,12 +51,12 @@ public class DatabaseSearchTest {
         session.getTransaction().commit();
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterClass
+    public static void tearDown() throws Exception {
         session.close();
     }
 
-    private void clearDatabase() {
+    private static void clearDatabase() {
         String sql = "DELETE FROM Events";
         session.beginTransaction();
         Query query = session.createSQLQuery(sql);
@@ -66,27 +65,37 @@ public class DatabaseSearchTest {
     }
 
     @Test
-    public void searchByKeywordTitleTest() throws Exception {
-        SearchBean search = new SearchBean();
-        search.setKeyword("banana");
-        searcher = new DatabaseSearch(search);
+    public void searchByKeywordTitleTestSuccess() throws Exception {
+        searchBean.setKeyword("banana");
+        searcher = new DatabaseSearch(session, searchBean);
         List list = searcher.searchByKeywordOnly();
         assertNotNull("Results not correctly returned", list);
         assertEquals("List of returned results is the wrong size", 1, list.size());
         EventBean event = (EventBean) list.get(0);
-        assertTrue("Incorrect event returned", event.getTitle().equals(search.getKeyword()));
+        assertTrue("Incorrect event returned", event.getTitle().equals(searchBean.getKeyword()));
     }
 
     @Test
-    public void searchByKeywordDescriptionTest() throws Exception {
-        SearchBean search = new SearchBean();
-        search.setKeyword("droplets");
-        searcher = new DatabaseSearch(search);
+    public void searchByKeywordDescriptionTestSuccess() throws Exception {
+        searchBean.setKeyword("droplets");
+        searcher = new DatabaseSearch(session, searchBean);
         List list = searcher.searchByKeywordOnly();
         assertNotNull("Results not correctly returned", list);
         assertEquals("List of returned results is the wrong size", 1, list.size());
         EventBean event = (EventBean) list.get(0);
-        assertTrue("Incorrect event returned", event.getDescription().contains(search.getKeyword()));
+        assertTrue("Incorrect event returned", event.getDescription().contains(searchBean.getKeyword()));
+    }
+
+    @Test
+    public void searchByKeywordTitleAndSingleDateTestSuccess() throws Exception {
+        searchBean.setDateStart(new LocalDate(2016, 9, 14));
+        searchBean.setKeyword("cake");
+        searcher = new DatabaseSearch(session, searchBean);
+        List list = searcher.searchByKeywordAndSingleDate();
+        assertNotNull("Results not correctly returned", list);
+        assertEquals("List of returned results is the wrong size", 1, list.size());
+        EventBean event = (EventBean) list.get(0);
+        assertTrue("Incorrect event returned", event.getDescription().contains(searchBean.getKeyword()));
     }
 
 }

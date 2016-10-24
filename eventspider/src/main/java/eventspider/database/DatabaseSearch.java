@@ -18,8 +18,7 @@ public class DatabaseSearch {
     private static SearchFactory searchFactory;
     private static FullTextSession fullTextSession;
 
-    public DatabaseSearch() {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+    public DatabaseSearch(Session session) {
         fullTextSession = Search.getFullTextSession(session);
         searchFactory = fullTextSession.getSearchFactory();
     }
@@ -30,7 +29,17 @@ public class DatabaseSearch {
      * @param search Search bean
      */
     public DatabaseSearch(SearchBean search) {
-        this();
+        this(SessionFactoryProvider.getSessionFactory().openSession());
+        this.search = search;
+    }
+
+    /**
+     * Set both the search bean and the session
+     * @param session Hibernate session
+     * @param search Search Bean
+     */
+    public DatabaseSearch(Session session, SearchBean search) {
+        this(session);
         this.search = search;
     }
 
@@ -52,20 +61,36 @@ public class DatabaseSearch {
     }
 
     /**
+     * Gets all the events occurring on a single date.
+     * @return List of events occurring on a given date
+     * @throws Exception
+     */
+    public List<EventBean> searchBySingleDate() throws Exception {
+        QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
+        Query luceneQuery = eventQB
+                .keyword()
+                .onField("startDate")
+                .matching(search.getDateStart())
+                .createQuery();
+        org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
+        return query.list();
+    }
+
+    /**
      * Perform a search by keyword, filtered by date
      * @return List of Events that match the keyword and the date
      * @throws Exception
      */
     public List<EventBean> searchByKeywordAndSingleDate() throws Exception {
         QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
-        Query luceneQuery = eventQB.keyword()
-                .onFields("title", "description")
-                .matching(search.getKeyword())
+        Query luceneQuery = eventQB
+                .bool()
+                .must(eventQB.keyword().onFields("title", "description").matching(search.getKeyword()).createQuery())
+                .must(eventQB.keyword().onField("startDate").matching(search.getDateStart()).createQuery())
                 .createQuery();
         org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
         return query.list();
 
     }
-
 
 }
