@@ -1,6 +1,7 @@
 package testing;
 
-import org.joda.time.*;
+import org.apache.commons.io.*;
+import java.io.File;
 
 /**
  * Simple main method testing
@@ -8,10 +9,12 @@ import org.joda.time.*;
  */
 public class PSVM {
 
-    public static void main(String[] args) {
-        LocalDate localDate = new LocalDate(2016,10, 22);
-        String date = localDate.toString("yyyyMMdd");
-        System.out.println(date);
+    public static void main(String[] args) throws Exception{
+        String path = "/home/sebastian/Event-Spider/eventspider/indexes/test/eventspider.beans.EventBean";
+        File dir = new File(path);
+        if (dir.exists()) {
+            FileUtils.deleteDirectory(dir);
+        }
 
     }
 }
