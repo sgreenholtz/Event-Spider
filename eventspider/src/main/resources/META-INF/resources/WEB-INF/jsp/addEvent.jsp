@@ -30,8 +30,7 @@
         <div class="form-group">
             <form:label path="description" for="description" class="col-lg-2 control-label">Description</form:label>
             <div class="col-lg-10">
-                <form:textarea path="description" class="form-control"
-                               id="description" name="description"></form:textarea>
+                <form:textarea path="description" class="form-control" id="description" name="description"></form:textarea>
             </div>
         </div>
         <div class="form-group">
@@ -42,8 +41,7 @@
             </div>
              <div class="col-md-offset-2">
                 <div class="col-md-4">
-                    <form:input path="startDate" data-inputmask="'alias': 'mm/dd/yyyy'" type="date"
-                                class="form-control" id="startDate" placeholder="yyyy/mm/dd"/>
+                    <form:input path="text" type="date" class="form-control" id="startDate" placeholder="MM/DD/YYYY"/>
                 </div>
                 <div class="col-md-4">
                      <form:input path="startTime" type="time" class="form-control" id="startTime"

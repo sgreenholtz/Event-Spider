@@ -26,9 +26,6 @@
 <!-- Bootstrap Core CSS -->
 <link href="https://bootswatch.com/darkly/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom CSS -->
-<%--<link rel="stylesheet" type="text/css" src="${pageContext.request.contextPath}/css/custom.css"/>--%>
-
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,9 +35,9 @@
 <![endif]-->
 
 <!-- JQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="jquery-3.0.0.js"></script>
-<script src="jquery.inputmask.bundle.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="../../static/eventspider.js" type="text/javascript"></script>
 
 </head>
 

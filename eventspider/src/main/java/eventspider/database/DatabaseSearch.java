@@ -46,7 +46,7 @@ public class DatabaseSearch {
 
     /**
      * TODO: Finish this method
-     * @return
+     * @return List of Event Beans returned by the search
      * @throws Exception
      */
     public List<EventBean> performSearch() throws Exception {
