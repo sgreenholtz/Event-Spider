@@ -12,4 +12,4 @@ EventCrawlWebService/target
 EventCrawlWebService/*.iml
 home/
 RESTEventService/target
-RESTEventService/*.iml
+RESTEventService/RESTEventService.iml
