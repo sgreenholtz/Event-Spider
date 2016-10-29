@@ -4,6 +4,8 @@ import eventspider.beans.*;
 import org.apache.lucene.search.Query;
 import org.hibernate.Session;
 import org.hibernate.search.*;
+import org.hibernate.search.query.dsl.BooleanJunction;
+import org.hibernate.search.query.dsl.MustJunction;
 import org.hibernate.search.query.dsl.QueryBuilder;
 
 import java.util.*;
@@ -45,11 +47,25 @@ public class DatabaseSearch {
     }
 
     /**
-     * TODO: Finish this method
+     * Performs the full text search using the boolean junction
+     * query created by createQuery()
      * @return List of Event Beans returned by the search
      * @throws Exception
      */
     public List<EventBean> performSearch() throws Exception {
+        org.hibernate.Query query = fullTextSession
+                .createFullTextQuery(createQuery(), EventBean.class);
+        return query.list();
+    }
+
+    /**
+     * Creates a query for each of the fields specified
+     * within the search bean and uses them to create a
+     * junction query
+     * @return Lucene Query with the subqueries joined using a boolean junction
+     * @throws Exception
+     */
+    private Query createQuery() throws Exception {
         List<Query> queries = new ArrayList<>();
 
         if (search.getKeyword() != null) {
@@ -64,14 +80,11 @@ public class DatabaseSearch {
             queries.add(createStartDateQuery());
         }
 
-        Query luceneQuery = eventQB
-                .bool()
-                .must(queries.get(0))
-                .must(queries.get(1))
-                .must(queries.get(2))
-                .createQuery();
-        org.hibernate.Query query = fullTextSession.createFullTextQuery(luceneQuery, EventBean.class);
-        return query.list();
+        MustJunction must = eventQB.bool().must(queries.get(0));
+        for (int i=1;i<queries.size(); i++) {
+            must = must.must(queries.get(i));
+        }
+        return must.createQuery();
     }
 
     /**
@@ -84,7 +97,6 @@ public class DatabaseSearch {
                 .onFields("title", "description")
                 .matching(search.getKeyword())
                 .createQuery();
-
     }
 
     /**
@@ -93,7 +105,10 @@ public class DatabaseSearch {
      * @throws Exception
      */
     private Query createStartDateQuery() throws Exception {
-        return eventQB.keyword().onField("startDate").matching(search.getDateStart()).createQuery();
+        return eventQB.keyword()
+                .onField("startDate")
+                .matching(search.getDateStart())
+                .createQuery();
 
     }
 
@@ -102,8 +117,10 @@ public class DatabaseSearch {
      * @return Query for location search
      */
     private Query createLocationQuery() {
-        return eventQB.keyword().onFields("venueAddress", "city", "state", "postalCode")
-                .matching(search.getLocation()).createQuery();
+        return eventQB.keyword()
+                .onFields("venueAddress", "city", "state", "postalCode")
+                .matching(search.getLocation())
+                .createQuery();
     }
 
 }
