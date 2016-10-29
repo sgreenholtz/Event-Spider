@@ -5,8 +5,7 @@
 $(document).ready(
     function () {
 
-        $("#startDate").datepicker();
-        $("#startTime").timepicker();
-        $("#endTime").timepicker();
+        $(".date").datepicker();
+        $(".time").timepicker();
     }
 );

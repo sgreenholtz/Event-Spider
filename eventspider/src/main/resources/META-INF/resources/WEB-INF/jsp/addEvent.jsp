@@ -41,13 +41,13 @@
             </div>
              <div class="col-md-offset-2">
                 <div class="col-md-4">
-                    <form:input path="startDate" type="text" class="form-control" id="startDate"/>
+                    <form:input path="startDate" type="text" class="date form-control" />
                 </div>
                 <div class="col-md-4">
-                     <form:input path="startTime" type="text" class="form-control" id="startTime" />
+                     <form:input path="startTime" type="text" class="time form-control" />
                 </div>
                 <div class="col-md-4">
-                    <form:input path="endTime" type="text" class="form-control" id="endTime" />
+                    <form:input path="endTime" type="text" class="time form-control" />
                 </div>
             </div>
         </div>

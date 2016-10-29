@@ -31,13 +31,13 @@
         <div class="form-group">
             <form:label path="dateStart" for="dateStart" class="col-lg-2 control-label">Start Date:</form:label>
             <div class="col-lg-10">
-                <form:input path="dateStart" type="date" class="form-control" id="dateStart" name="dateStart"/>
+                <form:input path="dateStart" type="date" class="date form-control" />
             </div>
         </div>
         <div class="form-group">
             <form:label path="dateEnd" for="dateEnd" class="col-lg-2 control-label">End Date:</form:label>
             <div class="col-lg-10">
-                <form:input path="dateEnd" type="date" class="form-control" id="dateEnd" name="dateEnd"/>
+                <form:input path="dateEnd" type="date" class="date form-control" />
             </div>
         </div>
         <div class="form-group">
