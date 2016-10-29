@@ -25,7 +25,7 @@ public class SearchController {
     @RequestMapping(value="search", method=RequestMethod.POST)
     public String doSearch(@ModelAttribute SearchBean search, Model model) throws Exception {
         DatabaseSearch searcher = new DatabaseSearch(search);
-        model.addAttribute("eventsList", searcher.searchByKeywordOnly());
+        model.addAttribute("eventsList", searcher.performSearch());
         model.addAttribute("search", search);
         return "searchResult";
     }

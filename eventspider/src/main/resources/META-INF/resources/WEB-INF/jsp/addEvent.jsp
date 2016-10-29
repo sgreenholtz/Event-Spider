@@ -41,14 +41,14 @@
             </div>
              <div class="col-md-offset-2">
                 <div class="col-md-4">
-                    <form:input path="text" type="date" class="form-control" id="startDate" placeholder="MM/DD/YYYY"/>
+                    <form:input path="startDate" type="text" class="form-control" id="startDate" placeholder="MM/DD/YYYY"/>
                 </div>
                 <div class="col-md-4">
-                     <form:input path="startTime" type="time" class="form-control" id="startTime"
+                     <form:input path="startTime" type="text" class="form-control" id="startTime"
                                 placeholder="hh:mm:ss"/>
                 </div>
                 <div class="col-md-4">
-                    <form:input path="endTime" type="time" class="form-control" id="endTime"
+                    <form:input path="endTime" type="text" class="form-control" id="endTime"
                                 placeholder="hh:mm:ss"/>
                 </div>
             </div>
@@ -90,8 +90,3 @@
     </fieldset>
 </form:form>
 <c:import url="footer.jsp"/>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(":input").inputmask();
-    });
-</script>
