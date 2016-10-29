@@ -35,21 +35,19 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2">
-                <form:label path="startDate" for="startDate" class="col-md-4 control-label">Start Date</form:label>
-                <form:label path="startTime" for="startTime" class="col-md-4 control-label">Start Time</form:label>
-                <form:label path="endTime" for="endTime" class="col-md-4 control-label">End Time</form:label>
+                <form:label path="startDate" for="startDate" class="date-time col-md-4 control-label">Start Date</form:label>
+                <form:label path="startTime" for="startTime" class="date-time col-md-4 control-label">Start Time</form:label>
+                <form:label path="endTime" for="endTime" class="date-time col-md-4 control-label">End Time</form:label>
             </div>
              <div class="col-md-offset-2">
                 <div class="col-md-4">
-                    <form:input path="startDate" type="text" class="form-control" id="startDate" placeholder="MM/DD/YYYY"/>
+                    <form:input path="startDate" type="text" class="form-control" id="startDate"/>
                 </div>
                 <div class="col-md-4">
-                     <form:input path="startTime" type="text" class="form-control" id="startTime"
-                                placeholder="hh:mm:ss"/>
+                     <form:input path="startTime" type="text" class="form-control" id="startTime" />
                 </div>
                 <div class="col-md-4">
-                    <form:input path="endTime" type="text" class="form-control" id="endTime"
-                                placeholder="hh:mm:ss"/>
+                    <form:input path="endTime" type="text" class="form-control" id="endTime" />
                 </div>
             </div>
         </div>
