@@ -19,11 +19,12 @@ public class DatabaseSearch {
     private SearchBean search;
     private static SearchFactory searchFactory;
     private static FullTextSession fullTextSession;
-    private QueryBuilder eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
+    private QueryBuilder eventQB;
 
     public DatabaseSearch(Session session) {
         fullTextSession = Search.getFullTextSession(session);
         searchFactory = fullTextSession.getSearchFactory();
+        eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
     }
 
     /**
