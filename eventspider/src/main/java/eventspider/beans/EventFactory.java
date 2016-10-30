@@ -153,7 +153,11 @@ public class EventFactory {
      * @return String of time as hh:mm
      */
     private String extractTime(String dateTime) {
-        return dateTime.substring(11, 16);
+        if (dateTime == null) {
+            return null;
+        } else {
+            return dateTime.substring(11, 16);
+        }
     }
 
     /**

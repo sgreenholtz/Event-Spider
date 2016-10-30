@@ -13,6 +13,9 @@ import javax.ws.rs.core.MediaType;
 import org.joda.time.LocalDate;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -84,5 +87,16 @@ public class EventfulSearchTest {
         assertTrue(actual.contains(expected));
         bean.setDateEnd(null);
     }
+
+    @Test
+    public void EventfulSearchGetEventList() throws Exception {
+        bean.setKeyword("pie");
+        bean.setLocation("Madison, WI");
+        search = new EventfulSearch(bean);
+        List list = search.performSearch();
+        assertNotNull(list);
+        assertTrue(list.size() > 0);
+    }
+
 
 }
