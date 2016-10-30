@@ -1,24 +1,72 @@
 package eventspider.DAL;
 
+import eventspider.beans.SearchBean;
+import org.joda.time.LocalDate;
+
 /**
  * Methods to facilitate the calls to Eventful API
  * @author Sebastian Greenholtz
  */
 public class EventfulSearch {
 
-    private static final String eventfulKey = "kvxN9gH3zxsQhvCF";
+    private static final String eventfulKey = "sBbJgh96n2W9JV4m";
 
     /**
      * Creates a String representing the URL to send to Eventful to perform search
-     * @param location Location user searched
+     * @param search Search bean
      * @return URL in String form for Eventful search
      */
-    private String constructURL(String location) {
+    public String constructURL(SearchBean search) {
         String url = "http://api.eventful.com/json/events/search?";
         url += "app_key=" + eventfulKey;
-        url += "&location=" + constructSearchString(location);
-        url += "&page_size=" + 30;
+        url += constructParams(search);
         return url;
+    }
+
+    /**
+     * Creates a string of parameters to complete the eventful search
+     * @param search Search Bean
+     * @return String of search params for Eventful
+     */
+    private String constructParams(SearchBean search) {
+        String params = "";
+        if (search.getKeyword() != null) {
+            params += "&keywords=" + constructSearchString(search.getKeyword());
+        }
+
+        if (search.getLocation() != null) {
+            params += "&location=" + constructSearchString(search.getLocation());
+        }
+
+        if (search.getDateStart() != null && search.getDateEnd() != null) {
+            params += "&date=" + constructSearchDate(search.getDateStart())
+                    + "-" + constructSearchDate(search.getDateEnd());
+        } else if (search.getDateStart() != null) {
+            String date = constructSearchDate(search.getDateStart());
+            params += "&date=" + date + "-" + date;
+        } else if (search.getDateEnd() != null) {
+            String date = constructSearchDate(search.getDateEnd());
+            params += "&date=" + date + "-" + date;
+        }
+
+        if (search.getNumResults() != null) {
+            params += "&total_items=" + search.getNumResults();
+        }
+
+        return params;
+    }
+
+    /**
+     * Constructs a date for valid searching on Eventful with the format
+     * YYYYMMDD00
+     * @param date LocalDate representation of a date
+     * @return String of that local date with the format YYYYMMDD00
+     */
+    private String constructSearchDate(LocalDate date) {
+        String year = Integer.toString(date.getYear());
+        String month = Integer.toString(date.getMonthOfYear());
+        String day = Integer.toString(date.getDayOfMonth());
+        return year + month + day + "00";
     }
 
     /**

@@ -12,6 +12,25 @@ public class SearchBean {
     private String location;
     private LocalDate dateStart;
     private LocalDate dateEnd;
+    private Integer numResults;
+
+    /**
+     * Gets the value of numResults.
+     *
+     * @return numResults
+     */
+    public Integer getNumResults() {
+        return numResults;
+    }
+
+    /**
+     * Sets numResults to given value
+     *
+     * @param numResults value to set instance variable to
+     */
+    public void setNumResults(Integer numResults) {
+        this.numResults = numResults;
+    }
 
     /**
      * Empty constructor
