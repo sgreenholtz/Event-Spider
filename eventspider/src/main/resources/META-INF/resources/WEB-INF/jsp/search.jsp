@@ -41,6 +41,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="dateEnd" class="col-lg-2 control-label">Sources:</label>
+            <div class="col-lg-10">
+                <form:checkbox path="databaseSearch" type="checkbox" class="form-control" /> Event Spider Database
+                <form:checkbox path="eventfulSearch" type="checkbox" class="form-control" /> Eventful
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

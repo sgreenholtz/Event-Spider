@@ -1,12 +1,15 @@
 package eventspider.controllers;
 
 import eventspider.DAL.*;
+import eventspider.beans.EventBean;
 import eventspider.beans.SearchBean;
 import eventspider.database.DatabaseSearch;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -24,8 +27,18 @@ public class SearchController {
 
     @RequestMapping(value="search", method=RequestMethod.POST)
     public String doSearch(@ModelAttribute SearchBean search, Model model) throws Exception {
-        DatabaseSearch searcher = new DatabaseSearch(search);
-        model.addAttribute("eventsList", searcher.performSearch());
+        List<EventBean> eventsList = new ArrayList<>();
+
+        if (search.getDatabaseSearch()) {
+            DatabaseSearch dbSearcher = new DatabaseSearch(search);
+            eventsList.addAll(dbSearcher.performSearch());
+        }
+
+        if (search.getEventfulSearch()) {
+            EventfulSearch eventfulSearcher = new EventfulSearch(search);
+            eventsList.addAll(eventfulSearcher.performSearch());
+        }
+        model.addAttribute("eventsList", eventsList);
         model.addAttribute("search", search);
         return "searchResult";
     }

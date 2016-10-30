@@ -7,47 +7,34 @@ import java.text.*;
 import org.joda.time.LocalDate;
 
 /**
- * Creates Event Beans from the results of a main.java.database search of the Events table
- * or from raw data (like a JSON)
+ * Creates Event Beans from a variety of sources
  * @author Sebastian Greenholtz
  */
 public class EventFactory {
 
-    private Map<Integer, EventBean> eventMap;
-    private static final Logger logger = Logger.getLogger(EventFactory.class);
+    private List<EventBean> eventList;
 
     /**
-     * Empty constructor, instantiates map
+     * Empty constructor
      */
     public EventFactory() {
-        eventMap = new HashMap<>();
+        eventList = new ArrayList<>();
     }
 
     /**
-     * Gets the event Map.
-     * @return eventMap
+     * Gets the value of eventList.
+     * @return eventList
      */
-    public Map<Integer, EventBean> getEventMap() {
-        return eventMap;
+    public List<EventBean> getEventList() {
+        return eventList;
     }
 
     /**
-     * Adds an already created Event bean into the map
-     * @param event Event bean
+     * Sets eventList to given value
+     * @param eventList value to set instance variable to
      */
-    public void updateBeansMap(EventBean event) {
-        eventMap.put(event.getEventId(), event);
-    }
-
-
-    /**
-     * Creates map of id->bean using a list of event bean objects
-     * @param beanList List of event bean objects
-     */
-    public void createBeansMap(List<EventBean> beanList) {
-        for (EventBean bean : beanList) {
-            eventMap.put(bean.getEventId(), bean);
-        }
+    public void setEventList(List<EventBean> eventList) {
+        this.eventList = eventList;
     }
 
     /**
@@ -137,5 +124,7 @@ public class EventFactory {
         event.setPostalCode(postalCode);
         return event;
     }
+
+
 
 }

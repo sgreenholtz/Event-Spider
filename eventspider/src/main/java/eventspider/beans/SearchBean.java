@@ -13,6 +13,44 @@ public class SearchBean {
     private LocalDate dateStart;
     private LocalDate dateEnd;
     private Integer numResults;
+    private Boolean databaseSearch;
+    private Boolean eventfulSearch;
+
+    /**
+     * Gets the value of databaseSearch.
+     *
+     * @return databaseSearch
+     */
+    public Boolean getDatabaseSearch() {
+        return databaseSearch;
+    }
+
+    /**
+     * Sets databaseSearch to given value
+     *
+     * @param databaseSearch value to set instance variable to
+     */
+    public void setDatabaseSearch(Boolean databaseSearch) {
+        this.databaseSearch = databaseSearch;
+    }
+
+    /**
+     * Gets the value of eventfulSearch.
+     *
+     * @return eventfulSearch
+     */
+    public Boolean getEventfulSearch() {
+        return eventfulSearch;
+    }
+
+    /**
+     * Sets eventfulSearch to given value
+     *
+     * @param eventfulSearch value to set instance variable to
+     */
+    public void setEventfulSearch(Boolean eventfulSearch) {
+        this.eventfulSearch = eventfulSearch;
+    }
 
     /**
      * Gets the value of numResults.

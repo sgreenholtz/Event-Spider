@@ -1,7 +1,11 @@
 package eventspider.DAL;
 
+import eventspider.beans.EventBean;
 import eventspider.beans.SearchBean;
 import org.joda.time.LocalDate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Methods to facilitate the calls to Eventful API
@@ -10,25 +14,32 @@ import org.joda.time.LocalDate;
 public class EventfulSearch {
 
     private static final String eventfulKey = "sBbJgh96n2W9JV4m";
+    private SearchBean search;
+
+    /**
+     * Constructor takes a search bean and performs search
+     * @param search Search bean
+     */
+    public EventfulSearch(SearchBean search) {
+        this.search = search;
+    }
 
     /**
      * Creates a String representing the URL to send to Eventful to perform search
-     * @param search Search bean
      * @return URL in String form for Eventful search
      */
-    public String constructURL(SearchBean search) {
+    public String constructURL() {
         String url = "http://api.eventful.com/json/events/search?";
         url += "app_key=" + eventfulKey;
-        url += constructParams(search);
+        url += constructParams();
         return url;
     }
 
     /**
      * Creates a string of parameters to complete the eventful search
-     * @param search Search Bean
      * @return String of search params for Eventful
      */
-    private String constructParams(SearchBean search) {
+    private String constructParams() {
         String params = "";
         if (search.getKeyword() != null) {
             params += "&keywords=" + constructSearchString(search.getKeyword());
@@ -81,5 +92,15 @@ public class EventfulSearch {
             urlSafeString += token + "+";
         }
         return urlSafeString.substring(0, urlSafeString.length()-1);
+    }
+
+    /**
+     * Creates a list of the event beans constructed from an Eventful search
+     * @return List of event beans based on Eventful events
+     */
+    public List<EventBean> performSearch() {
+        List<EventBean> events = new ArrayList<>();
+
+        return events;
     }
 }
