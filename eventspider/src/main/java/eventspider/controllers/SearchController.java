@@ -38,9 +38,11 @@ public class SearchController {
             EventfulSearch eventfulSearcher = new EventfulSearch(search);
             eventsList.addAll(eventfulSearcher.performSearch());
         }
+
         model.addAttribute("eventsList", eventsList);
         model.addAttribute("search", search);
         return "searchResult";
+        //TODO: Display this list in the JSP
     }
 
 }

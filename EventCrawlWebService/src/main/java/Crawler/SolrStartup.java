@@ -11,7 +11,6 @@ public class SolrStartup {
     /**
      * Runs the start method, logging errors
      * @throws IOException
-     * TODO Get error output and save into logs/solr.log
      */
     public void start() throws IOException {
         Process process = startProcess();

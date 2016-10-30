@@ -100,7 +100,7 @@ public class EventfulSearch {
      */
     public List<EventBean> performSearch() {
         List<EventBean> events = new ArrayList<>();
-
+        //TODO: Add code to do the rest call and parse the result
         return events;
     }
 }

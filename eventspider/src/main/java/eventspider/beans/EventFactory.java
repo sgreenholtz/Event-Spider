@@ -1,5 +1,6 @@
 package eventspider.beans;
 
+import eventspider.Eventful.EventItem;
 import org.apache.log4j.Logger;
 
 import java.util.*;
@@ -122,6 +123,18 @@ public class EventFactory {
         event.setCity(city);
         event.setState(state);
         event.setPostalCode(postalCode);
+        return event;
+    }
+
+    /**
+     * Creates an event using the data from the Eventful event, which has
+     * more information than used by Event Spider
+     * @param eventfulEvent an event from an Eventful search
+     * @return Event Bean
+     */
+    public EventBean createBean(EventItem eventfulEvent) {
+        EventBean event = new EventBean();
+        // TODO: Map these fields
         return event;
     }
 
