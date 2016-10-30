@@ -4,6 +4,7 @@ import eventspider.DAL.*;
 import eventspider.beans.EventBean;
 import eventspider.beans.SearchBean;
 import eventspider.database.DatabaseSearch;
+import eventspider.database.EventHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,11 +39,13 @@ public class SearchController {
             EventfulSearch eventfulSearcher = new EventfulSearch(search);
             eventsList.addAll(eventfulSearcher.performSearch());
         }
-
+        EventHandler eventHandler = new EventHandler();
+        for (EventBean event : eventsList) {
+            eventHandler.addEvent(event);
+        }
         model.addAttribute("eventsList", eventsList);
         model.addAttribute("search", search);
         return "searchResult";
-        //TODO: Display this list in the JSP
     }
 
 }

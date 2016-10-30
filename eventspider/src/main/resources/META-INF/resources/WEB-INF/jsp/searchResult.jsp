@@ -23,7 +23,7 @@
     <tbody>
     <c:forEach var="event" items="${eventsList}">
         <tr>
-            <td><a href="eventDetails?id=${event.key}" class="btn btn-success btn-xs">View</a></td>
+            <td><a href="eventDetails?id=${event.eventId}" class="btn btn-success btn-xs">View</a></td>
             <td><div class="tableOverflow>">${event.title}</div></td>
             <td><div class="tableOverflow">${event.startTime}</div></td>
             <td>${event.venueAddress}, ${event.city} ${event.state}</td>

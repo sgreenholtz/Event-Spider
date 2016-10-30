@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Event Details"); %>
-<c:import url="../src/main/resources/META-INF/resources/WEB-INF/jsp/header.jsp"/>
-<h3 class="text-danger">${addedMessage}</h3>
+<c:import url="header.jsp"/>
+<%--<h3 class="text-danger">${addedMessage}</h3>--%>
 <h1>${event.title}</h1>
 <c:choose>
     <c:when test="${empty event.description}">
@@ -43,6 +43,6 @@
         <a href="addEventToUser?id=${event.eventId}" class="btn btn-danger btn-lg">Add to My Events</a>
     </c:otherwise>
 </c:choose>
-<a href="${returnPage}" class="btn btn-success btn-lg">Return to Previous Page</a>
-<c:remove var="addedMessage" />
-<c:import url="../src/main/resources/META-INF/resources/WEB-INF/jsp/footer.jsp"/>
+<a href="searchResult" class="btn btn-success btn-lg">Return to Results</a>
+<%--<c:remove var="addedMessage" />--%>
+<c:import url="footer.jsp"/>
