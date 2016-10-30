@@ -77,7 +77,7 @@ public class EventfulSearchTest {
     public void EventfulSearchTestEndDateOnly() throws Exception {
         bean.setDateEnd(new LocalDate(2016, 10, 28));
         search = new EventfulSearch(bean);
-        String url = search.constructURL(git);
+        String url = search.constructURL();
         String response = jsonResponse(url);
         String actual = getItemFromJson(response).getStart_time();
         String expected = bean.getDateEnd().toString();

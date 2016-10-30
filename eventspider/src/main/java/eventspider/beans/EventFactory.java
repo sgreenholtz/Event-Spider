@@ -134,8 +134,39 @@ public class EventFactory {
      */
     public EventBean createBean(EventItem eventfulEvent) {
         EventBean event = new EventBean();
-        // TODO: Map these fields
+        event.setTitle(eventfulEvent.getTitle());
+        event.setUrl(eventfulEvent.getUrl());
+        event.setDescription(eventfulEvent.getDescription());
+        event.setStartDate(extractDate(eventfulEvent.getStart_time()));
+        event.setStartTime(extractTime(eventfulEvent.getStart_time()));
+        event.setEndTime(extractTime(eventfulEvent.getStop_time()));
+        event.setVenueAddress((String)eventfulEvent.getVenue_address());
+        event.setCity(eventfulEvent.getCity_name());
+        event.setState(eventfulEvent.getRegion_abbr());
+        event.setPostalCode((String)eventfulEvent.getPostal_code());
         return event;
+    }
+
+    /**
+     * Extracts the time out of a date-time string yyyy-mm-dd hh:mm:ss
+     * @param dateTime string date and time
+     * @return String of time as hh:mm
+     */
+    private String extractTime(String dateTime) {
+        return dateTime.substring(11, 16);
+    }
+
+    /**
+     * Extracts the date out of a date-time string yyyy-mm-dd hh:mm:ss
+     * @param dateTime string date and time
+     * @return LocalDate created from the date fields
+     */
+    private LocalDate extractDate(String dateTime) {
+        int year = Integer.parseInt(dateTime.substring(0, 4));
+        int month = Integer.parseInt(dateTime.substring(5, 7));
+        int day = Integer.parseInt(dateTime.substring(8, 10));
+        return new LocalDate(year, month, day);
+
     }
 
 

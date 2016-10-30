@@ -1,9 +1,21 @@
 package eventspider.DAL;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import eventspider.Eventful.EventItem;
+import eventspider.Eventful.EventfulResponse;
+import eventspider.Eventful.EventsList;
 import eventspider.beans.EventBean;
+import eventspider.beans.EventFactory;
 import eventspider.beans.SearchBean;
+import eventspider.utility.WebServiceUtility;
+import org.apache.log4j.Logger;
 import org.joda.time.LocalDate;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +26,7 @@ import java.util.List;
 public class EventfulSearch {
 
     private static final String eventfulKey = "sBbJgh96n2W9JV4m";
+    private static final Logger logger = Logger.getLogger(EventfulSearch.class);
     private SearchBean search;
 
     /**
@@ -98,9 +111,16 @@ public class EventfulSearch {
      * Creates a list of the event beans constructed from an Eventful search
      * @return List of event beans based on Eventful events
      */
-    public List<EventBean> performSearch() {
+    public List<EventBean> performSearch() throws Exception {
         List<EventBean> events = new ArrayList<>();
-        //TODO: Add code to do the rest call and parse the result
+        String json = WebServiceUtility.callService(constructURL());
+        EventsList eventfulList = WebServiceUtility.getEventfulFromJson(json);
+        EventFactory factory = new EventFactory();
+        for (EventItem item : eventfulList.getEvent()) {
+            events.add(factory.createBean(item));
+        }
         return events;
     }
+
+
 }
