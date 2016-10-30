@@ -43,6 +43,7 @@ public class SearchController {
         for (EventBean event : eventsList) {
             eventHandler.addEvent(event);
         }
+        //TODO: Debug adding event error
         model.addAttribute("eventsList", eventsList);
         model.addAttribute("search", search);
         return "searchResult";

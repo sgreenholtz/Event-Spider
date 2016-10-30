@@ -10,6 +10,7 @@
 <% session.setAttribute("title", "Event Details"); %>
 <c:import url="header.jsp"/>
 <%--<h3 class="text-danger">${addedMessage}</h3>--%>
+<%--TODO: Finish testing this page and the controller--%>
 <h1>${event.title}</h1>
 <c:choose>
     <c:when test="${empty event.description}">
