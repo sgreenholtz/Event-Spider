@@ -26,7 +26,6 @@ public class EventfulSearchTest {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        search = new EventfulSearch();
         bean = new SearchBean();
         bean.setNumResults(1);
     }
@@ -47,7 +46,8 @@ public class EventfulSearchTest {
     @Test
     public void EventfulSearchTestKeywordOnly() throws Exception {
         bean.setKeyword("pizza");
-        String url = search.constructURL(bean);
+        search = new EventfulSearch(bean);
+        String url = search.constructURL();
         String response = jsonResponse(url);
         assertTrue(getItemFromJson(response).getDescription().contains("pizza"));
         bean.setKeyword(null);
@@ -56,7 +56,8 @@ public class EventfulSearchTest {
     @Test
     public void EventfulSearchTestLocationOnly() throws Exception {
         bean.setLocation("53704");
-        String url = search.constructURL(bean);
+        search = new EventfulSearch(bean);
+        String url = search.constructURL();
         String response = jsonResponse(url);
         assertTrue(getItemFromJson(response).getCity_name().contains("Madison"));
         bean.setLocation(null);
@@ -65,7 +66,8 @@ public class EventfulSearchTest {
     @Test
     public void EventfulSearchTestStartDateOnly() throws Exception {
         bean.setDateStart(new LocalDate(2016, 10, 28));
-        String url = search.constructURL(bean);
+        search = new EventfulSearch(bean);
+        String url = search.constructURL();
         String response = jsonResponse(url);
         assertTrue(getItemFromJson(response).getStart_time().contains(bean.getDateStart().toString()));
         bean.setDateStart(null);
@@ -74,7 +76,8 @@ public class EventfulSearchTest {
     @Test
     public void EventfulSearchTestEndDateOnly() throws Exception {
         bean.setDateEnd(new LocalDate(2016, 10, 28));
-        String url = search.constructURL(bean);
+        search = new EventfulSearch(bean);
+        String url = search.constructURL(git);
         String response = jsonResponse(url);
         String actual = getItemFromJson(response).getStart_time();
         String expected = bean.getDateEnd().toString();
