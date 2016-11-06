@@ -140,7 +140,7 @@ public class User {
      *
      * @return role
      */
-    public UserRole getRole() {
+    public Roles getRole() {
         return role;
     }
 
@@ -149,7 +149,7 @@ public class User {
      *
      * @param role value to set instance variable to
      */
-    public void setRole(UserRole role) {
+    public void setRole(Roles role) {
         this.role = role;
     }
 }

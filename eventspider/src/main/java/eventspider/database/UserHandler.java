@@ -78,12 +78,10 @@ public class UserHandler {
             throw new RequiredFieldMissingException("Password is a required field");
         } else {
             user.setPassword(DigestUtils.sha1Hex(user.getPassword()));
-            UserRole userRole = createUserRole(Roles.MEMBER, user);
-            user.setRole(userRole);
+            user.setRole(Roles.MEMBER);
             try {
                 session.beginTransaction();
                 session.save(user);
-                session.save(userRole);
                 logger.info("Event added: " + user.getEmail());
                 session.getTransaction().commit();
             } catch (HibernateException e) {
@@ -99,19 +97,6 @@ public class UserHandler {
 
     public boolean requiredPasswordNull(User user) {
         return (user.getPassword() == null);
-    }
-
-    /**
-     * Creates a UserRole object for saving user roles
-     * @param role
-     * @param user
-     * @return
-     */
-    private UserRole createUserRole(Roles role, User user) {
-        UserRole userRole = new UserRole(user.getEmail(), role);
-        userRole.setUser(user);
-        userRole.setUserId(user.getUserID());
-        return userRole;
     }
 
 //    /**
