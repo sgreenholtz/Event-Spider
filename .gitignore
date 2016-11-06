@@ -4,6 +4,7 @@ eventspider/indexes
 eventspider/logs
 eventspider/src/main/resources/*.xml
 eventspider/src/main/resources/*.properties
+eventspider/src/main/resources/*.ini
 eventspider/target
 EventCrawlWebService/
 .idea/
