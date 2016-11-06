@@ -27,12 +27,6 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value="test", method= RequestMethod.GET)
-    public String loginResult(Model model) {
-        model.addAttribute("user", user);
-        return "test";
-    }
-
     @RequestMapping(value="verify", method=RequestMethod.POST)
     public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model) {
         User attempt = new User(email, password);
@@ -43,7 +37,7 @@ public class LoginController {
             model.addAttribute("notLoggedIn", loggedInFail);
             return "login";
         } else {
-            return "index       ";
+            return "index";
         }
     }
 

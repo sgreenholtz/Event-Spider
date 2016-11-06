@@ -20,7 +20,7 @@ public class AdminController {
         return "admin";
     }
 
-    @RequestMapping("/clearDatabase")
+    @GetMapping("/clearDatabase")
     public String clearDatabase(Model model) {
         EventHandler handler = new EventHandler();
         boolean result = handler.deleteOldItems(LocalDate.now());

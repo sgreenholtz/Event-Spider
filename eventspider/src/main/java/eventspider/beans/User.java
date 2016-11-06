@@ -24,8 +24,6 @@ public class User {
     protected String firstName;
     @Column(name = "last_name")
     protected String lastName;
-    @Column(name = "role")
-    protected String role;
 
     /**
      * Empty constructor
@@ -132,21 +130,4 @@ public class User {
         this.lastName = lastName;
     }
 
-    /**
-     * Gets the value of role.
-     *
-     * @return role
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * Sets role to given value
-     *
-     * @param role value to set instance variable to
-     */
-    public void setRole(String role) {
-        this.role = role;
-    }
 }
