@@ -20,7 +20,7 @@ import org.joda.time.LocalDate;
 public class EventBean {
     @Id
     @Column(name = "event_id")
-    @GenericGenerator(name="eventbean" , strategy="increment")
+    @GenericGenerator(name="eventbean" , strategy="identity")
     @GeneratedValue(generator="eventbean")
     private Integer eventId;
 

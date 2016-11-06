@@ -71,6 +71,9 @@
                             <li><a href="myEventsController">My Events</a></li>
                         </c:otherwise>
                     </c:choose>
+                    <c:if test="${userID=='admin'}">
+                        <li><a href="admin-page">Admin Page</a></li>
+                    </c:if>
                 </ul>
                 </div>
             </div>
