@@ -14,7 +14,7 @@ public class User {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
+    @GenericGenerator(name="increment", strategy = "identity")
     protected int userID;
     @Column(name = "email")
     protected String email;
@@ -24,6 +24,11 @@ public class User {
     protected String firstName;
     @Column(name = "last_name")
     protected String lastName;
+    @Column(name="role")
+    @Enumerated(EnumType.ORDINAL)
+    protected Roles role;
+
+
 
     /**
      * Empty constructor
@@ -130,4 +135,21 @@ public class User {
         this.lastName = lastName;
     }
 
+    /**
+     * Gets the value of role.
+     *
+     * @return role
+     */
+    public UserRole getRole() {
+        return role;
+    }
+
+    /**
+     * Sets role to given value
+     *
+     * @param role value to set instance variable to
+     */
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
 }

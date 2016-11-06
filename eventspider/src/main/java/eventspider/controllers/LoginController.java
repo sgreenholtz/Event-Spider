@@ -1,11 +1,7 @@
 package eventspider.controllers;
 
-import eventspider.beans.LoggedInUser;
-import eventspider.beans.RequiredFieldMissingException;
-import eventspider.beans.User;
-import eventspider.beans.UserRoles;
+import eventspider.beans.*;
 import eventspider.database.UserHandler;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -50,7 +46,6 @@ public class LoginController {
     @RequestMapping(value="register", method=RequestMethod.POST)
     public String registerUser(@ModelAttribute User user)
         throws RequiredFieldMissingException {
-        user.setRole(UserRoles.MEMBER);
         UserHandler handler = new UserHandler();
         handler.register(user);
         loggedInFail = false;
