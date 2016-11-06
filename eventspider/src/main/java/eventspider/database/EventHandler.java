@@ -1,12 +1,13 @@
 package eventspider.database;
 
 import eventspider.beans.*;
+import eventspider.utility.LocalDateFieldBridge;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.io.IOException;
-import java.time.LocalDate;
+import org.joda.time.LocalDate;
 import java.util.*;
 
 /**
@@ -160,11 +161,12 @@ public class EventHandler {
     /**
      * Performs a delete on the database of events with a start date
      * older than the date passed to the function
-     * @param date LocalDate as the upper bound (exclusive) of the deletion
+     * @param localdate LocalDate as the upper bound (exclusive) of the deletion
      * @return true if the deletion was successful
      */
-    public boolean deleteOldItems(LocalDate date) {
-
-        return true;
+    public boolean deleteOldItems(LocalDate localdate) {
+        String hql = "delete from Event where startDate < :date";
+        int rows = session.createQuery(hql).setString("date", localdate.toString("yyyyMMdd")).executeUpdate();
+        return (rows > 0);
     }
 }

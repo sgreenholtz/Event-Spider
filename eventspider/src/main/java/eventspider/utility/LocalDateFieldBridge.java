@@ -4,8 +4,8 @@ import org.hibernate.search.bridge.StringBridge;
 import org.joda.time.LocalDate;
 
 /**
- * Field Bridge to handle org.joda.time.LocalDate
- * String format is yyyyMMdd, to match documentation for DateBridge
+ * Field Bridge to handle org.joda.time.LocalDate String format is yyyyMMdd, to
+ * match documentation for DateBridge.
  * @author Sebastian Greenholtz
  */
 public class LocalDateFieldBridge implements StringBridge {
