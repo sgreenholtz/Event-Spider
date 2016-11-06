@@ -53,6 +53,7 @@
 
     <dependencies>
 
+        <!-- SPRING-BOOT -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -66,14 +67,9 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
+        <!-- /SPRING-BOOT -->
 
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -118,6 +114,7 @@
             <version>6.0.3</version>
         </dependency>
 
+        <!-- HIBERNATE -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -129,6 +126,7 @@
             <artifactId>hibernate-search-orm</artifactId>
             <version>4.5.3.Final</version>
         </dependency>
+        <!-- /HIBERNATE -->
 
         <dependency>
             <groupId>log4j</groupId>
@@ -148,6 +146,7 @@
             <version>3.1.0.CR1</version>
         </dependency>
 
+        <!-- GLASSFISH -->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
@@ -159,7 +158,9 @@
             <artifactId>jersey-client</artifactId>
             <version>2.23.2</version>
         </dependency>
+        <!-- /GLASSFISH -->
 
+        <!-- JACKSON -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -177,28 +178,23 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.8.3</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring-boot-web-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-        </dependency>
+        <!-- /JACKSON -->
 
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
