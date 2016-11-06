@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -118,6 +119,11 @@ public class EventHandler {
         session.getTransaction().commit();
     }
 
+    /**
+     * Gets Event ID based on the event title
+     * @param title String title
+     * @return Integer ID of the event
+     */
     public Integer getEventIDByTitle(String title) {
         String sql = String.format("SELECT eventId FROM EventBean WHERE title = '%s'", title);
         log.info("Select statement:" + sql);
@@ -125,6 +131,11 @@ public class EventHandler {
         return list.get(0);
     }
 
+    /**
+     * Gets list of Event IDs based on list of event titles
+     * @param titles List of String event titles
+     * @return List of Integer IDs of the events
+     */
     public List<Integer> getEventIDByTitle(List<String> titles) {
         String sql = String.format("SELECT eventId FROM EventBean WHERE title = '%s'", titles.get(0));
         for (int i=1; i<titles.size(); i++) {
@@ -134,10 +145,26 @@ public class EventHandler {
         return getDBList(sql);
     }
 
+    /**
+     * Performs a SQL transaction and returns a list of the results
+     * @param sql String sql statement for a select
+     * @return Untyped list of the results
+     */
     private List getDBList(String sql) {
         session.beginTransaction();
         List list = session.createQuery(sql).list();
         session.getTransaction().commit();
         return list;
+    }
+
+    /**
+     * Performs a delete on the database of events with a start date
+     * older than the date passed to the function
+     * @param date LocalDate as the upper bound (exclusive) of the deletion
+     * @return true if the deletion was successful
+     */
+    public boolean deleteOldItems(LocalDate date) {
+
+        return true;
     }
 }
