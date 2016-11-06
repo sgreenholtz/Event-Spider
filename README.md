@@ -19,10 +19,6 @@ I'm converting this project from just Java to Spring-MVC using Spring Boot. Clea
 #### Progress
 Check out my [project wiki](https://github.com/sgreenholtz/Event-Spider/wiki) for detailed updates.
 
-- 7/24/16: I reconfigured the web modules so a lot of what was working previously is mysteriously broken. Working on
-fixing it now.
-- 9/11/16: Web module has been fixed
-
 #### Current State
 As of the beginning of the Fall 2016 semester, the following components have been built:
 - User registration and login
