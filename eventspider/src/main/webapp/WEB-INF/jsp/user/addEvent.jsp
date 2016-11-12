@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <% session.setAttribute("title", "Add Events"); %>
-<c:import url="header.jsp"/>
+<c:import url="../header.jsp"/>
 
 <form:form class="form-horizontal" action="addEventManual" method="post" modelAttribute="event">
     <fieldset>
@@ -87,4 +87,4 @@
         </div>
     </fieldset>
 </form:form>
-<c:import url="footer.jsp"/>
+<c:import url="../footer.jsp"/>

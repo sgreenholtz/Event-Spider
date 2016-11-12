@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <% session.setAttribute("title", "Search Event"); %>
-<c:import url="header.jsp"/>
+<c:import url="../header.jsp"/>
 
 <form:form class="form-horizontal" action="search" method="post" modelAttribute="search">
     <fieldset>
@@ -59,4 +59,4 @@
     </fieldset>
 </form:form>
 
-<c:import url="footer.jsp" />
+<c:import url="../footer.jsp" />
