@@ -3,8 +3,8 @@ eventspider/.idea
 eventspider/indexes
 eventspider/logs
 eventspider/src/main/resources/*.xml
-eventspider/src/main/resources/*.properties
-eventspider/src/main/resources/*.ini
+eventspider/src/main/resources/localhost.properties
+eventspider/src/main/resources/log4j.properties
 eventspider/target
 EventCrawlWebService/
 .idea/

@@ -11,28 +11,27 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  * Configurations for Spring Security, from <a href="https://spring.io/guides/gs/securing-web/">this tutorial</a>
  * @author Sebastian Greenholtz
  */
-@Configuration
+
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("", "/search", "/searchResult", "/event-details   ").permitAll()
-                    .anyRequest().authenticated()
-                    .and()
+                .antMatchers("/css/**", "/index").permitAll()
+                .antMatchers("/user/**").hasRole("USER")
+                .and()
                 .formLogin()
-                    .loginPage("/login")
-                    .permitAll()
-                    .and()
-                .logout()
-                    .permitAll();
+                .loginPage("/login").failureUrl("/login-error");
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("MEMBER");
+        auth
+                .inMemoryAuthentication()
+                .withUser("user").password("password").roles("USER");
     }
+
 }
