@@ -2,7 +2,6 @@ package eventspider.controllers;
 
 import eventspider.beans.EventBean;
 import eventspider.database.EventHandler;
-import eventspider.utility.MySqlDateTimeFormatter;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
