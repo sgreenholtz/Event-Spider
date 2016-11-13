@@ -2,6 +2,7 @@ package testing;
 
 import eventspider.beans.LoggedInUser;
 import eventspider.beans.RequiredFieldMissingException;
+import eventspider.beans.Roles;
 import eventspider.beans.User;
 import eventspider.database.SessionFactoryProvider;
 import eventspider.database.UserHandler;
@@ -52,7 +53,7 @@ public class UserHandlerTest {
         loggedInUser.setEmail("test@user.com");
         loggedInUser.setFirstName("Test");
         loggedInUser.setLastName("User");
-        loggedInUser.setRole("member");
+        loggedInUser.setRole(Roles.MEMBER);
         return loggedInUser;
     }
 
@@ -62,7 +63,7 @@ public class UserHandlerTest {
         user.setFirstName("Test");
         user.setLastName("User");
         user.setPassword(DigestUtils.sha1Hex("test123"));
-        user.setRole("member");
+        user.setRole(Roles.MEMBER);
 
         userInDB = user;
 
@@ -135,7 +136,7 @@ public class UserHandlerTest {
         user.setFirstName("Test2");
         user.setLastName("User2");
         user.setPassword(DigestUtils.sha1Hex("test123"));
-        user.setRole("member");
+        user.setRole(Roles.MEMBER);
 
         handler.register(user);
 
