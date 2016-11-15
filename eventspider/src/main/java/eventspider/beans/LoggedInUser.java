@@ -2,7 +2,7 @@ package eventspider.beans;
 
 /**
  * Class representing a logged in user, to be used for operations
- * across the site. Key difference is password is not available from this class.
+ * across the site. Uses only userID and role for validation
  * @author Sebastian Greenholtz
  */
 public class LoggedInUser extends User {
@@ -11,9 +11,6 @@ public class LoggedInUser extends User {
 
     public LoggedInUser(User user) {
         this.userID = user.userID;
-        this.email = user.email;
-        this.firstName = user.firstName;
-        this.lastName = user.lastName;
         this.role = user.role;
     }
 
@@ -24,9 +21,6 @@ public class LoggedInUser extends User {
      */
     public boolean equals(LoggedInUser user) {
         return ((this.userID == user.userID) &&
-                (this.email.equals(user.email)) &&
-                (this.firstName.equals(user.firstName)) &&
-                (this.lastName.equals(user.lastName)) &&
                 (this.role.equals(user.role)));
     }
 }
