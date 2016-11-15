@@ -4,11 +4,10 @@ eventspider/indexes
 eventspider/logs
 eventspider/src/main/resources/*.xml
 eventspider/src/main/resources/localhost.properties
-eventspider/src/main/resources/log4j.properties
 eventspider/target
 EventCrawlWebService/
 .idea/
-RESTEventService/
 eventspider/eventspider.iml
 home/
 libs/
+RESTEventService/

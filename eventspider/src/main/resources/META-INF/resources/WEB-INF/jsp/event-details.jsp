@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Event Details"); %>
-<c:import url="../header.jsp"/>
+<c:import url="header.jsp"/>
 <%--<h3 class="text-danger">${addedMessage}</h3>--%>
 <%--TODO: Finish testing this page and the controller--%>
 <h1>${event.title}</h1>
@@ -46,4 +46,4 @@
 </c:choose>
 <a href="searchResult" class="btn btn-success btn-lg">Return to Results</a>
 <%--<c:remove var="addedMessage" />--%>
-<c:import url="../footer.jsp"/>
+<c:import url="footer.jsp"/>

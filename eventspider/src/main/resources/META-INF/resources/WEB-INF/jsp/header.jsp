@@ -68,7 +68,7 @@
                             <li class=""><a href="login">Log In</a></li>
                         </c:when>
                         <c:otherwise>
-                            <li><a href="myEventsController">My Events</a></li>
+                            <li><a href="profile">My Profile</a></li>
                         </c:otherwise>
                     </c:choose>
                     <c:if test="${userID=='admin'}">
