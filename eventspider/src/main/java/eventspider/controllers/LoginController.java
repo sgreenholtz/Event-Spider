@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 /**
  * Controller for Login
  * @author Sebastian Greenholtz
@@ -24,7 +27,8 @@ public class LoginController {
     }
 
     @RequestMapping(value="verify", method=RequestMethod.POST)
-    public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model) {
+    public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model,
+                              HttpServletRequest request) {
         User attempt = new User(email, password);
         UserHandler handler = new UserHandler();
         user = handler.logIn(attempt);
@@ -33,6 +37,7 @@ public class LoginController {
             model.addAttribute("notLoggedIn", loggedInFail);
             return "login";
         } else {
+            request.getSession().setAttribute("user", user);
             return "index";
         }
     }
