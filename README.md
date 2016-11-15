@@ -8,13 +8,10 @@ If you like what you see, you can create an account to save events to your perso
 Spider will spin you a web of suggestions based on what you've saved in the past. You can set email reminders, send events
 to your friends, or just keep it all to yourself and brag about how much fun you're having. Event Spider won't judge.
 
-#### What's with this branch?
-I'm converting this project from just Java to Spring-MVC using Spring Boot. Cleaner, more intuitive, easier to build and deploy
-
-#### Technologies
-- Event Spider is built using plain ol' Java, with a MySQL database and Tomcat server.
-- Web crawling is performed using [Apache Nutch] (http://nutch.apache.org/) with [Solr](http://lucene.apache.org/solr/) to parse the results
-- Current configuration runs only on a local machine, however the MVP will be launched on [DigitalOcean](https://www.digitalocean.com)
+#### Digital Ocean
+Note: The server may not be running when you access the website. I'm still working on development. If there is interest
+I will keep it running all the time.
+[Link](http://138.68.1.193:8090)
 
 #### Progress
 Check out my [project wiki](https://github.com/sgreenholtz/Event-Spider/wiki) for detailed updates.
