@@ -21,7 +21,7 @@ public class User {
     @Column(name = "pass")
     private String password;
     @Column(name = "first_name")
-    private String firstName;
+    protected String firstName;
     @Column(name = "last_name")
     private String lastName;
     @Column(name="roles")

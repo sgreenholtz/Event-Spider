@@ -11,6 +11,7 @@ public class LoggedInUser extends User {
 
     public LoggedInUser(User user) {
         this.userID = user.userID;
+        this.firstName = user.firstName;
         this.role = user.role;
     }
 

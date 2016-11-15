@@ -1,5 +1,7 @@
 package testing;
 
+import eventspider.beans.Roles;
+
 /**
  * Simple main method testing
  * @author Sebastian Greenholtz
@@ -7,8 +9,7 @@ package testing;
 public class PSVM {
 
     public static void main(String[] args) throws Exception{
-        String str = "2017-04-15 19:00:00";
-
+        System.out.println(Roles.MEMBER.ordinal());
 
     }
 }

@@ -62,17 +62,20 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
                     <li><a href="search-form">Search</a></li>
-                    <li><a href="add-event-form">Add Custom Event</a></li>
                     <c:choose>
-                        <c:when test="${userID==null}">
+                        <c:when test="${user==null}">
                             <li class=""><a href="login">Log In</a></li>
                         </c:when>
                         <c:otherwise>
                             <li><a href="profile">My Profile</a></li>
+                            <li><a href="add-event-form">Add Custom Event</a></li>
                         </c:otherwise>
                     </c:choose>
-                    <c:if test="${userID=='admin'}">
+                    <c:if test="${user.role=='admin'}">
                         <li><a href="admin-page">Admin Page</a></li>
+                    </c:if>
+                    <c:if test="${user!=null}">
+                        <li>Welcome ${user.firstName}</li>
                     </c:if>
                 </ul>
                 </div>
