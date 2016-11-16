@@ -79,6 +79,8 @@
                                     <c:if test="${isAdmin}">
                                         <li><a href="admin-page">Admin Page</a></li>
                                     </c:if>
+                                    <li class="divider"></li>
+                                    <li><a href="logout">Log Out</a></li>
                                 </ul>
                             </li>
                         </c:otherwise>

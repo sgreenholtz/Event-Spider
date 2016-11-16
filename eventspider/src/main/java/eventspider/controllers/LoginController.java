@@ -33,8 +33,7 @@ public class LoginController {
         UserHandler handler = new UserHandler();
         user = handler.logIn(attempt);
         if (user == null) {
-            loggedInFail = true;
-            model.addAttribute("notLoggedIn", loggedInFail);
+            model.addAttribute("notLoggedIn", true);
             return "login";
         } else {
             request.getSession().setAttribute("activeuser", user);
@@ -54,6 +53,12 @@ public class LoginController {
         UserHandler handler = new UserHandler();
         handler.register(user);
         loggedInFail = false;
+        return "login";
+    }
+
+    @GetMapping(value="logout")
+    public String logOut(Model model) {
+        model.addAttribute("isLogout", true);
         return "login";
     }
 }

@@ -7,6 +7,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Home"); %>
 <c:import url="header.jsp" />
+<c:if test="${doesNotHavePermission}">
+    <div class="alert alert-danger" role="alert">Sorry, you do not have permission to access that page.</div>
+</c:if>
 <h1>Search for Events in Your City</h1>
 <div class="jumbotron">
     <h1>Let's Go Out Tonight!</h1>

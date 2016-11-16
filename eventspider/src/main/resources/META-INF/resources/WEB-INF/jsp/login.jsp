@@ -11,11 +11,14 @@
 <% session.setAttribute("title", "Log In"); %>
 <c:import url="header.jsp"/>
 
-<c:if test="${param.error}">
+<c:if test="${notLoggedIn}">
     <div class="alert alert-danger" role="alert">Oops we didn't find you did you mean to <a href="register">register</a>?</div>
 </c:if>
-<c:if test="${param.logout}">
+<c:if test="${isLogout}">
     <div class="alert alert-success" role="alert">You have been logged out successfully.</div>
+</c:if>
+<c:if test="${restrictedAccess}">
+    <div class="alert alert-warning" role="alert">You need to be logged in to view that page.</div>
 </c:if>
 <form:form id="loginForm" class="form-horizontal" action="verify" method="post" modelAttribute="user">
     <fieldset>
