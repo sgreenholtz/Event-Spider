@@ -12,17 +12,15 @@ import javax.servlet.http.HttpSession;
 /**
  * Controller for Login
  * @author Sebastian Greenholtz
+ * TODO: Figure out error on incorrect login
  */
 @Controller
 public class LoginController {
 
-    private LoggedInUser user;
-    private Boolean loggedInFail = false;
-
     @RequestMapping(value="login", method=RequestMethod.GET)
     public String loginForm(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("notLoggedIn", loggedInFail);
+        model.addAttribute("notLoggedIn", false);
         return "login";
     }
 
@@ -31,7 +29,7 @@ public class LoginController {
                               HttpServletRequest request) {
         User attempt = new User(email, password);
         UserHandler handler = new UserHandler();
-        user = handler.logIn(attempt);
+        LoggedInUser user = handler.logIn(attempt);
         if (user == null) {
             model.addAttribute("notLoggedIn", true);
             return "login";
@@ -52,7 +50,6 @@ public class LoginController {
         throws RequiredFieldMissingException {
         UserHandler handler = new UserHandler();
         handler.register(user);
-        loggedInFail = false;
         return "login";
     }
 

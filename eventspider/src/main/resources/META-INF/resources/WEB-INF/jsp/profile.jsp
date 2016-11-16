@@ -1,3 +1,16 @@
+<%--
+  User Profile
+
+  User: Kolya
+  Date: 2016-11-15
+  Time: 9:12 PM
+  todo: finish this view
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% session.setAttribute("title", "Profile"); %>
+<c:import url="header.jsp"/>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -155,3 +168,5 @@
         </div>
     </div>
 </div>
+
+<c:import url="footer.jsp" />
