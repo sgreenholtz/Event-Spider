@@ -37,7 +37,7 @@ public class LoginController {
             model.addAttribute("notLoggedIn", loggedInFail);
             return "login";
         } else {
-            request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("activeuser", user);
             return "index";
         }
     }

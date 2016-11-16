@@ -6,6 +6,7 @@
   Time: 3:06 PM
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <c:set var="staticDir" value="../../static" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
@@ -60,23 +61,28 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <div id="navbarTextLarge">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="search-form">Search</a></li>
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li><a href="search-form"><span class="glyphicon glyphicon-search"></span> Search</a></li>
                     <c:choose>
-                        <c:when test="${user==null}">
-                            <li class=""><a href="login">Log In</a></li>
+                        <c:when test="${activeuser.userID eq null}">
+                            <li class=""><a href="login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
                         </c:when>
                         <c:otherwise>
-                            <li><a href="profile">My Profile</a></li>
-                            <li><a href="add-event-form">Add Custom Event</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <span class="glyphicon glyphicon-user">
+                                    </span> ${activeuser.firstName}<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="profile">My Profile</a></li>
+                                    <li><a href="add-event-form">Add Custom Event</a></li>
+                                    <spring:eval expression="activeuser.role == T(eventspider.beans.Roles).ADMINISTRATOR" var="isAdmin" />
+                                    <c:if test="${isAdmin}">
+                                        <li><a href="admin-page">Admin Page</a></li>
+                                    </c:if>
+                                </ul>
+                            </li>
                         </c:otherwise>
                     </c:choose>
-                    <c:if test="${user.role=='admin'}">
-                        <li><a href="admin-page">Admin Page</a></li>
-                    </c:if>
-                    <c:if test="${user!=null}">
-                        <li>Welcome ${user.firstName}</li>
-                    </c:if>
                 </ul>
                 </div>
             </div>
