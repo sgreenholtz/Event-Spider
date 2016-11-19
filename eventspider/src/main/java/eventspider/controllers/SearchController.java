@@ -38,12 +38,12 @@ public class SearchController {
         if (search.getEventfulSearch()) {
             EventfulSearch eventfulSearcher = new EventfulSearch(search);
             eventsList.addAll(eventfulSearcher.performSearch());
+            EventHandler eventHandler = new EventHandler();
+            for (EventBean event : eventsList) {
+                eventHandler.addEvent(event);
+            }
         }
-        EventHandler eventHandler = new EventHandler();
-        for (EventBean event : eventsList) {
-            eventHandler.addEvent(event);
-        }
-        //TODO: Debug adding event error
+
         model.addAttribute("eventsList", eventsList);
         model.addAttribute("search", search);
         return "searchResult";
