@@ -1,11 +1,15 @@
 package eventspider.controllers;
 
+import eventspider.beans.User;
 import eventspider.database.EventHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Controller to get and return the details page for a particular event
@@ -17,6 +21,16 @@ public class EventDetailsController {
     @RequestMapping(value="eventDetails", method = RequestMethod.GET)
     public String getEventDetails(@RequestParam int id, Model model){
         EventHandler handler = new EventHandler();
+        model.addAttribute("event", handler.getEventByID(id));
+        return "event-details";
+    }
+
+    @PostMapping(value="addEventToUser")
+    public String addEventToUser(@RequestParam int id, Model model, HttpServletRequest request) {
+        EventHandler handler = new EventHandler();
+        User user = (User)request.getSession().getAttribute("activeuser");
+        boolean success = handler.saveEventToUser(user.getUserID(), id);
+        model.addAttribute("success", success);
         model.addAttribute("event", handler.getEventByID(id));
         return "event-details";
     }

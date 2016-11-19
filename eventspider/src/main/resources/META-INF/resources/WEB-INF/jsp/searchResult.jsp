@@ -10,7 +10,15 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% session.setAttribute("title", "Search Results"); %>
 <c:import url="header.jsp"/>
-<h3>Found ${fn:length(eventsList)} events matching "${search.keyword}"</h3>
+<c:choose>
+    <c:when test="${search.keyword eq ''}">
+        <h3>Found ${fn:length(eventsList)} events in "${search.location}"</h3>
+    </c:when>
+    <c:otherwise>
+        <h3>Found ${fn:length(eventsList)} events matching "${search.keyword}"</h3>
+    </c:otherwise>
+</c:choose>
+
 <table class="table table-striped table-hover ">
     <thead>
     <tr>
@@ -25,7 +33,7 @@
         <tr>
             <td><a href="eventDetails?id=${event.eventId}" class="btn btn-success btn-xs">View</a></td>
             <td><div class="tableOverflow>">${event.title}</div></td>
-            <td><div class="tableOverflow">${event.startDate}</div></td>
+            <td><div class="tableOverflow">${event.startDate}</div></td> <!-- TODO: fix date formatting -->
             <td>${event.venueAddress}, ${event.city} ${event.state}</td>
         </tr>
     </c:forEach>

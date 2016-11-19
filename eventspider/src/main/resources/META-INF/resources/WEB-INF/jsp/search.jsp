@@ -31,25 +31,24 @@
         <div class="form-group">
             <form:label path="dateStart" for="dateStart" class="col-lg-2 control-label">Start Date:</form:label>
             <div class="col-lg-10">
-                <form:input path="dateStart" type="date" class="date form-control" />
+                <form:input path="dateStart" type="text" class="date form-control" />
             </div>
         </div>
         <div class="form-group">
             <form:label path="dateEnd" for="dateEnd" class="col-lg-2 control-label">End Date:</form:label>
             <div class="col-lg-10">
-                <form:input path="dateEnd" type="date" class="date form-control" />
+                <form:input path="dateEnd" type="text" class="date form-control" />
             </div>
         </div>
-        <div class="form-group">
-            <label for="dateEnd" class="col-lg-2 control-label">Sources:</label>
-            <div class="col-lg-6">
-                <label class="col-lg-2">Database</label>
-                <form:checkbox path="databaseSearch" class="col-lg-4 form-control" />
-            </div>
-            <div class="col-lg-6 col-lg-offset-2">
-                <label class="col-lg-2">Eventful</label>
-                <form:checkbox path="eventfulSearch" class="col-lg-4 form-control" />
-            </div>
+        <div class="row">
+            <label for="dateEnd" class="col-md-2 control-label">Sources:</label>
+            <label class="col-md-1">Database</label>
+            <form:checkbox path="databaseSearch" class="col-md-1" />
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <label class="col-md-1">Eventful</label>
+            <form:checkbox path="eventfulSearch" class="col-md-1" />
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">

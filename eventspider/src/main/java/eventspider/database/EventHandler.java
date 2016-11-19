@@ -85,12 +85,17 @@ public class EventHandler {
      */
     public boolean saveEventToUser(Integer userID, Integer eventID) {
         UserSavedEvents savedEvent = new UserSavedEvents();
-        savedEvent.setEventID(eventID);
-        savedEvent.setUserID(userID);
-        session.beginTransaction();
-        session.save(savedEvent);
-        session.getTransaction().commit();
-        log.info(String.format("Event %s saved to user %s", eventID, userID));
+        try {
+            savedEvent.setEventID(eventID);
+            savedEvent.setUserID(userID);
+            session.beginTransaction();
+            session.save(savedEvent);
+            session.getTransaction().commit();
+            log.info(String.format("Event %s saved to user %s", eventID, userID));
+        } catch (Exception e) {
+            log.error(e);
+            return false;
+        }
         return true;
     }
 

@@ -9,8 +9,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Event Details"); %>
 <c:import url="header.jsp"/>
-<%--<h3 class="text-danger">${addedMessage}</h3>--%>
-<%--TODO: Finish testing this page and the controller--%>
+<c:choose>
+    <c:when test="${success}">
+        <div class="alert alert-success">
+            <strong>Success!</strong> Event saved to My Events.
+        </div>
+    </c:when>
+    <c:otherwise>
+        <div class="alert alert-danger">
+            <strong>Error:</strong> Something went wrong while trying to save event.
+        </div>
+    </c:otherwise>
+</c:choose>
 <h1>${event.title}</h1>
 <c:choose>
     <c:when test="${empty event.description}">
@@ -22,11 +32,11 @@
 </c:choose>
 <h4>When</h4>
 <c:choose>
-    <c:when test="${empty event.stopTime}">
-        <p>${event.startTime}</p>
+    <c:when test="${empty event.endTime}">
+        <p>${event.startDate} at ${event.startTime}</p>
     </c:when>
     <c:otherwise>
-        <p>${event.startTime} to ${event.stopTime}</p>
+        <p>${event.startDate} from ${event.startTime} to ${event.endTime}</p>
     </c:otherwise>
 </c:choose>
 <h4>Where</h4>
@@ -34,14 +44,13 @@
 <p><a href="${event.url}" target="_blank" class="btn btn-warning">Learn More</a></p>
 <c:choose>
     <c:when test="${empty userID}">
-        <c:set var="returnPageEvent" value="/eventDetails?id=${event.eventId}" scope="session" />
-        <a href="login" class="btn btn-danger btn-lg">Log In to Add</a>
+        <a href="login" class="btn btn-danger btn-lg">Log In to Save</a>
     </c:when>
-    <c:when test="${returnPage == 'my-events'}">
-        <a href="#" class="btn btn-danger btn-lg">Delete from My Events</a>
-    </c:when>
+    <%--<c:when test="${returnPage == 'my-events'}">--%>
+        <%--<a href="#" class="btn btn-danger btn-lg">Delete from My Events</a>--%>
+    <%--</c:when>--%>
     <c:otherwise>
-        <a href="addEventToUser?id=${event.eventId}" class="btn btn-danger btn-lg">Add to My Events</a>
+        <a href="addEventToUser?id=${event.eventId}" class="btn btn-danger btn-lg">Save to My Events</a>
     </c:otherwise>
 </c:choose>
 <a href="searchResult" class="btn btn-success btn-lg">Return to Results</a>

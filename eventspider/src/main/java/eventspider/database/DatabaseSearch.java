@@ -69,11 +69,11 @@ public class DatabaseSearch {
     private Query createQuery() throws Exception {
         List<Query> queries = new ArrayList<>();
 
-        if (search.getKeyword() != null) {
+        if (!(search.getKeyword().equals(""))) {
             queries.add(createKeywordQuery());
         }
 
-        if (search.getLocation() != null) {
+        if (!(search.getLocation().equals(""))) {
             queries.add(createLocationQuery());
         }
 
@@ -119,7 +119,7 @@ public class DatabaseSearch {
      */
     private Query createLocationQuery() {
         return eventQB.keyword()
-                .onFields("venueAddress", "city", "state", "postalCode")
+                .onFields("city", "state", "postalCode")
                 .matching(search.getLocation())
                 .createQuery();
     }
