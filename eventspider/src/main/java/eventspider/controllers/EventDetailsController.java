@@ -4,10 +4,7 @@ import eventspider.beans.User;
 import eventspider.database.EventHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,7 +22,7 @@ public class EventDetailsController {
         return "event-details";
     }
 
-    @PostMapping(value="addEventToUser")
+    @GetMapping(value="addEventToUser")
     public String addEventToUser(@RequestParam int id, Model model, HttpServletRequest request) {
         EventHandler handler = new EventHandler();
         User user = (User)request.getSession().getAttribute("activeuser");

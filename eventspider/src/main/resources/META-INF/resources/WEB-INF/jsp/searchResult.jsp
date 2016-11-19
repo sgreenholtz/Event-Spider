@@ -12,7 +12,7 @@
 <c:import url="header.jsp"/>
 <c:choose>
     <c:when test="${search.keyword eq ''}">
-        <h3>Found ${fn:length(eventsList)} events in "${search.location}"</h3>
+        <h3>Found ${fn:length(eventsList)} events in ${search.location}</h3>
     </c:when>
     <c:otherwise>
         <h3>Found ${fn:length(eventsList)} events matching "${search.keyword}"</h3>

@@ -1,6 +1,6 @@
 package testing;
 
-import eventspider.DAL.EventfulSearch;
+import eventspider.Eventful.EventfulSearch;
 import eventspider.Eventful.EventItem;
 import eventspider.Eventful.EventfulResponse;
 import eventspider.Eventful.EventsList;

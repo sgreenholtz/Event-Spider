@@ -1,6 +1,6 @@
 package eventspider.controllers;
 
-import eventspider.DAL.*;
+import eventspider.Eventful.EventfulSearch;
 import eventspider.beans.EventBean;
 import eventspider.beans.SearchBean;
 import eventspider.database.DatabaseSearch;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Controller for search functions

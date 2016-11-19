@@ -1,9 +1,5 @@
-package eventspider.DAL;
+package eventspider.Eventful;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import eventspider.Eventful.EventItem;
-import eventspider.Eventful.EventfulResponse;
-import eventspider.Eventful.EventsList;
 import eventspider.beans.EventBean;
 import eventspider.beans.EventFactory;
 import eventspider.beans.SearchBean;
@@ -11,11 +7,6 @@ import eventspider.utility.WebServiceUtility;
 import org.apache.log4j.Logger;
 import org.joda.time.LocalDate;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +36,7 @@ public class EventfulSearch {
         String url = "http://api.eventful.com/json/events/search?";
         url += "app_key=" + eventfulKey;
         url += constructParams();
+        logger.info("REST URL: " + url);
         return url;
     }
 
