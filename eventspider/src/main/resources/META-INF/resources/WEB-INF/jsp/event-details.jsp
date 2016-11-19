@@ -9,18 +9,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% session.setAttribute("title", "Event Details"); %>
 <c:import url="header.jsp"/>
-<c:choose>
-    <c:when test="${success}">
-        <div class="alert alert-success">
-            <strong>Success!</strong> Event saved to My Events.
-        </div>
-    </c:when>
-    <c:otherwise>
-        <div class="alert alert-danger">
-            <strong>Error:</strong> Something went wrong while trying to save event.
-        </div>
-    </c:otherwise>
-</c:choose>
+<c:if test="${success ne null}">
+    <c:choose>
+        <c:when test="${success}">
+            <div class="alert alert-success">
+                <strong>Success!</strong> Event saved to My Events.
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="alert alert-danger">
+                <strong>Error:</strong> Something went wrong while trying to save event.
+            </div>
+        </c:otherwise>
+    </c:choose>
+</c:if>
 <h1>${event.title}</h1>
 <c:choose>
     <c:when test="${empty event.description}">
@@ -43,7 +45,7 @@
 <p>${event.venueAddress}, ${event.state} ${event.city} ${event.postalCode}</p>
 <p><a href="${event.url}" target="_blank" class="btn btn-warning">Learn More</a></p>
 <c:choose>
-    <c:when test="${empty userID}">
+    <c:when test="${empty activeuser}">
         <a href="login" class="btn btn-danger btn-lg">Log In to Save</a>
     </c:when>
     <%--<c:when test="${returnPage == 'my-events'}">--%>
@@ -54,5 +56,4 @@
     </c:otherwise>
 </c:choose>
 <a href="searchResult" class="btn btn-success btn-lg">Return to Results</a>
-<%--<c:remove var="addedMessage" />--%>
 <c:import url="footer.jsp"/>
