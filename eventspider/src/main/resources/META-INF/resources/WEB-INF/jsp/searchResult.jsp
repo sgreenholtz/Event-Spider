@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>
 <% session.setAttribute("title", "Search Results"); %>
 <c:import url="header.jsp"/>
 <c:choose>
@@ -33,7 +34,7 @@
         <tr>
             <td><a href="eventDetails?id=${event.eventId}" class="btn btn-success btn-xs">View</a></td>
             <td><div class="tableOverflow>">${event.title}</div></td>
-            <td><div class="tableOverflow">${event.startDate}</div></td> <!-- TODO: fix date formatting -->
+            <td><div class="tableOverflow"><joda:format value="${event.startDate}" style="M-"/></div></td>
             <td>${event.venueAddress}, ${event.city} ${event.state}</td>
         </tr>
     </c:forEach>
