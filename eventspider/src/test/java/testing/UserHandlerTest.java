@@ -52,7 +52,6 @@ public class UserHandlerTest {
         loggedInUser.setUserID(1);
         loggedInUser.setEmail("test@user.com");
         loggedInUser.setFirstName("Test");
-        loggedInUser.setLastName("User");
         loggedInUser.setRole(Roles.MEMBER);
         return loggedInUser;
     }
@@ -61,7 +60,6 @@ public class UserHandlerTest {
         User user = new User();
         user.setEmail("test@user.com");
         user.setFirstName("Test");
-        user.setLastName("User");
         user.setPassword(DigestUtils.sha1Hex("test123"));
         user.setRole(Roles.MEMBER);
 
@@ -134,7 +132,6 @@ public class UserHandlerTest {
         User user = new User();
         user.setEmail("test2@user.com");
         user.setFirstName("Test2");
-        user.setLastName("User2");
         user.setPassword(DigestUtils.sha1Hex("test123"));
         user.setRole(Roles.MEMBER);
 

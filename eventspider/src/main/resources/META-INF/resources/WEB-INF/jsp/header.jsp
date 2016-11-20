@@ -66,9 +66,10 @@
                     <c:choose>
                         <c:when test="${activeuser.userID eq null}">
                             <li class=""><a href="login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                            <li class=""><a href="register"><span class="glyphicon glyphicon-edit"></span> Register</a></li>
                         </c:when>
                         <c:otherwise>
-                            <li class="dropdown">
+                            <li class="dropdown" id="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <span class="glyphicon glyphicon-user">
                                     </span> ${activeuser.firstName}<span class="caret"></span></a>

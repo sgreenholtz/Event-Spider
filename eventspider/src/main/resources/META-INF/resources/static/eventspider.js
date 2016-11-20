@@ -16,13 +16,14 @@ function dateTime() {
 
 // Animates the drop down menu in the nav bar
 function dropDownMenu() {
-    $(".dropdown-toggle").click(function() {
+    $(".dropdown-toggle").on('click', function() {
         $(".dropdown").toggleClass("open");
-        if ($(this).attr("aria-expanded")=="true") {
-            $(this).attr("aria-expanded", "false");
+        var menu = $(this);
+        if (menu.attr("aria-expanded")=="true") {
+            menu.attr("aria-expanded", "false");
         } else {
-            $(this).attr("aria-expanded", "true");
+            menu.attr("aria-expanded", "true");
         }
-
+        return false;
     });
 }

@@ -2,6 +2,7 @@ package eventspider.controllers;
 
 import eventspider.Eventful.EventfulSearch;
 import eventspider.beans.EventBean;
+import eventspider.beans.EventBeanComparator;
 import eventspider.beans.SearchBean;
 import eventspider.database.DatabaseSearch;
 import eventspider.database.EventHandler;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 /**
  * Controller for search functions
@@ -28,7 +30,8 @@ public class SearchController {
 
     @RequestMapping(value="search", method=RequestMethod.POST)
     public String doSearch(@ModelAttribute SearchBean search, Model model, HttpServletRequest request) throws Exception {
-        List<EventBean> eventsList = new ArrayList<>();
+        EventBeanComparator comparator = new EventBeanComparator();
+        TreeSet<EventBean> eventsList = new TreeSet<EventBean>(comparator);
 
         if (search.getDatabaseSearch()) {
             DatabaseSearch dbSearcher = new DatabaseSearch(search);
@@ -44,7 +47,7 @@ public class SearchController {
             }
         }
         request.getSession().setAttribute("eventsList", eventsList);
-        model.addAttribute("search", search);
+        request.getSession().setAttribute("search", search);
         return "searchResult";
     }
 
