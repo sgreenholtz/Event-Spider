@@ -15,6 +15,10 @@
     animation: spin 2s linear infinite;
 }
 
+.dropdown-menu {
+    z-index: 999999;
+}
+
 #myModal {
     position: absolute;
     left: 50%;
