@@ -1,5 +1,8 @@
 package eventspider.beans;
 
+import eventspider.database.EventHandler;
+import eventspider.database.UserHandler;
+
 /**
  * Contructs factory beans
  * @author Sebastian Greenholtz
@@ -20,8 +23,9 @@ public class ProfileFactory {
     public Profile getProfile() {
         Profile profile = new Profile();
         //get the path to the image
-        //get the list of events
-        return profile;
+        UserHandler handler = new UserHandler();
+        profile.setEvents(handler.getEventsForUser(userId));
 
+        return profile;
     }
 }

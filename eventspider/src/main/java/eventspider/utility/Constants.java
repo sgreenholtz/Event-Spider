@@ -1,4 +1,4 @@
-package eventspider.DAL;
+package eventspider.utility;
 
 /**
  * A utility class for referencing various constants across the data access layer

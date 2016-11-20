@@ -1,4 +1,4 @@
-package eventspider.DAL;
+package eventspider.utility;
 
 import org.apache.log4j.Logger;
 
