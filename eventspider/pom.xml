@@ -24,16 +24,6 @@
 
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                <!--<version>3.5.1</version>-->
-                <!--<configuration>-->
-                    <!--<source>1.7</source>-->
-                    <!--<target>1.7</target>-->
-                    <!--<encoding>${project.build.sourceEncoding}</encoding>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -52,7 +42,8 @@
 
     <dependencies>
 
-        <!-- SPRING-BOOT -->
+
+        <!-- <editor-fold desc="SPRING-BOOT" -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -64,7 +55,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- /SPRING-BOOT -->
+        <!-- </editor-fold> -->
 
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -123,11 +114,11 @@
         </dependency>
         <!-- /HIBERNATE -->
 
+        <!-- LOG4J -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
-            <scope>build</scope>
         </dependency>
 
         <dependency>
@@ -135,6 +126,7 @@
             <artifactId>apache-log4j-extras</artifactId>
             <version>1.2.17</version>
         </dependency>
+        <!-- /LOG4J -->
 
         <!-- JODA TIME -->
         <dependency>
