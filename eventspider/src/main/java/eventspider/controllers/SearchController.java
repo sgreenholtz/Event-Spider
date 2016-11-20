@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class SearchController {
     }
 
     @RequestMapping(value="search", method=RequestMethod.POST)
-    public String doSearch(@ModelAttribute SearchBean search, Model model) throws Exception {
+    public String doSearch(@ModelAttribute SearchBean search, Model model, HttpServletRequest request) throws Exception {
         List<EventBean> eventsList = new ArrayList<>();
 
         if (search.getDatabaseSearch()) {
@@ -42,9 +43,13 @@ public class SearchController {
                 eventHandler.addEvent(event);
             }
         }
-
-        model.addAttribute("eventsList", eventsList);
+        request.getSession().setAttribute("eventsList", eventsList);
         model.addAttribute("search", search);
+        return "searchResult";
+    }
+
+    @GetMapping(value="searchResult")
+    public String returnToResults() {
         return "searchResult";
     }
 
