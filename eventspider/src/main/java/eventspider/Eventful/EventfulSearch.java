@@ -36,7 +36,7 @@ public class EventfulSearch {
         String url = "http://api.eventful.com/json/events/search?";
         url += "app_key=" + eventfulKey;
         url += constructParams();
-        logger.info("REST URL: " + url);
+        logger.info(url);
         return url;
     }
 
@@ -82,6 +82,9 @@ public class EventfulSearch {
         String year = Integer.toString(date.getYear());
         String month = Integer.toString(date.getMonthOfYear());
         String day = Integer.toString(date.getDayOfMonth());
+        if (day.length() == 1) {
+            day = "0" + day;
+        }
         return year + month + day + "00";
     }
 
