@@ -182,7 +182,10 @@ public class EventHandler {
      */
     public List<EventBean> getEventsForUser(Integer userId) {
         String sql = "select Events.* from Events inner join UserSavedEvents using (event_id) where UserSavedEvents.user_id=" + userId;
-        List<EventBean> list = session.createSQLQuery(sql).list();
+        List<EventBean> list = new ArrayList<>();
+        for (Object o : session.createSQLQuery(sql).list()) {
+            list.add((EventBean)o);
+        }
         return list;
     }
 }
