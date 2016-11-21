@@ -24,7 +24,7 @@
         <property name="hibernate.search.default.directory_provider">filesystem</property>
         <property name="hibernate.search.default.indexBase">/home/sebastian/Event-Spider/eventspider/indexes/test</property>
 
-        <!-- List the annotated entity class/es -->
+        <!-- List the annotated entity classes -->
         <mapping class="eventspider.beans.EventBean"/>
         <mapping class="eventspider.beans.UserSavedEvents"/>
         <mapping class="eventspider.beans.User"/>

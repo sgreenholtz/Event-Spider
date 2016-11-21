@@ -96,15 +96,4 @@ public class UserHandler {
         return (user.getPassword() == null);
     }
 
-    /**
-     * Gets a Result Set of all the events saved for a given user
-     * @param userId userID of user to get events for
-     * @return List of EventBeans for the user
-     */
-    public List<EventBean> getEventsForUser(Integer userId) {
-        String sql = "from EventBean inner join UserSavedEvents where UserSavedEvents.userID=" + userId;
-        List<EventBean> list = session.createQuery(sql).list();
-        return list;
-    }
-
 }

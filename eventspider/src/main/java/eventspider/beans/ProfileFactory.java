@@ -1,5 +1,6 @@
 package eventspider.beans;
 
+import eventspider.database.EventHandler;
 import eventspider.database.ProfileHandler;
 import eventspider.database.UserHandler;
 import org.apache.log4j.Logger;
@@ -21,8 +22,8 @@ public class ProfileFactory {
     public Profile getProfile(Integer userId) {
         ProfileHandler profileHandler = new ProfileHandler();
         Profile profile = profileHandler.getProfile(userId);
-        UserHandler userHandler = new UserHandler();
-        profile.setEvents(userHandler.getEventsForUser(userId));
+        EventHandler eventHandler = new EventHandler();
+        profile.setEvents(eventHandler.getEventsForUser(userId));
         logger.info("Retrieved user: " + profile.getUserId());
         return profile;
     }

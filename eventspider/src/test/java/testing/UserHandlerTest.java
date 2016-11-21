@@ -4,6 +4,7 @@ import eventspider.beans.LoggedInUser;
 import eventspider.beans.RequiredFieldMissingException;
 import eventspider.beans.Roles;
 import eventspider.beans.User;
+import eventspider.database.EventHandler;
 import eventspider.database.SessionFactoryProvider;
 import eventspider.database.UserHandler;
 import org.apache.commons.codec.digest.DigestUtils;
