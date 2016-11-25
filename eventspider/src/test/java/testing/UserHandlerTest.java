@@ -4,6 +4,7 @@ import eventspider.beans.LoggedInUser;
 import eventspider.beans.RequiredFieldMissingException;
 import eventspider.beans.Roles;
 import eventspider.beans.User;
+import eventspider.database.EventHandler;
 import eventspider.database.SessionFactoryProvider;
 import eventspider.database.UserHandler;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -59,7 +60,6 @@ public class UserHandlerTest {
     private static void addUserToTestDB() {
         User user = new User();
         user.setEmail("test@user.com");
-        user.setFirstName("Test");
         user.setPassword(DigestUtils.sha1Hex("test123"));
         user.setRole(Roles.MEMBER);
 
@@ -131,7 +131,6 @@ public class UserHandlerTest {
     public void registerSuccess() throws Exception {
         User user = new User();
         user.setEmail("test2@user.com");
-        user.setFirstName("Test2");
         user.setPassword(DigestUtils.sha1Hex("test123"));
         user.setRole(Roles.MEMBER);
 

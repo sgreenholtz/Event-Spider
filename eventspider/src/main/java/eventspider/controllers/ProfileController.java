@@ -1,6 +1,7 @@
 package eventspider.controllers;
 
 import eventspider.beans.LoggedInUser;
+import eventspider.beans.Profile;
 import eventspider.beans.ProfileFactory;
 import eventspider.beans.User;
 import org.springframework.stereotype.Controller;
@@ -18,10 +19,11 @@ public class ProfileController {
 
     @GetMapping(value="profile")
     public String getProfile(Model model, HttpServletRequest request) {
-        LoggedInUser user = (LoggedInUser) request.getSession().getAttribute("activeuser");
-        if (user != null) {
+        LoggedInUser activeuser = (LoggedInUser) request.getSession().getAttribute("activeuser");
+        if (activeuser != null) {
             ProfileFactory profileFactory = new ProfileFactory();
-            model.addAttribute("profile", profileFactory.getProfile(user.getUserID()));
+            Profile profile = profileFactory.getProfile(activeuser.getUserID());
+            model.addAttribute("profile", profile);
             return "profile";
         } else {
             model.addAttribute("restrictedAccess", true);

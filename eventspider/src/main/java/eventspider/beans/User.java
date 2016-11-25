@@ -10,9 +10,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Users")
-@SecondaryTable(name="Profile", pkJoinColumns={
-        @PrimaryKeyJoinColumn(name="user_id", referencedColumnName="user_id")
-})
 public class User {
     @Id
     @Column(name = "user_id")
@@ -23,8 +20,6 @@ public class User {
     private String email;
     @Column(name = "pass")
     private String password;
-    @Column(name = "first_name")
-    protected String firstName;
     @Column(name="roles")
     @Enumerated(EnumType.ORDINAL)
     protected Roles role;
@@ -98,24 +93,6 @@ public class User {
      */
     public void setPassword(String pass) {
         this.password = pass;
-    }
-
-    /**
-     * Gets the value of firstName.
-     *
-     * @return firstName
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * Sets firstName to given value
-     *
-     * @param firstName value to set instance variable to
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     /**

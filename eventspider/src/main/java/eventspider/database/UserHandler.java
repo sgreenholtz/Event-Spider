@@ -46,7 +46,9 @@ public class UserHandler {
         if (!validatePassword(user, dbUser)) {
             return null;
         }
-        return new LoggedInUser(dbUser);
+        String sql = "Select firstName from Profile where userId=" + dbUser.getUserID();
+        String firstName = (String) session.createQuery(sql).list().get(0);
+        return new LoggedInUser(dbUser, firstName);
     }
 
     /**
@@ -67,6 +69,7 @@ public class UserHandler {
     /**
      * Registers new user
      * @param user User object to add to database
+     * TODO: fix this so that Profile is set up for new user
      */
     public void register(User user) throws RequiredFieldMissingException {
         if (requiredEmailNull(user)) {
@@ -94,17 +97,6 @@ public class UserHandler {
 
     public boolean requiredPasswordNull(User user) {
         return (user.getPassword() == null);
-    }
-
-    /**
-     * Gets a Result Set of all the events saved for a given user
-     * @param userId userID of user to get events for
-     * @return List of EventBeans for the user
-     */
-    public List<EventBean> getEventsForUser(Integer userId) {
-        String sql = "from EventBean inner join UserSavedEvents where UserSavedEvents.userID=" + userId;
-        List<EventBean> list = session.createQuery(sql).list();
-        return list;
     }
 
 }

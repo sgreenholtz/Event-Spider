@@ -174,4 +174,18 @@ public class EventHandler {
         int rows = session.createQuery(hql).setString("date", localdate.toString("yyyyMMdd")).executeUpdate();
         return (rows > 0);
     }
+
+    /**
+     * Gets a Result Set of all the events saved for a given user
+     * @param userId userID of user to get events for
+     * @return List of EventBeans for the user
+     */
+    public List<EventBean> getEventsForUser(Integer userId) {
+        String sql = "select Events.* from Events inner join UserSavedEvents using (event_id) where UserSavedEvents.user_id=" + userId;
+        List<EventBean> list = new ArrayList<>();
+        for (Object o : session.createSQLQuery(sql).list()) {
+            list.add((EventBean)o);
+        }
+        return list;
+    }
 }

@@ -8,6 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>
 <% session.setAttribute("title", "Profile"); %>
 <c:import url="header.jsp"/>
 
@@ -17,7 +18,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="text-left text-muted">
-                        h3. Lorem ipsum dolor sit amet.
+                        Your Profile
                     </h3>
                 </div>
             </div>
@@ -29,14 +30,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        Panel title
+                        ${profile.firstName} ${profile.lastName}
                     </h3>
                 </div>
                 <div class="panel-body">
-                    Panel content
+                    Tags will go here
                 </div>
                 <div class="panel-footer">
-                    Panel footer
+                    Other info here
                 </div>
             </div>
         </div>
@@ -47,120 +48,38 @@
                 <thead>
                 <tr>
                     <th>
-                        #
+                        View
                     </th>
                     <th>
-                        Product
+                        Title
                     </th>
                     <th>
-                        Payment Taken
-                    </th>
-                    <th>
-                        Status
+                        Date
                     </th>
                 </tr>
                 </thead>
                 <tbody>
+                <c:forEach items="${profile.events}" var="event">
                 <tr>
                     <td>
-                        1
+                        <a href="eventDetails?id=${event.eventId}" target="_blank" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-new-window"></span></a>
                     </td>
                     <td>
-                        TB - Monthly
+                        ${event.title}
                     </td>
                     <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Default
+                        <p><joda:format value="${event.startDate}" style="M-"/> at ${event.startTime}</p>
                     </td>
                 </tr>
-                <tr class="active">
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Approved
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="warning">
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        03/04/2012
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-                </tr>
-                <tr class="danger">
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        04/04/2012
-                    </td>
-                    <td>
-                        Call in to confirm
-                    </td>
-                </tr>
+                </c:forEach>
                 </tbody>
             </table>
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#">Home</a>
+                    <a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit Profile</a>
                 </li>
                 <li>
-                    <a href="#">Profile</a>
-                </li>
-                <li class="disabled">
-                    <a href="#">Messages</a>
-                </li>
-                <li class="dropdown pull-right">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">Action</a>
-                        </li>
-                        <li>
-                            <a href="#">Another action</a>
-                        </li>
-                        <li>
-                            <a href="#">Something else here</a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="#">Separated link</a>
-                        </li>
-                    </ul>
+                    <a href="#">Something Here</a>
                 </li>
             </ul>
         </div>
