@@ -34,6 +34,7 @@ public class DAO {
     public void closeSession() {
         try {
             session.close();
+            log.info("** Closing Hibernate session **");
         } catch (HibernateException e) {
             log.error(e);
         }

@@ -30,6 +30,7 @@ public class LoginController {
         User attempt = new User(email, password);
         UserHandler handler = new UserHandler();
         LoggedInUser user = handler.logIn(attempt);
+        handler.closeSession();
         if (user == null) {
             model.addAttribute("notLoggedIn", true);
             return "login";
@@ -50,6 +51,7 @@ public class LoginController {
         throws RequiredFieldMissingException {
         UserHandler handler = new UserHandler();
         handler.register(user);
+        handler.closeSession();
         return "login";
     }
 

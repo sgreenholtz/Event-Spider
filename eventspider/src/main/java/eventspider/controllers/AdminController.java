@@ -47,6 +47,7 @@ public class AdminController {
 
             EventHandler handler = new EventHandler();
             boolean result = handler.deleteOldItems(LocalDate.now());
+            handler.closeSession();
             String message = null;
             if (result) {
                 message = "<strong>Success!</strong> Old items in database have been deleted.";

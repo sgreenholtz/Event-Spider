@@ -34,6 +34,7 @@ public class SearchController {
         if (search.getDatabaseSearch()) {
             DatabaseSearch dbSearcher = new DatabaseSearch(search);
             eventsList.addAll(dbSearcher.performSearch());
+            dbSearcher.closeSession();
         }
 
         if (search.getEventfulSearch()) {
@@ -43,6 +44,7 @@ public class SearchController {
             for (EventBean event : eventsList) {
                 eventHandler.addEvent(event);
             }
+            eventHandler.closeSession();
         }
         request.getSession().setAttribute("eventsList", eventsList);
         request.getSession().setAttribute("search", search);
