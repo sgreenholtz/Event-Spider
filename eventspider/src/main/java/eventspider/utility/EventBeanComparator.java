@@ -1,4 +1,6 @@
-package eventspider.beans;
+package eventspider.utility;
+
+import eventspider.beans.EventBean;
 
 import java.util.Comparator;
 

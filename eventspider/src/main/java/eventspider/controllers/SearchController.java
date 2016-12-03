@@ -2,7 +2,7 @@ package eventspider.controllers;
 
 import eventspider.Eventful.EventfulSearch;
 import eventspider.beans.EventBean;
-import eventspider.beans.EventBeanComparator;
+import eventspider.utility.EventBeanComparator;
 import eventspider.beans.SearchBean;
 import eventspider.database.DatabaseSearch;
 import eventspider.database.EventHandler;
@@ -11,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeSet;
 
 /**

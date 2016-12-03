@@ -1,8 +1,8 @@
-package eventspider.beans;
+package eventspider.factories;
 
+import eventspider.beans.Profile;
 import eventspider.database.EventHandler;
 import eventspider.database.ProfileHandler;
-import eventspider.database.UserHandler;
 import org.apache.log4j.Logger;
 
 /**

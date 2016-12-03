@@ -1,11 +1,10 @@
 package testing;
 
 import eventspider.beans.EventBean;
-import eventspider.beans.EventFactory;
+import eventspider.factories.EventFactory;
 import eventspider.database.EventHandler;
 import eventspider.database.SessionFactoryProvider;
 import org.apache.log4j.Logger;
-import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.junit.AfterClass;

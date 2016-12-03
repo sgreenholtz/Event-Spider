@@ -1,6 +1,7 @@
-package eventspider.beans;
+package eventspider.factories;
 
 import eventspider.Eventful.EventItem;
+import eventspider.beans.EventBean;
 import org.apache.log4j.Logger;
 
 import java.util.*;

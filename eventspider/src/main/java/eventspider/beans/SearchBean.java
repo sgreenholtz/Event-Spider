@@ -17,6 +17,20 @@ public class SearchBean {
     private Boolean eventfulSearch;
 
     /**
+     * Empty constructor
+     */
+    public SearchBean() {}
+
+    public SearchBean(String keyword, String location,
+                      LocalDate dateStart, LocalDate dateEnd) {
+        this();
+        this.keyword = keyword;
+        this.location = location;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+    }
+
+    /**
      * Gets the value of databaseSearch.
      *
      * @return databaseSearch
@@ -68,19 +82,6 @@ public class SearchBean {
      */
     public void setNumResults(Integer numResults) {
         this.numResults = numResults;
-    }
-
-    /**
-     * Empty constructor
-     */
-    public SearchBean() {}
-
-    public SearchBean(String keyword, String location,
-                      LocalDate dateStart, LocalDate dateEnd) {
-        this.keyword = keyword;
-        this.location = location;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
     }
 
     /**
