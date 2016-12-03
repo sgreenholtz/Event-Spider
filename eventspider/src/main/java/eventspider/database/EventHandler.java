@@ -15,16 +15,15 @@ import java.util.*;
  * database using HibernateDAO
  * @author Sebastian Greenholtz
  */
-public class EventHandler {
+public class EventHandler extends DAO{
 
-    private Session session;
     private final Logger log = Logger.getLogger(this.getClass());
 
     /**
      * Empty constructor assigns session variable
      */
     public EventHandler() {
-        session = SessionFactoryProvider.getSessionFactory().openSession();
+        super();
     }
 
     /**

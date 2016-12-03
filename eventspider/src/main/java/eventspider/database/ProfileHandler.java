@@ -8,16 +8,15 @@ import org.hibernate.Session;
  * Manages operations with the Profile table
  * @author Sebastian Greenholtz
  */
-public class ProfileHandler {
+public class ProfileHandler extends DAO{
 
     private static final Logger logger = Logger.getLogger(UserHandler.class);
-    private Session session;
 
     /**
      * Empty constructor assigns session var
      */
     public ProfileHandler() {
-        this.session = SessionFactoryProvider.getSessionFactory().openSession();
+        super();
     }
 
     /**
