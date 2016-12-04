@@ -2,6 +2,7 @@ package eventspider.controllers;
 
 import eventspider.beans.LoggedInUser;
 import eventspider.beans.Roles;
+import eventspider.beans.User;
 import eventspider.database.EventHandler;
 import org.joda.time.LocalDate;
 import org.springframework.stereotype.Controller;
@@ -24,13 +25,13 @@ public class AdminController {
         LoggedInUser user = (LoggedInUser)request.getSession().getAttribute("activeuser");
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
+            model.addAttribute("user", new User());
             return "login";
         } else if (user.getRole() != Roles.ADMINISTRATOR) {
             model.addAttribute("doesNotHavePermission", true);
             return "index";
         } else {
-            model.addAttribute("restrictedAccess", true);
-            return "login";
+            return "admin";
         }
     }
 
@@ -39,6 +40,7 @@ public class AdminController {
         LoggedInUser user = (LoggedInUser) request.getSession().getAttribute("activeuser");
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
+            model.addAttribute("user", new User());
             return "login";
         } else if (user.getRole() != Roles.ADMINISTRATOR) {
             model.addAttribute("doesNotHavePermission", true);

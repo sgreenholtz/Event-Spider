@@ -6,7 +6,8 @@ $(document).ready(function () {
 
     dateTime();
     dropDownMenu();
-    loginValidation();
+    $("#loginForm").validate();
+    $("#registerForm").validate();
 });
 
 // Sets the date and time pickers on the event search page
@@ -17,22 +18,14 @@ function dateTime() {
 
 // Animates the drop down menu in the nav bar
 function dropDownMenu() {
-    $(".dropdown-toggle").on('click', function() {
+    $(".dropdown-toggle").on('click', function () {
         $(".dropdown").toggleClass("open");
         var menu = $(this);
-        if (menu.attr("aria-expanded")=="true") {
+        if (menu.attr("aria-expanded") == "true") {
             menu.attr("aria-expanded", "false");
         } else {
             menu.attr("aria-expanded", "true");
         }
         return false;
     });
-}
-
-/***************************************
-    FORM VALIDATION
- //**************************************/
-
-function loginValidation() {
-    $("#loginForm").validate();
 }

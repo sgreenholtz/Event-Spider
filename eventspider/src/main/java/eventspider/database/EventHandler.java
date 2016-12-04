@@ -169,7 +169,7 @@ public class EventHandler extends DAO{
      * @return true if the deletion was successful
      */
     public boolean deleteOldItems(LocalDate localdate) {
-        String hql = "delete from Event where startDate < :date";
+        String hql = "delete from EventBean where startDate < :date";
         int rows = session.createQuery(hql).setString("date", localdate.toString("yyyyMMdd")).executeUpdate();
         return (rows > 0);
     }
@@ -183,7 +183,7 @@ public class EventHandler extends DAO{
         String sql = "select Events.* from Events inner join UserSavedEvents using (event_id) where UserSavedEvents.user_id=" + userId;
         List<EventBean> list = new ArrayList<>();
         for (Object o : session.createSQLQuery(sql).list()) {
-            list.add((EventBean)o);
+            System.out.println((EventBean)o);
         }
         return list;
     }
