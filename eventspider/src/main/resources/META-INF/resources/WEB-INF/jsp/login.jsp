@@ -23,21 +23,23 @@
 <form:form id="loginForm" class="form-horizontal" action="verify" method="post" modelAttribute="user">
     <fieldset>
         <legend>Log In</legend>
-        <div class="form-group">
+        <div class="form-group" id="emailGroup">
             <form:label path="email"  for="email" class="col-lg-2 control-label">Email</form:label>
             <div class="col-lg-10">
-                <form:input path="email" type="text" class="form-control" id="email" placeholder="Email" name="email"/>
+                <form:input path="email" type="text" class="form-control" id="email"
+                            placeholder="Email" name="email" required="required" />
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" id="passwordGroup">
             <form:label path="password" for="password" class="col-lg-2 control-label">Password</form:label>
             <div class="col-lg-10">
-                <form:password path="password" class="form-control" id="password" placeholder="Password" name="password"/>
+                <form:password path="password" class="form-control" id="password"
+                               placeholder="Password" name="password" required="required"/>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </fieldset>

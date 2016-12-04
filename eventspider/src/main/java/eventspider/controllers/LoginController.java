@@ -24,7 +24,7 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value="verify", method=RequestMethod.POST)
+    @PostMapping(value="verify")
     public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model,
                               HttpServletRequest request) {
         User attempt = new User(email, password);
@@ -33,6 +33,7 @@ public class LoginController {
         handler.closeSession();
         if (user == null) {
             model.addAttribute("notLoggedIn", true);
+            model.addAttribute("user", new User());
             return "login";
         } else {
             request.getSession().setAttribute("activeuser", user);
@@ -56,8 +57,8 @@ public class LoginController {
     }
 
     @GetMapping(value="logout")
-    public String logOut(Model model) {
-        model.addAttribute("isLogout", true);
-        return "login";
+    public String logOut(HttpServletRequest request) {
+        request.getSession().removeAttribute("activeuser");
+        return "index";
     }
 }

@@ -6,6 +6,7 @@ $(document).ready(function () {
 
     dateTime();
     dropDownMenu();
+    loginValidation();
 });
 
 // Sets the date and time pickers on the event search page
@@ -26,4 +27,12 @@ function dropDownMenu() {
         }
         return false;
     });
+}
+
+/***************************************
+    FORM VALIDATION
+ //**************************************/
+
+function loginValidation() {
+    $("#loginForm").validate();
 }
