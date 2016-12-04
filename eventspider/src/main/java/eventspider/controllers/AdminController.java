@@ -1,5 +1,6 @@
 package eventspider.controllers;
 
+import eventspider.beans.PersistentUser;
 import eventspider.beans.User;
 import eventspider.beans.Roles;
 import eventspider.beans.User;
@@ -25,7 +26,7 @@ public class AdminController {
 
     @GetMapping("/admin-page")
     public String getAdminPage(HttpServletRequest request, Model model) {
-        User user = (User)request.getSession().getAttribute("activeuser");
+        PersistentUser user = (PersistentUser) request.getSession().getAttribute("activeUser");
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
             model.addAttribute("user", new User());
@@ -41,7 +42,7 @@ public class AdminController {
 
     @GetMapping("/clearDatabase")
     public String clearDatabase(Model model, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("activeuser");
+        PersistentUser user = (PersistentUser) request.getSession().getAttribute("activeUser");
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
             model.addAttribute("user", new User());

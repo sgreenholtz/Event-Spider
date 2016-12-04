@@ -1,8 +1,8 @@
 package eventspider.controllers;
 
+import eventspider.beans.PersistentUser;
 import eventspider.beans.User;
 import eventspider.beans.Profile;
-import eventspider.beans.User;
 import eventspider.factories.ProfileFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +19,10 @@ public class ProfileController {
 
     @GetMapping(value="profile")
     public String getProfile(Model model, HttpServletRequest request) {
-        User activeuser = (User) request.getSession().getAttribute("activeuser");
-        if (activeuser != null) {
+        PersistentUser user = (PersistentUser) request.getSession().getAttribute("activeUser");
+        if (user != null) {
             ProfileFactory profileFactory = new ProfileFactory();
-            Profile profile = profileFactory.getProfile(activeuser.getUserID());
+            Profile profile = profileFactory.getProfile(user.getUserId());
             model.addAttribute("profile", profile);
             return "profile";
         } else {

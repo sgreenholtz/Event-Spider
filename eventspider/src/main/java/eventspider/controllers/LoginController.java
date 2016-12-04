@@ -27,7 +27,7 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping(value="verify")
+    @PostMapping(value="login")
     public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model,
                               HttpServletRequest request) {
         User attempt = new User(email, password);
@@ -39,9 +39,8 @@ public class LoginController {
                 model.addAttribute("user", new User());
                 return "login";
             } else {
-                request.getSession().setAttribute("activeuser", user);
                 String firstName = profileHandler.getFirstNameForUser(user.getUserID());
-                request.getSession().setAttribute("userFirstName", firstName);
+                request.getSession().setAttribute("activeUser", new PersistentUser(user, firstName));
                 return (String) request.getSession().getAttribute("returnPage");
             }
         } catch (Exception e) {
@@ -69,7 +68,7 @@ public class LoginController {
 
     @GetMapping(value="logout")
     public String logOut(HttpServletRequest request) {
-        request.getSession().removeAttribute("activeuser");
+        request.getSession().removeAttribute("activeUser");
         return "index";
     }
 }

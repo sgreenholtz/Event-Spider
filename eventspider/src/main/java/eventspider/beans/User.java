@@ -119,4 +119,22 @@ public class User {
     public void setRole(Roles role) {
         this.role = role;
     }
+
+    /**
+     * Gets the value of events.
+     *
+     * @return events
+     */
+    public Set<EventBean> getEvents() {
+        return events;
+    }
+
+    /**
+     * Sets events to given value
+     *
+     * @param events value to set instance variable to
+     */
+    public void setEvents(Set<EventBean> events) {
+        this.events = events;
+    }
 }

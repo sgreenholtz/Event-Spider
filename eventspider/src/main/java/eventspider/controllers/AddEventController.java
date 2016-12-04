@@ -1,6 +1,7 @@
 package eventspider.controllers;
 
 import eventspider.beans.EventBean;
+import eventspider.beans.User;
 import eventspider.database.EventHandler;
 
 import org.apache.log4j.Logger;
@@ -20,7 +21,7 @@ public class AddEventController {
 
     private static final Logger log = Logger.getLogger(AddEventController.class);
 
-    @RequestMapping(value="addEventManual", method=RequestMethod.POST)
+    @PostMapping(value="addEventManual")
     public String addEventManual(@ModelAttribute EventBean event) {
         try (EventHandler handler = new EventHandler()){
             handler.addEvent(event);
@@ -30,14 +31,15 @@ public class AddEventController {
         return "index";
     }
 
-    @RequestMapping(value="add-event-form", method=RequestMethod.GET)
+    @GetMapping(value="add-event-form")
     public String getEventForm(Model model, HttpServletRequest request) {
         model.addAttribute("event", new EventBean());
-        if (request.getSession().getAttribute("activeuser") != null) {
+        if (request.getSession().getAttribute("activeUser") != null) {
             return "addEvent";
         } else {
             model.addAttribute("restrictedAccess", true);
             request.getSession().setAttribute("returnPage", "addEvent");
+            model.addAttribute("user", new User());
             return "login";
         }
     }

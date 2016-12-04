@@ -65,7 +65,7 @@
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                     <li><a href="search-form"><span class="glyphicon glyphicon-search"></span> Search</a></li>
                     <c:choose>
-                        <c:when test="${activeuser.userID eq null}">
+                        <c:when test="${activeUser.userId eq null}">
                             <li class=""><a href="login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
                             <li class=""><a href="register"><span class="glyphicon glyphicon-edit"></span> Register</a></li>
                         </c:when>
@@ -73,11 +73,11 @@
                             <li class="dropdown" id="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <span class="glyphicon glyphicon-user">
-                                    </span> ${userFirstName}<span class="caret"></span></a>
+                                    </span> ${activeUser.firstName}<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="profile">My Profile</a></li>
                                     <li><a href="add-event-form">Add Custom Event</a></li>
-                                    <spring:eval expression="activeuser.role == T(eventspider.beans.Roles).ADMINISTRATOR" var="isAdmin" />
+                                    <spring:eval expression="activeUser.role == T(eventspider.beans.Roles).ADMINISTRATOR" var="isAdmin" />
                                     <c:if test="${isAdmin}">
                                         <li><a href="admin-page">Admin Page</a></li>
                                     </c:if>

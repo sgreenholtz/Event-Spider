@@ -99,4 +99,13 @@ public class UserHandler extends DAO {
         return (user.getPassword() == null);
     }
 
+    /**
+     * Get user object using the integer Id
+     * @param userId Integer userId
+     * @return user object for the given user
+     */
+    public User getUser(Integer userId) {
+        return (User)session.get(User.class, userId);
+    }
+
 }
