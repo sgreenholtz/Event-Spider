@@ -3,6 +3,7 @@ package eventspider.controllers;
 import eventspider.beans.EventBean;
 import eventspider.database.EventHandler;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +18,15 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class AddEventController {
 
+    private static final Logger log = Logger.getLogger(AddEventController.class);
+
     @RequestMapping(value="addEventManual", method=RequestMethod.POST)
     public String addEventManual(@ModelAttribute EventBean event) {
-        EventHandler handler = new EventHandler();
-        handler.addEvent(event);
-        handler.closeSession();
+        try (EventHandler handler = new EventHandler()){
+            handler.addEvent(event);
+        } catch (Exception e) {
+            log.error(e);
+        }
         return "index";
     }
 

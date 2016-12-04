@@ -4,6 +4,7 @@ import eventspider.beans.LoggedInUser;
 import eventspider.beans.Roles;
 import eventspider.beans.User;
 import eventspider.database.EventHandler;
+import org.apache.log4j.Logger;
 import org.joda.time.LocalDate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class AdminController {
+
+    private static final Logger log = Logger.getLogger(AdminController.class);
 
     @GetMapping("/admin-page")
     public String getAdminPage(HttpServletRequest request, Model model) {
@@ -48,9 +51,13 @@ public class AdminController {
             model.addAttribute("doesNotHavePermission", true);
             return "index";
         } else {
-            EventHandler handler = new EventHandler();
-            boolean result = handler.deleteOldItems(LocalDate.now());
-            handler.closeSession();
+            boolean result = false;
+            try (EventHandler handler = new EventHandler()) {
+                result = handler.deleteOldItems(LocalDate.now());
+            } catch (Exception e) {
+                log.error(e);
+            }
+
             String message = null;
             if (result) {
                 message = "<strong>Success!</strong> Old items in database have been deleted.";

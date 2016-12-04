@@ -2,6 +2,7 @@ package eventspider.controllers;
 
 import eventspider.beans.User;
 import eventspider.database.EventHandler;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,22 +16,29 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class EventDetailsController {
 
+    private static final Logger log = Logger.getLogger(EventDetailsController.class);
+
     @RequestMapping(value="eventDetails", method = RequestMethod.GET)
     public String getEventDetails(@RequestParam int id, Model model){
-        EventHandler handler = new EventHandler();
-        model.addAttribute("event", handler.getEventByID(id));
-        handler.closeSession();
+        try (EventHandler handler = new EventHandler()) {
+            model.addAttribute("event", handler.getEventByID(id));
+        } catch (Exception e) {
+            log.error(e);
+        }
+
         return "event-details";
     }
 
     @GetMapping(value="addEventToUser")
     public String addEventToUser(@RequestParam int id, Model model, HttpServletRequest request) {
-        EventHandler handler = new EventHandler();
-        User user = (User)request.getSession().getAttribute("activeuser");
-        boolean success = handler.saveEventToUser(user.getUserID(), id);
-        handler.closeSession();
-        model.addAttribute("success", success);
-        model.addAttribute("event", handler.getEventByID(id));
+        try (EventHandler handler = new EventHandler()) {
+            User user = (User)request.getSession().getAttribute("activeuser");
+            boolean success = handler.saveEventToUser(user.getUserID(), id);
+            model.addAttribute("success", success);
+            model.addAttribute("event", handler.getEventByID(id));
+        } catch (Exception e){
+            log.error(e);
+        }
         return "event-details";
     }
 }

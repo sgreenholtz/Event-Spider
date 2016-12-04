@@ -184,7 +184,7 @@ public class EventHandler extends DAO{
         List<EventBean> list = new ArrayList<>();
         String sql = "from EventBean e join e.UserSavedEvents";
         for (Object o : session.createQuery(sql).list()) {
-            System.out.println((EventBean)o);
+            list.add((EventBean)o);
         }
         return list;
     }

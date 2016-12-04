@@ -2,6 +2,7 @@ package eventspider.controllers;
 
 import eventspider.beans.*;
 import eventspider.database.UserHandler;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,11 @@ import javax.servlet.http.HttpSession;
 /**
  * Controller for Login
  * @author Sebastian Greenholtz
- * TODO: Figure out error on incorrect login
  */
 @Controller
 public class LoginController {
+
+    private static final Logger log = Logger.getLogger(LoginController.class);
 
     @RequestMapping(value="login", method=RequestMethod.GET)
     public String loginForm(Model model) {
@@ -28,17 +30,20 @@ public class LoginController {
     public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model,
                               HttpServletRequest request) {
         User attempt = new User(email, password);
-        UserHandler handler = new UserHandler();
-        LoggedInUser user = handler.logIn(attempt);
-        handler.closeSession();
-        if (user == null) {
-            model.addAttribute("notLoggedIn", true);
-            model.addAttribute("user", new User());
-            return "login";
-        } else {
-            request.getSession().setAttribute("activeuser", user);
-            return (String) request.getSession().getAttribute("returnPage");
+        try (UserHandler handler = new UserHandler()){
+            LoggedInUser user = handler.logIn(attempt);
+            if (user == null) {
+                model.addAttribute("notLoggedIn", true);
+                model.addAttribute("user", new User());
+                return "login";
+            } else {
+                request.getSession().setAttribute("activeuser", user);
+                return (String) request.getSession().getAttribute("returnPage");
+            }
+        } catch (Exception e) {
+            log.error(e);
         }
+        return "error";
     }
 
     @RequestMapping(value="register", method=RequestMethod.GET)
@@ -48,11 +53,13 @@ public class LoginController {
     }
 
     @RequestMapping(value="register", method=RequestMethod.POST)
-    public String registerUser(@ModelAttribute User user)
-        throws RequiredFieldMissingException {
-        UserHandler handler = new UserHandler();
-        handler.register(user);
-        handler.closeSession();
+    public String registerUser(@ModelAttribute User user) {
+        try (UserHandler handler = new UserHandler()){
+            handler.register(user);
+        } catch (Exception e) {
+            log.error(e);
+        }
+
         return "login";
     }
 
