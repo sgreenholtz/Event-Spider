@@ -49,4 +49,19 @@ public class ProfileHandler extends DAO{
         return true;
     }
 
+    /**
+     * For a given userId, gets the first name of the user
+     * @param userId Integer id for user
+     * @return String of the user's first name
+     */
+    public String getFirstNameForUser(Integer userId) {
+        try {
+            String sql = "Select firstName from Profile where userId=" + userId;
+            return (String) session.createQuery(sql).list().get(0);
+        } catch (Exception e) {
+            logger.error(e);
+        }
+        return "";
+    }
+
 }

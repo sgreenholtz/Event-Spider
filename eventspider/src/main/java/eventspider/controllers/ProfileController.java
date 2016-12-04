@@ -1,6 +1,6 @@
 package eventspider.controllers;
 
-import eventspider.beans.LoggedInUser;
+import eventspider.beans.User;
 import eventspider.beans.Profile;
 import eventspider.beans.User;
 import eventspider.factories.ProfileFactory;
@@ -19,7 +19,7 @@ public class ProfileController {
 
     @GetMapping(value="profile")
     public String getProfile(Model model, HttpServletRequest request) {
-        LoggedInUser activeuser = (LoggedInUser) request.getSession().getAttribute("activeuser");
+        User activeuser = (User) request.getSession().getAttribute("activeuser");
         if (activeuser != null) {
             ProfileFactory profileFactory = new ProfileFactory();
             Profile profile = profileFactory.getProfile(activeuser.getUserID());

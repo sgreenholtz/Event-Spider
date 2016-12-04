@@ -3,6 +3,7 @@ package eventspider.beans;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Represents a user
@@ -15,14 +16,19 @@ public class User {
     @Column(name = "user_id")
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "identity")
-    protected int userID;
+    private int userID;
     @Column(name = "email")
     private String email;
     @Column(name = "pass")
     private String password;
     @Column(name="roles")
     @Enumerated(EnumType.ORDINAL)
-    protected Roles role;
+    private Roles role;
+
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="UserSavedEvents", joinColumns=@JoinColumn(name="user_id"),
+            inverseJoinColumns=@JoinColumn(name="event_id"))
+    private Set<EventBean> events;
 
 
 

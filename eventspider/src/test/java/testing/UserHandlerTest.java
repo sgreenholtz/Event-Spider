@@ -1,6 +1,6 @@
 package testing;
 
-import eventspider.beans.LoggedInUser;
+import eventspider.beans.User;
 import eventspider.beans.RequiredFieldMissingException;
 import eventspider.beans.Roles;
 import eventspider.beans.User;
@@ -30,7 +30,7 @@ import static org.junit.Assert.*;
 public class UserHandlerTest {
     private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
     private static User userInDB;
-    private static LoggedInUser loggedInUser;
+    private static User User;
     private UserHandler handler = new UserHandler();
     private static Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
@@ -40,7 +40,7 @@ public class UserHandlerTest {
         logger.info("***** STARTING TEST: UserHandlerTest ******");
         clearDatabase();
         addUserToTestDB();
-        loggedInUser = createLoggedInUser();
+        User = createUser();
     }
 
     @AfterClass
@@ -48,13 +48,12 @@ public class UserHandlerTest {
         session.close();
     }
 
-    private static LoggedInUser createLoggedInUser() {
-        LoggedInUser loggedInUser = new LoggedInUser();
-        loggedInUser.setUserID(1);
-        loggedInUser.setEmail("test@user.com");
-        loggedInUser.setFirstName("Test");
-        loggedInUser.setRole(Roles.MEMBER);
-        return loggedInUser;
+    private static User createUser() {
+        User User = new User();
+        User.setUserID(1);
+        User.setEmail("test@user.com");
+        User.setRole(Roles.MEMBER);
+        return User;
     }
 
     private static void addUserToTestDB() {
@@ -92,13 +91,13 @@ public class UserHandlerTest {
 
     /**
      * Uses overridden equals method rather than assertEquals to compare the
-     * fields of loggedInUser rather than the object hash
+     * fields of User rather than the object hash
      */
     @Test
     public void logInSuccessful() throws Exception {
         User logInAttempt = new User("test@user.com", "test123");
-        LoggedInUser actual = handler.logIn(logInAttempt);
-        assertTrue("Log in failed", loggedInUser.equals(actual));
+        User actual = handler.logIn(logInAttempt);
+        assertTrue("Log in failed", User.equals(actual));
     }
 
     @Test

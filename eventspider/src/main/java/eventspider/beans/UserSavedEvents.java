@@ -1,5 +1,7 @@
 package eventspider.beans;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
@@ -8,15 +10,21 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="UserSavedEvents")
-@IdClass(UserSavedEventsPK.class)
 public class UserSavedEvents {
-    @Id
-    @Column(name="user_id")
-    private Integer userID;
 
     @Id
-    @Column(name="event_id")
-    private Integer eventID;
+    @Column(name = "user_event_sk")
+    @GenericGenerator(name="eventbean" , strategy="identity")
+    @GeneratedValue(generator="eventbean")
+    private Integer userEventSk;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name="event_id")
+    private EventBean event;
 
     /**
      * Empty constructor
@@ -24,38 +32,56 @@ public class UserSavedEvents {
     public UserSavedEvents() {}
 
     /**
-     * Gets the value of userID.
+     * Gets the value of userEventSk.
      *
-     * @return userID
+     * @return userEventSk
      */
-    public Integer getUserID() {
-        return userID;
+    public Integer getUserEventSk() {
+        return userEventSk;
     }
 
     /**
-     * Sets userID to given value
+     * Sets userEventSk to given value
      *
-     * @param userID value to set instance variable to
+     * @param userEventSk value to set instance variable to
      */
-    public void setUserID(Integer userID) {
-        this.userID = userID;
+    public void setUserEventSk(Integer userEventSk) {
+        this.userEventSk = userEventSk;
     }
 
     /**
-     * Gets the value of eventID.
+     * Gets the value of user.
      *
-     * @return eventID
+     * @return user
      */
-    public Integer getEventID() {
-        return eventID;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * Sets eventID to given value
+     * Sets user to given value
      *
-     * @param eventID value to set instance variable to
+     * @param user value to set instance variable to
      */
-    public void setEventID(Integer eventID) {
-        this.eventID = eventID;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
+     * Gets the value of event.
+     *
+     * @return event
+     */
+    public EventBean getEvent() {
+        return event;
+    }
+
+    /**
+     * Sets event to given value
+     *
+     * @param event value to set instance variable to
+     */
+    public void setEvent(EventBean event) {
+        this.event = event;
     }
 }

@@ -29,11 +29,13 @@ public class UserHandler extends DAO {
 
     /**
      * Takes a User object, checks if that user is in the database, then
-     * validates the password. Returns null if the log in was incorrect
+     * validates the password. Returns null if the log in was incorrect.
+     * Returns the user object with the password set to NULL if the login
+     * is correct
      * @param user User object from log in
-     * @return LoggedInUser object if log in is correct, or null if incorrect
+     * @return User object if log in is correct, or null if incorrect
      */
-    public LoggedInUser logIn(User user) {
+    public User logIn(User user) {
         Criteria criteria = session.createCriteria(User.class);
         criteria.add(Restrictions.eq("email", user.getEmail()));
         List results = criteria.list();
@@ -45,9 +47,8 @@ public class UserHandler extends DAO {
         if (!validatePassword(user, dbUser)) {
             return null;
         }
-        String sql = "Select firstName from Profile where userId=" + dbUser.getUserID();
-        String firstName = (String) session.createQuery(sql).list().get(0);
-        return new LoggedInUser(dbUser, firstName);
+        dbUser.setPassword(null);
+        return dbUser;
     }
 
     /**

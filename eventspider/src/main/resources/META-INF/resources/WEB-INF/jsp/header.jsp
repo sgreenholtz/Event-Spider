@@ -73,7 +73,7 @@
                             <li class="dropdown" id="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <span class="glyphicon glyphicon-user">
-                                    </span> ${activeuser.firstName}<span class="caret"></span></a>
+                                    </span> ${userFirstName}<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="profile">My Profile</a></li>
                                     <li><a href="add-event-form">Add Custom Event</a></li>

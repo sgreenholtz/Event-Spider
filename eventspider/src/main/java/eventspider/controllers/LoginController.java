@@ -1,6 +1,7 @@
 package eventspider.controllers;
 
 import eventspider.beans.*;
+import eventspider.database.ProfileHandler;
 import eventspider.database.UserHandler;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -30,14 +31,17 @@ public class LoginController {
     public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model,
                               HttpServletRequest request) {
         User attempt = new User(email, password);
-        try (UserHandler handler = new UserHandler()){
-            LoggedInUser user = handler.logIn(attempt);
+        try (UserHandler handler = new UserHandler();
+             ProfileHandler profileHandler = new ProfileHandler()){
+            User user = handler.logIn(attempt);
             if (user == null) {
                 model.addAttribute("notLoggedIn", true);
                 model.addAttribute("user", new User());
                 return "login";
             } else {
                 request.getSession().setAttribute("activeuser", user);
+                String firstName = profileHandler.getFirstNameForUser(user.getUserID());
+                request.getSession().setAttribute("userFirstName", firstName);
                 return (String) request.getSession().getAttribute("returnPage");
             }
         } catch (Exception e) {
@@ -46,13 +50,13 @@ public class LoginController {
         return "error";
     }
 
-    @RequestMapping(value="register", method=RequestMethod.GET)
+    @GetMapping(value="register")
     public String registerForm(Model model) {
         model.addAttribute("user", new User());
         return "register";
     }
 
-    @RequestMapping(value="register", method=RequestMethod.POST)
+    @PostMapping(value="register")
     public String registerUser(@ModelAttribute User user) {
         try (UserHandler handler = new UserHandler()){
             handler.register(user);

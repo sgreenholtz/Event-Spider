@@ -77,24 +77,24 @@ public class EventHandler extends DAO{
 
     /**
      * Saves a given event to a given user. Returns true if successfully added
-     *
+     * TODO: Update this class
      * @param userID  Integer
      * @param eventID Integer
      * @return True if event is successfully added
      */
     public boolean saveEventToUser(Integer userID, Integer eventID) {
-        UserSavedEvents savedEvent = new UserSavedEvents();
-        try {
-            savedEvent.setEventID(eventID);
-            savedEvent.setUserID(userID);
-            session.beginTransaction();
-            session.save(savedEvent);
-            session.getTransaction().commit();
-            log.info(String.format("Event %s saved to user %s", eventID, userID));
-        } catch (Exception e) {
-            log.error(e);
-            return false;
-        }
+//        UserSavedEvents savedEvent = new UserSavedEvents();
+//        try {
+//            savedEvent.setEventID(eventID);
+//            savedEvent.setUserID(userID);
+//            session.beginTransaction();
+//            session.save(savedEvent);
+//            session.getTransaction().commit();
+//            log.info(String.format("Event %s saved to user %s", eventID, userID));
+//        } catch (Exception e) {
+//            log.error(e);
+//            return false;
+//        }
         return true;
     }
 
@@ -182,10 +182,14 @@ public class EventHandler extends DAO{
     public List<EventBean> getEventsForUser(Integer userId) {
         //String sql = "select Events.* from Events inner join UserSavedEvents using (event_id) where UserSavedEvents.user_id=" + userId;
         List<EventBean> list = new ArrayList<>();
-        String sql = "from EventBean e join e.UserSavedEvents";
-        for (Object o : session.createQuery(sql).list()) {
-            list.add((EventBean)o);
-        }
+//        String sql = "select EventBean from EventBean, UserSavedEvents "
+//                + "where EventBean.eventId=UserSavedEvents.eventID and UserSavedEvents.userID=" + userId;
+//        List hList = session.createQuery(sql).list();
+//        if (hList.size() > 0) {
+//            for (Object o : hList) {
+//                list.add((EventBean) o);
+//            }
+//        }
         return list;
     }
 }

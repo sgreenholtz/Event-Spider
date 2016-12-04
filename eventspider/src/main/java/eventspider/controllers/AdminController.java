@@ -1,6 +1,6 @@
 package eventspider.controllers;
 
-import eventspider.beans.LoggedInUser;
+import eventspider.beans.User;
 import eventspider.beans.Roles;
 import eventspider.beans.User;
 import eventspider.database.EventHandler;
@@ -25,7 +25,7 @@ public class AdminController {
 
     @GetMapping("/admin-page")
     public String getAdminPage(HttpServletRequest request, Model model) {
-        LoggedInUser user = (LoggedInUser)request.getSession().getAttribute("activeuser");
+        User user = (User)request.getSession().getAttribute("activeuser");
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
             model.addAttribute("user", new User());
@@ -41,7 +41,7 @@ public class AdminController {
 
     @GetMapping("/clearDatabase")
     public String clearDatabase(Model model, HttpServletRequest request) {
-        LoggedInUser user = (LoggedInUser) request.getSession().getAttribute("activeuser");
+        User user = (User) request.getSession().getAttribute("activeuser");
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
             model.addAttribute("user", new User());
