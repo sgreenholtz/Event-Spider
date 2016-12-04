@@ -37,7 +37,7 @@ public class LoginController {
             return "login";
         } else {
             request.getSession().setAttribute("activeuser", user);
-            return "index";
+            return (String) request.getSession().getAttribute("returnPage");
         }
     }
 

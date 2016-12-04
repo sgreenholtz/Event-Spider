@@ -2,6 +2,7 @@ package eventspider.controllers;
 
 import eventspider.beans.LoggedInUser;
 import eventspider.beans.Profile;
+import eventspider.beans.User;
 import eventspider.factories.ProfileFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,8 @@ public class ProfileController {
             return "profile";
         } else {
             model.addAttribute("restrictedAccess", true);
+            model.addAttribute("user", new User());
+            request.getSession().setAttribute("returnPage", "profile");
             return "login";
         }
     }

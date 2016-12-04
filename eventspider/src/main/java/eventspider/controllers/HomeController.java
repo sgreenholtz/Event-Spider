@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Maps the homepage
  * @author Sebastian Greenholtz
@@ -13,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 public class HomeController implements ErrorController {
 
     @RequestMapping(value="/")
-    public String index(Model model) {
+    public String index(HttpServletRequest request) {
+        request.getSession().setAttribute("returnPage", "index");
         return "index";
     }
 

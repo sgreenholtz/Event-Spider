@@ -32,6 +32,7 @@ public class AddEventController {
             return "addEvent";
         } else {
             model.addAttribute("restrictedAccess", true);
+            request.getSession().setAttribute("returnPage", "addEvent");
             return "login";
         }
     }

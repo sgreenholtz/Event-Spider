@@ -26,6 +26,7 @@ public class AdminController {
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
             model.addAttribute("user", new User());
+            request.getSession().setAttribute("returnPage", "admin");
             return "login";
         } else if (user.getRole() != Roles.ADMINISTRATOR) {
             model.addAttribute("doesNotHavePermission", true);
@@ -41,12 +42,12 @@ public class AdminController {
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
             model.addAttribute("user", new User());
+            request.getSession().setAttribute("returnPage", "admin");
             return "login";
         } else if (user.getRole() != Roles.ADMINISTRATOR) {
             model.addAttribute("doesNotHavePermission", true);
             return "index";
         } else {
-
             EventHandler handler = new EventHandler();
             boolean result = handler.deleteOldItems(LocalDate.now());
             handler.closeSession();

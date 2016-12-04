@@ -180,9 +180,10 @@ public class EventHandler extends DAO{
      * @return List of EventBeans for the user
      */
     public List<EventBean> getEventsForUser(Integer userId) {
-        String sql = "select Events.* from Events inner join UserSavedEvents using (event_id) where UserSavedEvents.user_id=" + userId;
+        //String sql = "select Events.* from Events inner join UserSavedEvents using (event_id) where UserSavedEvents.user_id=" + userId;
         List<EventBean> list = new ArrayList<>();
-        for (Object o : session.createSQLQuery(sql).list()) {
+        String sql = "from EventBean e join e.UserSavedEvents";
+        for (Object o : session.createQuery(sql).list()) {
             System.out.println((EventBean)o);
         }
         return list;

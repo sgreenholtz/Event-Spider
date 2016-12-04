@@ -2,6 +2,8 @@ package testing;
 
 import eventspider.beans.Roles;
 
+import java.io.*;
+
 /**
  * Simple main method testing
  * @author Sebastian Greenholtz
@@ -9,7 +11,7 @@ import eventspider.beans.Roles;
 public class PSVM {
 
     public static void main(String[] args) throws Exception{
-        System.out.println(Roles.MEMBER.ordinal());
+
 
     }
 }
