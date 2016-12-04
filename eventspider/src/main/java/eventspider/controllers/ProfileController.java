@@ -3,7 +3,9 @@ package eventspider.controllers;
 import eventspider.beans.PersistentUser;
 import eventspider.beans.User;
 import eventspider.beans.Profile;
-import eventspider.factories.ProfileFactory;
+import eventspider.database.ProfileHandler;
+import eventspider.database.UserHandler;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +19,20 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ProfileController {
 
+    private static final Logger log = Logger.getLogger(ProfileController.class);
+
     @GetMapping(value="profile")
     public String getProfile(Model model, HttpServletRequest request) {
         PersistentUser user = (PersistentUser) request.getSession().getAttribute("activeUser");
         if (user != null) {
-            ProfileFactory profileFactory = new ProfileFactory();
-            Profile profile = profileFactory.getProfile(user.getUserId());
-            model.addAttribute("profile", profile);
+            try (ProfileHandler profileHandler = new ProfileHandler();
+                 UserHandler userHandler = new UserHandler()){
+                User fullUser = userHandler.getUser(user.getUserId());
+                Profile profile = profileHandler.getProfile(fullUser);
+                model.addAttribute("profile", profile);
+            } catch (Exception e) {
+                log.error(e);
+            }
             return "profile";
         } else {
             model.addAttribute("restrictedAccess", true);

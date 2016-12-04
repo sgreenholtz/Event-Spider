@@ -169,15 +169,4 @@ public class EventHandler extends DAO{
         int rows = session.createQuery(hql).setString("date", localdate.toString("yyyyMMdd")).executeUpdate();
         return (rows > 0);
     }
-
-    /**
-     * Gets a Result Set of all the events saved for a given user
-     * @param user User object for logged in user
-     * @return Set of EventBeans for the user
-     */
-    public Set<EventBean> getEventsForUser(User user) {
-        Set<EventBean> events = new HashSet<>();
-        session.beginTransaction();
-        return events;
-    }
 }

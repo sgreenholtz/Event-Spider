@@ -1,7 +1,7 @@
 package eventspider.beans;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Represents all the data for a user profile
@@ -25,7 +25,7 @@ public class Profile {
     private String lastName;
 
     @Transient
-    private List<EventBean> events;
+    private Set<EventBean> events;
 
     /**
      * Empty constructor
@@ -51,7 +51,7 @@ public class Profile {
      * Gets the value of events.
      * @return events
      */
-    public List<EventBean> getEvents() {
+    public Set<EventBean> getEvents() {
         return events;
     }
 
@@ -59,7 +59,7 @@ public class Profile {
      * Sets events to given value
      * @param events value to set instance variable to
      */
-    public void setEvents(List<EventBean> events) {
+    public void setEvents(Set<EventBean> events) {
         this.events = events;
     }
 
