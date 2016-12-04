@@ -88,12 +88,6 @@ public class EventHandlerTest {
     }
 
     @Test
-    public void saveEventToUser() throws Exception {
-        assertTrue("Event could not be added to user",
-                handler.saveEventToUser(1, 1));
-    }
-
-    @Test
     public void getEventByIDSingle() throws Exception {
         Integer id = handler.getEventIDByTitle("Event1");
         EventBean event = handler.getEventByID(id);
@@ -130,14 +124,6 @@ public class EventHandlerTest {
         Integer id = handler.getEventIDByTitle("Event1");
         handler.deleteEvent(id);
         assertNull(handler.getEventByID(id));
-    }
-
-    @Test
-    public void userEventListTest() throws Exception {
-        Integer id = handler.getEventIDByTitle("Event1");
-        handler.saveEventToUser(1, id);
-        List<EventBean> list = handler.getEventsForUser(1);
-        assertEquals("Events not retrieved successfully", 1, list.size());
     }
 
 }
