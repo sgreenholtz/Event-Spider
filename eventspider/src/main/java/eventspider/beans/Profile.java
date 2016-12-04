@@ -28,6 +28,10 @@ public class Profile {
     private List<EventBean> events;
 
     /**
+     * Empty constructor
+     */
+    public Profile() {}
+    /**
      * Gets the value of image.
      * @return image
      */

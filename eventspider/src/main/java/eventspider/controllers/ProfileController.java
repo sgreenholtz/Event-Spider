@@ -2,8 +2,7 @@ package eventspider.controllers;
 
 import eventspider.beans.LoggedInUser;
 import eventspider.beans.Profile;
-import eventspider.beans.ProfileFactory;
-import eventspider.beans.User;
+import eventspider.factories.ProfileFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

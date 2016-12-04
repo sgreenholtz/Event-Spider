@@ -1,7 +1,7 @@
 package eventspider.Eventful;
 
 import eventspider.beans.EventBean;
-import eventspider.beans.EventFactory;
+import eventspider.factories.EventFactory;
 import eventspider.beans.SearchBean;
 import eventspider.utility.WebServiceUtility;
 import org.apache.log4j.Logger;

@@ -14,15 +14,20 @@ import java.util.*;
  * Searches the database for events that match a given search
  * @author Sebastian Greenholtz
  */
-public class DatabaseSearch {
+public class DatabaseSearch extends DAO {
 
     private SearchBean search;
     private static SearchFactory searchFactory;
     private static FullTextSession fullTextSession;
     private QueryBuilder eventQB;
 
+    /**
+     * Creates a new full text session from the given session
+     * @param session Session already open
+     */
     public DatabaseSearch(Session session) {
-        fullTextSession = Search.getFullTextSession(session);
+        super(session);
+        fullTextSession = Search.getFullTextSession(super.session);
         searchFactory = fullTextSession.getSearchFactory();
         eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
     }
@@ -33,7 +38,10 @@ public class DatabaseSearch {
      * @param search Search bean
      */
     public DatabaseSearch(SearchBean search) {
-        this(SessionFactoryProvider.getSessionFactory().openSession());
+        super();
+        fullTextSession = Search.getFullTextSession(super.session);
+        searchFactory = fullTextSession.getSearchFactory();
+        eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
         this.search = search;
     }
 
@@ -43,7 +51,10 @@ public class DatabaseSearch {
      * @param search Search Bean
      */
     public DatabaseSearch(Session session, SearchBean search) {
-        this(session);
+        super(session);
+        fullTextSession = Search.getFullTextSession(super.session);
+        searchFactory = fullTextSession.getSearchFactory();
+        eventQB = searchFactory.buildQueryBuilder().forEntity( EventBean.class ).get();
         this.search = search;
     }
 

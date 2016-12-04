@@ -19,6 +19,7 @@ public class EventDetailsController {
     public String getEventDetails(@RequestParam int id, Model model){
         EventHandler handler = new EventHandler();
         model.addAttribute("event", handler.getEventByID(id));
+        handler.closeSession();
         return "event-details";
     }
 
@@ -27,6 +28,7 @@ public class EventDetailsController {
         EventHandler handler = new EventHandler();
         User user = (User)request.getSession().getAttribute("activeuser");
         boolean success = handler.saveEventToUser(user.getUserID(), id);
+        handler.closeSession();
         model.addAttribute("success", success);
         model.addAttribute("event", handler.getEventByID(id));
         return "event-details";

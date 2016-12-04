@@ -17,6 +17,7 @@ public class LoggedInUser extends User {
      * @param firstName first name, string
      */
     public LoggedInUser(User user, String firstName) {
+        this();
         this.userID = user.userID;
         this.firstName = firstName;
         this.role = user.role;

@@ -1,7 +1,7 @@
 package testing;
 
 import eventspider.beans.EventBean;
-import eventspider.beans.EventFactory;
+import eventspider.factories.EventFactory;
 import eventspider.beans.SearchBean;
 import eventspider.database.DatabaseSearch;
 import eventspider.database.SessionFactoryProvider;

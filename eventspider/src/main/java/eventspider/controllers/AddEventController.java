@@ -21,6 +21,7 @@ public class AddEventController {
     public String addEventManual(@ModelAttribute EventBean event) {
         EventHandler handler = new EventHandler();
         handler.addEvent(event);
+        handler.closeSession();
         return "index";
     }
 

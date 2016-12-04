@@ -1,7 +1,6 @@
 package testing;
 
-import eventspider.beans.EventBean;
-import eventspider.beans.EventFactory;
+import eventspider.factories.EventFactory;
 import eventspider.beans.Profile;
 import eventspider.database.EventHandler;
 import eventspider.database.ProfileHandler;
@@ -13,10 +12,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import org.joda.time.LocalDate;
-import java.util.*;
-import java.util.List;
 
 import static org.junit.Assert.*;
 

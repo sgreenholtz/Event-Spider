@@ -15,16 +15,15 @@ import java.util.*;
  * database using HibernateDAO
  * @author Sebastian Greenholtz
  */
-public class EventHandler {
+public class EventHandler extends DAO{
 
-    private Session session;
     private final Logger log = Logger.getLogger(this.getClass());
 
     /**
      * Empty constructor assigns session variable
      */
     public EventHandler() {
-        session = SessionFactoryProvider.getSessionFactory().openSession();
+        super();
     }
 
     /**
@@ -170,7 +169,7 @@ public class EventHandler {
      * @return true if the deletion was successful
      */
     public boolean deleteOldItems(LocalDate localdate) {
-        String hql = "delete from Event where startDate < :date";
+        String hql = "delete from EventBean where startDate < :date";
         int rows = session.createQuery(hql).setString("date", localdate.toString("yyyyMMdd")).executeUpdate();
         return (rows > 0);
     }
@@ -184,7 +183,7 @@ public class EventHandler {
         String sql = "select Events.* from Events inner join UserSavedEvents using (event_id) where UserSavedEvents.user_id=" + userId;
         List<EventBean> list = new ArrayList<>();
         for (Object o : session.createSQLQuery(sql).list()) {
-            list.add((EventBean)o);
+            System.out.println((EventBean)o);
         }
         return list;
     }

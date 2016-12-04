@@ -16,16 +16,15 @@ import java.util.*;
  * @author Sebastian Greenholtz
  */
 
-public class UserHandler {
+public class UserHandler extends DAO {
 
     private static final Logger logger = Logger.getLogger(UserHandler.class);
-    private Session session;
 
     /**
      * Empty constructor assigns session var
      */
     public UserHandler() {
-        this.session = SessionFactoryProvider.getSessionFactory().openSession();
+        super();
     }
 
     /**
