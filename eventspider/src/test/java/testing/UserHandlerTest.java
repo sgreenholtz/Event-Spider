@@ -1,5 +1,6 @@
 package testing;
 
+import eventspider.beans.Registration;
 import eventspider.beans.User;
 import eventspider.beans.Roles;
 import eventspider.database.SessionFactoryProvider;
@@ -109,11 +110,9 @@ public class UserHandlerTest {
 
     @Test
     public void registerSuccess() throws Exception {
-        User user = new User();
+        Registration user = new Registration();
         user.setEmail("test2@user.com");
         user.setPassword(DigestUtils.sha1Hex("test123"));
-        user.setRole(Roles.MEMBER);
-
         handler.register(user);
 
         Criteria criteria = session.createCriteria(User.class);
