@@ -1,9 +1,11 @@
 package eventspider.controllers;
 
-import eventspider.beans.LoggedInUser;
+import eventspider.beans.PersistentUser;
+import eventspider.beans.User;
 import eventspider.beans.Roles;
 import eventspider.beans.User;
 import eventspider.database.EventHandler;
+import org.apache.log4j.Logger;
 import org.joda.time.LocalDate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +22,15 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class AdminController {
 
+    private static final Logger log = Logger.getLogger(AdminController.class);
+
     @GetMapping("/admin-page")
     public String getAdminPage(HttpServletRequest request, Model model) {
-        LoggedInUser user = (LoggedInUser)request.getSession().getAttribute("activeuser");
+        PersistentUser user = (PersistentUser) request.getSession().getAttribute("activeUser");
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
             model.addAttribute("user", new User());
+            request.getSession().setAttribute("returnPage", "admin");
             return "login";
         } else if (user.getRole() != Roles.ADMINISTRATOR) {
             model.addAttribute("doesNotHavePermission", true);
@@ -37,19 +42,23 @@ public class AdminController {
 
     @GetMapping("/clearDatabase")
     public String clearDatabase(Model model, HttpServletRequest request) {
-        LoggedInUser user = (LoggedInUser) request.getSession().getAttribute("activeuser");
+        PersistentUser user = (PersistentUser) request.getSession().getAttribute("activeUser");
         if (user == null) {
             model.addAttribute("restrictedAccess", true);
             model.addAttribute("user", new User());
+            request.getSession().setAttribute("returnPage", "admin");
             return "login";
         } else if (user.getRole() != Roles.ADMINISTRATOR) {
             model.addAttribute("doesNotHavePermission", true);
             return "index";
         } else {
+            boolean result = false;
+            try (EventHandler handler = new EventHandler()) {
+                result = handler.deleteOldItems(LocalDate.now());
+            } catch (Exception e) {
+                log.error(e);
+            }
 
-            EventHandler handler = new EventHandler();
-            boolean result = handler.deleteOldItems(LocalDate.now());
-            handler.closeSession();
             String message = null;
             if (result) {
                 message = "<strong>Success!</strong> Old items in database have been deleted.";

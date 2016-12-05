@@ -29,11 +29,13 @@ public class UserHandler extends DAO {
 
     /**
      * Takes a User object, checks if that user is in the database, then
-     * validates the password. Returns null if the log in was incorrect
+     * validates the password. Returns null if the log in was incorrect.
+     * Returns the user object with the password set to NULL if the login
+     * is correct
      * @param user User object from log in
-     * @return LoggedInUser object if log in is correct, or null if incorrect
+     * @return User object if log in is correct, or null if incorrect
      */
-    public LoggedInUser logIn(User user) {
+    public User logIn(User user) {
         Criteria criteria = session.createCriteria(User.class);
         criteria.add(Restrictions.eq("email", user.getEmail()));
         List results = criteria.list();
@@ -45,9 +47,8 @@ public class UserHandler extends DAO {
         if (!validatePassword(user, dbUser)) {
             return null;
         }
-        String sql = "Select firstName from Profile where userId=" + dbUser.getUserID();
-        String firstName = (String) session.createQuery(sql).list().get(0);
-        return new LoggedInUser(dbUser, firstName);
+        dbUser.setPassword(null);
+        return dbUser;
     }
 
     /**
@@ -67,35 +68,55 @@ public class UserHandler extends DAO {
 
     /**
      * Registers new user
-     * @param user User object to add to database
-     * TODO: fix this so that Profile is set up for new user
+     * @param reg Registration object to create new user
      */
-    public void register(User user) throws RequiredFieldMissingException {
-        if (requiredEmailNull(user)) {
-            throw new RequiredFieldMissingException("Email is a required field");
-        } else if (requiredPasswordNull(user)) {
-            throw new RequiredFieldMissingException("Password is a required field");
-        } else {
-            user.setPassword(DigestUtils.sha1Hex(user.getPassword()));
-            user.setRole(Roles.MEMBER);
-            try {
-                session.beginTransaction();
-                session.save(user);
-                logger.info("Event added: " + user.getEmail());
-                session.getTransaction().commit();
-            } catch (HibernateException e) {
-                logger.error("Something went wrong in adding new user: " + e);
-                throw e;
-            }
+    public void register(Registration reg) {
+        User user = createUser(reg);
+        Profile profile = createProfile(reg);
+        try {
+            session.beginTransaction();
+            session.save(user);
+            session.save(profile);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            logger.error("Something went wrong in adding new user: " + e);
+            throw e;
         }
     }
 
-    public boolean requiredEmailNull(User user) {
-        return (user.getEmail() == null);
+    /**
+     * Create the Profile object based on the registration
+     * @param reg Registration object
+     * @return new Profile object
+     */
+    private Profile createProfile(Registration reg) {
+        Profile profile = new Profile();
+        profile.setFirstName(reg.getFirstName());
+        profile.setLastName(reg.getLastName());
+        return profile;
     }
 
-    public boolean requiredPasswordNull(User user) {
-        return (user.getPassword() == null);
+    /**
+     * Creates a new User object from the Registration
+     * @param reg Registration object
+     * @return new User
+     */
+    private User createUser(Registration reg) {
+        User user = new User();
+        user.setPassword(DigestUtils.sha1Hex(reg.getPassword()));
+        user.setRole(Roles.MEMBER);
+        user.setEmail(reg.getEmail());
+        return user;
     }
+
+    /**
+     * Get user object using the integer Id
+     * @param userId Integer userId
+     * @return user object for the given user
+     */
+    public User getUser(Integer userId) {
+        return (User)session.get(User.class, userId);
+    }
+
 
 }

@@ -1,21 +1,17 @@
 package testing;
 
-import eventspider.beans.LoggedInUser;
-import eventspider.beans.RequiredFieldMissingException;
-import eventspider.beans.Roles;
+import eventspider.beans.Registration;
 import eventspider.beans.User;
-import eventspider.database.EventHandler;
+import eventspider.beans.Roles;
 import eventspider.database.SessionFactoryProvider;
 import eventspider.database.UserHandler;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -30,7 +26,7 @@ import static org.junit.Assert.*;
 public class UserHandlerTest {
     private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
     private static User userInDB;
-    private static LoggedInUser loggedInUser;
+    private static User User;
     private UserHandler handler = new UserHandler();
     private static Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
@@ -40,7 +36,7 @@ public class UserHandlerTest {
         logger.info("***** STARTING TEST: UserHandlerTest ******");
         clearDatabase();
         addUserToTestDB();
-        loggedInUser = createLoggedInUser();
+        User = createUser();
     }
 
     @AfterClass
@@ -48,13 +44,12 @@ public class UserHandlerTest {
         session.close();
     }
 
-    private static LoggedInUser createLoggedInUser() {
-        LoggedInUser loggedInUser = new LoggedInUser();
-        loggedInUser.setUserID(1);
-        loggedInUser.setEmail("test@user.com");
-        loggedInUser.setFirstName("Test");
-        loggedInUser.setRole(Roles.MEMBER);
-        return loggedInUser;
+    private static User createUser() {
+        User User = new User();
+        User.setUserID(1);
+        User.setEmail("test@user.com");
+        User.setRole(Roles.MEMBER);
+        return User;
     }
 
     private static void addUserToTestDB() {
@@ -92,13 +87,13 @@ public class UserHandlerTest {
 
     /**
      * Uses overridden equals method rather than assertEquals to compare the
-     * fields of loggedInUser rather than the object hash
+     * fields of User rather than the object hash
      */
     @Test
     public void logInSuccessful() throws Exception {
         User logInAttempt = new User("test@user.com", "test123");
-        LoggedInUser actual = handler.logIn(logInAttempt);
-        assertTrue("Log in failed", loggedInUser.equals(actual));
+        User actual = handler.logIn(logInAttempt);
+        assertTrue("Log in failed", User.equals(actual));
     }
 
     @Test
@@ -113,27 +108,11 @@ public class UserHandlerTest {
         assertNull("Log in verification failed", handler.logIn(logInAttempt));
     }
 
-    @Test(expected = RequiredFieldMissingException.class)
-    public void registerFailNoEmail() throws Exception {
-        User emptyUser = new User();
-        emptyUser.setPassword("test123");
-        handler.register(emptyUser);
-    }
-
-    @Test(expected = RequiredFieldMissingException.class)
-    public void registerFailNoPassword() throws Exception {
-        User emptyUser = new User();
-        emptyUser.setEmail("test@user.com");
-        handler.register(emptyUser);
-    }
-
     @Test
     public void registerSuccess() throws Exception {
-        User user = new User();
+        Registration user = new Registration();
         user.setEmail("test2@user.com");
         user.setPassword(DigestUtils.sha1Hex("test123"));
-        user.setRole(Roles.MEMBER);
-
         handler.register(user);
 
         Criteria criteria = session.createCriteria(User.class);

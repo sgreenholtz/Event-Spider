@@ -25,28 +25,30 @@
     </c:choose>
 </c:if>
 <h1>${event.title}</h1>
+<div class="well">
+    <c:choose>
+        <c:when test="${empty event.description}">
+            <p>No description available.</p>
+        </c:when>
+        <c:otherwise>
+            <p>${event.description}</p>
+        </c:otherwise>
+    </c:choose>
+    <h4>When</h4>
+    <c:choose>
+        <c:when test="${empty event.endTime}">
+            <p><joda:format value="${event.startDate}" style="F-"/> at ${event.startTime}</p>
+        </c:when>
+        <c:otherwise>
+            <p><joda:format value="${event.startDate}" style="F-"/> from ${event.startTime} to ${event.endTime}</p>
+        </c:otherwise>
+    </c:choose>
+    <h4>Where</h4>
+    <p>${event.venueAddress}, ${event.state} ${event.city} ${event.postalCode}</p>
+    <p><a href="${event.url}" target="_blank" class="btn btn-warning">Learn More</a></p>
+</div>
 <c:choose>
-    <c:when test="${empty event.description}">
-        <p>No description available.</p>
-    </c:when>
-    <c:otherwise>
-        <p>${event.description}</p>
-    </c:otherwise>
-</c:choose>
-<h4>When</h4>
-<c:choose>
-    <c:when test="${empty event.endTime}">
-        <p><joda:format value="${event.startDate}" style="F-"/> at ${event.startTime}</p>
-    </c:when>
-    <c:otherwise>
-        <p><joda:format value="${event.startDate}" style="F-"/> from ${event.startTime} to ${event.endTime}</p>
-    </c:otherwise>
-</c:choose>
-<h4>Where</h4>
-<p>${event.venueAddress}, ${event.state} ${event.city} ${event.postalCode}</p>
-<p><a href="${event.url}" target="_blank" class="btn btn-warning">Learn More</a></p>
-<c:choose>
-    <c:when test="${empty activeuser}">
+    <c:when test="${empty activeUser}">
         <a href="login" class="btn btn-danger btn-lg">Log In to Save</a>
     </c:when>
     <c:otherwise>

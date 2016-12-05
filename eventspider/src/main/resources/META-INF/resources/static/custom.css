@@ -38,3 +38,9 @@
 .tableOverflow {
     overflow:auto;
 }
+
+#indexSearchBtn {
+    background-color: #909E13;
+    border-color: #828E11;
+    color: black;
+}

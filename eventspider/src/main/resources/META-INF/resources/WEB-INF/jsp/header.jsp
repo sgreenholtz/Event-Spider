@@ -26,7 +26,9 @@
     <title>Event Spider - ${title}</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="${staticDir}/bootstrap-custom.css" />
     <link rel="stylesheet" href="${staticDir}/custom.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="${staticDir}/jquery.timepicker.css" />
@@ -47,7 +49,7 @@
         <h1>Event Spider</h1>
     </div>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" id="navbar">
         <div class="container-fluid">
 
             <div class="navbar-header">
@@ -59,13 +61,13 @@
                 </button>
             </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <div class="collapse navbar-collapse">
                 <div id="navbarTextLarge">
                 <ul class="nav navbar-nav">
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                     <li><a href="search-form"><span class="glyphicon glyphicon-search"></span> Search</a></li>
                     <c:choose>
-                        <c:when test="${activeuser.userID eq null}">
+                        <c:when test="${activeUser.userId eq null}">
                             <li class=""><a href="login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
                             <li class=""><a href="register"><span class="glyphicon glyphicon-edit"></span> Register</a></li>
                         </c:when>
@@ -73,11 +75,11 @@
                             <li class="dropdown" id="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <span class="glyphicon glyphicon-user">
-                                    </span> ${activeuser.firstName}<span class="caret"></span></a>
+                                    </span> ${activeUser.firstName}<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="profile">My Profile</a></li>
                                     <li><a href="add-event-form">Add Custom Event</a></li>
-                                    <spring:eval expression="activeuser.role == T(eventspider.beans.Roles).ADMINISTRATOR" var="isAdmin" />
+                                    <spring:eval expression="activeUser.role == T(eventspider.beans.Roles).ADMINISTRATOR" var="isAdmin" />
                                     <c:if test="${isAdmin}">
                                         <li><a href="admin-page">Admin Page</a></li>
                                     </c:if>

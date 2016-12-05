@@ -77,20 +77,18 @@ public class EventHandler extends DAO{
 
     /**
      * Saves a given event to a given user. Returns true if successfully added
-     *
-     * @param userID  Integer
-     * @param eventID Integer
+     * @param user  User object for logged in user
+     * @param event EventBean object for event to save
      * @return True if event is successfully added
      */
-    public boolean saveEventToUser(Integer userID, Integer eventID) {
-        UserSavedEvents savedEvent = new UserSavedEvents();
+    public boolean saveEventToUser(User user, EventBean event) {
         try {
-            savedEvent.setEventID(eventID);
-            savedEvent.setUserID(userID);
+            session.merge(user);
+            session.merge(event);
             session.beginTransaction();
-            session.save(savedEvent);
+            user.getEvents().add(event);
+            session.save(user);
             session.getTransaction().commit();
-            log.info(String.format("Event %s saved to user %s", eventID, userID));
         } catch (Exception e) {
             log.error(e);
             return false;
@@ -172,19 +170,5 @@ public class EventHandler extends DAO{
         String hql = "delete from EventBean where startDate < :date";
         int rows = session.createQuery(hql).setString("date", localdate.toString("yyyyMMdd")).executeUpdate();
         return (rows > 0);
-    }
-
-    /**
-     * Gets a Result Set of all the events saved for a given user
-     * @param userId userID of user to get events for
-     * @return List of EventBeans for the user
-     */
-    public List<EventBean> getEventsForUser(Integer userId) {
-        String sql = "select Events.* from Events inner join UserSavedEvents using (event_id) where UserSavedEvents.user_id=" + userId;
-        List<EventBean> list = new ArrayList<>();
-        for (Object o : session.createSQLQuery(sql).list()) {
-            System.out.println((EventBean)o);
-        }
-        return list;
     }
 }

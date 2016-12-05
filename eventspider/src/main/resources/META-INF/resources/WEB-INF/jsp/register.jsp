@@ -11,7 +11,7 @@
 <% session.setAttribute("title", "Register"); %>
 <c:import url="header.jsp"/>
 
-<form:form id="registerForm" class="form-horizontal" action="register" method="post" modelAttribute="user">
+<form:form id="registerForm" class="form-horizontal" action="register" method="post" modelAttribute="register">
     <fieldset>
         <legend>Register</legend>
         <div class="form-group">

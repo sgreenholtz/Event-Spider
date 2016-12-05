@@ -8,7 +8,7 @@ import org.hibernate.Session;
  * Super dao object to help with opening and closing sessions
  * @author Sebastian Greenholtz
  */
-public class DAO {
+public class DAO implements AutoCloseable {
     protected Session session;
     private final Logger log = Logger.getLogger(this.getClass());
 
@@ -28,10 +28,8 @@ public class DAO {
         this.session = session;
     }
 
-    /**
-     * Closes the Hibernate session
-     */
-    public void closeSession() {
+    @Override
+    public void close() throws Exception {
         try {
             session.close();
             log.info("** Closing Hibernate session **");

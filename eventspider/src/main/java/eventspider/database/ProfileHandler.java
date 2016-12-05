@@ -1,6 +1,7 @@
 package eventspider.database;
 
 import eventspider.beans.Profile;
+import eventspider.beans.User;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
@@ -47,6 +48,35 @@ public class ProfileHandler extends DAO{
             return false;
         }
         return true;
+    }
+
+    /**
+     * For a given userId, gets the first name of the user
+     * @param userId Integer id for user
+     * @return String of the user's first name
+     */
+    public String getFirstNameForUser(Integer userId) {
+        try {
+            String sql = "Select firstName from Profile where userId=" + userId;
+            return (String) session.createQuery(sql).list().get(0);
+        } catch (Exception e) {
+            logger.error(e);
+        }
+        return "";
+    }
+
+    /**
+     * Constructs the Profile object to populate the Profile page
+     * @param user User object of the user to get their profile
+     * @return Profile object for the given user
+     */
+    public Profile getProfile(User user) {
+        session.merge(user);
+        ProfileHandler profileHandler = new ProfileHandler();
+        Profile profile = profileHandler.getProfile(user.getUserID());
+        profile.setEvents(user.getEvents());
+        logger.info("Retrieved user: " + profile.getUserId());
+        return profile;
     }
 
 }
