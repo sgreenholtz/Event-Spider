@@ -15,7 +15,7 @@
     <h1>Let's Go Out Tonight!</h1>
     <p>Find out what's going on today in your city. Just hop over to the Search page and type in your
     location and keywords - no need to register!</p>
-    <p><a href="search-form" class="btn btn-primary btn-lg">Search</a></p>
+    <p><a href="search-form" id="indexSearchBtn" class="btn btn-primary btn-lg">Search</a></p>
 </div>
 
 <c:import url="footer.jsp" />

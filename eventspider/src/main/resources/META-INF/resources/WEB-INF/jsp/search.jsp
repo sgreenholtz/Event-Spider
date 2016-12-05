@@ -16,27 +16,27 @@
         <legend>Search</legend>
         <div class="form-group">
             <form:label path="location" for="location" class="col-lg-2 control-label">Location:</form:label>
-            <div class="col-lg-10">
+            <div class="col-lg-6">
                 <form:input path="location" type="text" class="form-control" id="location"
                             placeholder="City, State, or Zip" name="location"/>
             </div>
         </div>
         <div class="form-group">
             <form:label path="keyword" for="keyword" class="col-lg-2 control-label">Find:</form:label>
-            <div class="col-lg-10">
+            <div class="col-lg-6">
                 <form:input path="keyword" type="text" class="form-control" id="keyword" placeholder="Title or keywords"
                             name="keyword"/>
             </div>
         </div>
         <div class="form-group">
             <form:label path="dateStart" for="dateStart" class="col-lg-2 control-label">Start Date:</form:label>
-            <div class="col-lg-10">
+            <div class="col-lg-6">
                 <form:input path="dateStart" type="text" class="date form-control" />
             </div>
         </div>
         <div class="form-group">
             <form:label path="dateEnd" for="dateEnd" class="col-lg-2 control-label">End Date:</form:label>
-            <div class="col-lg-10">
+            <div class="col-lg-6">
                 <form:input path="dateEnd" type="text" class="date form-control" />
             </div>
         </div>

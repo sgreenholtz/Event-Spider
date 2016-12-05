@@ -71,6 +71,7 @@ public class ProfileHandler extends DAO{
      * @return Profile object for the given user
      */
     public Profile getProfile(User user) {
+        session.merge(user);
         ProfileHandler profileHandler = new ProfileHandler();
         Profile profile = profileHandler.getProfile(user.getUserID());
         profile.setEvents(user.getEvents());

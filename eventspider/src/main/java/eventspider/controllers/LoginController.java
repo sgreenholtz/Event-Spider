@@ -51,14 +51,14 @@ public class LoginController {
 
     @GetMapping(value="register")
     public String registerForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("register", new Registration());
         return "register";
     }
 
     @PostMapping(value="register")
-    public String registerUser(@ModelAttribute User user) {
+    public String registerUser(@ModelAttribute Registration registration) {
         try (UserHandler handler = new UserHandler()){
-            handler.register(user);
+            handler.register(registration);
         } catch (Exception e) {
             log.error(e);
         }

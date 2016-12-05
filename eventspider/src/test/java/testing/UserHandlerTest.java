@@ -1,21 +1,16 @@
 package testing;
 
 import eventspider.beans.User;
-import eventspider.beans.RequiredFieldMissingException;
 import eventspider.beans.Roles;
-import eventspider.beans.User;
-import eventspider.database.EventHandler;
 import eventspider.database.SessionFactoryProvider;
 import eventspider.database.UserHandler;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -110,20 +105,6 @@ public class UserHandlerTest {
     public void logInFailPasswordIncorrect() throws Exception {
         User logInAttempt = new User("test@user.com", "test321");
         assertNull("Log in verification failed", handler.logIn(logInAttempt));
-    }
-
-    @Test(expected = RequiredFieldMissingException.class)
-    public void registerFailNoEmail() throws Exception {
-        User emptyUser = new User();
-        emptyUser.setPassword("test123");
-        handler.register(emptyUser);
-    }
-
-    @Test(expected = RequiredFieldMissingException.class)
-    public void registerFailNoPassword() throws Exception {
-        User emptyUser = new User();
-        emptyUser.setEmail("test@user.com");
-        handler.register(emptyUser);
     }
 
     @Test

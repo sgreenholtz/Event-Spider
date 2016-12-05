@@ -20,7 +20,7 @@
 <c:if test="${restrictedAccess}">
     <div class="alert alert-warning" role="alert">You need to be logged in to view that page.</div>
 </c:if>
-<form:form id="loginForm" class="form-horizontal" action="verify" method="post" modelAttribute="user">
+<form:form id="loginForm" class="form-horizontal" action="login" method="post" modelAttribute="user">
     <fieldset>
         <legend>Log In</legend>
         <div class="form-group" id="emailGroup">

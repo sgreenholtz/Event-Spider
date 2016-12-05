@@ -68,35 +68,45 @@ public class UserHandler extends DAO {
 
     /**
      * Registers new user
-     * @param user User object to add to database
-     * TODO: fix this so that Profile is set up for new user
+     * @param reg Registration object to create new user
      */
-    public void register(User user) throws RequiredFieldMissingException {
-        if (requiredEmailNull(user)) {
-            throw new RequiredFieldMissingException("Email is a required field");
-        } else if (requiredPasswordNull(user)) {
-            throw new RequiredFieldMissingException("Password is a required field");
-        } else {
-            user.setPassword(DigestUtils.sha1Hex(user.getPassword()));
-            user.setRole(Roles.MEMBER);
-            try {
-                session.beginTransaction();
-                session.save(user);
-                logger.info("Event added: " + user.getEmail());
-                session.getTransaction().commit();
-            } catch (HibernateException e) {
-                logger.error("Something went wrong in adding new user: " + e);
-                throw e;
-            }
+    public void register(Registration reg) {
+        User user = createUser(reg);
+        Profile profile = createProfile(reg);
+        try {
+            session.beginTransaction();
+            session.save(user);
+            session.save(profile);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            logger.error("Something went wrong in adding new user: " + e);
+            throw e;
         }
     }
 
-    public boolean requiredEmailNull(User user) {
-        return (user.getEmail() == null);
+    /**
+     * Create the Profile object based on the registration
+     * @param reg Registration object
+     * @return new Profile object
+     */
+    private Profile createProfile(Registration reg) {
+        Profile profile = new Profile();
+        profile.setFirstName(reg.getFirstName());
+        profile.setLastName(reg.getLastName());
+        return profile;
     }
 
-    public boolean requiredPasswordNull(User user) {
-        return (user.getPassword() == null);
+    /**
+     * Creates a new User object from the Registration
+     * @param reg Registration object
+     * @return new User
+     */
+    private User createUser(Registration reg) {
+        User user = new User();
+        user.setPassword(DigestUtils.sha1Hex(reg.getPassword()));
+        user.setRole(Roles.MEMBER);
+        user.setEmail(reg.getEmail());
+        return user;
     }
 
     /**
@@ -108,15 +118,5 @@ public class UserHandler extends DAO {
         return (User)session.get(User.class, userId);
     }
 
-    /**
-     * Gets a Result Set of all the events saved for a given user
-     * @param user User object for logged in user
-     * @return Set of EventBeans for the user
-     */
-    public Set<EventBean> getEventsForUser(User user) {
-        Set<EventBean> events = new HashSet<>();
-        session.beginTransaction();
-        return events;
-    }
 
 }

@@ -25,7 +25,7 @@ public class User {
     @Enumerated(EnumType.ORDINAL)
     private Roles role;
 
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name="UserSavedEvents", joinColumns=@JoinColumn(name="user_id"),
             inverseJoinColumns=@JoinColumn(name="event_id"))
     private Set<EventBean> events;
