@@ -23,7 +23,7 @@
 <link rel="icon" sizes="16x16" src="${staticDir}/icons/calendar.ico">
 <link rel="icon" sizes="16x16" src="${staticDir}/icons/calendar.png">
 
-    <title>Event Spider - ${title}</title>
+    <title>${title}</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"

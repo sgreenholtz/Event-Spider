@@ -20,6 +20,7 @@
 <c:if test="${restrictedAccess}">
     <div class="alert alert-warning" role="alert">You need to be logged in to view that page.</div>
 </c:if>
+<div class="well">
 <form:form id="loginForm" class="form-horizontal" action="login" method="post" modelAttribute="user">
     <fieldset>
         <legend>Log In</legend>
@@ -44,6 +45,6 @@
         </div>
     </fieldset>
 </form:form>
-
+</div>
 
 <c:import url="footer.jsp" />

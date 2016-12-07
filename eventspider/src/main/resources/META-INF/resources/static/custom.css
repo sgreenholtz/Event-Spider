@@ -50,3 +50,7 @@
     top: 75px;
     left: 30px;
 }
+
+#spiderJumbo {
+    background-image: url("images/spiderbackground.png");
+}

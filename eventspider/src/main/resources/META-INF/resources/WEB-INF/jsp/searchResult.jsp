@@ -11,6 +11,7 @@
 <%@taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>
 <% session.setAttribute("title", "Search Results"); %>
 <c:import url="header.jsp"/>
+<div class="well">
 <c:choose>
     <c:when test="${search.keyword eq ''}">
         <h3>Found ${fn:length(eventsList)} events in ${search.location}</h3>
@@ -20,7 +21,7 @@
     </c:otherwise>
 </c:choose>
 
-<table class="table table-striped table-hover ">
+<table class="table table-striped">
     <thead>
     <tr>
         <th></th>
@@ -40,4 +41,5 @@
     </c:forEach>
     </tbody>
 </table>
+</div>
 <c:import url="footer.jsp"/>
