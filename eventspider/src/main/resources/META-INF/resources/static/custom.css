@@ -44,3 +44,9 @@
     border-color: #828E11;
     color: black;
 }
+
+#spider {
+    position: relative;
+    top: 75px;
+    left: 30px;
+}
