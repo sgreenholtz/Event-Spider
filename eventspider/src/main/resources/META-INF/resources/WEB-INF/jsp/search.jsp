@@ -10,10 +10,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <% session.setAttribute("title", "Search Event"); %>
 <c:import url="header.jsp"/>
-
+<h1>Search</h1>
+<div class="jumbotron">
 <form:form class="form-horizontal" action="search" method="post" modelAttribute="search">
     <fieldset>
-        <legend>Search</legend>
         <div class="form-group">
             <form:label path="location" for="location" class="col-lg-2 control-label">Location:</form:label>
             <div class="col-lg-6">
@@ -52,10 +52,12 @@
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
+                <button id="indexSearchBtn" type="submit" class="btn btn-primary"
+                        data-toggle="modal" data-target="#myModal">Submit</button>
             </div>
         </div>
     </fieldset>
 </form:form>
+</div>
 <div class="loader modal" id="myModal"></div>
 <c:import url="footer.jsp" />
