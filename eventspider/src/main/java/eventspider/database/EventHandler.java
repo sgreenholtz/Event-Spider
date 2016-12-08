@@ -83,11 +83,8 @@ public class EventHandler extends DAO{
      */
     public boolean saveEventToUser(User user, EventBean event) {
         try {
-            session.merge(user);
-            session.merge(event);
             session.beginTransaction();
             user.getEvents().add(event);
-            session.save(user);
             session.getTransaction().commit();
         } catch (Exception e) {
             log.error(e);
