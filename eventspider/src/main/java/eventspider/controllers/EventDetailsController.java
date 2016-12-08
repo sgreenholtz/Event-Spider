@@ -39,6 +39,7 @@ public class EventDetailsController {
             PersistentUser user = (PersistentUser)request.getSession().getAttribute("activeUser");
             EventBean event = handler.getEventByID(id);
             User fullUser = userHandler.getUser(user.getUserId());
+            userHandler.close();
             boolean success = handler.saveEventToUser(fullUser, event);
             model.addAttribute("success", success);
             model.addAttribute("event", handler.getEventByID(id));
