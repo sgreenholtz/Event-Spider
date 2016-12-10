@@ -10,9 +10,9 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/eventspider?useTimezone=true&amp;serverTimezone=UTC</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">student</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/eventspider</property>
+        <property name="connection.username">student</property>
+        <property name="connection.password">sverdlov1905</property>
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
@@ -22,7 +22,7 @@
 
         <!-- Indexing Properties -->
         <property name="hibernate.search.default.directory_provider">filesystem</property>
-        <property name="hibernate.search.default.indexBase">/home/sebastian/Event-Spider/eventspider/indexes</property>
+        <property name="hibernate.search.default.indexBase">/home/sebastian/indexes</property>
 
         <!-- List the annotated entity class/es -->
         <mapping class="eventspider.beans.EventBean"/>

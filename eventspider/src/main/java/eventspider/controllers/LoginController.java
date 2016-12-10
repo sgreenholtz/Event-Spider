@@ -2,7 +2,7 @@ package eventspider.controllers;
 
 import eventspider.beans.*;
 import eventspider.database.ProfileHandler;
-import eventspider.database.UserHandler;
+import eventspider.database.*;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +31,7 @@ public class LoginController {
     public String loginSubmit(@RequestParam String email, @RequestParam String password, Model model,
                               HttpServletRequest request) {
         User attempt = new User(email, password);
-        try (UserHandler handler = new UserHandler();
+	try (UserHandler handler = new UserHandler();
              ProfileHandler profileHandler = new ProfileHandler()){
             User user = handler.logIn(attempt);
             if (user == null) {
