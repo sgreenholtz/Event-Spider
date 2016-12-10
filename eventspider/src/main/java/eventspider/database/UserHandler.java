@@ -3,13 +3,13 @@ package eventspider.database;
 import eventspider.beans.*;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
-import eventspider.beans.User;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.*;
+import java.sql.*;
 
 /**
  * Provides methods for handling users: login, registration, verification
@@ -36,19 +36,33 @@ public class UserHandler extends DAO {
      * @return User object if log in is correct, or null if incorrect
      */
     public User logIn(User user) {
-        Criteria criteria = session.createCriteria(User.class);
-        criteria.add(Restrictions.eq("email", user.getEmail()));
-        List results = criteria.list();
-        if (results.size() == 0) {
-            return null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://138.68.1.193:3306/eventspider", "root", "TheHistoryOfAllHithert0!");
+            String sql = "select * from Users where email='" + user.getEmail() + "'";
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                logger.info(rs.getString("email"));
+            }
+        } catch (Exception e) {
+                logger.error(e);
         }
 
-        User dbUser = (User) results.get(0);
-        if (!validatePassword(user, dbUser)) {
-            return null;
-        }
-        dbUser.setPassword(null);
-        return dbUser;
+//        Criteria criteria = session.createCriteria(User.class);
+//        criteria.add(Restrictions.eq("email", user.getEmail()));
+//        List results = criteria.list();
+//        if (results.size() == 0) {
+//            return null;
+//        }
+//
+//        User dbUser = (User) results.get(0);
+//        if (!validatePassword(user, dbUser)) {
+//            return null;
+//        }
+//        dbUser.setPassword(null);
+//        return dbUser;
+        return null;
     }
 
     /**
