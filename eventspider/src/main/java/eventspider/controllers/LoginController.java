@@ -34,6 +34,7 @@ public class LoginController {
         try (UserHandler handler = new UserHandler();
              ProfileHandler profileHandler = new ProfileHandler()){
             User user = handler.logIn(attempt);
+            System.out.println("checkpoint1");
             if (user == null) {
                 model.addAttribute("notLoggedIn", true);
                 model.addAttribute("user", new User());
