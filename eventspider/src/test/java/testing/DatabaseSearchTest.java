@@ -25,7 +25,7 @@ public class DatabaseSearchTest {
 
     private static Session session = SessionFactoryProvider.getSessionFactory().openSession();
     private DatabaseSearch searcher;
-    private SearchBean searchBean = new SearchBean();
+    private static SearchBean searchBean;
     private static EventFactory factory = new EventFactory();
     private static final Logger logger = Logger.getLogger(EventHandlerTest.class);
 
@@ -59,6 +59,13 @@ public class DatabaseSearchTest {
         deleteIndexDir();
     }
 
+    @Before
+    public static void before() throws Exception {
+        searchBean = new SearchBean();
+        searchBean.setKeyword("");
+        searchBean.setLocation("");
+    }
+
     private static void clearDatabase() {
         String sql = "DELETE FROM Events";
         session.beginTransaction();
@@ -68,7 +75,7 @@ public class DatabaseSearchTest {
     }
 
     private static void deleteIndexDir() throws Exception {
-        String path = "/home/sebastian/Event-Spider/eventspider/indexes/test/eventspider.beans.EventBean";
+        String path = "/home/sebastian/Event-Spider/eventspider/indexes_test/eventspider.beans.EventBean";
         File dir = new File(path);
         if (dir.exists()) {
             FileUtils.deleteDirectory(dir);
@@ -153,6 +160,34 @@ public class DatabaseSearchTest {
         List list = searcher.performSearch();
         assertNotNull("Results not correctly returned", list);
         assertEquals("List of returned results is the wrong size", 0, list.size());
+    }
+
+    @Test
+    public void searchByLocationSuccess() throws Exception {
+        searchBean.setLocation("Madison");
+        searcher = new DatabaseSearch(session, searchBean);
+        List list = searcher.performSearch();
+        assertNotNull("Results not returned", list);
+        assertEquals("List of results returned is the wrong size", 3, list.size());
+    }
+
+    @Test
+    public void searchByLocationAndKeywordSuccess() throws Exception {
+        searchBean.setKeyword("banana");
+        searchBean.setLocation("Madison");
+        searcher = new DatabaseSearch(session, searchBean);
+        List list = searcher.performSearch();
+        assertNotNull("Results not returned", list);
+        assertEquals("List of results returned is the wrong size", 1, list.size());
+    }
+
+    @Test
+    public void searchByLocationFail() throws Exception {
+        searchBean.setLocation("Nashville");
+        searcher = new DatabaseSearch(session, searchBean);
+        List list = searcher.performSearch();
+        assertNotNull("Results not returned", list);
+        assertEquals("List of results returned is the wrong size", 0, list.size());
     }
 
 }

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 
+import eventspider.utility.DateComparisonUtil;
 import org.joda.time.LocalDate;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -26,6 +27,7 @@ public class EventfulSearchTest {
 
     private static EventfulSearch search;
     private static SearchBean bean;
+    private DateComparisonUtil dateUtil = new DateComparisonUtil();
 
     @BeforeClass
     public static void setUp() throws Exception {
@@ -72,7 +74,15 @@ public class EventfulSearchTest {
         search = new EventfulSearch(bean);
         String url = search.constructURL();
         String response = jsonResponse(url);
-        assertTrue(getItemFromJson(response).getStart_time().contains(bean.getDateStart().toString()));
+        EventItem item = getItemFromJson(response);
+
+        assertTrue(
+            dateUtil.isDateBetweenStartAndEnd(
+                item.getStart_time(),
+                item.getStop_time(),
+                bean.getDateStart().toString()
+            )
+        );
         bean.setDateStart(null);
     }
 

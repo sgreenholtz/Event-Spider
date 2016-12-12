@@ -46,7 +46,12 @@
 
 <div class="container">
     <div class="row">
-        <h1>Event Spider</h1>
+        <div class="col-sm-2">
+            <h1>Event Spider</h1>
+        </div>
+        <div class="col-lg-3 col-offset">
+            <img src="${staticDir}/images/spider150px.png"
+        </div>
     </div>
 
     <nav class="navbar navbar-inverse" id="navbar">
