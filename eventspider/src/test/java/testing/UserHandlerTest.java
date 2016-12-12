@@ -93,7 +93,8 @@ public class UserHandlerTest {
     public void logInSuccessful() throws Exception {
         User logInAttempt = new User("test@user.com", "test123");
         User actual = handler.logIn(logInAttempt);
-        assertTrue("Log in failed", User.equals(actual));
+        Boolean equal = logInAttempt.getEmail().equals(actual.getEmail());
+        assertTrue("Log in failed", equal);
     }
 
     @Test

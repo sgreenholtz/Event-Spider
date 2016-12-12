@@ -5,11 +5,9 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.*;
-import java.sql.*;
 
 /**
  * Provides methods for handling users: login, registration, verification
@@ -36,19 +34,27 @@ public class UserHandler extends DAO {
      * @return User object if log in is correct, or null if incorrect
      */
     public User logIn(User user) {
+        User dbUser = getUserByEmail(user);
+        if (!validatePassword(user, dbUser)) {
+            return null;
+        }
+        dbUser.setPassword(null);
+        return dbUser;
+    }
+
+    /**
+     * Gets the User object from the database based on a given email
+     * @param user User bean with email
+     * @return User bean with all info
+     */
+    private User getUserByEmail(User user) {
         Criteria criteria = session.createCriteria(User.class);
         criteria.add(Restrictions.eq("email", user.getEmail()));
         List results = criteria.list();
         if (results.size() == 0) {
             return null;
         }
-
-        User dbUser = (User) results.get(0);
-        if (!validatePassword(user, dbUser)) {
-            return null;
-        }
-        dbUser.setPassword(null);
-        return dbUser;
+        return (User) results.get(0);
     }
 
     /**
@@ -60,24 +66,28 @@ public class UserHandler extends DAO {
      */
     public boolean validatePassword(User attempt, User actual) {
         Boolean valid = false;
-        if (DigestUtils.sha1Hex(attempt.getPassword()).equals(actual.getPassword())) {
+        String hexPass = DigestUtils.sha1Hex(attempt.getPassword());
+        if (hexPass.equals(actual.getPassword())) {
             valid = true;
         }
         return valid;
     }
 
     /**
-     * Registers new user
+     * Saves user to the database, then creates a user profile for the new user
      * @param reg Registration object to create new user
      */
     public void register(Registration reg) {
         User user = createUser(reg);
-        Profile profile = createProfile(reg);
         try {
             session.beginTransaction();
             session.save(user);
+            User dbUser = getUserByEmail(user);
+            Profile profile = createProfile(reg, dbUser.getUserID());
             session.save(profile);
             session.getTransaction().commit();
+        } catch (NullPointerException e) {
+            logger.error("Error in retreiving new user from database" + e);
         } catch (HibernateException e) {
             logger.error("Something went wrong in adding new user: " + e);
             throw e;
@@ -89,8 +99,9 @@ public class UserHandler extends DAO {
      * @param reg Registration object
      * @return new Profile object
      */
-    private Profile createProfile(Registration reg) {
+    private Profile createProfile(Registration reg, int userId) {
         Profile profile = new Profile();
+        profile.setUserId(userId);
         profile.setFirstName(reg.getFirstName());
         profile.setLastName(reg.getLastName());
         return profile;
@@ -117,6 +128,7 @@ public class UserHandler extends DAO {
     public User getUser(Integer userId) {
         return (User)session.get(User.class, userId);
     }
+
 
 
 }
