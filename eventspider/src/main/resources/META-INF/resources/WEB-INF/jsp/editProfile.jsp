@@ -58,9 +58,13 @@
                 <form:label path="password" for="password" class="col-lg-2 control-label">Password</form:label>
                 <div class="col-lg-10">
                     <form:input path="password" type="password" class="form-control" id="password"
-                                placeholder="Password" name="password"/>
-                    <span id="showPassword" class="glyphicon glyphicon-eye-close"></span>
-                    <span id="hidePassword" class="glyphicon glyphicon-eye-open" hidden="hidden"></span>
+                                placeholder="Password" name="password" value=""/>
+                    <button type="button" class="btn btn-default"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            data-original-title="Toggle password visibility">
+                        <span id="showPassword" class="glyphicon glyphicon-eye-close"></span></button>
+                    <span class="text-info">Click to toggle password visibility</span>
                 </div>
             </div>
             <div class="form-group">

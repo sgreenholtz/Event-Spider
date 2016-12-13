@@ -41,16 +41,19 @@ function indexSpiderHidden() {
 
 // Toggles show and hide on the password field
 function togglePasswordHide() {
-    $("#showPassword").click(function () {
-        $("#password").attr("type", "text");
-        $(this).attr("hidden", "hidden");
-        $("#hidePassword").removeAttr("hidden");
-    });
+    $("#password").val('');
 
-    $("#hidePassword").click(function () {
-        $("#password").attr("type", "password");
-        $(this).attr("hidden", "hidden");
-        $("#showPassword").removeAttr("hidden");
+    $("#showPassword").click(function () {
+        if ($(this).hasClass("glyphicon-eye-close")) {
+            $("#password").attr("type", "text");
+            $(this).toggleClass("glyphicon-eye-close", false);
+            $(this).toggleClass("glyphicon-eye-open", true);
+        } else {
+            $("#password").attr("type", "password");
+            $(this).toggleClass("glyphicon-eye-close", true);
+            $(this).toggleClass("glyphicon-eye-open", false);
+        }
+
     });
 
 }

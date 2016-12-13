@@ -86,6 +86,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="profile">My Profile</a></li>
                                     <li><a href="add-event-form">Add Custom Event</a></li>
+                                    <li><a href="edit-profile">Settings</a></li>
                                     <spring:eval expression="activeUser.role == T(eventspider.beans.Roles).ADMINISTRATOR" var="isAdmin" />
                                     <c:if test="${isAdmin}">
                                         <li><a href="admin-page">Admin Page</a></li>

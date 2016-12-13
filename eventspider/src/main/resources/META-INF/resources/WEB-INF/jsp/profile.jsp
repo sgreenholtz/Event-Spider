@@ -78,9 +78,6 @@
                 <li class="active">
                     <a href="edit-profile"><span class="glyphicon glyphicon-pencil"></span> Edit Profile</a>
                 </li>
-                <li>
-                    <a href="#">Something Here</a>
-                </li>
             </ul>
         </div>
         <div class="col-md-1">
