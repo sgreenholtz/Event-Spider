@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import eventspider.utility.DateComparisonUtil;
 import org.joda.time.LocalDate;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -29,12 +30,6 @@ public class EventfulSearchTest {
     private static SearchBean bean;
     private DateComparisonUtil dateUtil = new DateComparisonUtil();
 
-    @BeforeClass
-    public static void setUp() throws Exception {
-        bean = new SearchBean();
-        bean.setNumResults(1);
-    }
-
     private String jsonResponse(String url) {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(url);
@@ -48,6 +43,12 @@ public class EventfulSearchTest {
         return events.getEvent().get(0);
     }
 
+    @Before
+    public void before() {
+        bean = new SearchBean();
+        bean.setNumResults(1);
+    }
+
     @Test
     public void EventfulSearchTestKeywordOnly() throws Exception {
         bean.setKeyword("pizza");
@@ -55,7 +56,6 @@ public class EventfulSearchTest {
         String url = search.constructURL();
         String response = jsonResponse(url);
         assertTrue(getItemFromJson(response).getDescription().contains("pizza"));
-        bean.setKeyword(null);
     }
 
     @Test
@@ -65,37 +65,33 @@ public class EventfulSearchTest {
         String url = search.constructURL();
         String response = jsonResponse(url);
         assertTrue(getItemFromJson(response).getCity_name().contains("Madison"));
-        bean.setLocation(null);
     }
 
     @Test
     public void EventfulSearchTestStartDateOnly() throws Exception {
-        bean.setDateStart(new LocalDate(2016, 10, 28));
+        bean.setDateStart(LocalDate.now());
         search = new EventfulSearch(bean);
         String url = search.constructURL();
         String response = jsonResponse(url);
         EventItem item = getItemFromJson(response);
 
         assertTrue(
-            dateUtil.isDateBetweenStartAndEnd(
+            dateUtil.isAfterStartDate(
                 item.getStart_time(),
-                item.getStop_time(),
                 bean.getDateStart().toString()
             )
         );
-        bean.setDateStart(null);
     }
 
     @Test
     public void EventfulSearchTestEndDateOnly() throws Exception {
-        bean.setDateEnd(new LocalDate(2016, 10, 28));
+        bean.setDateEnd(LocalDate.now());
         search = new EventfulSearch(bean);
         String url = search.constructURL();
         String response = jsonResponse(url);
         String actual = getItemFromJson(response).getStart_time();
         String expected = bean.getDateEnd().toString();
-        assertTrue(actual.contains(expected));
-        bean.setDateEnd(null);
+        assertTrue(dateUtil.isBeforeEndDate(actual, expected));
     }
 
     @Test

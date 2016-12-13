@@ -85,10 +85,6 @@ public class UserHandlerTest {
         assertFalse("Password check failed", handler.validatePassword(logInAttempt, userInDB));
     }
 
-    /**
-     * Uses overridden equals method rather than assertEquals to compare the
-     * fields of User rather than the object hash
-     */
     @Test
     public void logInSuccessful() throws Exception {
         User logInAttempt = new User("test@user.com", "test123");
@@ -97,7 +93,7 @@ public class UserHandlerTest {
         assertTrue("Log in failed", equal);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void logInFailEmailDoesntExist() throws Exception {
         User logInAttempt = new User("test@fail.com", "test123");
         assertNull("Log in verification failed", handler.logIn(logInAttempt));

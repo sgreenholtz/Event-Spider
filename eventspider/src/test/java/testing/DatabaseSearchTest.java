@@ -60,7 +60,7 @@ public class DatabaseSearchTest {
     }
 
     @Before
-    public static void before() throws Exception {
+    public void before() throws Exception {
         searchBean = new SearchBean();
         searchBean.setKeyword("");
         searchBean.setLocation("");
