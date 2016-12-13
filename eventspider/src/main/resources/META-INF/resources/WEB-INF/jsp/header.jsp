@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="${staticDir}/custom.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="${staticDir}/jquery.timepicker.css" />
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Ubuntu" rel="stylesheet">
 
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -46,14 +47,15 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-2">
-            <h1>Event Spider</h1>
+        <div class="col-sm-4">
+            <h1 id="title">Event Spider</h1>
         </div>
-        <div class="col-lg-3 col-offset">
-            <img src="${staticDir}/images/spider150px.png"
+        <div id="spiderDiv" class="col-lg-2 offset-lg-6">
+            <img id="spiderImg" src="${staticDir}/images/spider150px.png"/>
         </div>
     </div>
 
+    <div class="row">
     <nav class="navbar navbar-inverse" id="navbar">
         <div class="container-fluid">
 
@@ -97,6 +99,8 @@
                 </ul>
                 </div>
             </div>
-
         </div>
+
+
     </nav>
+    </div>

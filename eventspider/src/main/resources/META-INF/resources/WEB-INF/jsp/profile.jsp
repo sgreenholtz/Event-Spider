@@ -76,7 +76,7 @@
             </table>
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit Profile</a>
+                    <a href="edit-profile"><span class="glyphicon glyphicon-pencil"></span> Edit Profile</a>
                 </li>
                 <li>
                     <a href="#">Something Here</a>

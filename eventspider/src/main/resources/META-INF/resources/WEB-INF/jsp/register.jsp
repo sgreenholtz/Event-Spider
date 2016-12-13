@@ -10,7 +10,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <% session.setAttribute("title", "Register"); %>
 <c:import url="header.jsp"/>
-
+<div class="well">
 <form:form id="registerForm" class="form-horizontal" action="register" method="post" modelAttribute="register">
     <fieldset>
         <legend>Register</legend>
@@ -49,5 +49,5 @@
         </div>
     </fieldset>
 </form:form>
-
+</div>
 <c:import url="footer.jsp" />

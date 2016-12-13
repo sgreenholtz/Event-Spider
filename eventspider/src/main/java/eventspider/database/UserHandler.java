@@ -35,7 +35,7 @@ public class UserHandler extends DAO {
      */
     public User logIn(User user) {
         User dbUser = getUserByEmail(user);
-        if (!validatePassword(user, dbUser)) {
+        if (dbUser == null || !validatePassword(user, dbUser)) {
             return null;
         }
         dbUser.setPassword(null);

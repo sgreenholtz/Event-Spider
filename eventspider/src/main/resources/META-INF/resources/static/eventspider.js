@@ -6,6 +6,8 @@ $(document).ready(function () {
 
     dateTime();
     dropDownMenu();
+    indexSpiderHidden();
+    togglePasswordHide();
     $("#loginForm").validate();
     $("#registerForm").validate();
 });
@@ -28,4 +30,27 @@ function dropDownMenu() {
         }
         return false;
     });
+}
+
+// Disables tiny spider on the home page
+function indexSpiderHidden() {
+    if (document.title == "Home") {
+        $("#spiderImg").attr("hidden", "hidden");
+    }
+}
+
+// Toggles show and hide on the password field
+function togglePasswordHide() {
+    $("#showPassword").click(function () {
+        $("#password").attr("type", "text");
+        $(this).attr("hidden", "hidden");
+        $("#hidePassword").removeAttr("hidden");
+    });
+
+    $("#hidePassword").click(function () {
+        $("#password").attr("type", "password");
+        $(this).attr("hidden", "hidden");
+        $("#showPassword").removeAttr("hidden");
+    });
+
 }

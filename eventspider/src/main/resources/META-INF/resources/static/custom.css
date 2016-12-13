@@ -54,3 +54,18 @@
 #spiderJumbo {
     background-image: url("../../static/images/spiderbackground.png");
 }
+
+#title {
+    font-family: 'Bree Serif', serif;
+}
+
+#spiderDiv {
+    position: absolute;
+    z-index: 9999;
+    margin: 0.8em;
+    left: 85%;
+}
+
+#spiderImg {
+    width: 50%;
+}
