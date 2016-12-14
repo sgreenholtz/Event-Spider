@@ -35,11 +35,12 @@
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Ubuntu" rel="stylesheet">
 
     <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-    <script src="${staticDir}/jquery.timepicker.min.js"></script>
-    <script src="${staticDir}/eventspider.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" asynch></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" asynch></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" asynch></script>
+    <script src="${staticDir}/jquery.timepicker.min.js" asynch></script>
+    <script src="${staticDir}/eventspider.js" type="text/javascript" asynch></script>
+    ${scripts}
 
 </head>
 
